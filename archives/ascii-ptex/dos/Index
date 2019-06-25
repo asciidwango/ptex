@@ -1,0 +1,16 @@
+ptx214-0.zip         pTeX 2.1.4 for MS-DOS/Windows (sources)
+ptx214-1.zip         pTeX 2.1.4 for MS-DOS/Windows (common)
+ptx214-2.zip         pTeX 2.1.4 for MS-DOS/Windows (pTeX)
+ptx214-3.zip         pTeX 2.1.4 for MS-DOS/Windows (TeX)
+ptx214-4.zip         pTeX 2.1.4 for MS-DOS/Windows (METAFONT)
+
+unz512x3.exe         unzip 5.12 for MS-DOS
+unz512xN.exe         unzip 5.12 for Windows95/WindowsNT
+
+dvps558s.zip         dvipsk 5.58f with jpatch 1.0p (sources)
+dvps558p.zip         dvipsk 5.58f with jpatch 1.0p (binary)
+
+vftool12.zip         vftool 1.2 for MS-DOS/Windows
+afm-a2bk.zip         AFM's for 'pTeX fonts to PostScript fonts' conversion
+vf-a2bk.zip          VF's for 'pTeX fonts to PostScript fonts' conversion
+                     (created by vftool 1.2)

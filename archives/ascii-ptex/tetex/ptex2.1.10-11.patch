@@ -1,0 +1,125 @@
+フォントタイプが 255 以上の JFM を正しく扱えないバグを修正する、
+バージョン 2.1.10 に対するパッチです。
+
+ptex-src-2.1.10.tar.gz を展開したディレクトリで、
+
+  patch -s < ptex2.1.10-11.patch
+
+としてください。
+
+このパッチを当てると、pTeX のバージョンは 2.1.11 になります。
+
+
+2001/05/24:
+  --version で表示されるバージョン番号の修正を追加しました
+  pdvitype の --help メッセージに \n が出力されているのを修正しました。
+
+2001/05/31:
+  ptexhelp.h の修正箇所の末尾に \ を付けました。
+
+
+*** ptex-base.ch.orig	Tue May  8 16:59:58 2001
+--- ptex-base.ch	Tue May 22 15:36:33 2001
+***************
+*** 33,43 ****
+  % (03/26/98) KN  pTeX p2.1.8 (Web2c 7.2)
+  % (02/21/2000) KN  pTeX p2.1.9 (Web2c 7.3.1)
+  % (11/13/2000) KN  pTeX p2.1.10
+  %
+  @x [1.2] l.194 - pTeX:
+  @d banner=='This is TeX, Version 3.14159' {printed when \TeX\ starts}
+  @y
+! @d banner=='This is pTeX, Version p2.1.10, based on TeX, Version 3.14159'
+  @z
+  
+  @x [2.??] l.573 - pTeX:
+--- 33,44 ----
+  % (03/26/98) KN  pTeX p2.1.8 (Web2c 7.2)
+  % (02/21/2000) KN  pTeX p2.1.9 (Web2c 7.3.1)
+  % (11/13/2000) KN  pTeX p2.1.10
++ % (05/22/2001) KN  pTeX p2.1.11
+  %
+  @x [1.2] l.194 - pTeX:
+  @d banner=='This is TeX, Version 3.14159' {printed when \TeX\ starts}
+  @y
+! @d banner=='This is pTeX, Version p2.1.11, based on TeX, Version 3.14159'
+  @z
+  
+  @x [2.??] l.573 - pTeX:
+***************
+*** 2097,2103 ****
+    {has a character from this font actually appeared in the output?}
+  @!font_dir: ^eight_bits;
+    {pTeX: direction of fonts, 0 is default, 1 is Yoko, 2 is Tate}
+! @!font_num_ext: ^eight_bits;
+    {pTeX: number of the |char_type| table.}
+  @z
+  
+--- 2098,2104 ----
+    {has a character from this font actually appeared in the output?}
+  @!font_dir: ^eight_bits;
+    {pTeX: direction of fonts, 0 is default, 1 is Yoko, 2 is Tate}
+! @!font_num_ext: ^integer;
+    {pTeX: number of the |char_type| table.}
+  @z
+  
+*** ptexextra-plain.c.orig	Thu Feb  8 17:51:04 2001
+--- ptexextra-plain.c	Thu May 24 15:38:35 2001
+***************
+*** 48,54 ****
+  #ifdef KANJI
+  const string local_maintainer="Ken Nakano";
+  const_string this_bug_address="www-ptex@ascii.co.jp";
+! #define BANNER "This is pTeX, Version p2.1.10, based on TeX, Version 3.14159"
+  #else /* KANJI */
+  #define BANNER "This is TeX, Version 3.14159"
+  #endif /* KANJI */
+--- 48,54 ----
+  #ifdef KANJI
+  const string local_maintainer="Ken Nakano";
+  const_string this_bug_address="www-ptex@ascii.co.jp";
+! #define BANNER "This is pTeX, Version p2.1.11, based on TeX, Version 3.14159"
+  #else /* KANJI */
+  #define BANNER "This is TeX, Version 3.14159"
+  #endif /* KANJI */
+*** ptexextra-src-special.c.orig	Thu Feb  8 17:51:06 2001
+--- ptexextra-src-special.c	Thu May 24 15:38:27 2001
+***************
+*** 48,54 ****
+  #ifdef KANJI
+  const string local_maintainer="Ken Nakano";
+  const_string this_bug_address="www-ptex@ascii.co.jp";
+! #define BANNER "This is pTeX, Version p2.1.10, based on TeX, Version 3.14159"
+  #else /* KANJI */
+  #define BANNER "This is TeX, Version 3.14159"
+  #endif /* KANJI */
+--- 48,54 ----
+  #ifdef KANJI
+  const string local_maintainer="Ken Nakano";
+  const_string this_bug_address="www-ptex@ascii.co.jp";
+! #define BANNER "This is pTeX, Version p2.1.11, based on TeX, Version 3.14159"
+  #else /* KANJI */
+  #define BANNER "This is TeX, Version 3.14159"
+  #endif /* KANJI */
+*** ptexhelp.h.orig	Tue Feb 13 11:27:22 2001
+--- ptexhelp.h	Thu May 24 15:47:05 2001
+***************
+*** 55,61 ****
+    -output-level=1..4         verbosity level.\n\
+                                   1: terse, 2: medium-level, 3: verbose,\n\
+                                   4: plus check for postamble(default).\n\
+!   -page-start=PAGE           type, e.g., `1.*.-5' to specify the first page\\n
+                               with \\count0=1, \\count2=4.\n\
+                               (see the TeX book chapter 15).\n\
+    -show-opcodes              show opcodes in dicimal.\n\
+--- 55,61 ----
+    -output-level=1..4         verbosity level.\n\
+                                   1: terse, 2: medium-level, 3: verbose,\n\
+                                   4: plus check for postamble(default).\n\
+!   -page-start=PAGE           type, e.g., `1.*.-5' to specify the first page\n\
+                               with \\count0=1, \\count2=4.\n\
+                               (see the TeX book chapter 15).\n\
+    -show-opcodes              show opcodes in dicimal.\n\
+  
+--
+株式会社アスキー 出版技術部

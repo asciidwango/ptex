@@ -1,0 +1,500 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>pTeX primitives</title>
+</head>
+<body bgcolor="#F5F5DC">
+<h2>pTeXの拡張プリミティブと変数</h2>
+
+<h3><a name="autospacing">■\autospacing</a></h3>
+漢字（２バイトコード）間へのグルーの自動挿入を許可します。
+<p>
+ただし、このコマンドを指定した箇所ではなく、
+段落やボックスなどが組み立てられた時点の状態が、
+その段落やボックス全体に影響します。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#noautospacing">\noautospacing</a>,
+<a href="zz.html#autoxspacing">\autoxspacing</a>,
+<a href="zz.html#noautoxspacing">\noautoxspacing</a>,
+<a href="zz.html#inhibitglue">\inhibitglue</a>,
+<a href="../base/xkanjiskip.html#kanjiskip" target="_top">漢字間スペース</a>
+<p>
+<hr>
+
+<h3><a name="autoxspacing">■\autoxspacing</a></h3>
+漢字（２バイトコード）と英字（１バイトコード）間へのグルーの
+自動挿入を許可します。
+<p>
+ただし、このコマンドを指定した箇所ではなく、
+段落やボックスなどが組み立てられた時点の状態が、
+その段落やボックス全体に影響します。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#autospacing">\autospacing</a>,
+<a href="zz.html#noautospacing">\noautospacing</a>,
+<a href="zz.html#noautoxspacing">\noautoxspacing</a>,
+<a href="zz.html#xspcode">\xspcode</a>,
+<a href="zz.html#inhibitxspcode">\inhibitxspcode</a>
+<a href="../base/xkanjiskip.html#xkanjiskip" target="_top">和欧文間スペース</a>
+<p>
+<hr>
+
+<h3><a name="euc">■\euc《16ビット数値》</a></h3>
+EUCコードから内部コードへの変換を行います。
+<p>
+<b>例</b><br>
+<pre>
+\char\euc"B0A5
+</pre>
+は、`哀'です。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#jis">\jis</a>,
+<a href="zz.html#kuten">\kuten</a>,
+<a href="zz.html#sjis">\sjis</a>,
+<a href="../base/kanjicode.html" target="_top">漢字コードについて</a>
+<p>
+<hr>
+
+<h3><a name="inhibitglue">■\inhibitglue</a></h3>
+和文フォントのメトリック情報から、自動的に挿入されるグルーの挿入を禁止します。
+このプリミティブを挿入した箇所にのみ有効です。
+<p>
+<b>関連事項</b><br>
+<a href="../base/xkanjiskip.html#jfmglue" target="_top">和文フォントによるスペース</a>,
+<p>
+<hr>
+
+<h3><a name="inhibitxspcode">■\inhibitxspcode《16ビット数値》=《0|1|2|3》</a></h3>
+連続する漢字（２バイトコード）と英字（１バイトコード）の間に自動的に挿入する
+スペースについて、どの漢字と英字の間で挿入するかしないかを指定します。
+この指定は０〜３のいずれかを設定することで、つぎの動作を選択します。
+<p>
+<pre>
+    0  漢字と英字間の処理を禁止する。
+    1  文字と直前の英字との間にだけスペースの挿入を禁止する。
+    2  直後の英字との間にだけスペースの挿入を禁止する。
+    3  前後の英字との間に対して、スペースの挿入を許可する。
+</pre>
+<p>
+<b>例</b>
+<pre>
+    \inhibitxspcode`？=0
+    \inhibitxspcode`（=2
+    \inhibitxspcode`）=1
+</pre>
+とすると、`？'と前後の英字に対する処理を禁止します。
+また、`（'に対しては直後の英字との間への処理を禁止し、
+`）'に対しては直前の英字との間への処理を禁止しています。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#xspcode">\xspcode</a>,
+<a href="zz.html#xkanjiskip">\xkanjiskip</a>,
+<a href="../base/xkanjiskip.html#yakumono" target="_top">記号類との間</a>
+<p>
+<hr>
+
+<h3><a name="jcharwidowpenalty">■\jcharwidowpenalty=《数値》</a></h3>
+パラグラフの最後の漢字が孤立して改行されるのを防ぐためのペナルティです。
+パラグラフの最後に１文字以上の１区、２区に含まれる文字がある場合は、
+その直前にある２バイトコードに対して、このペナルティが使われます。
+<p>
+<b>例</b>
+<pre>
+    \jcharwidowpenalty=500
+</pre>
+<p>
+<hr>
+
+<h3><a name="jfam">■\jfam</a></h3>
+`\jfont'と同様に、`\fam'とほぼ同じ動作をします。
+`\showthe'などと組み合わせることで、カレントの和文フォントファミリーを
+返します。ただし、このプリミティブでは、欧文フォントのファミリーも
+和文ファミリーとして定義しますので、注意が必要です。
+<p>
+<b>例</b>
+<pre>
+    \showthe\jfam
+</pre>
+とすると、カレントの和文フォントファミリーを返します。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#jfont">\jfont</a>,
+<a href="zz.html#tfont">\tfont</a>
+<p>
+<hr>
+
+<h3><a name="jfont">■\jfont</a></h3>
+`\font'と同じです。ただし、`\showmode'などのプリミティブと組み合わせた場合は、
+カレントの横組用の和文フォントを返します。フォントの定義には、\font, \jfontの
+いずれを使っても欧文フォント、横組用の和文フォントの定義が可能です。
+<p>
+<b>例</b>
+<pre>
+    \jfont\mincho=min10 at 24pt
+</pre>
+とすると、\mincho に24ポイントの明朝体が割り当てられます。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#jfam">\jfam</a>,
+<a href="zz.html#tfont">\tfont</a>
+<p>
+<hr>
+
+<h3><a name="jis">■\jis《16ビット数値》</a></h3>
+JISコードから内部コードへの変換を行います。
+<p>
+<b>例</b>
+<pre>
+\char\jis"346E
+</pre>
+は、`喜'です。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#euc">\euc</a>,
+<a href="zz.html#kuten">\kuten</a>,
+<a href="zz.html#sjis">\sjis</a>,
+<a href="../base/kanjicode.html" target="_top">漢字コードについて</a>
+<p>
+<hr>
+
+<h3><a name="kanjiskip">■\kanjiskip=《グルー》</a></h3>
+連続する漢字（２バイトコード）間に自動的に挿入するグルーの値を
+格納するレジスタです。
+この処理は、<a href="zz.html#autospacing">\autospacing</a>,
+<a href="zz.html#noautospacing">\noautospacing</a>によって行うか行わないかの
+指定をします。このレジスタの値は、パラグラフの終わりか、または\hboxの
+最後の時点で取り込んで処理します。したがって、同一パラグラフ内、
+あるいは\hbox内で何度か値を変化しても、最後に設定した値で処理されます。
+<p>
+<b>例</b>
+<pre>
+    \kanjiskip=10pt plus 1pt minus1pt
+</pre>
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#autospacing">\autospacing</a>,
+<a href="zz.html#noautospacing">\noautospacing</a>,
+<a href="zz.html#xkanjiskip">\xkanjiskip</a>,
+<a href="zz.html#inhibitglue">\inhibitglue</a>,
+<a href="../base/xkanjiskip.html#kanjiskip" target="_top">漢字間スペース</a>
+<p>
+<hr>
+
+<h3><a name="kansuji">■\kansuji 《数値》</a></h3>
+数値を漢数字で出力します。
+<p>
+<b>例</b>
+<pre>
+\kansuji 1987年
+</pre>
+は、`一九八七年'と出力されます。
+<p>
+出力される文字は\kansujicharで指定することができます。
+デフォルトは「〇一二三四五六七八九」です。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#kansujichar">\kansujichar</a>
+<p>
+<hr>
+
+<h3><a name="kansujichar">■\kansujichar《0〜9のいずれか》=《16ビット数値》</a></h3>
+\kansujiで出力する文字を設定します。
+<p>
+<b>例</b>
+<pre>
+\kansujichar1=`壱
+\kansujichar2=\euc"C6F5\relax
+\kansujichar3=\jis"3B32\relax
+\kansuji 1234
+</pre>
+は、`壱弐参四'と出力されます。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#kansuji">\kansuji</a>,
+<a href="zz.html#euc">\euc</a>,
+<a href="zz.html#jis">\jis</a>,
+<a href="zz.html#kuten">\kuten</a>,
+<a href="zz.html#sjis">\sjis</a>
+<p>
+<hr>
+
+<h3><a name="kuten">■\kuten《16ビット数値》</a></h3>
+区点コードから内部コードへの変換を行います。
+<p>
+<b>例</b>
+<pre>
+\char\kuten"253C
+</pre>
+は、`怒'(37区60点)です。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#euc">\euc</a>,
+<a href="zz.html#jis">\jis</a>,
+<a href="zz.html#sjis">\sjis</a>,
+<a href="../base/kanjicode.html" target="_top">漢字コードについて</a>
+<p>
+<hr>
+
+<h3><a name="noautospacing">■\noautospacing</a></h3>
+漢字（２バイトコード）間へのグルーの自動挿入を禁止します。
+<p>
+ただし、このコマンドを指定した箇所ではなく、
+段落やボックスなどが組み立てられた時点の状態が、
+その段落やボックス全体に影響します。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#autospacing">\autospacing</a>,
+<a href="zz.html#autoxspacing">\autoxspacing</a>,
+<a href="zz.html#noautoxspacing">\noautoxspacing</a>,
+<a href="zz.html#inhibitglue">\inhibitglue</a>
+<a href="../base/xkanjiskip.html#kanjiskip" target="_top">漢字間スペース</a>
+<p>
+<hr>
+
+<h3><a name="noautoxspacing">■\noautoxspacing</a></h3>
+漢字（２バイトコード）と英字（１バイトコード）間へのグルーの自動挿入を
+禁止します。
+<p>
+ただし、このコマンドを指定した箇所ではなく、
+段落やボックスなどが組み立てられた時点の状態が、
+その段落やボックス全体に影響します。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#autospacing">\autospacing</a>,
+<a href="zz.html#noautospacing">\noautospacing</a>,
+<a href="zz.html#autoxspacing">\autoxspacing</a>,
+<a href="zz.html#xspcode">\xspcode</a>,
+<a href="zz.html#inhibitxspcode">\inhibitxspcode</a>
+<a href="../base/xkanjiskip.html#xkanjiskip" target="_top">和欧文間スペース</a>
+<p>
+<hr>
+
+<h3><a name="postbreakpenalty">■\postbreakpenaltyt《16ビット数値》=《数値》</a>
+</h3>
+指定する文字の後方に挿入するペナルティ値を設定します。
+この指定は、行末禁則の指定にあたります。
+<p>
+<b>例</b>
+<pre>
+    \postbreakpenalty`。=10000
+</pre>
+とすることにより、`。'の後方に10000のペナルティ値を付け、行末禁則文字の
+対象文字にします。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#prebreakpenalty">\prebreakpenalty</a>
+<p>
+<hr>
+
+<h3><a name="prebreakpenalty">■\prebreakpenaltyt《16ビット数値》=《数値》</a>
+</h3>
+指定する文字の前方に挿入するペナルティ値を設定します。
+この指定は、行頭禁則の指定にあたります。
+<p>
+<b>例</b>
+<pre>
+    \prebreakpenalty`あ=1000
+</pre>
+とすることにより、`あ'の前方に1000のペナルティ値を付け、行頭禁則文字の
+対象文字にします。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#postbreakpenalty">\postbreakpenalty</a>
+<p>
+<hr>
+
+<h3><a name="showmode">■\showmode</a></h3>
+漢字-漢字間と漢字-和欧文間に自動的に空白を挿入されるかどうかについて、
+現在の状態を表示します。
+<p>
+<b>例</b>
+<p>
+漢字-漢字間および漢字-和欧文間に自動的に空白を挿入する状態のときに、
+<pre>
+    \showmode
+</pre>
+とすると、つぎのように表示されます。
+<pre>
+    > auto spacing mode; 
+    > auto xspacing mode.
+</pre>
+<b>関連事項</b><br>
+<a href="zz.html#autospacing">\autospacing</a>,
+<a href="zz.html#noautospacing">\noautospacing</a>,
+<a href="zz.html#autoxspacing">\autoxspacing</a>,
+<a href="zz.html#noautoxspacing">\noautoxspacing</a>
+<p>
+<hr>
+
+<h3><a name="sjis">■\sjis《16ビット数値》</a></h3>
+シフトJISコードから内部コードへの変換を行います。
+<p>
+<b>例</b>
+<pre>
+\char\sjis"8A79
+</pre>
+は、`楽'です。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#euc">\euc</a>,
+<a href="zz.html#jis">\jis</a>,
+<a href="zz.html#kuten">\kuten</a>,
+<p>
+<hr>
+
+<h3><a name="tate">■\tate</a></h3>
+組方向を縦方向にするプリミティブです。
+カレントの和文フォントは、縦組用のフォントになります。
+<p>
+なお、組方向の変更は、ボックス作成コマンドの最初で宣言しなくてはいけません。
+また、ボックスをコピーしたり、展開する場合は、同じ組方向のボックス内で
+なくてはなりません。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#yoko">\yoko</a>
+<p>
+<hr>
+
+<h3><a name="tbaselineshift">■\tbaselineshift</a></h3>
+縦組ボックス内での、和欧文フォント間のベースラインを調整するための
+グルーを格納するレジスタです。
+このレジスタの値は、挿入箇所以降で有効となります。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#ybaselineshift">\ybaselineshift</a>
+<p>
+<hr>
+
+<h3><a name="tfont">■\tfont</a></h3>
+`\font'と同じです。ただし、`\showmode'などのプリミティブと組み合わせた場合は、
+カレントの縦組用の和文フォントを返します。フォントの定義には、\font, \tfontの
+いずれを使っても欧文フォント、縦組用の和文フォントの定義が可能です。
+<p>
+<b>例</b>
+<pre>
+    \tfont\tate-mincho=tmin10 at 24pt
+</pre>
+とすると、\tate-mincho に24ポイントの明朝体が割り当てられます。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#jfam">\jfam</a>,
+<a href="zz.html#jfont">\jfont</a>
+<p>
+<hr>
+
+<h3><a name="xkanjiskip">■\xkanjiskip=《グルー》</a></h3>
+連続する漢字（２バイトコード）と英字（１バイトコード）間に自動的に
+挿入するグルーの値を格納するレジスタです。
+この処理は、<a href="zz.html#autoxspacing">\autoxspacing</a>,
+<a href="zz.html#noautoxspacing">\noautoxspacing</a>によって行うか行わないかの
+指定をします。このレジスタの値は、パラグラフの終わりか、または\hboxの
+最後の時点で取り込んで処理します。したがって、同一パラグラフ内、
+あるいは\hbox内で何度か値を変化しても、最後に設定した値で処理されます。
+<p>
+<b>例</b>
+<pre>
+    \xkanjiskip=10pt plus 1pt minus1pt
+</pre>
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#autoxspacing">\autoxspacing</a>,
+<a href="zz.html#noautoxspacing">\noautoxspacing</a>,
+<a href="zz.html#kanjiskip">\kanjiskip</a>,
+<a href="zz.html#xspcode">\xspcode</a>,
+<a href="../base/xkanjiskip.html#xkanjiskip" target="_top">和欧文間スペース</a>
+<p>
+<hr>
+
+<h3><a name="xspcode">■\xspcode《８ビット数値》=《0|1|2|3》</a></h3>
+連続する漢字（２バイトコード）と英字（１バイトコード）の間に自動的に挿入する
+スペースについて、どの英字と漢字の間で挿入するかしないかを指定します。
+この指定は０〜３のいずれかを設定することで、つぎの動作を選択します。
+<p>
+<pre>
+    0  英字と前後の漢字の間の処理を禁止する。
+    1  文字と直前の漢字との間にだけスペースの挿入を許可する。
+    2  直後の漢字との間にだけスペースの挿入を許可する。
+    3  前後の漢字との間に対して、スペースの挿入を許可する。
+</pre>
+<p>
+<b>例</b>
+<pre>
+    \xspcode`A=0
+    \xspcode`B=3
+    \xspcode`;=2
+</pre>
+とすると、`A'に対する処理を禁止し、`B'に対して前後の処理を許可します。
+また、`;'に対しては直後へのスペースの挿入を許可します。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#inhibitxspcode">\inhibitxspcode</a>,
+<a href="zz.html#xkanjiskip">\xkanjiskip</a>,
+<a href="../base/xkanjiskip.html#yakumono" target="_top">記号類との間</a>
+<p>
+<hr>
+
+<h3><a name="ybaselineshift">■\ybaselineshift</a></h3>
+横組ボックス内での、和欧文フォント間のベースラインを調整するための
+グルーを格納するレジスタです。
+このレジスタの値は、挿入箇所以降で有効となります。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#tbaselineshift">\tbaselineshift</a>
+<p>
+<hr>
+
+<h3><a name="yoko">■\yoko</a></h3>
+組方向を横方向にするプリミティブです。
+カレントの和文フォントは、横組用のフォントになります。
+<p>
+なお、組方向の変更は、ボックス作成コマンドの最初で宣言しなくてはいけません。
+また、ボックスをコピーしたり、展開する場合は、同じ組方向のボックス内で
+なくてはなりません。
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#tate">\tate</a>
+<p>
+<hr>
+
+<h3><a name="zh">■zh</a></h3>
+exと同じようにカレントフォントが持つ高さ+深さを示す単位記号です。
+ただし、カレント和文フォントを参照します。
+また、縦組ボックスの内部ではカレントの縦組フォント、
+横組ボックスの内部ではカレントの横組フォントの高さ+深さを参照します。
+<p>
+縦組フォントと横組フォントでは、`高さ'と`深さ'を示す位置が異なることに
+注意してください。
+<p>
+<center>
+<img src="../images/zwzh.gif">
+</center>
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#zw">zw</a>
+<p>
+<hr>
+
+<h3><a name="zw">■zw</a></h3>
+emと同じようにカレントフォントが持つ文字幅を示す単位記号です。
+ただし、カレント和文フォントを参照します。
+また、縦組ボックスの内部ではカレントの縦組フォント、
+横組ボックスの内部ではカレントの横組フォントの幅を参照します。
+<p>
+縦組フォントと横組フォントでは、`幅'を示す位置が異なることに注意してください。
+<p>
+<center>
+<img src="../images/zwzh.gif">
+</center>
+<p>
+<b>関連事項</b><br>
+<a href="zz.html#zh">zh</a>
+<p>
+<hr>
+
+<a href="../index.html" target="_top">[pTeX home page]</a>.
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

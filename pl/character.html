@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>PL reference</title>
+</head>
+<body bgcolor="#F5F5DC">
+<h2><a name="character">CHARACTER</a>
+<font size=4>１バイト長の数値（文字コード）
+とプロパティリスト</font></h2>
+<img src="../images/pl.gif" alt="pl"> PLファイルだけで有効なプロパティです。
+<p>
+<tt>CHARACTER</tt>プロパティリストの項目は６つあります。
+
+<ul>
+<li><tt>CHARWD</tt>　実数値<br>
+  文字の幅をデザインサイズで示します。
+<p>
+<li><tt>CHARHT</tt>　実数値<br>
+  文字の高さをデザインサイズで示します。
+<p>
+<li><tt>CHARDP</tt>　実数値<br>
+  文字の深さをデザインサイズで示します。
+<p>
+<li><tt>CHARIC</tt>　実数値<br>
+  文字のイタリック補正値をデザインサイズで示します。
+<p>
+<li><tt>NEXTLARGER</tt>　１バイト長の整数値<br>
+  文字のリンクを行なうために、つぎに大きな字形を持つ文字の文字コードを
+  指定します。その文字コードは、そのフォント内に存在していなければいけません。
+<p>
+<li><tt>VARCHAR</tt>　さらに下位のプロパティ<br>
+  組合せ文字の各パーツに対応する文字コードを指定します。
+  このオプションと<tt>NEXTLARGER</tt>は互いに排他的ですので、
+  同じ<tt>CHARACTER</tt>リストに両方を含めることはできません。
+</ul>
+
+<tt>VARCHAR</tt>の要素は<tt>TOP</tt>, <tt>MID</tt>, <tt>BOT</tt>, 
+<tt>REP</tt>のいづれかです。
+これらは整数値であり、ゼロかフォント内の文字コードを指定します。
+<tt>TOP</tt>, <tt>MID</tt>, <tt>BOT</tt>にゼロを設定すると、
+その組合せ文字の対応するパーツは使われません。
+これらが非ゼロ、または<tt>REP</tt>がゼロの場合は、その文字コードは
+組合せ文字の頭部、中心部、底部、接続パーツを作るために使用されます。
+
+<p>
+<b>関連項目：</b><a href="format.html">数値表現</a>,
+<a href="type.html">TYPE</a>,
+<a href="charsintype.html">CHARSINTYPE</a>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>,
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

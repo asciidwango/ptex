@@ -1,0 +1,60 @@
+pLaTeX のクラスファイル 1.1k に対するパッチです。
+
+\rightmark コマンドの引数に \today コマンドを指定したとき、出力される
+日付が「平成元年」になってしまうのを修正します。
+
+●インストール方法
+
+※ このパッチをあてる前に、pl980227.patch, pl980323.patch をあててください。
+※ このパッチの漢字コードは EUC になっています。必要に応じて、漢字
+   コードを変換してからパッチをあててください。
+
+pLaTeX <1997/02/17> 版のディレクトリに移動して、
+   patch < pl980409.patch
+   platex plcls.ins
+としてください。このとき、問い合わせには「y」と応えます。
+
+修正後、クラスファイルのバージョンは 1.1m となります。
+
+なお pLaTeX フォーマットファイルは、作り直さなくてもかまいません。
+また pLaTeX のカーネルバージョンも変更ありません。
+--
+begin 644 pl980409.patch.gz
+M'XL("((!+34``W!L.3@P-#`Y+G!A=&-H`-U6W7,3511_AK_B\H"C)4VS^6B3
+M#G;`2K$*B+8HZN'A9G/3;)/]<'=36I+M_U*X^Z(@H\*TF5):!)NVS@1\0!P?
+MBOH@(SC.$'ARE/'>NYM-4AJH\N''/FRRYY[/W^^<L]O5U87&Y0*V+&*%,_9D
+M6#>5L6U#IH+V&B:2(B@2[9>D_D@<2:E4<GMW=W>;^K;1(A&:J`])??T)J3\F
+M>9I=[1=_1E)(BB/QA-!.!$HVBPL602JQ<;>LJRK1;'ZR$PTI!=+?%HC+M^]@
+M5FA0-Z98CCF;QTF$V*V7W_K0WI'!X6%V;!JZB6U%U\+"B(="HSG%0EGF%;%?
+M`YLVTK/(SA%D',"CY&B4(&O*LHD:]M2[MWH%$2"K!"G"8([(^9&B6HK'4DG'
+M*XD)L8EEFYBC.%T@GA"5CA@&,;MES&!@%^R%5V`07H5],`3[X348AM?A#3@`
+M!^$0O`F'X2UX&T9@%([`._`N'(7WX'W?$SJ@'V_UA"$-,F2`0!;&(`<*C$,>
+M"J""!CH8\"&88($-19B`XS`)4W!"L"LX:I3VM#GBM^2_DZADZC]$U&;#E8B'
+M>A,MTR7GL#9&K-*$%);&G1)'OB<2[8G$G-+<S7,5]\>9"^[J_`-:PPF#UMP5
+M][)[PUUGPCGW'JU'PGV*=NF/SRX[#WO+-[S%>J+,FTD8CS9=2>MZWCWK_NQ6
+M:'7EF\I/M+YZG7Y*URB=^WCA&IVE-8\SY'[GKKEWW&7W%#T-LE4ZN,>A2_0R
+M7:0U6N>"/0<=^M4"73KOM%'6VI#L`0X1DK%84PSIIHKM4J-#A-'NKHRI3!!S
+M@!$-ATU]0LD0B[=LJ;5CG0^:A2!1&AJQL9;!9L9O."2TCPF7/0V7PO^4GM>]
+MOZQ+%;E`!H(X@]RF-.[+'3%7G)[>EL'Z?]"S:V-PM1$\WA/I<TI<W=8S>,JA
+MM=D;\_,7;B_<HO6UKRN5YT4MST-0JSX3:C>;Q&0LE(H$D[A;D@S[A71^H#U7
+M.YV7I+!<T+V:I&@GI6A3J<?&-N%E!XF5/7;+G-P!A+;<SMR%%#'L,D^NS(-O
+MR5HLYA<MY01!NL$W]TO'VAEAU&5TN<C?$K*'5,&>9!*>/^PG-J]J6,OJ[52)
+M`4G&0RDI&)!_`+7'=\JC4'N$];-";;/>BZ6DWE`L%96\_N/`,E$?$\6B+=N'
+M:)F2BF53]\=PG\;?=8.F;EDFR5IB)L5LI\F8HOFJ)<@1Q2+*DXT]MRV#."V[
+MG[OK[CUWE=;+(+X75&SFR[0Z_^V5VVPC+=(5>F;F9-M9?>%:[2JMT#NK]]=.
+M"V>T>O6+VEVVG!;I#UXX>II6Z1F^VIBT.G/26WON=7?&I>X=6E]>I3<K#^CW
+M\P^^7*)583%+ESUG'S'#=5J9.24>^0NZ!0)9SQ!>`6CDN*P7-=M'!/F_,$6P
+MR5[IF0FLR<07=DNI9!),4L"3@<\`_X;'=DYV-59B._P>I.)DX<JE%5J[^$OE
+M%KTZ<_+<I<7[\[_1JL!FUL\?=<I_\[Z))EB3Q(,O".^"/-:LXK@"6E%-$].K
+MKWJVX[FJ:W8.S?[:48$5@)9_9Y/DP<`_+6$/^YXS9,W&PKU_AIHP!N<"2;2V
+MN/1)4TG),L\M/M#+$IH[+SQOC-V,DU5X$3L>4T2'W'TC\>;R:]@>)+-TL7:W
+MZ;@%-0BQD)"S#"R34CA!5`<T/6T2G'](7<1G^BR#+>FSO)CV<T-U$S0#0V;Z
+MU.I\J+P-P&<5QPF:?,-`>7LOQE=A(M'8>\^MI8-*.:@>EOXN$#`R?#9K3W^5
+ML-,60#MFTTGAB9ITNG4J6B-.MT9L1IK^6W6WU3N]H=XM1OT+O?`G]KZI;>,0
+"```6
+`
+end
+--
+1998年4月09日
+中野 賢 <ken-na@ascii.co.jp>
+〒151-8024 (株)アスキー テクニカルセンター

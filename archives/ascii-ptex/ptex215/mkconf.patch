@@ -1,0 +1,42 @@
+pTeX のソースファイルに付属の mkconf スクリプトに対するパッチです。
+ソースファイルを展開したディレクトリで
+    patch < mkconf.patch
+としてください。
+
+インストール時に $TEXMF/web2c/texmf.cnf に加える BSTINPUTS.jbibtex の
+設定行の後ろで改行されず、つぎの BIBINPUTS とつながってしまう、という
+不具合が起きるのを修正します。
+
+すでに pTeX をインストールしてある場合は、$TEXMF/web2c/texmf.cnf ファイルの
+
+    BSTINPUTS.jbibtex = .:$TEXMF/jbibtex/bst//:$TEXMF/bibtex/bst//BIBINPUTS =...
+
+となっている部分を
+
+    BSTINPUTS.jbibtex = .:$TEXMF/jbibtex/bst//:$TEXMF/bibtex/bst//
+    BIBINPUTS = ...
+
+のようにしてください。
+
+なお、この不具合は、mkconf から呼び出す sed プログラムの動作によります
+ので、使用している sed によっては、すでに改行がされている場合もあります。
+このときは、何もすることはありません。
+
+1998年3月5日
+
+--- mkconf.orig Wed Jul  9 15:35:45 1997
++++ mkconf      Fri Feb 27 16:39:25 1998
+@@ -46,6 +46,7 @@
+ TEXINPUTS.iniptex = $ptex_inputs
+ /^% BibTeX bibliographies and style files./ a\
+ BIBINPUTS.jbibtex = .:$TEXMF/jbibtex/bib//:$TEXMF/bibtex/bib//\
+-BSTINPUTS.jbibtex = .:$TEXMF/jbibtex/bst//:$TEXMF/bibtex/bst//' > ${cnffile}
++BSTINPUTS.jbibtex = .:$TEXMF/jbibtex/bst//:$TEXMF/bibtex/bst//\
++' > ${cnffile}
+ 
+ ### EOT ###
+
+--
+中野 賢 <ken-na@ascii.co.jp>
+〒151-8024 (株)アスキー デザインワークス テクニカルセンター
+http://www.ascii.co.jp/pb/ptex/ken-na

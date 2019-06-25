@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (property list format)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+
+<h2>PLファイルでの数値の表現形式</h2>
+PLファイルでは数値を表現するのに、１文字の数値表現形式とそれに続く数値列
+または文字を使います。PLファイルで扱うことのできる数値表現は次のとおりであり、
+プロパティとして与えたい数値が表現可能であれば、どの表現形式を使っても
+かまいません。
+<p>
+
+<ul>
+<li>C　ASCII文字列<br>
+括弧を除く、標準的な印刷可能文字です。<br>
+８進数の文字コードで示すと、50と51を除く、41から176の間の文字です。
+<p>
+
+<li>K　漢字コード <img src="../images/jpl.gif" alt="jpl"><br>
+JISコード(16進)の漢字を示します。
+<p>
+
+<li>D　10進整数<br>
+256よりも小さい正の数値またはゼロです。<br>
+負の数や大きな数値を示すにはRを使います。
+<p>
+
+<li>F　３文字のXeroxフェイスコード<br>
+つぎの文字列が、０から17の数値となります。
+
+<pre>
+　　MRR, MIR, BRR, BIR, LRR, LIR, MRC, MIC BRC,
+　　BIC, LRC, LIC, MRE, MIE, BRE, BIE, LRE, LIE
+</pre>
+
+これらの文字の意味は、つぎのとおりです。
+
+<pre>
+　　１文字目　ウェイト　     M  ミディアム (Midium)
+　　　　　　　　　　　　     B  ボールド (Bold)
+　　　　　　　　　　　　     L  ライト (Light)
+　　２文字目　斜体　　　     R  斜体なし (Roman)
+　　　　　　　　　　　　     I  斜体 (Italic)
+　　３文字目　長体・平体     R  正体 (Regular)
+　　　　　　　　　　　　     C  長体 (Condensed)
+　　　　　　　　　　　　     E  平体 (Extended)
+</pre>
+
+<li>O　符号なしの８進数の整数値<br>
+２の23乗よりも小さくなくてはいけません。<br>
+したがって、最大値は<b>O 3777777777</b>となります。
+<p>
+
+<li>H　符号なしの16進数の整数値<br>
+２の32乗よりも小さくなくてはいけません。<br>
+したがって、最大値は<b>H FFFFFFFF</b>となります。
+<p>
+
+<li>R　10進数の実数値<br>
+数値の前に`+'や`-'を指定することができます。
+また、小数点を含めることもできます。
+ただし、その絶対値が2048以上の数値は示すことができません。
+</ul>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>,
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

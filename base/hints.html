@@ -1,0 +1,814 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (install hints)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<a name="qanda"><!-- older label --></a>
+<h2>インストールヒントとバグ情報</h2>
+
+<ul>
+<li><a href="#hints">インストールに関するヒント</a>
+<p>
+<li><a href="#bugs">バグ情報</a>
+</ul>
+<p>
+<hr>
+
+<h3><a name="hints">■インストールに関するヒント</a></h3>
+
+インストールするときの問題や手順などについて簡単にまとめてあります。
+参考にしてください。
+<p>
+また、<a href="../etc/INSTALL.kpathsea">kpathsea/INSTALL</a>にも
+いくつかの問題に対する対処方法が述べられていますので、
+そちらもお読みください。
+
+<!--
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+TeXを起動したときに、つぎのようなエラーとなる（すべてのOS）</h3>
+<pre>
+I cannot find tex.pool : Bad path?
+</pre>
+texコマンドがtex.poolファイルを見付けられません。
+つぎのことを確認してください。
+<ul>
+<li>実行したtexが目的のものかどうかの確認<br>
+<pre>
+which tex
+</pre>
+<li>そのtexコマンドが参照するpoolファイルの確認<br>
+<pre>
+kpsewhich --progname=《パス名/》tex tex.pool
+</pre>
+</ul>
+-->
+
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+latexのフォーマットファイルを作るときに、
+次のようなエラーで終了してしまう（すべてのOS）</h3>
+<pre>
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! You are attempting to make a LaTeX format from a source file
+! That is more than one year old.
+!
+! If you enter <return> to scroll past this message then the format
+! will be built, but please consider obtaining newer source files
+! before continuing to build LaTeX.
+!
+! LaTeX is re-issued every 6 months, in June and December.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! LaTeX source files more than 1 year old!.
+l.573 ...LaTeX source files more than 1 year old!}
+
+?
+! Emergency stop.
+l.573 ...LaTeX source files more than 1 year old!}
+
+No pages of output.
+Transcript written on latex.log.
+make[1]: *** [latex.fmt] Error 1
+make[1]: Leaving directory `/usr/local/src/web2c-7.2/web2c
+</pre>
+LaTeXのフォーマットを作成するためのソースファイルが古いバージョンです。
+<p>
+CTANサイトのmacros/latex/unpackedディレクトリにあるファイルを、
+インストールするマシンの$TEXMF/tex/latex/baseディレクトリに置きます。
+<p>
+CTANサイトの一覧は、<a href="http://www.tug.org/ctan.html">http://www.tug.org/ctan.html</a>を参照してください。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+makeが次のようなエラーで終了してしまう（Solaris 2.6, Solaris 7）</h3>
+<pre>
+make[1]: Entering directory `/usr/share/src/web2c-7.2/kpathsea'
+make[1]: *** No rule to make target `../make/*.make', needed by 
+`Makefile'.  Stop.
+make[1]: Leaving directory `/usr/share/src/web2c-7.2/kpathsea'
+make: *** [do-kpathsea] Error 2
+</pre>
+GNU make 3.77の問題のようです。つぎのオプションを指定して、
+gmake自体を再コンパイルする必要があるそうです。
+<pre>
+...
+cd glob; rm -f *.o
+make CFLAGS='-O -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64'
+cd ..; make
+...
+</pre>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+patchに失敗する（すべてのOS）</h3>
+ファイルの中身を見て、patchの形式かどうかを確認してください。
+たとえば、つぎのようにわけのわからない文字列の並びだったら、
+パッチの内容はuuencodeされているということです。
+<pre>
+begin 644 pl980413.patch.gz
+M'XL("/#%,34``W!L.3@P-#$S+G!A=&-H`-5135/",!`]RZ]8#UPZE*&"V')#
+M%$7!+T#1>9=04EIH24V#@(S_W90J(YX\>-`];+*;M_MV\PS#H(D;LB3A27&D
+MED4A@_%>1\RH'DNRRF15:X=VK:POCF/G3-/<@7]'.K62G2&-74MCL@I6A381
+M49X0>!X+$TX15\QT113QF4I?\M0,0E[;(4KSN7U=10T1K_2,ODIY#@O:55-W
+M1/5NH]72SS(6DJE`S(J;HI2*>GZ0D*>[DCYC)A4)CY3/*6ZS'A\<<$I6B>)1
+M,8.;/[4M`[Q@.R(:/G>GW7FTKE1*E;=L)9UDDKF*RQX;ACQ+TKH?QUR:+M/?
+MH`UU'*.!$YRBB3.<HX4+7**-#JYPC1O<X@Y=]-#'/1XPP".>/CI16RR^=F(8
+MPL4('![&\!%@@BE"1)A!(,8S)!(HS/&"!998X76C[D:CS]5^6Z/4V7]2J++M
+-_".AW@$*5?^OM@,``)A!
+`
+end
+</pre>
+このファイル（たとえば、sample.txt）からパッチファイルを作り出すには、
+つぎのようにします。
+<ol>
+<li>uudecode sample.txt …… pl980413.patch.gzが作成される
+<li>gunzip pl980413.patch.gz …… pl980413.patchが作成される
+</ol>
+最後に展開されたファイルがpatchコマンドで処理をするパッチファイルで、
+つぎのように、少しはわかるテキストになっているはずです。
+<pre>
+*** jclasses.dtx.orig   Mon Apr 13 16:58:33 1998
+--- jclasses.dtx        Mon Apr 13 16:59:08 1998
+***************
+*** 1,14 ****
+  % \iffalse meta-comment
+  %% File: jclasses.dtx
+  %
+! %  Copyright 1995,1996,1997 ASCII Corporation.
+  %
+  %  This file is part of the pLaTeX2e system.
+  %  -----------------------------------------
+  %
+  % \fi
+  %
+! % \CheckSum{4404}
+  %% \CharacterTable
+  %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+  %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+--- 1,14 ----
+  % \iffalse meta-comment
+  %% File: jclasses.dtx
+  %
+! %  Copyright 1995,1996,1997,1998 ASCII Corporation.
+  %
+  %  This file is part of the pLaTeX2e system.
+  %  -----------------------------------------
+  %
+  % \fi
+  %
+! % \CheckSum{4389}
+  %% \CharacterTable
+  %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+</pre>
+
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+make に失敗する（すべてのOS）</h3>
+  
+使用する GNU プログラムのバージョンを変えてみてください。
+バージョンにより、引数などが異なる場合もありますので、
+Makefile が必要としているバージョンかどうかをご確認ください。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+yytextがコンフリクトする（すべてのOS）</h3>
+<pre>
+    In file included from web2c.lex:4:
+    web2c.h:54: conflicting types for `yytext'
+    lex.yy.c:524: previous declaration of `yytext'
+</pre>
+web2c/web2c/web2c.h の、DECLARE_YYTEXTの部分をつぎのいずれかに修正してください。
+<pre>
+    extern char yytext[];
+    extern unsigned char yytext[];
+    extern char *yytext;
+    extern unsigned char *yytext;
+</pre>
+どの宣言文を使用するのかは、
+<pre>
+    echo %% | flex -t | grep yytext
+</pre>
+のように実行し、<b>yytext</b>の宣言部分を探します。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+hypot() がコンフリクトする（Linux）</h3>
+make のオプションに「-Dhypot」を指定します。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+alloca() がコンフリクトする（Linux）</h3>
+web2c/web2c/web2c.h の、つぎの行をコメントにします。
+<pre>
+    extern void *alloca(); 
+</pre>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+wchar_t がコンフリクトする（Linux with Accelerated X1.2, IRIX）</h3>
+make のオプションに「-DNO_FOIL_X_WCHAR_T」を指定します。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+METAFONT のコンパイル(Solaris)</h3>
+kpathsea-2.6/web2c/mf のMakefile の
+<pre>
+    wlibs = -lXt  -lX11 
+</pre>
+を
+<pre>
+    wlibs = -lXt  -lX11 -lICE -lSM 
+</pre>
+に変更します。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+make install に失敗する（IRIX, Solaris）</h3>
+つぎのようにして、makeをします。
+<pre>
+    make install INSTALL="`pwd`/install-sh"
+</pre>
+または
+<pre>
+    make install INSTALL="bsdinst"
+</pre>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+<a name="hints-0508">
+make installしていてinfoファイルの作成に失敗する（すべてのOS）
+<pre>
+    makeinfo --paragraph-indent=2 -I//gnu/gnuorg kpathsea.texi -o kpathsea.info
+    Making info file `kpathsea.info' from `kpathsea.texi'.
+    kpathsea.texi:435: itemize requires an argument: the formatter for @item.
+</pre>
+</a></h3>
+kpathsea-2.6/kpathsea/kpathsea.texiの435行目をつぎのようにします。
+<pre>
+    修正前：@itemize
+    修正後：@itemize @bullet
+</pre>
+makeinfo (texinfo)のバージョンによるようです。
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+unpack.ins の展開に失敗する</h3>
+tracefnt.sty に書き込み許可がないと途中で失敗します。
+UNIX システムならば、「chmod +w tracefnt.sty」などで書き込み許可を
+与えてください。DOS システムならば、「attrib -R tracefnt.sty」などで書き込み
+禁止属性をはずします。MS-Windows ならば、ファイルマネージャの
+「ファイル」-「属性の変更」で書き込み属性を操作できます。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+TFM, JFM ファイルがおかしいというエラーが起きる</h3>
+Winzipなどで lib-6.9.tar.gz や plib-*.tar.gz を展開する場合、
+「Options」-「Configurations」-「TAR File LF to CR/LF Conversion」
+のチェックをはずしてください。TFMファイルなどのバイナリファイルが
+正しく展開されません。そのほかのアーカイバプログラムについても、
+同様の機能がある場合は、注意をしてください。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+フォント(lcircle10.tfm, lcirclew10.tfm) が見つからない</h3>
+$TEXMF/fonts/public/latex/lcircle10.tfm を lcirc10.tfm に、
+lcirclew10.tfm を lcircw10.tfm にコピーするか名前を変更します。
+なお、MS-DOSのようにロングファイル名が使えないシステムでは、
+展開時に lcircle1.tfm, lcirclew.tfm のようになっていますので、これらを
+それぞれ、lcirc10.tfm, lcircw10.tfm にコピーするか名前を変更します。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+LaTeX のファイルのバージョンについて</h3>
+lib-6.9.tar.gzのtexmf/tex/latex2e/baseディレクトリにあるLaTeX2eは、
+&lt;1994/12/01&gt;版であり、pLaTeX2e &lt;1995/09/01&gt;版は対応していません。
+したがって、pLaTeX2e &lt;1995/09/01&gt;版を作成する場合は、英語版をインストール
+する前に、まず texmf/tex/latex2e/base を削除してください。
+そして、LaTeX2e &lt;1995/06/01&gt;版をインストールし、
+pLaTeX2e &lt;1995/09/01&gt;版をインストールしてください。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+pLaTeXの展開について</h3>
+pLaTeXのファイルをplcore.insで展開するときは、必ずiniptexをお使いください。
+initexで展開すると、kinsoku.texの漢字コードが二つの8進数として展開されて
+しまうため、iniptexでフォーマットファイルを作ろうとするときに、
+エラーがでます。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+pTeXとTeXのフォーマットファイル作成について</h3>
+pTeXとTeXのフォーマットファイルを作成するとき、つぎのように、
+「\dump」コマンドの「\」をシェルプログラムに解釈されないようにエスケープを
+しなくてはいけないことに注意をしてください。
+<pre>
+    iniptex tex.tex \\dump
+</pre>
+または
+<pre>
+    iniptex tex.tex '\dump'
+</pre>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+<a name="hints-1212">
+数式ファミリを定義できないというメッセージが表示される </a></h3>
+pTeXでは、縦組フォントの明朝、ゴシックで、それぞれ一つづつファミリを定義して
+います。したがって、AMSなどのパッケージと組み合わせるとTeXの持てるファミリ
+の数（16個）をオーバーしてしまうため、ファミリを割り当てられずにエラーと
+なります。
+<p>
+これを回避するには、ptex.tex(jplain.tex)ならば、38行目〜53行目までを
+以下のように修正すれば、旧バージョンと同じように使うことができます。
+<pre>
+    \newfam\minfam % \min is family 8
+    \newfam\gtfam  % \gt is family 9
+    %
+    \def\mc{\fam\minfam\tenmin}%
+    \textfont\minfam=\tenmin\scriptfont\minfam=\sevenmin%
+    \scriptscriptfont\minfam=\fivemin
+    %
+    \def\gt{\fam\gtfam\tengt}%
+    \textfont\gtfam=\tengt\scriptfont\gtfam=\sevengt%
+    \scriptscriptfont\gtfam=\fivegt
+</pre>
+<i>(1995/12/12) </i>
+<p>
+jplain.texを上記の修正を施した内容で配布するようにしました。
+<i>(1997/02/03) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+<a name="hints-1218">
+pTeXホームページから持ってきた、web2c.kpathsea-2.6.helpのパッチを当てると
+エラーになる。</a></h3>
+WEBブラウザによっては、「Save as...」で単なるテキストファイルとして
+保存できないものがあるようです。そのため、web2c.kpathsea-2.6.helpを
+圧縮ファイルとしました<i>(1995/12/18) </i>。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+<a name="hints-1228">
+フォーマットファイルを作るとき、つぎのようなメッセージが表示される。
+<pre>
+    This is pTeX, Version 3.1415 p2.1.4 (EUC) (C version 6.1) (INITEX)
+    ! I can't find file `ptex.tex'.
+    &lt;*&gt; ptex.tex
+
+    Please type another input file name:
+</pre></a></h3>
+<ul>
+<li>旧バージョンのiniptexが実行されていないかどうかを確認してください。
+  旧バージョンと異なる場所にインストールした場合には、
+  必ずどのiniptexが実行されているのかを確認してください。
+<p>
+<li>lib-6.9.tar.gzとplib-|euc,jis,sj|.tar.gzなど、必要なライブラリファイルを
+  展開してあるかどうかを確認してください。
+<p>
+<li>展開してある場所が、configureで指定した場所かどうかを確認してください。
+  configureに何も指定をしていない場合、iniptexやvirptexは、
+  /usr/local/lib/texmfディレクトリ以下を探しに行きます。
+<p>
+<li>環境変数TEXINPUTSが指定されて<b>いない</b>かどうかを確認してください。
+  旧バージョンで設定していた場合など、そのまま残っていることがありますので、
+  その設定を<b>しない</b>ようにして、デフォルト位置を参照するようにして
+  ください。デフォルトの設定と変更したい場合は、
+  「<a href="kpathsea.html">ライブラリ検索パスについて</a>」を
+  参考にしてください。
+</ul>
+<i>(1995/12/28) </i>。
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+<a name="hints-0411">
+platex.dtxを処理すると、つぎのような警告が出力される。
+<pre>
+    LaTeX Font Warning: Font shape `JY1/mc/m/sc' undefined
+    LaTeX Font Warning: Font shape `JT1/mc/m/sc' undefined
+    LaTeX Font Warning: Font shape `JY1/mc/m/it' undefined
+    LaTeX Font Warning: Font shape `JT1/mc/m/it' undefined
+    LaTeX Font Warning: Font shape `JY1/mc/m/sl' undefined
+    LaTeX Font Warning: Font shape `JT1/mc/m/sl' undefined
+    LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+</pre></a></h3>
+日本語フォントには、イタリック(it)、スモールキャプス(sc)、スラント(sl)の
+それぞれの書体に対応するものがありませんので定義していません。
+そのため、上記のように、それぞれの書体に対応する書体が未定義という
+警告メッセージが出力されますが、エラーでもバグでもありません。
+<i>(1996/04/11) </i>。
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+<a name="hints-0411"></a>
+<a name="hints-0808"></a>
+pLaTeXやLaTeXの動作確認のため、ltxcheckを処理したとき、
+新しくCTANサイトから持ってきたフォントを使っても、
+“古いdcフォント”というメッセージが出力される。
+</h3>
+各CTANサイトのミラーリングのスケジュールの程度によって、
+“古いバージョンのdcフォント”が置かれている場合があります。
+そのときには別のCTANサイトから“新しいdcフォント”を入手し、
+自分の$TEXMF/fonts/dcディレクトリと差し換えます。<br>
+CTANサイトの一覧は、
+<a href="http://tug2.cs.umb.edu/ctan/ctansite.txt">
+http://tug2.cs.umb.edu/ctan/ctansite.txt</a>を参照してください。<br>
+dcフォントは、CTANサイトのfonts/dcディレクトリにあります。
+<i>(1996/04/11), (1996/08/08) </i>
+
+
+<hr size=1>
+<h3><img src="../images/q-blue.gif" alt="hints">
+<a name="remakeclass">
+pLaTeX2e のクラスファイルを作成し直したい
+</a></h3>
+つぎのコマンドを実行します。
+<pre>
+    platex jclasses.ins
+</pre>
+<i>(1996/10/31) </i>
+
+
+<p>
+<hr>
+<h2><a name="bugs">バグ情報</a></h2>
+
+こちらにに寄せられたバグ情報をまとめてあります。
+<ul>
+<li><a href="#ptex-bugs">pTeX, pLaTeXのバグ情報</a>
+<li><a href="#mendex-bugs">mendexのバグ情報</a>
+</ul>
+
+<p>
+<hr>
+<h3><a name="ptex-bugs">■pTeX, pLaTeXのバグ情報</a></h3>
+
+pTeXとpLaTeXの
+最新版は「<a href="sources.html">TeX ソースファイル</a>」の
+ページから入手することができます。
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="ptex-bugs-970124">
+pLaTeX2e: ascmacパッケージの\Return, \returnコマンドを使ってもリターン記号が表示されない。
+</a></h3>
+plib-{euc,jis,sj}.tar.gz に含まれている、ascgrp.mf, ascgrp.tfmに
+リターン記号の設定がありませんでした。
+「<a href="sources.html#unixptex">pTeXのソース</a>」から、
+ascgrp.tar.gzをダウンロード後、展開すると ascgrp.mf と ascgrp.tfm という
+二つのファイルができますので、それぞれを以下のディレクトリにあるファイル
+と置き換えてください。
+<pre>
+ascgrp.mf --- $TEXMF/fonts/ascgrp/src
+ascgrp.tfm --- $TEXMF/fonts/ascgrp/tfm
+</pre>
+<i>(1997/01/24) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="ptex-bugs-961031">
+pLaTeX2e: verse 環境で“@centercr”という文字列が出力されてしまう
+</a></h3>
+pLaTeX標準クラスファイル（jclasses.dtxから作成されます）のバグです。
+jlcasses.dtxの2700行目付近のverse環境の定義を、以下のように修正し、
+<a href="#remakeclass">クラスファイルを作成し直し</a>てください。
+<pre>
+    \newenvironment{verse}
+      {\let\\\@centercr  %%% '\' を1つ削除
+       \list{}{\itemsep\z@ \itemindent -1.5em%
+               \listparindent\itemindent
+               \rightmargin\leftmargin \advance\leftmargin 1.5em}%
+               \item\relax}{\endlist}
+</pre>
+<i>(1996/10/31) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="ptex-bugs-960604">
+pTeX: ときどきおかしな動作（禁則が崩れたり、文字幅が異常に狭くなったり）をする
+</a></h3>
+以下のプロトタイプ宣言がないため、TeXの内部でデータの受け渡しがおかしくなる
+ことがあるようです。
+つぎの3行をcoeace.addファイルに追加して、再コンパイルしてください。
+<pre>
+    extern void settok(void);
+    extern halfword mktok(short, char);
+    extern quarterword getjfmpos(KANJIcode, short);
+</pre>
+※なお、このバグは実行ファイルを作成するコンパイラに依存します。
+<i>(1996/06/04) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="ptex-bugs-960507">
+pLaTeX: dtxファイルをコンパイルするとつぎのようなエラーが起きる
+<pre>
+    ! Package doc Error: Checksum not passed (3820&lt;&gt;3849).
+</pre></a></h3>
+そのdtxファイルの先頭部分に書かれているCheckSumの値を正しい値
+（この場合は3820を3894）に修正してください。
+<pre>
+    修正前：% \CheckSum{3820}
+    修正後：% \CheckSum{3894}
+</pre>
+<i>(1996/05/07) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="ptex-bugs-960110">
+pLaTeX: landscape オプションを指定してもランドスケープモードで組まれない
+</a></h3>
+pLaTeX標準クラスファイル（jclasses.dtxから作成されます）のバグです。
+jlcasses.dtxの530行目から534行目までをつぎのように修正し、
+クラスファイルを作成し直せば、正しい動作をするようになります。
+<pre>
+    \if@landscape
+      \setlength\@tempdima{\paperheight}
+      \setlength\paperheight{\paperwidth}
+      \setlength\paperwidth{\@tempdima}
+      \setlength\@tempdima{\textheight}
+      \setlength\textheight{\textwidth}
+      \setlength\textwidth{\@tempdima}
+    \fi
+</pre>
+<i>(1996/01/10) </i>
+<br>
+pLaTeX2e &lt;1996/03/05&gt; 版で修正しました<i>(1996/03/12) </i>。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="ptex-bugs-1220">
+pTeX Windows NT版：数式モードがおかしくなる
+</a></h3>
+コンパイラの最適化レベルによる影響のようです。
+最適化レベルを下げて作成したバイナリを作成しましたので、
+1995年12月20 午前7時以前に入手されたかたは、
+最新バージョンを入手してくださいとのことです。
+<i>(1995/12/20) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="ptex-bugs-1212">
+pLaTeX：dviprt のドキュメントをコンパイルしている途中で動作が止まる
+</a></h3>
+現在、原因を調査中です<i>(1995/12/12) </i>。<br>
+dviprt/dvioutのドキュメントをpLaTeX2e対応にすることで解決して
+いただきました。
+<i>(1996/05/07) </i>。
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+pTeX：漢字のファイル名が使えない？</h3>
+漢字ファイル名を扱えるようにするための
+<a href="../archives/ascii-ptex/ptex214/updatefiles/ptex-2.1f2-2.1.4-patch.tar.gz">パッチ
+ファイル</a>を作成しました。バージョンは、2.1.4になります。
+作り方は、付属のREADMEファイルを参照してください。
+<i>(1995/12/12) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+pTeX：文書をコンパイルしている途中で、"This can't happen (disc4)"という 
+エラーが起きる
+</h3>
+バージョン2.1.4で修正しました。
+<i>(1995/12/12) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="ptex-bugs-1121">
+PLtoTF：GLUEKERNプロパティでCOMMENTプロパティが使えない？
+</a></h3>
+PLtoTFのバグです。修正するための
+<a href="../archives/ascii-ptex/ptex214/updatefiles/pltotf11patch.tar.gz">パッチファイル</a>を
+作成しました。
+作り方は、付属のREADMEファイルを参照してください。
+<i>(1995/11/21) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+pLaTeX2e：互換モードの縦組みで、脚注がおかしくなる</h3>
+互換モードでの、脚注コマンドを拡張していませんでした。
+現在、そのほかのバグの修正も含めたパッチファイルを作成しています。
+もうしばらくお待ちください。
+<i>(1995/11/21) </i>
+<br>
+pLaTeX2e &lt;1996/03/05&gt; 版で修正しました。
+<i>(1996/03/12) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+pLaTeX2e：\Rensuji, \prensujiが使えない？</h3>
+pLaTeX2e &lt;1995/09/01&gt;では、\rensuji, \Rensuji, \prensujiの３つの
+コマンドを\rensujiの一つにまとめましたので実装されていません。
+\rensujiコマンドをお使いください。
+<p>
+互換モードでは、\Rensuji, \prensujiを使えるようにします。
+とりあえずは、pl209.defの中で、
+<pre>
+    \let\Rensuji\rensuji
+    \let\prensuji\rensuji
+</pre>
+としてお使いください。<i>(1995/11/21) </i>
+<br>
+pLaTeX2e &lt;1996/03/05&gt; 版で修正しました。
+<i>(1996/03/12) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+pLaTeX2e：\DeclareFixedFontで和文フォントを定義できない？</h3>
+pLaTeX2e &lt;1995/09/01&gt;では、まだ日本語化をしていません。
+次のバージョンで提供をします。<i>(1995/11/21) </i>
+pLaTeX2e &lt;1996/03/05&gt; 版で修正しました。
+<i>(1996/03/12) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="ptex-bugs-960130">
+pLaTeX2e：\topmarginで設定した値が反映されない</a></h3>
+plcore.ltx（ploutput.dtx）のつぎの箇所を修正し、
+フォーマットファイルを作成してください。
+<p>
+<b>修正前</b>
+<blockquote>
+<pre>
+\iftombow
+     \@@paperwidth\paperwidth \advance\@@paperwidth 6mm\relax
+     \@@paperheight\paperheight \advance\@@paperheight 16mm\relax
+     \@@topmargin\topmargin \advance\@@topmargin 1in\relax
+     \advance\@themargin 1in\relax
+\fi
+</pre>
+</blockquote>
+<p>
+<b>修正後</b>
+<blockquote>
+<pre>
+     \@@topmargin\topmargin
+\iftombow
+     \@@paperwidth\paperwidth \advance\@@paperwidth 6mm\relax
+     \@@paperheight\paperheight \advance\@@paperheight 16mm\relax
+     \advance\@@topmargin 1in\relax \advance\@themargin 1in\relax
+\fi
+</pre>
+</blockquote>
+<i>(1995/11/21) </i>,
+<i>(1996/01/30) </i>
+<br>
+pLaTeX2e &lt;1996/03/05&gt; 版で修正しました。
+<i>(1996/03/12) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="ptex-bug-1114">
+texmf/bibtex/jbib 以下のディレクトリにあるファイルがおかしい？
+</a></h3>
+plib-sj.tar.gzとplib-jis.tar.gzに含まれている、
+jbib以下のファイルがEUCコードのままでした。
+<i>(1995/11/14) </i>
+<p>
+
+<hr>
+<h3><a name="mendex-bugs">■mendexのバグ情報</a></h3>
+
+mendexプログラムの
+最新版は「<a href="sources.html#tools">TeX ソースファイル</a>」の
+ページから入手することができます。
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="mendex-bugs-960130">
+preamble, postambleを複数行にわけて記述できない。
+</a></h3>
+バージョン2.3eのバグです。
+修正した版を mendex 2.3f として公開します。
+<i>(1996/12/09) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="mendex-bugs-960130">
+つぎのような索引項目を正しく処理できない。
+<blockquote>
+<pre>
+\indexentry{"\"!@verb+"\"!+}{10}
+</pre>
+</blockquote>
+</a></h3>
+索引項目に含まれる「"\"」の部分の「\」をエスケープ文字として認識してしまう
+mendexのバグです。
+<p>
+ソースファイル fread.c の 76 行目ををつぎのように修正し、mendexを
+作り直してください。
+<p>
+<b>修正前</b>
+<blockquote>
+<pre>
+if (buff[j]==escape) {
+</pre>
+</blockquote>
+<p>
+<b>修正後</b>
+<blockquote>
+<pre>
+if ((quo==0)&&(buff[j]==escape)) {
+</pre>
+</blockquote>
+<i>(1996/01/30) </i>
+バージョン2.3fでは、この修正を施してあります。
+<i>(1996/12/09) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="mendex-bugs-1212">
+EUCコンパイラでSJIS版を作れない
+</a></h3>
+作れるようにした修正版を mendexk 2.3e として公開します。
+また、このバージョンでは、同じ索引語の上限はメモリの空き容量に応じて、
+動的に決定されます。
+<i>(1995/12/12) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+<a name="mendex-bugs-1114">
+pldoc.idxを処理すると、つぎのようなエラーが起きる
+</a></h3>
+<blockquote>
+<pre>
+This is mendex version2.3c [26-Oct-95].
+Scanning input file pldoc.idx.
+Error: Extra `=' in pldoc.idx, line 1834....done.(2412 entries accepted.)
+2412 entries accepted.
+1 error.
+Nothing written in output file.
+</pre>
+</blockquote>
+同じ索引語が64個以上になると、このようなエラーが起こります。
+このエラーを回避するバージョンをmendexk 2.3dとして公開します。
+<i>(1995/11/14) </i>
+<p>
+
+<hr size=1>
+<h3><img src="../images/q-red.gif" alt="question">
+pldoc.gloを処理すると、つぎのようなエラーが起きる</h3>
+<blockquote>
+<pre>
+This is mendex version2.3c [26-Oct-95].
+Scanning input file pldoc.glo.
+Error: Extra `&gt;' in pldoc.glo, line 1....done.(26 entries accepted.)
+26 entries accepted.
+1 error.
+Nothing written in output file.
+</pre>
+</blockquote>
+pldoc.gloの１行目の"&#60;"がエラーを起こしています。
+とりあえず、pldoc.gloの１行目を削除して、再度 mendex で処理してください。
+<p>
+この行は、plvers.dtxをコンパイルして出力された行です。
+plvers.dtxの修正版は、次期バージョンで提供します。
+<i>(1995/11/14) </i>
+
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>PL reference</title>
+</head>
+<body bgcolor="#F5F5DC">
+<h2><a name="header">HEADER</a>
+<font size=4>４バイト長の数値と１バイト長の数値</font></h2>
+４バイト長のインデックスが指すヘッダーワードの位置に、１バイト長の値が入ります。
+１バイト長の値は、18から上限値までの範囲の値です。上限値は、
+TFtoPLを作成するときの<var>max_header_bytes</var>の値によって決定されます。
+通常は100です。たとえば、<var>header</var>[18]に1を設定するには、
+<pre>
+    (HEADER D 18 O 1)
+</pre>
+と書きます。この表記法は名前のないヘッダー情報を示すのに使います。
+TeXはこれを無視します。
+
+<p>
+<b>関連項目：</b><a href="format.html">数値表現</a>
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>,
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

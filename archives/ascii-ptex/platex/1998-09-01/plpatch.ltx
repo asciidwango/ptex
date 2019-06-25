@@ -1,0 +1,30 @@
+%%%%
+%%%% Patch file for the pLaTeX2e kernel dated 1998/09/01
+%%%% (1998/09/10)
+%%%%
+
+% This patch will not work with  any other release.
+\def\pfmtversion@topatch{1998/09/01}
+
+% This denotes minor level.
+\def\ppatch@level{1}
+
+%% 1998/09/10:
+%% 和文デフォルトフォントの変更が反映されないのを修正
+%% （ありがとう、山本＠SUTさん）
+%%
+\let\romanprocess@table\process@table
+\def\kanjiprocess@table{%
+  \kanjiencoding{\kanjiencodingdefault}%
+  \kanjifamily{\kanjifamilydefault}%
+  \kanjiseries{\kanjiseriesdefault}%
+  \kanjishape{\kanjishapedefault}%
+}
+\def\process@table{%
+  \romanprocess@table
+  \kanjiprocess@table
+}
+\@onlypreamble\romanprocess@table
+\@onlypreamble\kanjiprocess@table
+
+\endinput

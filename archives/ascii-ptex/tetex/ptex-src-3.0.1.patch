@@ -1,0 +1,51 @@
+ptex-src-3.0.1.tar.gz に含まれる、web2c-7.3.7.patch へのパッチです。
+tftopl, pltotf で ptex 用のヘルプメッセージでないのを修正します。
+
+teTeX-src-beta-20011202.tar.gz のソースと組み合わせて ptex のソース
+をコンパイルするときにだけ必要です。
+
+インストール手順はつぎのようになります。
+
+    patch < ptex-src-3.0.1.patch
+    patch < web2c-7.3.7.patch
+    ./configure euc
+
+--- web2c-7.3.7.patch.orig	Fri Jan 18 21:29:55 2002
++++ web2c-7.3.7.patch	Sat Jan 19 15:31:22 2002
+@@ -78,11 +78,11 @@
+     end;
+   @z
+   
+-! %@x
+-! %      usage (0, TFTOPL_HELP);
+-! %@y
+-! %      usage_help (PTEX_TFTOPL_HELP);
+-! %@z
++! @x
++!       usage_help (TFTOPL_HELP);
++! @y
++!       usage_help (PTEX_TFTOPL_HELP);
++! @z
+   
+   @x [99] l.1751 - pTeX:
+   @* Index.
+@@ -105,11 +105,11 @@
+   end;
+   @z
+   
+-! %@x
+-! %      usage (0, PLTOTF_HELP);
+-! %@y
+-! %      usage_help (PTEX_PLTOTF_HELP);
+-! %@z
++! @x
++!       usage_help (PLTOTF_HELP);
++! @y
++!       usage_help (PTEX_PLTOTF_HELP);
++! @z
+   
+   @x [148] l.2620 - pTeX:
+   @* Index.
+
+-------------------------------------
+株式会社 アスキー 出版技術部 (www-ptex@ascii.co.jp)

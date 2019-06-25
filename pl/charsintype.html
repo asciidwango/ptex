@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>PL reference</title>
+</head>
+<body bgcolor="#F5F5DC">
+<h2><a name="charsintype">CHARSINTYPE</a>
+<font size=4>１バイト長の整数と任意個数の漢字</font></h2>
+<img src="../images/jpl.gif" alt="jpl"> JPLファイルだけで有効なプロパティです。
+<p>
+<var>char_type</var>および、その<var>char_type</var>に属する
+文字コードを設定します。
+
+<p>
+<b>例：</b>
+<p>
+この例では、閉じ括弧類を<var>char_type</var>が１のグループに、
+開き括弧類を<var>char_type</var>が２のグループに指定しています。
+
+<pre>
+    (CHARSINTYPE O 1
+       ） 〕 ］ ｝ 〉 》 」 』 】
+       )
+    (CHARSINTYPE O 2
+       （ 〔 ［ ｛ 〈 《 「 『 【
+       )
+</pre>
+
+
+<p>
+<b>関連項目：</b><a href="format.html">数値表現</a>,
+<a href="type.html">TYPE</a>,
+<a href="gluekern.html">GLUEKERN</a>
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>,
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (What's new)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>pTeX新着情報とホームページ更新情報(2002年分)</h2>
+過去の変更：
+<a href="changes2001.html">2001年</a>／
+<a href="changes2000.html">2000年</a>／
+<a href="changes1999.html">1999年</a>／
+<a href="changes1998.html">1998年</a>／
+<a href="changes1997.html">1997年</a>／
+<a href="changes1996.html">1996年</a>／
+<a href="changes1995.html">1995年</a>
+<p>
+<hr>
+
+<h4>2002/11/18</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.0.5.tar.gz">ptex-src-3.0.5.tar.gz</a>）のtftopl.chとpltotf.chを差し替えました。差し替える以前のものは認識できないオプションを指定したとき、coreを出すことがあります。
+</ul>
+
+<h4>2002/11/15</h4>
+<ul>
+<li>Web2C 7.3.11に対応した、<a href="../archives/ascii-ptex/tetex/ptex-src-3.0.5.tar.gz">ptex-src-3.0.5.tar.gz</a>）を公開します。
+</ul>
+
+<h4>2002/10/31</h4>
+<ul>
+<li>Web2C 7.3.9に対応した、<a href="../archives/ascii-ptex/tetex/ptex-src-3.0.4.tar.gz">ptex-src-3.0.4.tar.gz</a>）を公開します。
+</ul>
+
+<h4>2002/10/10</h4>
+<ul>
+<li>ページ・エンタープライゼズ株式会社（旧 プレイン）さんの
+連絡先を変更しました。
+</ul>
+
+<h4>2002/07/12</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.5g.tar.gz">dvipsk日本語パッチ1.5g</a>を公開します。前回のバージョンから、次の２点を修正してあります。
+<ul>
+<li>縦書き時にtpicコマンドによる図が正しく描画されない不具合を修正。
+<li>PSTricks.patch に FMapType が9の場合の処理を追加。
+</ul>
+</ul>
+
+<h4>2002/05/20</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/jvf/jis.tar.gz">jis.tar.gz</a>に、jis-v, jisg-v, jisn, jisgn-vのtfmとvfを含めました。
+</ul>
+
+<h4>2002/02/07</h4>
+<ul>
+<li>桐木＠東京電機大学さんが、MacOS X用のpTeXインストールパッケージを
+    公開なさっています。URLは、
+   <a href="http://www.r.dendai.ac.jp/~kiriki/tex/index.html">
+   http://www.r.dendai.ac.jp/~kiriki/tex/index.html"</a>です。
+</ul>
+
+<h4>2002/02/04</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.5f.tar.gz">dvipsk日本語パッチ1.5f</a>を公開します。
+config.psファイルでのB4とB5の用紙サイズの設定を修正しました。
+</ul>
+
+<h4>2002/01/23</h4>
+<ul>
+<li>「<a href="intro.html">はじめに</a>」を書き直しました。
+<li>ptex-3.0.1をweb2c-7.3.3と組み合わせ、さらにsrc-specialを使う場合、
+	texk/web2c/lib/openclose.cのファイルも修正する必要があります。
+	web2c-7.3.3ではsrc-specialが正式にサポートされていないので、
+	この組み合わせ（web2c-7.3.3 + src-special + ptex-src-3.0.1）では
+	インストールしないでください。
+	src-specialの機能を使わないのであれば問題ありません。
+</ul>
+
+<h4>2002/01/21</h4>
+<ul>
+<li>以下のプログラムの配布および使用条件をBSDライセンスにしました。
+<ul>
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.5.tar.gz">mendex 2.5</a>
+<li><a href="../archives/ascii-ptex/jvf/makejvf-1.1a.tar.gz">makejvf 1.1a</a>
+</ul>
+また、<a href="../archives/ascii-ptex/jvf/">jvf</a>ディレクトリに置かれている、
+makejvfで作成したvfファイルも制限なく使えます。
+<li>pTeX 3.0.1をteTeX-src-beta-20011202と組み合わせてコンパイルするときの
+パッチ（<a href="../archives/ascii-ptex/tetex/ptex-src-3.0.1.patch">ptex-src-3.0.1.patch</a>）を公開します。このパッチを適用するとtftopl, pltotfのヘルプメッセージがptexで
+用意したものになります。
+</ul>
+
+<h4>2002/01/18</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.0.1.tar.gz">ptex-src-3.0.1.tar.gz</a>
+	を公開します。下記のソースでもコンパイルできます。
+    <ul>
+    <li>tetex-supp.tgz
+    <li>web2c-7.3.3.tar.gz
+    <li>teTeX-src-beta-20011202.tar.gz
+    </ul>
+    src-specialの機能が使えるようコンパイルされた場合、
+    --helpのメッセージに<nobr>--src-specials</nobr>の説明が出力されます。
+</ul>
+
+<h4>2002/01/17</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.5.tar.gz">mendexk 2.5</a>を公開します。
+修正箇所は、つぎのとおりです。
+<ul>
+<li>-sオプション使用時にスタイルパラメータescapeの値がおかしくなっていたのを修正。
+<li>makeindexに合わせるため、次のように仕様を変更した。
+	<ul>
+	<li>-c オプション時の動作を修正。makeindex では索引語の前後の空きを
+		削除するが、mendex では空きが残っていたので、削除するようにした。
+	<li>makeindex で使用されているスタイルパラメータのうち、
+		mendexでサポートされていなかったものを追加サポート。
+		<blockquote>
+		delim_t, suffix_2p, suffix_3p, suffix_mp, heading_flag,
+		heading_prefix, symhead_positive, symhead_negative
+		</blockquote>
+     ただし、以下の makeindex 用パラメータは無視される。
+		<blockquote>
+		numhead_positive, numhead_negative
+		</blockquote>
+	<li>escapeの仕様を変更。arg_open, arg_closeをエスケープ可能にした。
+		このため、escapeが1つだけの項目は受け付けられなくなった。
+	<li>エントリ中でactualの後に項目が無い場合に、
+		actualの前の文字列を項目とするように変更。
+	<li>エントリ中でlevelの後に項目が無い場合、levelを無視するように変更。
+	</ul>
+</ul>
+</ul>
+
+<h4>2002/01/15</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.0.tar.gz">ptex-src-3.0.tar.gz</a>と
+	<a href="../archives/ascii-ptex/tetex/ptex-texmf-2.0.tar.gz">ptex-texmf-2.0.tar.gz</a>
+	を公開します。
+<ul>
+<li>配布および使用条件を
+    <a href="../etc/COPYRIGHT.txt">BSDライセンス</a>に変更
+    <a href="../etc/COPYRIGHT-jis.txt">（日本語訳）</a>。
+<li>ハイフネーションでのバグを修正。
+<li>pLaTeX を&lt;2001/09/04&gt;に更新
+</ul>
+pTeXのバージョンは3.0になります。
+</ul>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

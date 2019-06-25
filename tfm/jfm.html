@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (JFM format)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>JFMファイルの構成要素</h2>
+JFMは、TFMと似たような構造になっています。TFMとの違いはつぎのとおりです。
+<ul>
+<li>先頭のファイル内のパラメータテーブルが変更されている。
+<li><var>char_type</var>テーブルが追加されている。
+<li><var>exten</var>でなく、<var>glue</var>テーブルがある。
+<li><var>lig/kern</var>が<var>glue/kern</var>テーブルに変更されている。
+</ul>
+<p>
+JFMファイルは、ワード（４バイト）を単位としてデータが記述されています。
+また、１ワード内の各バイトは、上位バイトから下位バイトの順に並べられています。
+<p>
+最初の７ワードは、半ワードずつに区切られ、
+JFMファイルを構成する14個の要素のサイズが収められています。
+<p>
+これらの値は、すべて「２の15乗」よりも小さい非負の値です。
+また、つぎの条件を満たしていなければなりません。
+<pre>
+    bc = 0<br>
+    lf = 7 + lh + (ec - bc + 1) + nw + nh + nd + ni + nl + nk + ng + np
+</pre>
+<p>
+
+<hr>
+<a name="jfmmap"></a>
+<a href="/cgi-bin/imagemap/pb/ptex/tfm/jfm.map">
+<img src="../images/jfm.gif" alt="figure of jfm" align=left ISMAP>
+</a>
+
+<var>id</var> …… JFM_ID番号（横組用では11、縦組用では9）<br>
+<var>nt</var> …… <var>char_type</var>テーブルのワード数<br>
+<var>lf</var> …… ファイルのワード数<br>
+<var>lh</var> …… <var>header</var>のワード数<br>
+<var>bc</var> …… フォント内に含まれる一番小さなコード（JFMでは必ずゼロ）<br>
+<var>ec</var> …… フォント内に含まれる一番大きなコード<br>
+<var>nw</var> …… <var>width</var>テーブルのワード数<br>
+<var>nh</var> …… <var>height</var>テーブルのワード数<br>
+<var>nd</var> …… <var>depth</var>テーブルのワード数<br>
+<var>ni</var> …… <var>italic</var>テーブルのワード数<br>
+<var>nl</var> …… <var>glue/kern</var>テーブルのワード数<br>
+<var>nk</var> …… <var>kern</var>テーブルのワード数<br>
+<var>ng</var> …… <var>glue</var>テーブルのワード数<br>
+<var>np</var> …… <var>param</var>テーブルのワード数
+<p>
+<var><a href="#header">header</a></var><br>
+<var><a href="#char_type">char_type</a></var><br>
+<var><a href="#char_info">char_info</a></var><br>
+<var><a href="#width">width</a></var><br>
+<var><a href="#width">height</a></var><br>
+<var><a href="#width">depth</a></var><br>
+<var><a href="#width">italic</a></var><br>
+<var><a href="#gluekern">glue/kern</a></var><br>
+<var><a href="#kern">kern</a></var><br>
+<var><a href="#glue">glue</a></var><br>
+<var><a href="#param">param</a></var><br>
+<br clear=all>
+
+<hr>
+<h3><a name="header">■header</a></h3>
+
+<var>header</var>部には、最低限「チェックサム（check sum）」と
+「デザインサイズ（design size）」の２ワードが収められている必要があります。
+TeXはここまでの情報を使いますが、Xeroxの印刷ソフトウェアなどで用いるTFMには、
+最低限18ワードが必要です。
+
+<ul>
+<li><var>header</var>[0]<br>
+  32ビットのチェックサムを表し、この情報がそのままDVIファイルに収められます。
+  この情報は、TeXの使用したTFMファイルと、印字に使用しようとしている
+  GFなどのグリフファイルが整合のとれたものかどうかを
+  デバイスドライバが確認するためのものです。
+  ただし、そのフォントファイルかこのTFMファイルのチェックサムのいずれかが
+  ゼロの場合はチェックは行なわれません。
+<p>
+<li><var>header</var>[1]<br>
+  フォントのデザインサイズ（ポイント数）を「２の-20乗」を１単位として表した
+  数値です。最小値は1.0です。
+  よく使われるデザインサイズは``10ポイント''フォント用の10.0です。
+  これは、このフォントが10ポイントサイズで使われるときに最適になるように
+  デザインされているということです。
+  TeXのユーザが`<tt>at δ pt'</tt>とした場合、その他のパラメータはその比率
+ （δをデザインサイズで割った値）で拡大されます。
+  10pt用のフォントが<tt>at 15pt</tt>で呼び出されると、それぞれのパラメータが
+  「15/10.0=1.5」倍となるということです。
+  <p>
+  TFMファイルでのサイズは、すべてこのデザインサイズを単位にしています。
+  したがって、たとえば1emまたは\quadを示す<var>param</var>[6]には、
+  しばしば、2^{20}=1.0が収められています。
+  そのために多くのフォントはデザインサイズと1emが同じになっています。
+  <p>
+  その他の寸法は、その絶対値が16デザインサイズ単位よりも小さくなります。
+  先頭バイトが0か255のいずれかのTFMファイルの中で、
+  <var>header</var>[1]と<var>param</var>[1]だけが「２の-20乗」を基準にしています。
+<p>
+<li><var>header</var>[2..11]<br>
+  もしあれば、文字コーディングスキーマを示す40バイトが収められています。
+  先頭バイトは０から39まであり、この文字列の中に入っている実際に意味の
+  あるバイト数を示しています。
+  文字列には、このフォントで表されている文字コードの種類が記述されています。
+  たとえば、<tt>ASCII</tt>は標準ASCIIコード、
+  <tt>TeX text</tt>は<tt>cmr10</tt>や<tt>cmti9</tt>のようなTeXフォント、
+  <tt>TeX math extension</tt>は<tt>cmex10</tt>や<tt>cmex10</tt>のようなTeX数式用フォント、
+  <tt>XEROX</tt>はXeroxフォント、<tt>GRAPHIC</tt>は特別な目的の非アルファベットフォント、
+  <tt>UNSPECIFIED</tt>はこの部分が未定義のデフォルト値です。
+  この文字列の中に丸括弧が現れることは決してありません。
+<p>
+<li><var>header</var>[12..16]<br>
+  もしあれば、`<tt>CMR</tt>'や`<tt>HELVETICA</tt>'といったフォントファミリーの名前が
+  20バイト収められています。このフィールドは``フォント識別子''とも呼ばれます。
+<p>
+<li><var>header</var>[17]<br>
+  もしあれば、次のような情報が入っています。
+<pre>
+  １バイト目  seven_bit_safe_flag
+  ２バイト目  未定義
+  ３バイト目  未定義
+  ４バイト目  face
+</pre>
+  ４バイト目の<var>face</var>が18よりも小さい数値ならば、
+  ``ウェイト、斜体、長体/平体''を表しています。
+  0, 2, 4（ミディアム、ボールド、ライト）のいずれかと
+  0, 1（斜体なし、斜体）のいずれかと
+  0, 6, 12（正体、長体、平体）のいずれかを足したものです。
+  たとえば、13ならば0+1+12となり、このフォントが
+  「ミディアムで斜体で平体」であることを示しています。
+<p>
+<li><var>header</var>[18以上]<br>
+  この部分もあるかもしれません。とりあえずこの部分は<var>header</var>[18],
+  <var>header</var>[19]などと呼びます。
+</ul>
+
+<hr>
+<h3><a name="char_type">■char_type</a></h3>
+<ul>
+<li><var>char_type</var>[<var>0</var>..<var>nt-1</var>]
+</ul>
+
+漢字の文字コードと<var>char_type</var>との対応付けを行ないます。
+<p>
+このテーブルの各エントリは１ワードで構成され、上位半ワードに漢字文字コード、
+下位半ワードに<var>char_type</var>を持っています。
+また、このテーブルの先頭には、デフォルトのインデックスとして、
+漢字コードおよび<var>char_type</var>がゼロのものが必ず存在します。
+<p>
+テーブルの２番目以降には、デフォルト以外の属性を持つ文字コードと
+<var>char_type</var>が、漢字コードの値の順番に収められています。
+このテーブルに登録されていない文字は<var>char_type</var>=0として扱われます。
+
+テーブル内の各ワードは、つぎのような構造になっています。
+
+<hr>
+<h3><a name="char_info">■char_info</a></h3>
+<ul>
+<li><var>char_info</var>[<var>bc</var>(=0)..<var>ec</var>]
+</ul>
+
+<var>bc</var>から<var>ec</var>までの<var>char_type</var>に対する
+各パラメータのインデックスが１ワードにパックされ記述されています。
+JFMでは、<var>bc</var>は必ずゼロですから、１つのJFMに含まれる
+<var>char_info</var>は全部でec+1ワードになります。
+<p>
+それぞれの<var>char_info</var>は、つぎの６つのフィールドを持っています。
+
+<table>
+<td>
+<ul>
+<li><var>width_index</var> (8ビット)
+<li><var>height_index</var> (4ビット)
+<li><var>depth_index</var> (4ビット)
+</ul>
+</td>
+<td>
+<ul>
+<li><var>italic_index</var> (6ビット)
+<li><var>tag</var> (2ビット)
+<li><var>remainder</var> (8ビット)
+</ul>
+</td>
+</table>
+
+<img src="../images/charinfo.gif" alt="charinfo">
+<p>
+
+実際の文字幅は<var>width</var>[<var>width_index</var>]（デザインサイズ単位）で
+示されています。TFMファイルは、256種類の文字幅を持つことができますが、
+高さと深さは16種類、イタリック補正値は64種類しか持つことはできません。
+<p>
+なお、<var>width</var>[0]=<var>height</var>[0]=<var>depth</var>[0]=<var>italic</var>[0]=0という
+関係は、いつでも保たれているので、あるインデックスがゼロの場合は、その他の値も
+ゼロであることを意味します。
+また、<var>width_index</var>は、その文字がそのフォントに含まれている限りは、
+決してゼロにはなりません。したがって、
+ある文字が有効であるならば、その文字は<var>bc</var>と<var>ec</var>の間にあり、
+非ゼロの<var>width_index</var>を持っています。
+<p>
+<var>tag</var>フィールドは、<var>remainder</var>フィールドをどのような
+目的で使うかを示しています。
+<p>
+<ul>
+<li><var>tag</var>=0は、<var>remainder</var>を使わないことを意味しています。
+<li><var>tag</var>=1は、その文字が<var>glue_kern</var>[<var>remainder</var>]から開始するglue/kerningプログラムを持っていることを意味しています。
+<li><var>tag</var>=2は使用していません。
+<li><var>tag</var>=3も使用していません。
+</ul>
+<p>
+
+<hr>
+<h3><a name="width">■width, height, depth, italic</a></h3>
+<ul>
+<li><var>width</var>[0..<var>nw</var>-1] …… 文字の幅
+<li><var>height</var>[0..<var>nh</var>-1] …… 文字の高さ
+<li><var>depth</var>[0..<var>nd</var>-1] …… 文字の深さ
+<li><var>italic</var>[0..<var>ni</var>-1] …… イタリック補正値
+</ul>
+それぞれの値は、デザインサイズの「2の-20乗」倍が1単位です。
+これらの値は、<var>char_info</var>からのインデックスにより参照されます。
+<p>
+
+<hr>
+<h3><a name="gluekern">■glue/kern</a></h3>
+<ul>
+<li><var>glue/kern</var>[0..<var>nl</var>-1]
+</ul>
+<p>
+<img src="../images/gluekern.gif" alt="gluekern">
+<p>
+<var>glue_kern</var>には、特定の<var>char_type</var>の組合せのときに、
+挿入するglueまたはkernが簡単なプログラム構造として含まれています。
+<ul>
+<li><var>skip_byte</var>は、
+この値が128以上のときはプログラムの終了を示します。
+それ以外のときは、次のステップまでスキップする値を示します。
+<p>
+<li><var>char_type</var>は、
+現在の文字の<var>char_type</var>に、この<var>char_type</var>の文字が続いて
+いれば、オペレーションを実行し、終了します。
+そうでなければ、次のステップに進みます。
+<p>
+<li><var>op_byte</var>は、この値が128より小さければグルーステップです。
+そうでなければカーンステップになります。
+<p>
+<li><var>remainder</var>は、
+グルーステップであれば、<var>remainder</var>*3が<var>glue</var>テーブルへの
+インデックスとなり、カーンステップであれば<var>kern</var>テーブルへの
+インデックスとなります。
+</ul>
+
+<hr>
+<h3><a name="kern">■kern</a></h3>
+<ul>
+<li><var>kern</var>[0..<var>nk</var>-1] …… カーニング量
+</ul>
+<var>glue/kern</var>プログラムで用いるカーニング量です。
+デザインサイズの「2の-20乗」が1単位です。
+<p>
+
+<hr>
+<h3><a name="glue">■glue</a></h3>
+<ul>
+<li><var>glue</var>[0..<var>ng</var>-1] …… グルー量
+</ul>
+<var>glue/kern</var>プログラムで用いるグルー量です。
+デザインサイズの「2の-20乗」を1単位として、
+自然長、伸び長、縮み長の３ワードで記述されています。したがって、
+<var>ng</var>は必ず３の倍数になります。
+<p>
+
+<hr>
+<h3><a name="param">■param</a></h3>
+JFMファイルの最後は<var>param</var>部です。
+<p>
+<var>param</var>[1]は、純粋に「2の-20乗」を単位としており、
+デザインサイズの影響を受けません。それ以外のパラメータは、
+デザインサイズの「2の-20乗」を単位として記述されています。
+
+<ul>
+<li><var>param</var>[1] …… 文字の傾き
+<p>
+<li><var>param</var>[2] …… 漢字間の理想的なスペース量
+<p>
+<li><var>param</var>[3] …… 漢字間のスペースの伸び量
+<p>
+<li><var>param</var>[4] …… 漢字間のスペースの縮み量
+<p>
+<li><var>param</var>[5] …… 日本語TeXでzhで参照される長さ
+<p>
+<li><var>param</var>[6] …… 日本語TeXでzwで参照される長さ
+<p>
+<li><var>param</var>[7] …… 漢字と英字間の理想的なスペース量
+<p>
+<li><var>param</var>[8] …… 漢字と英字間の理想的な伸び量
+<p>
+<li><var>param</var>[9] …… 漢字と英字間の理想的な縮み量
+</ul>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<a href="index.html">[TFM,JFMの目次]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

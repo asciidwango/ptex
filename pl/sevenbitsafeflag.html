@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>PL reference</title>
+</head>
+<body bgcolor="#F5F5DC">
+<h2><a name="sevenbitsafeflag">SEVENBITSAFEFLAG</a> <font size=4>文字列</font></h2>
+デフォルトは、`<tt>FALSE</tt>'です。この値は１文字目が`<tt>T</tt>'（真）か
+`<tt>F</tt>'（偽）のどちらかでなくてはいけません。
+真である場合、128よりも小さい文字コードは、128以上のコードに対する合字や
+文字リストや拡張文字を導き出せません。
+TeX82はこのフラグを無視しますが、古いバージョンのTeXでは
+７ビットセーフのTFMファイルしか受け付けません。
+PLtoTFは、このフラグの正しい値を計算し、``真''であることが誤り
+である場合だけ、エラーメッセージを出力します。
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>,
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (font metric format)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>TFMファイルとJFMファイル</h2>
+TeXは組版を行うとき、組み立てる文字の情報を<b>TFM</b>ファイルから参照します。
+pTeXも、TeXと同様にTFMファイルを参照しますが、漢字などの２バイト文字については、
+<b>JFM</b>ファイルを参照します。
+<p>
+TFMファイルには、大きくわけて、それぞれの文字に関することがら、
+そのTFMファイルに収められている文字に共通することがら、
+そして、特定の文字の組み合わせのときのことがらの３種類の情報が設定されています。
+<p>
+個々の文字に関しては、その文字の幅、高さ、深さなどがあり、これらは１文字ごとに
+設定できるようになっています。
+<p>
+共通することがらに関しては、文字の傾き、デザインサイズ、
+そのフォントの基準値(em, ex)などの設定です。
+<p>
+そして、ある特定の文字の組み合わせとなったときの合字処理やカーニング処理などの
+設定もされています。
+<p>
+JFMファイルもTFMファイルと同じような内容が設定されています。
+ただし、日本語の文字は数が多いので、文字を単位とするのではなく、
+共通する性質を持つ文字を一つにまとめたグループ単位での設定となります。
+また、横組み用と縦組み用のフォントを示すパラメータも持っている点がTFMと異なります。
+<p>
+ファイル名はどちらも、<b>フォント名.tfm</b>という形式でつけられます。
+<p>
+<ul>
+<li><a href="tfm.html">TFMファイルの構造</a>
+<li><a href="jfm.html">JFMファイルの構造</a>
+</ul>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

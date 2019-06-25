@@ -1,0 +1,81 @@
+pTeX 2.1.5 のソースファイルに対するパッチです。
+つぎの修正内容を含んでいます。
+
+・\leader で置かれる文字位置が揃わない
+  たとえば、つぎのような TeX コマンドで引かれるリーダーの点の位置が
+  揃いません。
+
+    \def\leaderfill{\leaders\hbox to1em{\hss.\hss}\hfill }
+    \line{Alpha\leaderfill Omega}
+    \line{始め\leaderfill 終わり}
+    \end
+
+・\inhibitxspcode が指定通りに動作しない
+  たとえば、\inhibitxspcode が 0（両側に \xkanjiskip を入れない）に
+  設定されている漢字（デフォルトでは 〜,…,￥,−）の両側に \xkanjiskip
+  が入ってしまったり、1（前側に入れない：句読点や閉じ括弧類など）で
+  後ろ側には入るはずなのに入らなくなっています。
+  ※ patch215to216.diff での修正内容
+
+・インストール時に $TEXMF/web2c/texmf.cnf に加える BSTINPUTS.jbibtex の
+  設定行の後ろで改行されず、つぎの BIBINPUTS とつながってしまう
+  ※ mkconf.patch での修正内容
+
+●インストールの手順
+
+web2c-7.0/web2c/ptex215 ディレクトリで、
+    patch -s < patch215to217.diff
+    mv -f ptex.chg.2.1.5 ptex.chg.2.1.7
+    ./configure {EUC|SJIS|JIS}
+    make
+    make install
+してください。
+
+作成した pTeX のバージョンは 2.1.7 となります。
+
+begin 644 patch215to217.diff.gz
+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
++L_\`M"V2!-\7``""
+`
+end
+--
+1998年3月19日
+中野 賢 <ken-na@ascii.co.jp>
+〒151-8024 (株)アスキー デザインワークス テクニカルセンター

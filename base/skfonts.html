@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (skfonts)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>pTeXで使える写研書体</h2>
+ここでは、pTeXで使える写研書体について説明をしています。
+<p>
+ここで示されている書体のJFMファイルやTFMファイルは、
+『TeX for Windows』（インプレス）などに含まれています。
+使用するにあたっては、それらに付属している注意事項をご覧ください。
+<p>
+出力できる書体、DVIファイルの受け渡し方法、価格などは、
+<a href="printing.html">DVIの出力サービス窓口</a>に掲載されている、各窓口にお尋ねください。
+
+<ul>
+<li><a href="#skfonts">和文書体</a>
+<li><a href="#sefonts">欧文書体</a>
+<li><a href="#allchg">all.chgの書き方</a>
+</ul>
+
+
+<hr>
+<h3><a name="skfonts">■和文書体</a></h3>
+JFMでのファイル名のうち、`__'の部分は、
+横組正体の場合には「aa」、縦組の正体の場合は「an」となります。
+長体・平体、斜体を示す文字については、
+<a href="#skname">命名規則</a>を参照してください。
+<p>
+
+<pre>
+    書体名　　　　　  コード名    JFMファイル名        従属書体
+    石井細明朝　　　　LM-NKL      skminl__        E01-24, E01-25, E01-44
+    石井中明朝　　　　MM-A-NKL    skminm__        E01-24, E01-25, E01-44
+    石井太明朝　　　　BM-A-NKL    skmins__        E57-44A,E57-45A
+    石井特太明朝　　　EM-A-NKL    skminu__        E66-54
+    本蘭明朝Ｌ　　　　LHM         skhmnl__        E01-24, E01-25, E01-44
+    本蘭明朝Ｄ　　　　DHM         skhmno__        E80-24, E80-25, E80-44
+    本蘭明朝Ｂ　　　　BHM         skhmns__        E80-44
+    石井中教科書　　　MT-A        sktxtm__        E01-24, E01-25, E01-44
+    新聞特太明朝　　　YSEM        skymnu__        E51-54
+    新聞特太ゴシック　YSEG-L      skygtu__        E52-54
+    石井中ゴシック　　MG-A-KL     skgotm__        E58-24A,E58-25A,E58-44A
+    石井中太ゴシック　DG-KL       skgoto__        E08-24, E08-25, E08-44
+    石井太ゴシック　　BG-A-KL     skgots__        E70-44, E70-45
+    石井特太ゴシック　EG-KL       skgotu__        E67-54
+    ナールＭ　　　　　MNAR        sknarm__        E46-24H,E46-25H,E46-54
+    ナールＤ　　　　　DNAR        sknaro__        E46-34H,E46-35H,E46-54
+    ナールＥ　　　　　ENAR        sknaru__        E46-54, E46-55
+    ゴナＭ　　　　　　MNAG        sknagm__        E74-14,        ,E74-34
+    ゴナＤ　　　　　　DNAG        sknago__        E74-24,        ,E74-44
+    ゴナＤＢ　　　　　DBNAG       sknagq__        E74-34,        ,E74-54
+    ゴナＢ　　　　　　BNAG        sknags__        E74-44,        ,E74-64
+</pre>
+
+
+<hr>
+<h3><a name="sefonts">■欧文書体</a></h3>
+<p>
+<a href="#sename">命名規則</a>
+
+<pre>
+      E01-24      secntmm     センチュリー・オールドスタイル
+      E01-25      secntmmi    センチュリー・オールド・イタリック
+      E01-44      secntqm     センチュリー・ボールド
+      E01-45      secntqmi    センチュリー・ボールド・イタリック
+      E06-24      setypmm     タイプライター・フェース
+      E08-24      sengtmm     ニュースゴシック
+      E08-25      sengtmmi    ニュースゴシック・イタリック
+      E08-44      sengtqm     ニュースゴシック・ボールド
+      E15-24      sevncmm     ベニス・ライトフェース
+      E15-25      sevncmmi    ベニス・ライトフェース・イタリック
+      E16-04      seftrkm     フーツラ・ライト
+      E16-05      seftrkmi    フーツラ・ライト・イタリック
+      E16-24      seftrmm     フーツラ・メディウム
+      E16-25      seftrmmi    フーツラ・メディウム・イタリック
+      E16-42      seftrql     フーツラ・ボールド・コンデンス
+      E16-43      seftrqli    フーツラ・ボールド・コンデンス・イタリック
+      E16-44      seftrqm     フーツラ・ボールド
+      E16-45      seftrqmi    フーツラ・ボールド・イタリック
+      E16-52      seftrsl     フーツラ・エキストラボールド
+      E20-24      sebdnmm     ボドニーブック
+      E20-25      sebdnmmi    ボドニーブック・イタリック
+      E20-44      sebdnqm     ボドニー・ボールド
+      E20-45      sebdnqmi    ボドニー・ボールド・イタリック
+      E20-74      sebdnwm     ボドニー・ディスプレー
+      E30-24      setmsmm     タイムズ・ニューローマン
+      E30-25      setmsmmi    タイムズ・ニューローマン・イタリック
+      E30-44      setmsqm     タイムズ・ニューローマン
+      E30-45      setmsqmi    タイムズ・ニューローマン・ボールド・イタリック
+      E41-04      sestmkm     スタイミー・ライト
+      E41-05      sestmkmi    スタイミー・ライト・イタリック
+      E41-24      sestmmm     スタイミー・メディウム
+      E41-25      sestmmmi    スタイミー・メディウム・イタリック
+      E41-44      sestmqm     スタイミー・ボールド
+      E41-45      sestmqmi    スタイミー・ボールド・イタリック
+      E41-54      sestmsm     スタイミー・エキストラボールド
+      E41-55      sestmsmi    スタイミー・エキストラボールド・イタリック
+      E44-24      sebskmm     バスカービル
+      E44-25      sebskmmi    バスカービル・イタリック
+      E44-44      sebskqm     バスカービル・ボールド
+      E44-45      sebskqmi    バスカービル・ボールド・イタリック
+      E46-14H     senarlm     ナールL
+      E46-15H     senarlmi    ナールL・イタリック
+      E46-24H     senarmm     ナールM
+      E46-25H     senarmmi    ナールM・イタリック
+      E46-34H     senarom     ナールD
+      E46-35H     senaromi    ナールD・イタリック
+      E46-44      senarqm     ナールDB
+      E46-45      senarqmi    ナールDB・イタリック
+      E46-54      senarsm     ナールE
+      E46-55      senarsmi    ナールE・イタリック
+      E50-04      selgtkm     石井新細ゴシック（LG-N）
+      E50-05      selgtkmi    石井新細ゴシック（LG-N）イタリック
+      E50-24      selgtmm     石井新細ゴシック（LG-N）メディウム
+      E51-54      seymnsm     新聞特太明朝体
+      E52-54      seygtsm     新聞特太ゴシック体
+      E53-54      seumnsm     大欄明朝体
+      E57-44      sebmnqm     石井太明朝体
+      E57-45      sebmnqmi    石井太明朝体イタリック
+      E58-24      semgtmm     石井中ゴシック体
+      E58-25      semgtmmi    石井中ゴシック体イタリック
+      E58-44      semgtqm     石井中ゴシック体ボールド
+      E66-54      seemnsm     石井特太明朝体
+      E67-54      seegtsm     石井特太ゴシック体
+      E70-44      sebgtqm     石井太ゴシック体
+      E70-45      sebgtqmi    石井太ゴシック体イタリック
+      E74-14      senaglm     ゴナM
+      E74-24      senagmm     ゴナD
+      E74-34      senagom     ゴナDB
+      E74-44      senagqm     ゴナB
+      E74-54      senagsm     ゴナE
+      E74-64      senagum     ゴナH
+      E74-74      senagwm     ゴナU
+      E76-24      seismmm     岩田新聞明朝体
+      E77-24      seisgmm     岩田新聞ゴシック体
+      E80-14      sehmnlm     本蘭明朝M
+      E80-15      sehmnlmi    本蘭明朝Mイタリック
+      E80-24      sehmnmm     本蘭明朝D
+      E80-25      sehmnmmi    本蘭明朝Dイタリック
+      E80-34      sehmnom     本蘭明朝DB
+      E80-44      sehmnqm     本蘭明朝B
+      E80-54      sehmnsm     本蘭明朝E
+      E100-14     sehlvlm     ヘルベチカ・ライト
+      E100-15     sehlvlmi    ヘルベチカ・ライト・イタリック
+      E100-22     sehlvml     ヘルベチカ・レギュラー・コンデンス
+      E100-24     sehlvmm     ヘルベチカ・レギュラー
+      E100-25     sehlvmmi    ヘルベチカ・レギュラー・イタリック
+      E100-32     sehlvol     ヘルベチカ・デミボールド・コンデンス
+      E100-34     sehlvom     ヘルベチカ・デミボールド
+      E100-35     sehlvomi    ヘルベチカ・デミボールド・イタリック
+      E100-44     sehlvqm     ヘルベチカ・ボールド
+      E100-45     sehlvqmi    ヘルベチカ・ボールド・イタリック
+      E100-84     sehlvym     ヘルベチカ・アウトライン
+      E102-12     seunvll     ユニバース47・ライト・コンデンス
+      E102-14     seunvlm     ユニバース45・ライト
+      E102-15     seunvlmi    ユニバース46・ライト・イタリック
+      E102-24     seunvmm     ユニバース55・メディウム
+      E102-25     seunvmmi    ユニバース56・メディウム・イタリック
+      E102-32     seunvol     ユニバース67・デミボールド・コンデンス
+      E102-34     seunvom     ユニバース65・デミボールド
+      E102-35     seunvomi    ユニバース66・デミボールド・イタリック
+      E102-44     seunvqm     ユニバース75・ボールド
+      E102-45     seunvqmi    ユニバース76・ボールド・イタリック
+</pre>
+
+<hr>
+<h3><a name="allchg">■all.chg の書き方</a></h3>
+
+変換前（JISコード）と変換後（写研コード）を空白またはタブで区切った
+リストを JISコード順に並べます。
+
+<pre>
+    例：
+        0x5021  0x1b71
+        0x5022  0x1b72
+        0x5024  0x1b73
+        0x5025  0x1b74
+        0x5026  0x1b75
+        0x5028  0x1b76
+        0x5029  0x1b77
+        0x502a  0x1b78
+        0x502c  0x1b79
+        0x502d  0x1b7a
+</pre>
+
+
+<hr>
+<h3><a name="skname">■和文書体の命名規則</a></h3>
+<p>
+和文書体は、つぎの５つの箇所に分けて整理されています。
+<pre>
+  ab abc a a a .tfm
+   1  2  3 4 5
+</pre>
+
+<h4>1:メーカー名</h4>
+最初の２桁はメーカー名を示しています。
+標準の和文書体は「sk」となります。
+
+<h4>2:ファミリー名</h4>
+写植機が標準で持っている和文32書体を11のファミリーに分類し、
+それぞれに３文字の名称を付けています。
+
+<pre>
+    書体名　　　　　　　　　コード
+    石井明朝　　　　　　　　min
+    石井ゴシック　　　　　　got
+    石井ゴシック（ラージ）　lgt
+    本蘭明朝　　　　　　　　hmm
+    教科書体　　　　　　　　txt
+    ナール　　　　　　　　　nar
+    ゴナ　　　　　　　　　　nag
+    新聞特太明朝　　　　　　ymn
+    新聞特太ゴシック　　　　ygt
+    岩田新聞明朝　　　　　　ism
+    岩田新聞ゴシック　　　　isg
+</pre>
+
+<h4>3:ウェイト</h4>
+ａ〜ｚのアルファベット１文字で、ウェイトの大きさを示します。
+ｍを中心に、つぎのように割り当てられています。
+
+<pre> 
+    和文書体のウェイト表記  L  M  D  DB  B  E  U
+    ＴＦＭのウェイト表記　  l  m  o   q  s  u  x
+</pre>
+
+<h4>4:長／平体</h4>
+ａ〜ｚのアルファベット１文字で、長体および平体の区別と変形の割合を示します。
+仮名ツメ用書体には、この指定はありません。
+
+<pre>
+    長／平体  コード      長／平体  コード
+    正体 (0%)    a        （欠番）     f
+    長体 10%     b        平体10%      g
+    長体 20%     c        平体20%      h
+    長体 30%     d        平体30%      i
+    長体 40%     e        平体40%      j
+</pre>
+
+<h4>5:斜体</h4>
+ａ〜ｚのアルファベット１文字で、スラントの方向と角度を示します。
+ｎの場合は、縦組用ファイルであることを示します。
+
+<pre>
+    スラント  コード      スラント  コード
+    正体 (0%)    a          ---        -
+    x方向+10%    b        y方向+10%    h
+    x方向+20%    c        y方向+20%    i
+    x方向+30%    d        y方向+30%    j
+    x方向-10%    e        y方向-10%    k
+    x方向-20%    f        y方向-20%    l
+    x方向-30%    g        y方向-30%    m
+
+    正体（縦組）  n
+</pre>
+
+
+<hr>
+<h3><a name="sename">■欧文書体の命名規則</a></h3>
+欧文書体は、つぎの５つの箇所に分けて整理されています。
+<pre>
+  ab abc a a a .tfm
+   1  2  3 4 5
+</pre>
+
+<h4>1:メーカー名</h4>
+最初の２桁はメーカー名を示しています。
+「se」となっています。
+
+<h4>2:ファミリー名</h4>
+３桁でファミリー名を示しています。
+
+<pre>
+    ファミリー名　　　　　 コード　　　ファミリー名　　　　　　　コード
+    E01:センチュリー　　　　cnt　　　　E53 :大蘭明朝　　　　　　umn
+    E06:タイプライタ　　　　typ　　　　E57 :太明朝　　　　　　　bmn
+    E08:ニュースゴシック　　ngt　　　　E58 :中ゴシック　　　　　mgt
+    E15:ベニス　　　　　　　vnc　　　　E66 :特太明朝　　　　　　emn
+    E16:フーツラ　　　　　　ftr　　　　E67 :特太ゴシック　　　　egt
+    E20:ボドニー　　　　　　bdn　　　　E70 :太ゴシック　　　　　bgt
+    E30:タイムズ　　　　　　tms　　　　E74 :ゴナ　　　　　　　　nag
+    E41:スタイミー　　　　　stm　　　　E76 :岩田新聞明朝　　　　ism
+    E44:バスカービル　　　　bsk　　　　E77 :岩田新聞ゴシック　　isg
+    E46:ナール　　　　　　　nar　　　　E80 :本蘭明朝　　　　　　hmn
+    E50:細ゴシック　　　　　lgt　　　　E100:ヘルベチカ　　　　　hlv
+    E51:新聞特太明朝　　　　ymn　　　　E102:ユニバース　　　　　unv　
+    E52:新聞特太ゴシック　　ygt　　　　
+</pre>
+
+<h4>3:ウェイト</h4>
+写研のウェイトコード０〜９に対して、つぎのようにアルファベットを
+割り当てています。
+
+<pre> 
+    欧文書体のウェイト表記  0 1 2 3 4 5 6 7 8 9
+    ＴＦＭのウェイト表記　  k l m o q s u w y z
+</pre>
+
+<h4>4:文字幅</h4>
+写研の幅／スラントコード０〜９に対して、
+つぎのようにアルファベットを割り当てています。
+
+<pre> 
+    欧文書体の文字幅表記  0,1  2,3  4,5  6,7  8,9
+    ＴＦＭのウェイト表記   k    l    m    n    o
+</pre>
+
+<h4>5:イタリック</h4>
+イタリック書体、スラント書体の場合に「i」をつけて示します。
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

@@ -1,0 +1,48 @@
+pTeX 2.1.5 で \inhibitxspcode が指定通りに動作しないバグを修正する
+パッチです。
+
+たとえば、\inhibitxspcode が 0（両側に \xkanjiskip を入れない）に
+設定されている漢字（デフォルトでは 〜,…,￥,−）の両側に \xkanjiskip
+が入ってしまったり、1（前側に入れない：句読点や閉じ括弧類など）で
+後ろ側には入るはずなのに入らない、などの問題を解決します。
+
+web2c-7.0/web2c/ptex215 ディレクトリで、
+    patch -s < patch215to216.diff
+    ./configure {EUC|SJIS|JIS}
+    make
+    make install
+してください。
+
+この修正をすると、バージョンが ptex 2.1.6 になります。
+
+begin 644 patch215to216.diff.gz
+M'XL("%P ]30  W!A=&-H,C$U=&\R,38N9&EF9@#-5VU3XS80_GSY%0M,YV*:
+M.+;R:G-FH'=PE)? ,+GV.J6346PE41LDCRR34(;_WI7M!)(+].6.#AZ2(&GU
+MZ-E]=F5I>WL;8LUF=C@>V<1V[:8M%1^]^9E%L)^.@+3!;?I.VZ\WP?6\=JE:
+MK:Y,>-,;IW#(!D!:X!*_V?&)8VP[I>WEQ[01L%(GD#4-E&G6 ?^KE@"^@[+C
+MU8A3\YH6G'0!XA[[#+%9Q<V'7;=&W#7#C6)VIT;:-:^].MR$\H FZ)(44+?=
+MAMOTK-+WV0Q2(ZV:UUF=T3* ^-EB(N)#.+[H9BODCL-0*G@/H;R.^81JCJA3
+MKL<P90,25B!BBM_@8D,EK^&&*B[3!*0>,P7AF(H1@R&?L,1>&Q_/J[A.,P\0
+MP-X,?B6_P<1V.VVH9OQ\TQW!@ K!5!"\[8UY OB'0Q7XB:F$/SCY%NYBQ85&
+M,M,Q$W"%1E>0:*IT<F]P;DL;:\'B);0\AA58Q'#M6JO1VOL3OS*17<=!IUIS
+MF5^14ZW_YM1:X1JD4_$:]=9<N^/#,R@?TY@*EC XE$+#&=,\M#+Y;8#>F,&5
+M?7=UQ<68#[B>)7$H(W9ON*:&E):88T(K.4$X+A*F-!<CH)#$-&0P8'K*, !D
+M<*M9%5-+ 141N(NF;;AFL2A6Z \P#0,'S'.'J]#!A)E5<NP%+*8W6T6E0XWY
+MR_7],F"LV(W)[\!]&E"*R>V7J"M &7Y GF66 >5$'N-DJ2-DGV&H;@-,-J?H
+M8M-^+).@:(:IRIINEI,HEV?D:L^S\K7+%?'DV\KUCP&?4>HIC&\@TOH::[DH
+M6KL^K[$!&W$!B1^$=!*:B>70VH'8#Y(=H\$01% L +C_BI(AG<]1+&94HV>9
+M67GN'(K:U[<Q*\=6X%A2+0T8N<T YH1!@Y%$OR,IV$X&S$6H<'C' ,:[I-G,
+MK9"-DQND0O,))$&<49P'(Q_#309_V21A3Y)<RW&%B5M06;9>$/]:WD7IM(A1
+MH3$OG1=18<[Y-:NPX/@_J[#^X$"P-CS26:X-$U:::OG @,XLN)81$ MW@14]
+M9GXP8KJ_V"Z,E+-*4936PJO9N]UYW'*$#8"G"FEFO=M]O)^AG(4Y/L^;9[N(
+M]<#1/)%$=IAJ0XHB94HMNK1*<]F^Z'T0-\M?CQ 3*6\Y?U]!I()_%:C@!>.T
+M7=P+V$PK:H?YI>!0<3A.)^"ZX';\)O'KWO*EH+!>NA'4?8?X3N/I&T'=K>!;
+MN$C:+3Z,V-"<Q;"!;]-$]Q.MS&MT(G%WZ5]3//GA!]] FR=8'EWZ!Q5R<V?5
+M6N.9KS](1WT:18HE2; YG4ZKAN,>34+.[5#:O\<X;P.V<$$$A!_VN]V#2]C\
+MBC/PIO&@@'M_?O'+Y8\?CWK]H_/3#P;X@WU@PXE(]?BQW?ZGWM'Y)70_G9X^
+LZKVX//]XN7_6/SHXO8#>P6?SFX4YCU:1N*\[6G]WN'[A:/T%JHKD>-L.   ^
+ 
+end
+----
+中野 賢<ken-na@ascii.co.jp>
+株式会社アスキー アスキーデザインワークス テクニカルセンター

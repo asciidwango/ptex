@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (What's new)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>pTeX新着情報とホームページ更新情報(2000年分)</h2>
+過去の変更：
+<a href="changes1999.html">1999年</a>／
+<a href="changes1998.html">1998年</a>／
+<a href="changes1997.html">1997年</a>／
+<a href="changes1996.html">1996年</a>／
+<a href="changes1995.html">1995年</a>
+<p>
+<hr>
+
+<h4>2000/11/13</h4>
+<ul>
+<li>pTeXに対する<a href="../archives/ascii-ptex/tetex/ptex2.1.9-10_2.patch">パッチ</a>を公開します。<br>
+ptex 2.1.10を --version オプションで起動したときに、表示されるバージョン番号が
+2.1.9のママなのを修正します。
+<li>PLtoTFに対する<a href="../archives/ascii-ptex/tetex/pltotf1.3-4.patch">パッチ</a>を公開します。<br>
+CHARSINTYPEに全角空白文字を指定したとき、誤ったJFMが作られてしまうバグを
+修正します。
+<li>pTeXライブラリを更新しました
+（<a href="../archives/ascii-ptex/tetex/ptex-texmf-1.8.tar.gz">ptex-texmf-1.8.tar.gz</a>）。
+<ul>
+<li>pLaTeX を LaTeX <2000/06/01> に対応。
+<li>縦組クラス（t{article,book,report}）で、文頭の全角開き括弧類がさがるのを修正。
+</ul>
+</ul>
+
+<h4>2000/11/10</h4>
+<ul>
+<li>pTeXに対する<a href="../archives/ascii-ptex/tetex/ptex2.1.9-10.patch">パッチ</a>を公開します。<br>
+ある種のjfm（glueパターン数 > 文字タイプ数）をロードできないバグを修正します。
+</ul>
+
+<h4>2000/09/26</h4>
+<ul>
+<li>10/6に<a href="http://ms326.ms.u-tokyo.ac.jp/otobe/noneurotex.html">研究集会「非欧文言語におけるTeX」</a>が開かれます。
+<p>
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.4f.tar.gz">mendexk</a>をバージョンアップしました。<br>
+Shift-JIS処理時に、ページ番号に付加するコマンドに2バイト文字を
+使用された場合に動作がおかしくなるのを修正してあります。
+<p>
+<li>dvipsをバージョンアップしました。つぎの２点を修正してあります。
+<ul>
+<li>Type1フォントを使用した場合に、英字がずれる場合がある。
+<li>-zオプションを付けた場合に、PSファイル中の改行がおかしくなる。
+</ul>
+パッチファイルは、teTeX対応版（<a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.5c.tar.gz">dvipsk-jpatch-p1.5c.tar.gz</a>）と、通常版（<a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.4e.tar.gz">dvipsk-jpatch-p1.4e.tar.gz</a>）とがあります。
+</ul>
+</ul>
+
+<h4>2000/05/22</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.4e.tar.gz">mendexk</a>をバージョンアップしました。<br>
+主索引項目の下に、2つ以上の副索引項目があるとき、
+副索引間のコマンド文字列がおかしくなる場合があるのを修正してあります。
+</ul>
+
+<h4>2000/03/01</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.5b.tar.gz">dvipskのパッチ（1.5b）</a>を正式公開します。<br>
+p1.5a の Makefile.in の修正（1行目の行頭に # を追加）だけです。
+</ul>
+
+<h4>2000/02/25</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.5a.tar.gz">dvipskのパッチ（1.5a）</a>を正式公開します。β版からの修正はありません。
+</ul>
+
+<h4>2000/02/18</h4>
+<ul>
+<li>dvipskのパッチ（1.5a）をβ公開します。以下の点を修正してあります。
+<pre>
+・Omegaモードでのコンパイルができるように修正。
+・各種設定ファイルがインストールされるように Makefile を修正。
+・インストール方法を変更。
+</pre>
+</ul>
+
+<h4>2000/02/02</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.4d.tar.gz">mendexk</a>をバージョンアップしました。<br>
+ひとつの項目に対する、複数個のページ番号の並び順がおかしくなるのを修正
+してあります。
+</ul>
+
+<h4>2000/02/01</h4>
+<ul>
+<li>dvipskのパッチ（<a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.4d.tar.gz">1.4d</a>, <a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.5.tar.gz">1.5</a>）を正式公開します。β版から、つぎの変更がされています。
+<pre>
+・漢字コードの範囲を94区94点から120区94点に拡張。
+</pre>
+</ul>
+
+<h4>2000/01/25</h4>
+<ul>
+<li>dvipskのパッチ（1.4d, 1.5）をβ公開します。<br>
+<ul>
+<li>dvipsk-jpatch-p1.4d.tar.gz<br>
+  dvips-5.78に対するパッチ。以下の修正を施してあります。
+<pre>
+p1.4c -> p1.4d
+・tpicにより作成された図が丸め誤差の蓄積によりずれてしまうことがある。
+  東京理科大学の松田一朗さんのご協力により修正。
+・HyperTeX の hyper.sty 使用時に、fixhyperbox のオプションを指定すると dvips
+  が落ちる。慶応義塾大学の内山孝憲さんのご協力により修正。
+・出力ファイル名が正しくならない場合がある。近畿大学の角藤亮さん、松阪大学の
+  奥村晴彦さんのご協力により修正。
+・元プログラムである dvipsk がGPL(GNU General Public License)に従っているため、
+  本パッチも配布条件をGPLに従うように変更。
+・pstricksの\pstextpath中で日本語を使用するとPSエラーが出る。東京理科大学の
+  松田一朗さんによる対処方法を PSTricks.patch に記載。
+</pre>
+<li>dvipsk-jpatch-p1.5.tar.gz<br>
+  dvipsk-5.86（teTeX-1.0に付属）に対するパッチ。
+</ul>
+</ul>
+
+
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

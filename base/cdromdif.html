@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- TeX page -->
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>pLaTeX2e Install Kit</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<a name="macintosh">
+<h2>『日本語LaTeX2eインストールキット Macintosh版』関連情報</h2>
+</a>
+
+<ul>
+<li>MacOS ９でインストールできない。<br>
+<a href="http://www.adobe.co.jp/support/custsupport/library/atmmac.html">Adobe</a>からAdobe Type Manager 4.6を入手してインストールしてください。
+</ul>
+
+<p>
+<hr>
+<a name="platex2e_cdrom">
+<h2>『日本語LaTeX2eインストールキット』関連情報</h2>
+</a>
+
+<p>
+<a name="guide_diff">
+<h3>■インストールガイドの訂正</h3>
+</a>
+<ul>
+<li>4ページ（中ほど）<br>
+<pre>
+    誤：xdvik 20a+j1.1p8 (Macintosh版)
+    正：xdvik pl14 (Macintosh版)
+</pre>
+<li>5ページ（下から２行目）<br>
+<pre>
+    誤：www-ptec＠ascii.co.jp
+    正：www-ptex＠ascii.co.jp
+</pre>
+<li>115ページ（下のほう、4箇所）<br>
+<pre>
+    誤：:texmf:tex:fonts:pk
+    正：:texmf:fonts:pk
+</pre>
+</ul>
+
+<a name="cdrom_diff">
+<h3>■CD-ROMの訂正</h3>
+</a>
+
+<h4>Windows版 README.TXT</h4>
+<blockquote>
+<b>Windows版</b>のREADME.TXTのアンインストールの項<br>
+<blockquote>
+誤：Software\Microsoft\CurrentVersion\App Paths\KWinTeX.exe<br>
+正：Software\Microsoft\Windows\CurrentVersion\App Paths\KWinTeX.exe
+</blockquote>
+</blockquote>
+
+<h4>Windows版 setup.exe</h4>
+<blockquote>
+<b>Windows版</b>のインストールで、共有DLLのバージョンチェックに失敗し、
+他のアプリケーションが動かなくなる場合があります。
+<p>
+新しいsetup.exeを使ってインストールするには、つぎのようにします。
+<ol>
+<li><a href="../archives/ascii-ptex/ptexcdrom/1/setupfix.lzh">setupfix.lzh</a>を展開する。
+<li>CD-ROMの<tt>_setup.tsm</tt>を新しいsetup.exeと同じディレクトリにコピーする。
+<li>新しいsetup.exeを、pTeXのCD-ROMが挿入されたCD-ROMドライブの
+    ルートディレクトリを引数にとって起動します。
+    <font color="red"><b>
+    setup.exe をダブルクリックしての起動はしないように注意</b></font>
+    してください。たとえば、CD-ROMドライブがD:ドライブであれば、
+    スタートメニューの「ファイル名を指定して実行」から、
+    <pre>
+        setup  d:\
+    </pre>
+    として起動してください。
+</ol>
+</blockquote>
+
+
+<h4>amslatexパッケージ</h4>
+<blockquote>
+<b>UNIX版</b>のCD-ROMにAMSフォントを使うために必要なAMS Font付属の
+スタイルファイルが収録されていませんでした。
+<p>
+<ul>
+<li>追加のための説明
+    <a href="../archives/ascii-ptex/ptexcdrom/1/amslatex/readme.txt">readme.txt</a>
+<li>追加のためのスクリプト
+    <a href="../archives/ascii-ptex/ptexcdrom/1/amslatex/addamslatex">addamslatex</a>
+<li>追加アーカイブ
+    <a href="../archives/ascii-ptex/ptexcdrom/1/amslatex/amslatex-diff.tar.gz">amslatex-diff.tar.gz</a>
+</ul>
+<p>
+<b>Macintosh版</b>のCD-ROMでは、MacpTeX215.seaに含まれていて、
+:texmf:tex:latexフォルダにインストールされています。
+このamsfontsフォルダを:texmf:tex:latex:packages:amslatexフォルダに
+移動してください。その後、:texmf:MakeTeXls-Rを実行してください。
+<p>
+<b>Windows版</b>には含まれています。
+</blockquote>
+
+
+<h4>psnfssパッケージ</h4>
+<blockquote>
+<b>UNIX版</b>のCD-ROMに、PSフォントを使うために必要なスタイルファイルが
+収録されていませんでした。
+<p>
+<ul>
+<li>追加のための説明
+    <a href="../archives/ascii-ptex/ptexcdrom/1/psnfss/readme.txt">readme.txt</a>
+<li>追加のためのスクリプト
+    <a href="../archives/ascii-ptex/ptexcdrom/1/psnfss/addpsnfss">addpsnfss</a>
+<li>追加アーカイブ
+    <a href="../archives/ascii-ptex/ptexcdrom/1/psnfss/psnfss-diff.tar.gz">psnfss-diff.tar.gz</a>
+</ul>
+<p>
+<b>Macintosh版</b>のCD-ROMでは、MacpTeX215.seaに含まれていて、
+:texmf:tex:latexフォルダにインストールされています。
+このpsfontsフォルダを:texmf:tex:latex:packages:psnfssフォルダに
+移動してください。その後、:texmf:MakeTeXls-Rを実行してください。
+<p>
+<b>Windows版</b>には含まれています。
+</blockquote>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

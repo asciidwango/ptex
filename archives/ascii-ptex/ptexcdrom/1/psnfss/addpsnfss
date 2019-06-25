@@ -1,0 +1,121 @@
+#!/bin/sh
+#======================================================================
+# A Part of ``The Nihongo TeX installation Kit'' installer
+# by Hideaki Togashi (hideak-t@ascii.co.jp)
+#======================================================================
+##
+pkgname=psnfss
+category=lt_packages
+checkdir=share/texmf/tex/latex/packages/psnfss
+## init
+progname=`basename $0`
+progdir=`dirname $0`
+prefixdir=`kpsewhich -expand-var '$TEXMFMAIN' 2>&1 | sed -e s!/share/texmf!!`
+[ "$prefixdir" = "" ] && prefixdir="/usr/local"
+[ -d "$prefixdir" ] || prefixdir="/usr/local"
+savelist=$prefixdir/share/ptexcd/$category/$pkgname
+debug=false
+help=false
+gnutar=false
+tarversion=`tar --version 2>&1`
+case $tarversion in
+  *GNU*) gnutar=true;;
+esac
+
+## begin of functions
+usage()
+{
+cat << EOF
+     usage : $progname [options]
+        options
+            --prefix-dir=dist_dir     (now, equal: $prefixdir)
+                directory which "share/texmf" directory exists.
+            --list-name=list          (now, equal: $savelist)
+            --help
+EOF
+}
+## end of functions
+
+trap "exit 11" 1 2 3
+
+## options
+while [ $# -gt 0 ]; do
+  case $1 in
+    --prefix*=* | -prefix*=*)
+      prefixdir=`echo $1 | sed -e 's/.*=//'`;;
+    --list*=* | -list*=*)
+      savelist=`echo $1 | sed -e 's/.*=//'`;;
+    --no-i* | -no-i* | --debug* | -debug*)
+      debug=true;;
+    -*)
+      debug=true
+      help=true;;
+    *) break;;
+  esac
+  shift
+done
+
+# check
+if $gnutar; then
+  true
+else
+  echo
+  echo "Tar is not GNU tar.  Please use GNU tar." > /dev/stderr
+  echo
+  exit 1
+fi
+if [ ! -d $prefixdir ]; then
+  echo
+  echo No directory: $prefixdir > /dev/stderr
+  echo
+  help=true
+else
+  prefixdir=`(cd $prefixdir; pwd)`
+fi
+if [ ! -d $prefixdir/$checkdir ]; then
+  echo
+  echo No directory: $prefixdir/$checkdir > /dev/stderr
+  echo
+  help=true
+fi
+if [ ! -f $savelist ]; then
+  echo
+  echo No list: $savelist > /dev/stderr
+  echo
+  help=true
+fi
+if [ ! -f $progdir/$pkgname-diff.tar.gz ]; then
+  echo
+  echo No archive: $progdir/$pkgname-diff.tar.gz > /dev/stderr
+  echo
+  help=true
+fi
+if [ `whoami` != "root" ]; then
+  echo
+  echo "Instllation must be done by root!" > /dev/stderr
+  echo
+  help=true
+fi
+
+# help & exit
+if $help; then
+  usage
+  exit 0
+fi
+
+
+if $debug; then
+  echo tar --directory $prefixdir -xzf $progdir/$pkgname-diff.tar.gz
+  tar tvzf $progdir/$pkgname-diff.tar.gz \
+   | sed -e "sD.* \(share/.*\)D$prefixdir/\1D" -e '/\/$/d'
+else
+  tar --directory $prefixdir -xzf $progdir/$pkgname-diff.tar.gz
+  tar tvzf $progdir/$pkgname-diff.tar.gz \
+   | sed -e "sD.* \(share/.*\)D$prefixdir/\1D" -e '/\/$/d' \
+   >> $savelist
+  MakeTeXls-R
+fi
+
+echo All done! > /dev/stderr
+
+exit 0

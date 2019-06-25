@@ -1,0 +1,46 @@
+pLaTeX のクラスファイル 1.1j に対するパッチです。
+
+report, bookクラスで、番号の付かない見出しのペナルティを \@M に訂正します。
+
+●インストール方法
+
+※ このパッチをあてる前に、pl980227.patch をあててください。
+※ このパッチの漢字コードは EUC になっています。必要に応じて、漢字
+   コードを変換してからパッチをあててください。
+
+pLaTeX <1997/02/17> 版のディレクトリに移動して、
+   patch < pl980323.patch
+   platex plcls.ins
+としてください。
+
+修正後、クラスファイルのバージョンは 1.1k となります。
+
+なお pLaTeX フォーマットファイルは、作り直さなくてもかまいません。
+また pLaTeX のカーネルバージョンも変更ありません。
+
+begin 644 pl980323.patch.gz
+M'XL(".KT%34``W!L.3@P,S(S+G!A=&-H`-U4[4L401C_G'_%A!AUG7>W>R_>
+MB<A!8`5=!/4A:/TPMSM[CK?N++NC:.O^,=H,!`6]DU>*AE"^(154T(>"/@3B
+M-Z6/23.[=^>=J?E!$5H6=IZ9Y_G-[_>\;"P6`\.Z!3T/>0F#CB>(BRMG2L0&
+M)>@"-0V43&\ZVYO*`*50R'=T=W>WN>_US/4JA<@SUOY(&V35>"X-0A.`+J#I
+M0]"N(,\?4Q(*#GP1UY-45/$&OHL<XM(X*!-2Y8_X!J^Q=RL?U]8>_WJU\WJ'
+MK4Y-AQ#A4R9TR*,3%N(U/L\9WV2KK,8VV=+4-'_&M_D'N<?O\XVI67&R(D[6
+MV=8<6W@1_$UC.*213Z;49"H=^#/?G]?XCZE9OBPN78=9AZWS);[(O_!O8G.&
+M;[.M5*('VV]^/UVLHYE8?J,U-DUH>4@8VG6$#.\6NCU`W!%(?><:%(:*PJ"^
+MF.'B,>3V=YP%V@V7C&$#>0/80GYKKH,[N\Q`R!7<I-`VH&N`"`Z$WH,A9+(!
+M&>)/D"J)EM"E6+=0?_.>2S+&'Z[O!V&)9:&R0*RZ_\]"7=R+5FV@I9-JNB&*
+M+;6*6OI<^\FVEC^Q)X(9FWDP]YZ]9.LA%`#\*U\1U-_R>^RAIGM^J1BP!;;(
+MYJ4"N5$L!6RU1<J)=XD4$G9)]42Z9+_QSBOQ?+XYWGV*XM!SY6I_.U=:KBI*
+M0K=(I$E1#W)2=YV2%%(D93>)3485FI0%Z@?@R),A(9240R<EN4EY^9&B34$*
+MG/?P702(0S&Q+PRV5T24SB#ZZ`BRJ1YERJ+C8D?RURXC*E5=M4W27JIPUO+I
+M>"'5G+53R-J_.^6PK!T2?5)9VZ_WU$RF)ZYFLKE&_PF$H=$*TLJFAUR,O$Y%
+M<Z`;=$5'-BF["%:U,:^*G30:UXK0I,@=0M#`=J6>O\801*1;<Q<R1Z96]`0F
+M[51\OXZK"RGB.KLB<B9,+"T+V\A!-K3HA%8J:B[R$"V:Q*91R)6#61:1;<@+
+MZGS:&,C6$:(+0G1.;;3/<8J.?FQ`$QS\$:B[1"<&.N5?9X-3&56PW<KJ^"I4
+.+!U7A?X`VXMB3EL)``#/
+`
+end
+--
+1998年3月23日
+中野 賢 <ken-na@ascii.co.jp>
+〒151-8024 (株)アスキー デザインワークス テクニカルセンター

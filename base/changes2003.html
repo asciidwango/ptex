@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (What's new)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>pTeX新着情報とホームページ更新情報(2003年分)</h2>
+過去の変更：
+<a href="changes2002.html">2002年</a>／
+<a href="changes2001.html">2001年</a>／
+<a href="changes2000.html">2000年</a>／
+<a href="changes1999.html">1999年</a>／
+<a href="changes1998.html">1998年</a>／
+<a href="changes1997.html">1997年</a>／
+<a href="changes1996.html">1996年</a>／
+<a href="changes1995.html">1995年</a>
+<p>
+<hr>
+
+<h4>2003/11/07</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.3.tar.gz">ptex-src-3.1.3.tar.gz</a>を公開します。
+<ul>
+<li>-kanji=sjis のとき、\kansujichar で、期待した文字が設定されないのを
+    修正しました(ありがとう、角藤さん)。
+<li>端末/ログへのメッセージで、印字できない文字が、そのまま出力されてしまう
+    ことがあるのに対処しました（例：\hbox to0pt{$\gamma$}}）。
+</ul>
+<li><a href="../help/kansujichar.html">\kansujichar</a>の例を修正しました。
+</ul>
+
+<!--
+<h4>2003/09/29</h4>
+<ul>
+<li>「<a href="links.html">TeX関連リンク</a>」を書き直し。
+</ul>
+
+<h4>2003/09/26</h4>
+<ul>
+<li>トップページのタイトルを変更。
+<li>「<a href="../help/">pTeXの拡張プリミティブと変数</a>」の
+レイアウトを変更（フレーム分割を上下から左右に）。
+</ul>
+-->
+
+<h4>2003/05/16</h4>
+<ul>
+<li>「<a href="printing.html">TeX関連のサービス窓口</a>」に
+<a href="http://www.chuo-print.com/">中央印刷株式会社</a>様を
+登録させていただきました。
+</ul>
+
+<h4>2003/03/04</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.6.tar.gz">dvipsk-jpatch-p1.6.tar.gz</a>を公開します。dvipsk 5.92bに対応しました。
+<p>
+<li><a href="../dvi/">DVIフォーマット</a>を記述しました。
+</ul>
+
+
+<h4>2003/02/18</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.2.tar.gz">ptex-src-3.1.2.tar.gz</a>
+	を公開します。
+<ul>
+<li>3.1で取り除いた\kansujiプリミティブを復活させました。
+<li>\kansujicharプリミティブを導入しました。
+\kansujiで出力される文字を指定するのに用います。
+</ul>
+</ul>
+
+
+<h4>2003/02/15</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.1.tar.gz">ptex-src-3.1.1.tar.gz</a>
+	を公開します。
+<ul>
+<li>漢字が ^^ 形式でコンソールに表示するのを修正
+<li>\uppercase, \lowercase で core を出す場合があるのを修正
+</ul>
+</ul>
+
+<h4>2003/02/14</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.tar.gz">ptex-src-3.1.tar.gz</a>
+を公開します。
+<ul>
+<li>Web2C 7.4.5（teTeX-src-2.0.tar.gz）へ対応
+<li>sjis 動作以外のとき、\char\sjis が正しく動かないのを修正
+<li>実験的に入れてあったプリミティブ（\kansuji、\tozen）を取り除いた
+<li>main_memoryやhash_extraなどを大きくし、膨大なマクロ定義をすると、
+「!Missing control sequence inserted.」のエラーになるのを修正
+</ul>
+
+<li><a href="../archives/ascii-ptex/tetex/ptex-texmf-2.1.tar.gz">ptex-texmf-2.1.tar.gz</a>も公開します。
+
+<ul>
+<li>展開したファイルの漢字コードをJISコードにした。
+<li>縦組クラスで \flushbottom しないようにした
+<li>\adjustbaselineでフォントの基準値が縦書き以外では設定されないのを修正
+<li>\ascii, \Ascii, \ASCII マクロがエラーになっていたのを修正
+</ul>
+</ul>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

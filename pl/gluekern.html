@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>PL reference</title>
+</head>
+<body bgcolor="#F5F5DC">
+<h2><a name="gluekern">GLUEKERN</a> <font size=4>下位のプロパティ</font></h2>
+<img src="../images/jpl.gif" alt="jpl"> JPLファイルだけで有効なプロパティです。
+<p>
+JFMファイルの<it>glue/kern</it>テーブルに収めるプログラムを記述します。
+PLファイルの<a href="ligtable.html">LIGTABLE</a>と似ていますが、
+<tt>LIG</tt>の代わりに<tt>GLUE</tt>を用いるところが異なります。
+<p>
+下位のプロパティには、つぎのようなものがあります。
+
+<ul>
+<li>LABEL １バイト長の整数値<br>
+  <var>char_type</var>のプログラムを開始することを示します。
+  整数値は、そのフォントに存在する<var>char_type</var>の値を指定します。
+  少なくとも一つの<tt>GLUE</tt>または<tt>KRN</tt>コマンドを
+  含めねばいけません。
+<p>
+<li>GLUE １バイト長の整数値と３つの実数値<br>
+  <tt>GLUEKERN</tt>プログラムの中で、現在の<var>char_type</var>と、
+  １バイト長の整数値で指定された<var>char_type</var>の間に挿入するグルーを
+  自然長、伸び長、縮み長の３つの実数値で指定します。
+<p>
+<li>KRN １バイト長の整数値と実数値<br>
+<pre>
+    (KRN c r)
+</pre>
+  は、次の文字が「c」であれば、
+  現在の文字と「c」の間に幅「r」の空白を挿入することを示します。
+  「r」の値はデザインサイズを単位にし、負の値を設定することもできます。
+  文字「c」はそのフォントに存在する文字です。
+<p>
+<li>STOP<br>
+  glue/kernプログラムの終了を示します。このプロパティは、
+  <tt>GLUE</tt>または<tt>KRN</tt>のどちらかのうしろに続けます。
+  <tt>LABEL</tt>, <tt>STOP</tt>, <tt>SKIP</tt>のうしろには指定できません。
+<p>
+<li>SKIP 0から127までの範囲の値<br>
+  <tt>GLUE</tt>または<tt>KRN</tt>に指定した値が飛び越された後の
+  glue/kernプログラムの続きを指定します。<tt>GLUE</tt>と<tt>KRN</tt>構造の
+  うしろの数は、ここで記述された量よりも多くある必要があります。
+</ul>
+
+<p>
+<b>関連項目：</b><a href="format.html">数値表現</a>,
+<a href="ligtable.html">LIGTABLE</a>,
+<a href="charsintype.html">CHARSINTYPE</a>,
+<a href="type.html">TYPE</a>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>,
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

@@ -1,0 +1,48 @@
+JFM の char_type の数が glue のパターン数以上あればロードされる
+けれども、そうでないと、つぎのエラーが出るというバグを修正します。
+
+    not loadable: Bad metric (TFM) file
+
+begin 644 2000-11-10.patch
+M*BHJ('!T97@R,3DN8V@N;W)I9R`@("`@5&AU($YO=B`@.2`Q-3HU,3HT."`R
+M,#`P"BTM+2!P=&5X,C$Y+F-H("!4:'4@3F]V("`Y(#$Y.C`U.C`W(#(P,#`*
+M*BHJ*BHJ*BHJ*BHJ*BHJ"BHJ*B`S-BPT,B`J*BHJ"B`@0'@@6S$N,ET@;"XQ
+M.30@+2!P5&58.@H@($!D(&)A;FYE<CT])U1H:7,@:7,@5&58+"!697)S:6]N
+M(#,N,30Q-3DG('MP<FEN=&5D('=H96X@7%1E6%P@<W1A<G1S?0H@($!Y"B$@
+M0&0@8F%N;F5R/3TG5&AI<R!I<R!P5&58+"!697)S:6]N('`R+C$N.2P@8F%S
+M960@;VX@5&58+"!697)S:6]N(#,N,30Q-3DG"B`@0'H*("`*("!`>"!;,BX_
+M/UT@;"XU-S,@+2!P5&58.@HM+2T@,S8L-#(@+2TM+0H@($!X(%LQ+C)=(&PN
+M,3DT("T@<%1E6#H*("!`9"!B86YN97(]/2=4:&ES(&ES(%1E6"P@5F5R<VEO
+M;B`S+C$T,34Y)R![<')I;G1E9"!W:&5N(%Q495A<('-T87)T<WT*("!`>0HA
+M($!D(&)A;FYE<CT])U1H:7,@:7,@<%1E6"P@5F5R<VEO;B!P,BXQ+C$P+"!B
+M87-E9"!O;B!495@L(%9E<G-I;VX@,RXQ-#$U.2<*("!`>@H@(`H@($!X(%LR
+M+C\_72!L+C4W,R`M('!495@Z"BHJ*BHJ*BHJ*BHJ*BHJ*@HJ*BH@,C(V,"PR
+M,C8U("HJ*BH*+2TM(#(R-C`L,C(Y,B`M+2TM"B`@0'D*("!`9"!C=7)R96YT
+M7V-H87)A8W1E<E]B96EN9U]W;W)K961?;VX]/6LM8VAA<E]B87-E6V9="B`@
+M0'H**R`**R!`>"!;,S`N-3<S72!L+C$Q,3(Y("T@<%1E6#H@:F9M"BL@("`@
+M(&EF(&$^,3(X('1H96X**R`@("`@("!B96=I;B!I9B`R-38J8RMD/CUN;"!T
+M:&5N(&%B;W)T.PHK("`@("`@(&EF(&$],C4U('1H96X@:68@:SUL:6=?:V5R
+M;E]B87-E6V9=('1H96X@8F-H87(Z/6(["BL@("`@("`@96YD"BL@("`@(&5L
+M<V4@8F5G:6X@:68@8CP^8F-H87(@=&AE;B!C:&5C:U]E>&ES=&5N8V4H8BD[
+M"BL@("`@("`@:68@8SPQ,C@@=&AE;B!C:&5C:U]E>&ES=&5N8V4H9"D@>V-H
+M96-K(&QI9V%T=7)E?0HK("`@("`@(&5L<V4@:68@,C4V*BAC+3$R."DK9#X]
+M;FL@=&AE;B!A8F]R=#L@>V-H96-K(&ME<FY]"BL@("`@("`@:68@83PQ,C@@
+M=&AE;B!I9B!K+6QI9U]K97)N7V)A<V5;9ETK82LQ/CUN;"!T:&5N(&%B;W)T
+M.PHK("`@("`@(&5N9#L**R`@("`@96YD.PHK($!Y"BL@("`@(&EF(&$^,3(X
+M('1H96X**R`@("`@("!B96=I;B!I9B`R-38J8RMD/CUN;"!T:&5N(&%B;W)T
+M.PHK("`@("`@(&EF(&$],C4U('1H96X@:68@:SUL:6=?:V5R;E]B87-E6V9=
+M('1H96X@8F-H87(Z/6(["BL@("`@("`@96YD"BL@("`@(&5L<V4@8F5G:6X@
+M:68@8CP^8F-H87(@=&AE;B!C:&5C:U]E>&ES=&5N8V4H8BD["BL@("`@("`@
+M:68@8SPQ,C@@=&AE;B!B96=I;@HK("`@("`@("`@("!I9B!J9FU?9FQA9SP^
+M9&ER7V1E9F%U;'0@=&AE;B!B96=I;B!I9B!D/CUN92!T:&5N(&%B;W)T.R!E
+M;F0**R`@("`@("`@(&5L<V4@8VAE8VM?97AI<W1E;F-E*&0I.R![8VAE8VL@
+M;&EG871U<F5]"BL@("`@("`@96YD(&5L<V4@:68@,C4V*BAC+3$R."DK9#X]
+M;FL@=&AE;B!A8F]R=#L@>V-H96-K(&ME<FY]"BL@("`@("`@:68@83PQ,C@@
+M=&AE;B!I9B!K+6QI9U]K97)N7V)A<V5;9ETK82LQ/CUN;"!T:&5N(&%B;W)T
+M.PHK("`@("`@(&5N9#L**R`@("`@96YD.PHK($!Z"BL@"B`@"B`@0'@@6S,P
+M+C4W-%T@;"XQ,3$T,2`M('!495@Z(')E860@:F9M(&5X=&5N"B`@9F]R(&LZ
+I/65X=&5N7V)A<V5;9ET@=&\@<&%R86U?8F%S95MF72TQ(&1O"@HM+0H`
+`
+end
+--
+株式会社アスキー 出版技術部

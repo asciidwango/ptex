@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (What's new)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>pTeX新着情報とホームページ更新情報(2001年分)</h2>
+過去の変更：
+<a href="changes2000.html">2000年</a>／
+<a href="changes1999.html">1999年</a>／
+<a href="changes1998.html">1998年</a>／
+<a href="changes1997.html">1997年</a>／
+<a href="changes1996.html">1996年</a>／
+<a href="changes1995.html">1995年</a>
+<p>
+<hr>
+
+<h4>2001/08/07</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.5e.tar.gz">dvipsk-jpatch-p1.5e.tar.gz</a>を公開します。<br>
+修正箇所はつぎのとおりです。
+<ul>
+<li>各ページ末尾に余計なrotateが入っていたのを修正。
+<li>欧文フォントの出力位置のずれを修正。
+</ul>
+</ul>
+
+<h4>2001/05/22</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex2.1.10-11.patch">ptex2.1.10-11.patch</a>を公開します。<br>
+pTeXで、文字タイプが255を越えるJFMを正しく扱えないバグを修正します。
+このパッチを適用すると、pTeXのバージョンは2.1.11になります。
+<li><a href="../tfm/jfm.html">JFMの説明</a>を追加しました。
+</ul>
+
+<h4>2001/05/10</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-texmf-1.10.tar.gz">ptex-texmf-1.10.tar.gz</a>を公開します。<br>
+修正箇所はつぎのとおりです。
+<ul>
+<li>縦組時、\pbox&lt;z&gt;でエラーが出るのを修正
+<li>縦組時、ベースラインシフトの調整量が大きくなっていたのを修正
+<li>縦組時、空のページのレイアウトがおかしくなるのを修正
+</ul>
+</ul>
+
+<h4>2001/04/05</h4>
+<ul>
+<li><a href="http://www.lightstone.co.jp/">ライトストーン</a>から、
+pLaTeXを使ったワープロソフト、Scientific Workplace/Word 日本語版が
+発売されたようです。
+</ul>
+
+<h4>2001/02/28</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-texmf-1.9.tar.gz">ptex-texmf-1.9.tar.gz</a>を公開します。<br>
+修正箇所はつぎのとおりです。
+<ul>
+<li>dvipsで用いるための和文 vf を追加。
+<li>nidanfloat.sty のつぎのバグを修正。
+<li>柱が出ない場合がある
+<li>分割された箇所の行間がずれている
+</ul>
+<li><a href="../archives/ascii-ptex/jvf/makejvf-1.1a.tar.gz">makejvf-1.1a.tar.gz</a>を公開します。<br>
+修正箇所はつぎのとおりです。
+<ul>
+<li>縦書き時にクオート類をミニュートへ変更するためのオプション -m を追加
+</ul>
+</ul>
+
+
+<h4>2001/02/13</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.5d.tar.gz">dvipsk-jpatch-p1.5d.tar.gz</a>を公開します。<br>
+修正箇所はつぎのとおりです。
+<ul>
+<li>type1フォントの読み込みに失敗することがあるのを修正。
+<li>\raisebox{&lt;EPS読み込み&gt;}〜&lt;和文&gt;〜\raisebox{&lt;EPS読み込み&gt;}〜と並べた場合、
+  後の\raiseboxが効かなくなる場合があるのを修正。
+</ul>
+</ul>
+
+
+<h4>2001/02/09</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-2.1.10.tar.gz">ptex-src-2.1.10.tar.gz</a>を公開します。<br>
+修正箇所はつぎのとおりです。
+<ul>
+<li>pltotf：CHARSINTYPEに全角空白文字を指定したとき、誤ったJFMが作られてしまう
+	バグを修正
+	(<a href="../archives/ascii-ptex/tetex/pltotf1.3-4.patch">pltotf1.3-4.patch</a>
+		の内容）
+<li>ptex：「glueパターン数 > 文字タイプ数」の JFM をロードできないバグを修正<br>
+    （<a href="../archives/ascii-ptex/tetex/ptex2.1.9-10.patch">ptex2.1.9-10.patch</a>
+		の内容）
+<li>ptex：バージョン番号を2.1.10に修正
+	（<a href="../archives/ascii-ptex/tetex/ptex2.1.9-10_2.patch">ptex2.1.9-10_2.patch</a>
+		の内容）
+<li>ptex, pltotf, tftopl, pdvitype, jbibtex：
+	--versionと--helpオプションでのメッセージの修正
+</ul>
+</ul>
+
+
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

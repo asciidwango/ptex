@@ -1,0 +1,248 @@
+[unixtex.ftp: 27 May 1995]
+
+The master version of this file is on ftp.cs.umb.edu [158.121.104.33]
+in pub/tex/unixtex.ftp. Mail kb@cs.umb.edu with comments or questions.
+
+=========================================================================
+             Consider joining the TeX Users Group (TUG):
+  support the maintenance and development of the programs you retrieve.
+              Send membership request to: tug@tug.org.
+=========================================================================
+
+			GENERAL INSTRUCTIONS
+
+... for Unix sites wanting to install (plain) TeX, LaTeX (2e), BibTeX,
+plain Metafont, an X window system previewer, a PostScript device
+driver, and/or an HP LaserJet device driver.
+
+The files mentioned below are available from any of the following:
+
+    Host			Internet address	TeX root dir
+    ----			----------------	------------
+    ftp.shsu.edu		192.92.115.10		/tex-archive
+    ftp.tex.ac.uk		134.151.44.19		/tex-archive
+    ftp.dante.de		128.69.1.12		/tex-archive
+    
+    For additional ftp sites, get /README.mirrors from one of the above or
+    finger ctan@ftp.shsu.edu.
+
+    These instructions use non-generic features of FTP supported by the
+    hosts above. For details, get:
+      /README.archive-features
+      /README.site-commands 
+
+The /tex-archive/help and /tex-archive/documentation directories on
+these hosts have much additional documentation on all aspects of TeX.
+
+If you do not have GNU's gunzip utility, first retrieve and install gzip.
+Set binary mode by typing "bi" at your ftp prompt; then
+
+    get /tex-archive/tools/info-zip/gzip-<version>.tar
+
+gzip does a better job of compression than standard Unix compress, and
+it is (as far as is known) patent-free.  It is illegal to use Unix
+compress in the USA, because it infringes a software patent.  Write to
+the League for Programming Freedom <lpf@uunet.uu.net> for information
+about fighting the new software monopolies.
+
+
+Retrieving a basic set of input files and fonts:
+-----------------------------------------------
+
+ftp> cd /tex-archive/systems/web2c
+ftp> bi
+ftp> get lib.tar.gz
+
+     This file contains a minimal collection of fonts (TFM files only,
+     and only for Computer Modern, DC, LaTeX, Pandora, and the free
+     PostScript fonts), base (La)TeX macros, MF macros, and BibTeX files
+     -- enough to get started. The AMS fonts and macros are included.
+     You may well want additional LaTeX packages; investigate
+     /tex-archive/macros/latex/packages and .../latex/contrib.
+     
+     lib.tar.gz unpacks into a directory named `texmf', which you will
+     want in your equivalent of /usr/local/lib -- whatever you will
+     define as your $(datadir) in the Makefiles.
+
+     The organization of the archive was debated at great length. We hope
+     it will be useful. If you don't like our organization, feel free to
+     move the files around as you see fit, not forgetting to redefine the
+     search paths and installation directories. The Makefiles,
+     kpathsea/HIER, kpathsea/paths.h.in, and web2c/README (``Directory
+     hierarchies'') have more information. The organization will
+     change to conform to the standard TeX directory structure
+     promulgated by the TUG Working Group when the TDS is released.
+
+     You must decide on your directory structure *before* doing the
+     compilations, since you must specify default search paths, and
+     since by default the web2c Makefile tries to create the basic .fmt
+     and .base files, which require the .{tex,mf,tfm} input files.
+
+
+Retrieving web2c (that is, TeX, Metafont, and friends):
+------------------------------------------------------
+
+Still in /tex-archive/systems/web2c:
+
+ftp> get web.tar.gz	[Knuth's WEB sources for TeX, MF, & family:
+			 unpacks into ./web2c-<version>]
+ftp> get web2c.tar.gz	[WEB-to-C source: also unpacks into ./web2c-<version>]
+
+     You must retrieve and unpack *both* web.tar.gz and web2c.tar.gz.
+     
+     The web2c distribution uses an older version of the path-searching
+     library than the drivers below. For an interim patch, get the
+     latest ftp.cs.umb.edu:pub/tex/web2c.kpathsea-2.*.help file, and
+     read it.  (I'm working on the next release of web2c as hard as I
+     can, really.)  The two versions can coexist; by using the web2c
+     distribution as it stands, you merely lose the features added to
+     kpathsea over the last year or so.
+
+
+Retrieving device drivers:
+-------------------------
+
+       For an X window system previewer (xdvik):
+ftp> cd /tex-archive/dviware/xdvik
+ftp> get xdvik.tar.gz	[unpacks into ./xdvik-<version>]
+
+       For a DVI-to-PostScript translator (dvipsk):
+ftp> cd /tex-archive/dviware/dvipsk
+ftp> get dvipsk.tar.gz	[unpacks into ./dvipsk-<version>]
+
+       For a DVI-to-PCL (HP LaserJet) translator (dviljk):
+ftp> cd /tex-archive/dviware/dviljk
+ftp> get dviljk.tar.gz	[unpacks into ./dviljk-<version>]
+
+      [optional] For prebuilt bitmaps:
+ftp> cd /tex-archive/fonts/cm/pk
+ftp> get pk300.zip
+     These bitmapped fonts were generated by Metafont using the cx
+     mode_def for write-black 300dpi devices.
+
+     If using the default search paths, place this set of 
+     Computer Modern fonts in $(fontdir)/public/cm/pk/cx.
+     Alternatively, let the MakeTeXPK script that comes with the drivers
+     build the fonts as you need them.
+
+     The zip/unzip package is in /tex-archive/tools/info-zip.  At least
+     version 5.x is necessary.
+
+ftp> quit		[end ftp session]
+
+
+Compilation and installation:
+----------------------------
+
+Each of these packages -- web2c, xdvik, dvipsk, dviljk -- contains its
+own installation instructions.  It is possible to build all the programs
+in a single make (see the web2c.kpathsea-*.help file), but it is simpler
+to make them separately.
+
+Compile web2c first (i.e.,, the material in both web.tar.gz and
+web2c.tar.gz, unpacked, possibly patched for the most recent kpathsea --
+see above, under `retrieving web2c').  For an overview,
+
+	./web2c-<version>/README
+	./web2c-<version>/kpathsea/INSTALL
+	./web2c-<version>/web2c/README
+	./web2c-<version>/web2c/INSTALL
+
+The INSTALL files are your guides to installation.
+At the simplest, you do configure && make && make install at the top level.
+
+Remember to set up your texmf directory hierarchy before embarking on 
+your compilation (see `For a basic set of input files and fonts' above).
+
+After installation, if basic input files such as plain.tex aren't being
+found, or if the file searching is very slow, read kpathsea/INSTALL from
+one of the *k driver distributions. (This is much more recent than
+kpathsea/INSTALL from web2c.)
+
+All installation processes require careful attention to detail, and
+knowledge of your system.  Festina lente -- make haste slowly -- and you
+improve your chances of success.
+
+ftp.cs.umb.edu:pub/tex/*.help describe some common problems with the
+current version of web2c. Here's some more:
+
+-- Contrary to what the web2c installation instructions imply, you must use
+	configure --prefix=/your/tex/root
+instead of editing the prefix in the Makefile(s). (Editing does work in
+some cases, but not all.)
+
+-- configure does not always guess the type of yytext properly; the
+symptom will be compiler errors involving yytext. Replace the line
+`DECLARE_YYTEXT' in web2c-6.1/web2c/web2c.h with the right thing. See
+web2c.yytext.help.
+
+-- If the compiler complains about something involving foil_x_wchar_t, try
+	make CFLAGS="-g -DNO_FOIL_X_WCHAR_T"  (for web2c); or
+	make CFLAGS="-g -DFOIL_X_WCHAR_T" (for everything else).
+
+-- I messed up and declared alloca in web2c/web2c/web2c.h. Just delete
+the declaration. ftp.cs.umb.edu:pub/tex/web2c.alloca.help does this.
+
+-- make clean removes *.pool in web2c/tex and web2c/mf. Use make
+distclean or make mostlyclean instead. Or edit tex/Makefile and
+mf/Makefile to remove *.pool at distclean instead of clean.
+ftp.cs.umb.edu:pub/tex/web2c.pool.help does this.  (You must apply this
+patch before web2c.kpathsea-2.6.help.)
+
+
+Distribution on tape and CD/ROM:
+-------------------------------
+
+For TeX on a single tape (4mm DAT or QIC-24), ordering information is
+available from unixtex@u.washington.edu.  A distribution fee in the area
+of US$210.00 covers administrative costs.
+
+The Free Software Foundation distributes the minimal TeX system
+described here on CD/ROM. Write gnu@prep.ai.mit.edu for ordering info.
+
+Other organizations also have TeX on a CD/ROM, but I do not know the
+details to include them here. (Please inform me if you do.)
+
+
+Precompiled Unix TeX executables:
+--------------------------
+
+(Edited from an original from George D. Greenwade <bed_gdg@shsu.edu>.)
+
+The files in /tex-archive/systems/unix/unixkit/ are minimal sets of
+precompiled executables (thanks to Sebastian Rahtz for making these sets
+available) for the various platforms using the latest web2c (version
+6.1) package and techniques outlined in unixtex.ftp.  The one exception to
+this is the file share.tar.gz, which includes man pages and pool files
+for the distribution which may be used across all architectures.
+
+Specifically excluded from this distribution in unixkit are the many
+additional macros and styles, fonts, and utilities which are available
+elsewhere in the CTAN archives -- the idea is to have the ability to get
+the latest files, but still have them in workable chunks for retrieval
+purposes. [Retrieve lib.tar.gz as discussed above for the minimal
+font/macro files.]
+
+If you get these binaries, you do not need to get web.tar.gz and web2c.tar.gz.
+
+After getting the precompiled binaries and share.tar.gz, you must still
+do the following:
+prompt$ cd <bindir>; ln virtex tex; ln virtex latex; ln virmf mf
+
+
+Acknowledgements:
+----------------
+
+The three main sites listed above are part of the Comprehensive TeX Archive 
+Network (CTAN) --  the result of cooperative work among members of TUG, 
+DANTE [German-speaking TeX Users Group], and UKTUG [U.K. TeX Users Group], 
+under the leadership of George Greenwade, Chair for TUG's Technical 
+Working Group on TeX Archive Guidelines <ctan@shsu.edu>.
+
+Special thanks to George Greenwade for establishing the CTAN site at 
+Sam Houston State University (US); to Rainer Schoepf, Barbara Burr, 
+and members of DANTE for the CTAN site in Heidelberg (Germany); and to 
+Sebastian Rahtz for the CTAN site in Cambridge (UK).
+
+unixtex.ftp was conceived and created by a wonderful person (not the
+current maintainer!) who wishes to remain electronically anonymous.

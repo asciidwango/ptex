@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (property list format)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2><a name="pl-example">PLファイルの例</a></h2>
+<blockquote>
+(<a href="family.html">FAMILY</a> NOVA)<br>
+(<a href="face.html">FACE</a> F MIE)<br>
+(<a href="codingscheme.html">CODINGSCHEME</a> ASCII)<br>
+(<a href="designsize.html">DESIGNSIZE</a> D 10)<br>
+(<a href="designunits.html">DESIGNUNITS</a> D 18)<br>
+(<a href="comment.html">COMMENT</a> A COMMENT IS IGNORED)<br>
+(<a href="comment.html">COMMENT</a> (EXCEPT THIS ONE ISN'T))<br>
+(<a href="comment.html">COMMENT</a> (ACTUALLY IT IS, EVEN THOUGH<br>
+　　　　　　IT SAYS IT ISN'T))<br>
+(<a href="fontdimen.html">FONTDIMEN</a><br>
+　　(SLANT R -.25)<br>
+　　(SPACE D 6)<br>
+　　(SHRINK D 2)<br>
+　　(STRETCH D 3)<br>
+　　(XHEIGHT R 10.55)<br>
+　　(QUAD D 18) )<br>
+(<a href="ligtable.html">LIGTABLE</a><br>
+　　(LABEL C f)<br>
+　　(LIG C f O 200)<br>
+　　(SKIP D 1)<br>
+　　(LABEL O 200)<br>
+　　(LIG C i O 201)<br>
+　　(KRN O 51 R 1.5)<br>
+　　(/LIG C ? C f)<br>
+　　(STOP) )<br>
+(<a href="character.html">CHARACTER</a> C f<br>
+　　(CHARWD D 6)<br>
+　　(CHARHT R 13.5)<br>
+　　(CHARIC R 1.5) )<br>
+</blockquote>
+<p>
+
+<hr>
+この例には、PLファイルで扱えるほとんどの機能が記述されています。
+<tt><a href="family.html">FAMILY</a></tt>や<tt><a href="comment.html">COMMENT</a></tt>のような
+文字列を引数にとる、いくつかのプロパティでは、
+対応する右カッコまでが文字列となることに注意をしてください。
+<p>
+<tt><a href="designsize.html">DESIGNSIZE</a></tt>や<tt>SLANT</tt>や
+<tt>LABEL</tt>のような、多くのプロパティは引数として数値をとります。
+この数値は、その直前の文字によって、いろいろな<a href="format.html">形式</a>で表現することができます。
+<tt>D</tt>は10進数、<tt>H</tt>は16進数、<tt>O</tt>は8進数、<tt>R</tt>は実数、
+<tt>C</tt>は文字、そして<tt>F</tt>は``フェイス''を示します。
+<p>
+<tt>LIG</tt>などの、その他のプロパティは、二つの引数をとります。
+そして、また別のプロパティ、<tt><a href="fontdimen.html">FONTDIMEN</a></tt>,
+<tt><a href="ligtable.html">LIGTABLE</a></tt>,
+<tt><a href="character.html">CHARACTER</a></tt>などは、
+プロパティリストに関わるいくつかの値の組を持っています。
+<p>
+プロパティ名は、対応するプロパティリスト内でのみ使用されると仮定されています。
+たとえば、<tt>CHARWD</tt>を最上位レベルや
+<tt><a href="fontdimen.html">FONTDIMEN</a></tt>の内部に指定することはできません。
+<p>
+プロパティリスト内の個別のプロパティと引数のペアはどのような順序でもかまいません。
+たとえば、先ほどの例では`<tt>SHRINK</tt>'は`<tt>STRETCH</tt>'よりも先に記述されていますが、
+TFMファイルではつねにstretchパラメータが先にきます。
+したがって、文字`<tt>f</tt>'の情報を、デザインサイズ、あるいは
+合字やカーニング表よりも先に記述することもできます。
+<p>
+ただし<tt><a href="ligtable.html">LIGTABLE</a></tt>は例外です。
+このプロパティリストの個々の要素は、
+そのテーブルの意味を変更しないと明確な場合にのみ、並べ換えることができます。
+<p>
+プロパティと引数のペアが省略された場合は、デフォルト値が使われます。
+いくつかを除き、すべての数値のデフォルト値はゼロです。
+<p>
+同じプロパティ名が何度も記述された場合は、PLtoTFは、その不一致を無視し、
+たんに最後に記述された値を使います。
+ただし<tt><a href="ligtable.html">LIGTABLE</a></tt>は、またもや例外です。
+ある文字に対して複数のラベルが存在すると、PLtoTFは警告をします。
+そしてもちろん、たいていの<tt><a href="ligtable.html">LIGTABLE</a></tt>プロパティリスト内の項目は、
+同じプロパティ名を持っています。
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>,
+<a href="index.html">[PL,JPLの目次]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

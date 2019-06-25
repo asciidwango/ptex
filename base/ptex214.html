@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- TeX page -->
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (sources)</title>
+</head>
+<body bgcolor="#C0DCC0">
+
+<h2>pTeX バージョン 2.1.4</h2>
+TeX 3.1415, web2c 6.1, kpathsea-2.6に対応しています。
+
+<ul>
+<li><a href="../../../pub/TeX/ascii-ptex/ptex214/ptex-2.1.4.tar.gz">
+    pTeX 2.1.4 ソースファイル (ptex-2.1.4.tar.gz)</a>
+<p>
+<li><a href="../../../pub/TeX/ascii-ptex/ptex214/updatefiles/ptex-2.1f2-2.1.4-patch.tar.gz">
+    pTeX 2.1.1から 2.1.4 へのパッチ (ptex-2.1f2-2.1.4-patch.tar.gz)</a>
+    <br>
+    以下の箇所を修正するためのパッチファイルです。
+    <p>
+    <ul>
+    <li>漢字ファイル名が扱えない
+    <li>"This can't happen (desc4)"というエラーが起きる
+    </ul>
+<p>
+<li><a href="../../../pub/TeX/ascii-ptex/ptex214/updatefiles/pltotf11patch.tar.gz">
+    PLtoTFのパッチ (pltotf11patch.tar.gz)</a>
+    <br>
+    以下の箇所を修正するためのパッチファイルです。
+    <p>
+    <ul>
+    <li>GLUEプロパティでCOMMENTプロパティが使えない
+    </ul>
+<p>
+<li>pTeX ライブラリ
+  (マクロ、JFMファイル、jBibTeX関連のファイル、ドキュメントなど)
+  <ul>
+  <li><a href="../../../pub/TeX/ascii-ptex/ptex214/plib-euc.tar.gz">EUC (plib-euc.tar.gz)</a>
+  <br>
+  <li><a href="../../../pub/TeX/ascii-ptex/ptex214/plib-jis.tar.gz">JIS (plib-jis.tar.gz)</a>
+  <br>
+  <li><a href="../../../pub/TeX/ascii-ptex/ptex214/plib-sj.tar.gz">Shift JIS (plib-sj.tar.gz)</a>
+  </ul>
+<p>
+  <li><a href="../../../pub/TeX/ascii-ptex/ptex214/updatefiles/ascgrp.tar.gz">
+      ascgrp.tar.gz</a>
+      <br>
+      pTeXライブラリファイル内のascgrp.mf, ascgrp.tfmファイルで
+      リターン記号が使えないのを修正してあります。
+  <p>
+  <a name="jplain"></a>
+  <li><a href="../../../pub/TeX/ascii-ptex/ptex214/updatefiles/jplain.tar.gz">jplain.tar.gz</a>
+      <br>
+      ptex.tex, jplain.texで$TEXMfとしていたのを$TEXMFに修正してあります。
+      <br>
+      また、jplain.texを横組専用のフォーマットファイルを作成するように
+      修正してあります。jplain.texへの修正は「インストールのヒント」の
+      「<a href="hints.html#hints-1212">数式ファミリを定義できないと
+      いうメッセージが表示される</a>」での対処方法を施したのと同じ内容です。
+</ul>
+
+pTeX をコンパイルするには、以下のファイルも必要です。
+
+<ul>
+<li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/web-6.1.tar.gz">
+    web-6.1.tar.gz</a>
+<li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/web2c-6.1.tar.gz">
+    web2c-6.1.tar.gz</a>
+<li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/web2c.kpathsea-2.6.help">
+    web2c.kpathsea-2.6.help</a>
+<li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/lib-6.9.tar.gz">
+    lib-6.9.tar.gz</a>
+<li>つぎのファイルのいずれか
+  <ul>
+  <li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/dvipsk-5.58f.tar.gz">
+      dvipsk-5.58f.tar.gz</a>
+     (<a href="../../../pub/TeX/ascii-ptex/ptex214/dvipsk-jpatch-p1.2.tar.gz">
+      日本語パッチ (p1.2)</a>)
+  <li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/xdvik-18f.tar.gz">
+      xdvik-18f.tar.gz</a>
+  <li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/dviljk-2.5.tar.gz">
+      dviljk-2.5.tar.gz</a>
+  </ul>
+</ul>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

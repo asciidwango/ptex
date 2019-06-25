@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>xspcode</title>
+</head>
+<body bgcolor="#F5F5DC">
+<h2><a name="xspcode">\xspcode《８ビット数値》=《0|1|2|3》</a></h2>
+連続する漢字（２バイトコード）と英字（１バイトコード）の間に自動的に挿入する
+スペースについて、どの英字と漢字の間で挿入するかしないかを指定します。
+この指定は０〜３のいずれかを設定することで、つぎの動作を選択します。
+<p>
+<pre>
+    0  英字と前後の漢字の間の処理を禁止する。
+    1  文字と直前の漢字との間にだけスペースの挿入を許可する。
+    2  直後の漢字との間にだけスペースの挿入を許可する。
+    3  前後の漢字との間に対して、スペースの挿入を許可する。
+</pre>
+<p>
+<b>例</b>
+<pre>
+    \xspcode`A=0
+    \xspcode`B=3
+    \xspcode`;=2
+</pre>
+とすると、`A'に対する処理を禁止し、`B'に対して前後の処理を許可します。
+また、`;'に対しては直後へのスペースの挿入を許可します。
+
+<p>
+<b>関連事項</b>
+<p>
+<a href="inhibitxspcode.html">\inhibitxspcode</a>,
+<a href="xkanjiskip.html">\xkanjiskip</a>,
+<a href="../base/xkanjiskip.html#yakumono" target="_top">記号類との間</a>
+
+<p>
+<hr>
+<a href="../index.html" target="_top">[pTeX home page]</a>.
+<a href="index.html" target="_top">[プリミティブの目次]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- TeX page -->
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (sources)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>■pLaTeX &lt;2006/01/17&gt; (LaTeX &lt;2003/12/01&gt;対応)</h3>
+</a>
+pLaTeX2eは、ptexライブラリ(<a href="../archives/ascii-ptex/tetex/ptex-texmf-2.4.tar.gz">ptex-texmf-2.4.tar.gz</a>)に入っています。
+<p>
+pLaTeX2e &lt;2005/01/04&gt 版からの変更点：
+<ul>
+<li>nidanfloat.dtx: 必須フォーマットファイルをpLaTeX2eからLaTeX2eへ変更。
+<li>plfonts.dtx: \DeclareFontEncoding@ 中で \LastDeclaredEncodeng の再定義が抜け
+ていたので追加。
+</ul>
+
+<hr>
+<h2>■pLaTeX &lt;2005/01/04&gt; (LaTeX &lt;2003/12/01&gt;対応)</h2>
+</a>
+pLaTeX2eは、ptexライブラリ(<a href="../archives/ascii-ptex/tetex/ptex-texmf-2.3.tar.gz">ptex-texmf-2.3.tar.gz</a>)に入っています。
+<p>
+pLaTeX2e &lt;2004/08/10&gt; 版からの変更点：
+<ul>
+<li>plfonts.dtx: \fontfamily中のフラグを修正 (ありがとうございます、角藤さん)。 
+<li>plvers.dtx: バージョン番号更新(platex &lt;2005/01/04>&gt;) 
+</ul>
+
+<hr>
+<h2>■pLaTeX &lt;2004/08/10&gt; (LaTeX &lt;2003/12/01&gt;対応)</h2>
+pLaTeX2eは、ptexライブラリ(ptex-texmf-2.2.tar.gz)に入っています。
+<p>
+pLaTeX2e &lt;2001/09/04&gt; 版からの変更点：
+<ul>
+<li>verbatim環境で余計な前後空きが発生しないように \fontfamily を修正。
+<li>JY1,JT1以外の和文エンコーディングも使用できるように修正。
+<li>\part, \chapter の \@afterindentfalse を \@afterindenttrue に変更。
+<li>jclasses.dtx: \section, \subsection, \subsubsection の前後空きの
+    伸縮幅を修正。
+<li>LaTeX2e 2003/12/01 版への対応を確認。
+<li>min, goth, nmin, ngoth のtfmに余計な文字コードの定義があったので
+    削除。
+<li>契約条文和訳を修正。
+</ul>
+
+<hr>
+<h2>■pLaTeX &lt;2001/09/04&gt; (LaTeX &lt;2001/06/01&gt;対応)</h2>
+pLaTeX2eは、ptexライブラリ(ptex-texmf-2.0.tar.gz)に入っています。
+<p>
+pLaTeX2e &lt;2000/11/03&gt 版からの変更点：
+<ul>
+<li><a href="../etc/plnews07.tex">TeXファイル (JIS)</a>
+<li><a href="../etc/plnews07.dvi">DVIファイル</a>
+<li><a href="../etc/plnews07.pdf">PDFファイル</a>
+</ul>
+
+<hr>
+<h2>■pLaTeX &lt;1998/09/01&gt; (LaTeX &lt;1998/06/01&gt;対応)</h2>
+pLaTeX2e &lt;1998/02/17&gt 版からの変更点：
+<ul>
+<li><a href="../etc/plnews04.tex">TeXファイル (JIS)</a>
+<li><a href="../etc/plnews04.dvi">DVIファイル</a>
+<li><a href="../etc/plnews04.pdf">PDFファイル</a>
+</ul>
+
+<b>必要なファイル：</b><br>
+<ul>
+<li>pLaTeXソースファイル：つぎのいずれか
+    （<a href="../etc/README980901.txt">付属のREADME.txt</a>）
+    <ul>
+    <li><a href="../archives/ascii-ptex/platex/1998-09-01/pl19980901e.tar.gz">
+        EUC (pl19980901e.tar.gz)</a>
+    <li><a href="../archives/ascii-ptex/platex/1998-09-01/pl19980901j.tar.gz">
+        JIS (pl19980901j.tar.gz)</a>
+    <li><a href="../archives/ascii-ptex/platex/1998-09-01/pl19980901s.tar.gz">
+        Shift JIS (pl19980901s.tar.gz)</a>
+    </ul>
+<li>LaTeX2eソースファイル：
+    <a href="../archives/ascii-ptex/platex/1998-09-01/base-9806.tar.gz">
+    base-9806.tar.gz</a>
+</ul>
+
+<b>修正ファイル：</b><br>
+<ul>
+<li><a href="../archives/ascii-ptex/platex/1998-09-01/plpatch.ltx">plpatch.ltx</a><br>
+  文書ファイルのプリアンブルで、
+  <pre>
+  \renewcommand{\mcdefault}{gt}
+  </pre>
+  のようにして和文のデフォルト書体を指定したとき、
+  \selectfontコマンドを実行するまで反映されなかったのを修正します。
+  <br><b>更新手順：</b><br>
+  platex.ltxと同じディレクトリに置いて、フォーマットファイル（platex.fmt）
+  を作り直します。
+<p>
+<li><a href="../archives/ascii-ptex/platex/1998-09-01/jclasses.dtx">jclasses.dtx</a><br>
+  pl19980901{e,j,s}.tar.gzに含まれているクラスファイルについて、
+  以下の点を修正してあります。
+  <ul>
+  <li>report,bookクラスで、secnumdepthカウンタを-1以下にすると、
+      \chapterに指定した見出しが出力されないのを修正（1998/12/24）。
+  <li>クラスオプションにmentuke(面付け)を指定するとエラーになるのを修正
+      （1998/10/13）。
+  <li>report,bookクラスで、chapter番号がゼロ以下のとき、表番号にその値が
+      出てしまうのを修正（1998/10/13）。
+  </ul>
+  <br><b>更新手順：</b><br>
+  <ol>
+  <li>カレントディレクトリをpLaTeX2eをインストールしたディレクトリにする
+  <li>そのディレクトリにjclasses.dtxを置く
+  <li>pLaTeXでplcls.insを処理する<br>
+      終了後、jarticle.clsやjbook.clsなどのクラスファイルが作成されます。
+  </ol>
+<p>
+<li><a href="../archives/ascii-ptex/platex/1998-09-01/tascmac.sty">tascmac.sty</a><br>
+  itembox環境で、項目に脚注を付けると番号がおかしくなるのを修正して
+  あります。
+  <br><b>更新手順：</b><br>
+  既存のtascmac.styと入れ替えます。
+</ul>
+
+<hr>
+<h2>■pLaTeX &lt;1998/02/17&gt;</h2>
+<ul>
+<li>pLaTeXソースファイル：つぎのいずれか
+    （<a href="../etc/README980217.txt">付属のREADME.txt</a>）
+    <ul>
+    <li><a href="../archives/ascii-ptex/platex/1998-02-17/pl19980217e.tar.gz">
+        EUC (pl19980217e.tar.gz)</a>
+    <li><a href="../archives/ascii-ptex/platex/1998-02-17/pl19980217j.tar.gz">
+        JIS (pl19980217j.tar.gz)</a>
+    <li><a href="../archives/ascii-ptex/platex/1998-02-17/pl19980217s.tar.gz">
+        Shift JIS (pl19980217s.tar.gz)</a>
+    </ul>
+<li>LaTeX2eソースファイル：
+    <a href="../archives/ascii-ptex/platex/1998-02-17/base-9712.tar.gz">
+    base-9712.tar.gz</a>
+</ul>
+<p>
+pLaTeX2e &lt;1997/07/02&gtからの変更点は、plnews03にまとめてあります。
+<ul>
+<li><a href="../etc/plnews03.tex">TeXファイル (JIS)</a>
+<li><a href="../etc/plnews03.dvi">DVIファイル</a>
+<li><a href="../etc/plnews03.pdf">PDFファイル</a>
+</ul>
+
+パッチファイル：
+<ul>
+<li><a href="../archives/ascii-ptex/platex/1998-02-17/pl980413.patch.gz.txt">
+クラスファイルの修正（1998/04/13）</a><br>
+<li><a href="../archives/ascii-ptex/platex/1998-02-17/pl980409.patch.gz.txt">
+クラスファイルの修正（1998/04/09）</a><br>
+<li><a href="../archives/ascii-ptex/platex/1998-02-17/pl980323.patch.gz.txt">
+クラスファイルの修正（1998/03/23）</a><br>
+<li><a href="../archives/ascii-ptex/platex/1998-02-17/pl980227.patch.gz.txt">
+クラスファイルとtascmac.styに対する修正（1998/02/27）</a><br>
+</ul>
+
+
+<hr>
+<h2>■pLaTeX &lt;1997/07/02&gt;+2</h2>
+pLaTeX &lt;1997/07/02&gt; 版の修正ファイルとして、
+以下の二つのファイルを配布しています。
+詳細は<a href="../etc/README970702+4.txt">こちら</a>をご覧ください。
+<ul>
+<li><a href="../archives/ascii-ptex/platex/1997-07-02/plpatch.ltx">
+    plpatch.ltx</a>パッチファイル レベル２
+<li><a href="../archives/ascii-ptex/platex/1997-07-02/jclasses.dtx.gz">
+    クラスファイル v1.1h</a>
+</ul>
+
+<hr>
+<h2>■pLaTeX &lt;1997/07/02&gt;</h2>
+<a href="../archives/ascii-ptex/platex/1997-07-02/base-9706.tar.gz">
+  LaTeX2e &lt;1997/06/01&gt;</a>に対応。
+<ul>
+<li><a href="../archives/ascii-ptex/platex/1997-07-02/pl970702e.tar.gz">
+    EUC (pl970702e.tar.gz)</a>
+<li><a href="../archives/ascii-ptex/platex/1997-07-02/pl970702j.tar.gz">
+    JIS (pl970702j.tar.gz)</a>
+<li><a href="../archives/ascii-ptex/platex/1997-07-02/pl970702s.tar.gz">
+    Shift JIS (pl970702s.tar.gz)</a>
+</ul>
+インストールの方法は<a href="../etc/README970702.txt">付属のREADME.txt</a>を
+参照してください。
+<p>
+pLaTeX2e &lt;1997/02/01&gt+2からの変更点は、plnews02にまとめてあります。
+<ul>
+<li><a href="../etc/plnews02.tex">TeXファイル (JIS)</a>
+<li><a href="../etc/plnews02.dvi">DVIファイル</a>
+<li><a href="../etc/plnews02.pdf">PDFファイル</a>
+</ul>
+
+<hr>
+<h2>■pLaTeX &lt;1997/02/01&gt;+2</h2>
+<a href="../archives/ascii-ptex/platex/1997-02-01/base-9612.tar.gz">
+  LaTeX2e &lt;1996/12/01&gt;</a>に対応。
+<ul>
+<li><a href="../archives/ascii-ptex/platex/1997-02-01/pl9702e.tar.gz">
+    EUC (pl9702e.tar.gz)</a>
+<li><a href="../archives/ascii-ptex/platex/1997-02-01/pl9702j.tar.gz">
+    JIS (pl9702j.tar.gz)</a>
+<li><a href="../archives/ascii-ptex/platex/1997-02-01/pl9702s.tar.gz">
+    Shift JIS (pl9702s.tar.gz)</a>
+</ul>
+インストール方法は<a href="../etc/README970201.txt">付属のREADME.txt</a>を
+参照してください。
+<p>
+pLaTeX2e &lt;1996/03/05&gt; からの変更点はplnews01にまとめてあります。
+<ul>
+<li><a href="../etc/plnews01.tex">TeXファイル (JIS)</a>
+<li><a href="../etc/plnews01.dvi">DVIファイル</a>
+<li><a href="../etc/plnews01.pdf">PDFファイル</a>
+</ul>
+
+<hr>
+<h2>■pLaTeX &lt;1996/03/05&gt;</h2>
+<a href="../archives/ascii-ptex/platex/1996-03-05/base-9512.tar.gz">
+  LaTeX2e &lt;1995/12/01&gt;</a>に対応。
+<ul>
+<li><a href="../archives/ascii-ptex/platex/1996-03-05/pl9603e.tar.gz">
+    EUC (pl9603e.tar.gz)</a>
+<li><a href="../archives/ascii-ptex/platex/1996-03-05/pl9603j.tar.gz">
+    JIS (pl9603j.tar.gz)</a>
+<li><a href="../archives/ascii-ptex/platex/1996-03-05/pl9603s.tar.gz">
+    Shift JIS (pl9603s.tar.gz)</a>
+</ul>
+
+<hr>
+<h2>■<a name="platex209">pLaTeX 2.09, jLaTeX 2.09</a></h2>
+『縦組対応 パーソナル日本語 TeX』（アスキー）に付属していた、
+スタイルファイルやマクロファイルです。
+<a href="../archives/ascii-ptex/platex/platex209.tar.gz">platex209.tar.gz</a>と
+<a href="../archives/ascii-ptex/platex/pl209.tar.gz">pl209.tar.gz</a>とがあります。
+違いは、展開されるディレクトリとファイルの名前です。
+platex209.tar.gz は本来のファイル名、pl209.tar.gz は「8.3 形式」の短い
+ファイル名となっています。
+
+<p>
+<center>
+<table border align=center hspace=5 vspace=5>
+<caption>platex209.tar.gzとpl209.tar.gzの違い</caption>
+<tr><td></td>
+    <th>platex209.tar.gz</th><th>pl209.tar.gz</th></tr>
+<tr><th>ディレクトリ名</th>
+    <td><tt>platex209</tt></td>         <td><tt>pl209</tt></td></tr>
+<tr><th>異なるファイル名</th>
+    <td><tt>am_webmac.tex   </tt></td>  <td><tt>am_webma.tex</tt></td></tr>
+<tr><td></td>
+    <td><tt>ascjletter.sty  </tt></td>  <td><tt>ascjlett.sty</tt></td></tr>
+<tr><td></td>
+    <td><tt>ascletter.sty   </tt></td>  <td><tt>asclette.sty</tt></td></tr>
+<tr><td></td>
+    <td><tt>jtwocolumn.sty  </tt></td>  <td><tt>jtwocolu.sty</tt></td></tr>
+<tr><td></td>
+    <td><tt>landscape.sty   </tt></td>  <td><tt>landscap.sty</tt></td></tr>
+<tr><td></td>
+    <td><tt>latexpicobjs.tex</tt></td>  <td><tt>latexpic.tex</tt></td></tr>
+<tr><td></td>
+    <td><tt>postpictex.tex  </tt></td>  <td><tt>postpict.tex</tt></td></tr>
+<tr><td></td>
+    <td><tt>prepictex.tex   </tt></td>  <td><tt>prepicte.tex</tt></td></tr>
+<tr><td></td>
+    <td><tt>tgrindmac.tex   </tt></td>  <td><tt>tgrindma.tex</tt></td></tr>
+<tr><td></td>
+    <td><tt>titlepage.doc   </tt></td>  <td><tt>titlepag.doc</tt></td></tr>
+<tr><td></td>
+    <td><tt>titlepage.sty   </tt></td>  <td><tt>titlepag.sty</tt></td></tr>
+<tr><td></td>
+    <td><tt>twocolumn.doc   </tt></td>  <td><tt>twocolum.doc</tt></td></tr>
+<tr><td></td>
+    <td><tt>twocolumn.sty   </tt></td>  <td><tt>twocolum.sty</tt></td></tr>
+<tr><td>README.txt</td>
+    <td><tt><a href="../etc/READMEplatex209.txt">README.txt</tt></td>
+    <td><tt><a href="../etc/READMEpl209.txt">README.txt</tt></td>
+</tr>
+</table>
+</center>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

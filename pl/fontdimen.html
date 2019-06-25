@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>PL reference</title>
+</head>
+<body bgcolor="#F5F5DC">
+<h2><a name="fontdimen">FONTDIMEN</a> <font size=4>下位のプロパティ</font></h2>
+<tt>FONTDIMEN</tt>プロパティリスト内で使用できるプロパティ名は、
+さまざまなTeXパラメータに対応し、それぞれ実数値の引数をとります。
+<tt>SLANT</tt>を除くすべてのパラメータはデザインサイズが単位です。
+<p>
+次に、<tt>FONTDIMEN</tt>プロパティで使用できる名前を示します。
+
+<ul>
+<li>SLANT, SPACE, STRETCH, SHRINK, XHEIGHT, QUAD, EXTRASPACE<br>
+  これらはTFMファイルの<var>parm</var>テーブル内の１から７番目の
+  パラメータとして扱われます。
+<p>
+<li>NUM1, NUM2, NUM3, DEMON1, DEMON2, SUP1, SUP2, SUP3,
+SUB1, SUB2, SUPDROP, SUBDROP, DELIM1, DELIM2, AXISHEIGHT<br>
+  これらは主に数式用フォントのTFMファイルの<var>parm</var>テーブル内の
+  ８から22番目のパラメータとして扱われます。
+<p>
+<li>DEFAULTRULETHICKNESS, BIGOPSPACING1, BIGOPSPACING2,
+BIGOPSPACING3, BIGOPSPACING4, BIGOPSPACING5<br>
+  ８番目から13番目のパラメータは、これらに置き換えられる場合もあります。
+<p>
+<li>PARAMETER<br>
+<i>n </i>番目のパラメータを指定する別の方法です。
+  たとえば、
+<pre>
+    (PARAMETER D 1 R -.25)
+</pre>
+  はSLANTを-0.25に設定します。
+  <i>n </i>の値はmax_param_words（通常は30）よりも小さい正の数です。
+</ul>
+
+<p>
+<b>関連項目：</b><a href="format.html">数値表現</a>
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>,
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

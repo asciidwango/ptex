@@ -1,0 +1,85 @@
+%%%%
+%%%% Patch file for the pLaTeX2e kernel dated 1997/07/02
+%%%% (1997/07/23)
+%%%%
+
+% This patch will not work with  any other release.
+\def\pfmtversion@topatch{1997/07/02}
+
+% This denotes minor level.
+\def\ppatch@level{2}
+
+%%
+%% “大文字エンコード名+ファミリ名.fd”ファイルを探すのを修正するパッチ
+%% ありがとう：大岩＠東大理情さん
+%%
+\def\fontfamily#1{%
+  \edef\tmp@item{{#1}}%
+  \@notkfamfalse
+  \@notffamfalse
+  \expandafter\expandafter\expandafter
+  \inlist@\expandafter\tmp@item\expandafter{\kfam@list}%
+  \ifin@ \edef\k@family{#1}%
+  \else
+    \expandafter\expandafter\expandafter
+    \inlist@\expandafter\tmp@item\expandafter{\notkfam@list}%
+    \ifin@ \@notkfamtrue
+    \else
+      \@tempswafalse
+      \def\fam@elt{\noexpand\fam@elt}%
+      \message{(I search kanjifont definition file:}%
+%      \def\enc@elt<##1>{\message{.}%
+%         \edef\@temptokena{\expandafter\string\lowercase{##1#1.fd}}%
+%         \IfFileExists{\@temptokena}{\@tempswatrue}{}}%
+      \def\enc@elt<##1>{\message{.}%
+        \edef\reserved@a{\lowercase{\noexpand\IfFileExists{##1#1.fd}}}%
+        \reserved@a{\@tempswatrue}{}\relax}%
+      \kenc@list
+      \message{)}%
+      \if@tempswa
+        \edef\k@family{#1}%
+      \else
+        \@notkfamtrue
+        \xdef\notkfam@list{\notkfam@list\fam@elt<#1>}%
+      \fi
+  \fi\fi
+  \expandafter\expandafter\expandafter
+  \inlist@\expandafter\tmp@item\expandafter{\ffam@list}%
+  \ifin@ \edef\f@family{#1}\else
+    \expandafter\expandafter\expandafter
+    \inlist@\expandafter\tmp@item\expandafter{\notffam@list}%
+    \ifin@ \@notffamtrue \else
+      \@tempswafalse
+      \def\fam@elt{\noexpand\fam@elt}%
+      \message{(I search font definition file:}%
+%      \def\enc@elt<##1>{\message{.}%
+%         \edef\@temptokena{\expandafter\string\lowercase{##1#1.fd}}%
+%         \IfFileExists{\@temptokena}{\@tempswatrue}{}}%
+      \def\enc@elt<##1>{\message{.}%
+        \edef\reserved@a{\lowercase{\noexpand\IfFileExists{##1#1.fd}}}%
+        \reserved@a{\@tempswatrue}{}\relax}%
+      \fenc@list
+      \message{)}%
+      \if@tempswa
+        \edef\f@family{#1}%
+      \else
+        \@notffamtrue
+        \xdef\notffam@list{\notffam@list\fam@elt<#1>}%
+      \fi
+  \fi\fi
+  \if@notkfam\if@notffam
+      \edef\k@family{#1}\edef\f@family{#1}%
+  \fi\fi}
+
+%%
+%% “\\”の前の空白を無視するようにするためのパッチ
+%% ありがとう：奥村＠松坂大学さん
+%%
+\def\@gnewline #1{%
+  \ifvmode
+    \@nolnerr
+  \else
+    \unskip \reserved@e {\reserved@f#1}\nobreak \hfil \break \null
+    \ignorespaces
+  \fi}
+\endinput

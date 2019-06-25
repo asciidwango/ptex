@@ -1,0 +1,53 @@
+このディレクトリには、以下のファイルが収められています。
+ライブラリファイルは EUC, JIS, シフトJIS と漢字コードが異なる３つの配付
+ファイルがありますので、ご使用の環境に応じて、適当なものをお使いください。
+
+--------------------------------------------------
+  * ptex-2.1.4.tar.gz
+      pTeX (TeX 3.1415, web2c 6.1, kpathsea-2.6 に対応) ソースファイル
+
+      ptex-2.1f2.tar.gz に ptex-2.1f2-2.1.4-patch.tar.gz と
+      pltotf11patch.tar.gz の修正を加えたものになっています。
+
+  * plib-euc.tar.gz, plib-jis.tar.gz, plib-sj.tar.gz
+      ライブラリ(JFM, マクロ, ドキュメント, JBibTeX 関連)ファイル
+
+  * dvipsk-jpatch-p1.2.tar.gz
+      dvipsk 5.58f を pTeX 対応にするパッチファイル
+
+  * mendexk2.4b.tar.gz
+      mendex (makeindex 拡張版) のソースファイル
+
+  * updatefiles ディレクトリ
+      pTeX やツール類を最新版にするためのファイルを置いてあります。
+      詳細は、updatefiles/README.{euc,jis,sj} をお読みください。
+
+--------------------------------------------------
+pTeX を作成するためには、corresponding-sources ディレクトリ
+にある、つぎのファイルも必要です。
+
+  * web-6.1.tar.gz          (TeX web ファイル)
+  * web2c-6.1.tar.gz        (web2c ファイル）
+  * web2c.kpathsea-2.6.help (パッチファイル)
+  * lib-6.9.tar.gz          (ライブラリファイル)
+  * dvipsk-5.58f.tar.gz, xdvik-1.8f.tar.gz, dviljk-2.5.tar.gz のいずれか
+      (これらに含まれる kpathsearch のファイルが必要なため)
+
+--------------------------------------------------
+淺山氏による、DOS 版関連のファイルが、dos ディレクトリにあります。
+
+  * ptx214-0.zip  (ソース)
+  * ptx214-1.zip  (共通)
+  * ptx214-2.zip  (pTeX)
+  * ptx214-3.zip  (TeX,WEB)
+  * ptx214-4.zip  (METAFONT)
+
+ライブラリや pLaTeX2e,  LateX2e のファイルは、全プラットフォームで、その
+まま、使用できます。ただし、展開するプログラムによっては、ファイルの改行
+コードなどを自動変換する機能を持つものがあります。ライブラリファイルを展
+開するさいには、それらの機能をオフにしてください。TFM や JFMファイルなど
+のバイナリファイルが正しく展開されません。
+
+----------------------------------------------------------------------
+株式会社 アスキー 出版技術部
+中野 賢(www-ptex@ascii.co.jp, ken-na@ascii.co.jp)

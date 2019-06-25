@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- TeX page -->
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (sources)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2><a name="ptexsrc">pTeXのソース</a></h2>
+ここでは、<a href="#ftphosts">pTeX配布サイト</a>で配布しているソースファイルについて説明しています。
+<p>
+<ul>
+<li><a href="#unixptex">pTeX</a>
+<li><a href="#platex">pLaTeX</a>
+<li><a href="#dvipsk">dvipsk</a>
+<li><a href="#makejvf">makejvf</a>
+<li><a href="#mendexk">mendexk</a>
+</ul>
+<p>
+
+いくつかのオペレーティングシステム用に、
+コンパイル済みのバイナリ・パッケージが配布されています。
+<p>
+<ul>
+<li><a href="http://www.fsci.fuk.kindai.ac.jp/~kakuto/win32-ptex/">
+    win32版</a>(近畿大学の角藤さんによる)
+<p>
+<li><a href="http://macptex.appi.keio.ac.jp/~uchiyama/macptex.html">
+    MacOS版</a>、
+	<a href="http://macptex.appi.keio.ac.jp/~uchiyama/mklinux.html">
+    MkLinux</a>(慶應義塾大学の内山さんによる)
+<p>
+<li><a href="http://math.kyokyo-u.ac.jp/~kiriki/ptex/">
+    MacOS X版</a>(桐木さんによる)
+<p>
+<li>Linux版：
+	<a href="http://www.debian.or.jp/">Debian JP</a>、
+	<a href="http://www.jp.redhat.com/">RedHat</a>、
+	<a href="http://vinelinux.org/">Vine</a>、
+	<a href="http://www.mlb.co.jp/">MLD Linux</a>など、
+	ほとんどのディストリビューションで用意されています。
+<p>
+<li><a href="http://www.jp.freebsd.org/">FreeBSD</a>、
+	<a href="http://www.jp.netbsd.org/ja/JP/">NetBSD</a>、
+	<a href="http://www.openbsd.org/ja/">OpenBSD</a>
+<p>
+<li><a href="http://www.vector.co.jp/authors/VA010974/">
+    DOS版 pTeX</a>(松木さんによる)
+<p>
+<li><a href="http://oku.edu.mie-u.ac.jp/~okumura/texwiki/?OS2-TeX">
+    OS/2版 pTeX</a>(澤田石さんによる)
+<p>
+<li><a href="../archives/ascii-ptex/ptex217/windll">Win DLL版</a>(ソニーの淺山さんによる)
+</ul>
+
+
+<p>
+<hr>
+<a name="unixptex">
+<h3>■pTeX 3.1.11 (TeX 3.141592, Web2C 7.5.4)</h3>
+</a>
+pTeX 3.1.10 からの変更点：
+<ul>
+<li>ptex: 2バイト文字間のグルーがおかしくなるバグを修正
+<li>      \{y|t}baselineshift が数式にも反映されるように修正
+</ul>
+<ul>
+<li><a href="../etc/INSTALL-ptex3_1_11.txt">インストール手順</a>
+<li>pTeXソース：
+    <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.11.tar.gz">ptex-src-3.1.11.tar.gz</a>
+<li>pTeXライブラリ：
+    <a href="../archives/ascii-ptex/tetex/ptex-texmf-2.5.tar.gz">ptex-texmf-2.5.tar.gz</a>
+</ul>
+
+<p>
+<hr width="50%" align="left">
+<a href="ptex-obsolete.html">旧バージョンのpTeXソースファイル</a>
+（<a href="hints.html#hints">インストールのヒント</a>と
+<a href="hints.html#bugs">バグ情報</a>）
+
+<p>
+<hr>
+<a name="platex">
+<h3>■pLaTeX &lt;2006/11/10&gt; (LaTeX &lt;2003/12/01&gt;対応)</h3>
+</a>
+pLaTeX2eは、ptexライブラリ(<a href="../archives/ascii-ptex/tetex/ptex-texmf-2.5.tar.gz">ptex-texmf-2.5.tar.gz</a>)に入っています。
+<p>
+pLaTeX2e &lt;2006/01/17&gt; 版からの変更点：
+<ul>
+<li>plfonts.dtx: $a^\mathrm{b}, a_\mathrm{b}$のような記述をした場合にエラーになる問題に対処
+<li>jclasses.dtx: 解説を追加
+<li>plfonts.dtx: \reDeclareMathAlphabetをLaTeX &lt;2005/12/01&gti; で数式用書体変更命令がrubustになったのに対応
+<li>jclasses.dtx: pLaTeX 209互換モードで数式famが重複使用されていたのを解消
+<li>tascmac.sty: itembox,screen環境で罫線がずれるバグを修正
+</ul>
+
+<p>
+<hr width="50%" align="left">
+<a href="platex-obsolete.html">旧バージョンのpLaTeXソースファイル</a>
+
+<p>
+<hr>
+<a name="tools"></a>
+<h3><a name="dvipsk">■dvipsk</h3>
+TeXで生成したDVIファイルをPostscriptファイルに変換するプログラムへの
+日本語パッチです。
+詳細については<a href="../etc/README.jpatch.txt">README.jpatch</a>を
+参照してください(<a href="../etc/ChangeLog.jpatch.txt">変更履歴</a>)。
+
+<ul>
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.7b.tar.gz">dvipsk-jpatch-p1.7b.tar.gz</a><br>
+teTeX 3.0のソースに含まれている、dvipsk 5.95aに対する日本語化パッチです。<br>
+</ul>
+
+
+<p>
+<hr>
+<h3><a name="makejvf">■makejvf</h3>
+日本語VFファイル作成プログラムです。
+詳細については<a href="../etc/README.makejvf.txt">README.txt</a>を
+参照してください。
+
+<ul>
+<li><a href="../archives/ascii-ptex/jvf/makejvf-1.1a.tar.gz">makejvf-1.1a.tar.gz</a>
+</ul>
+
+以下のファイルは、makejvfで作成したVFファイルです。
+standard.tar.gzおよびnimin-ngoth.tar.gzのファイルは、ptex-texmfに
+含まれているファイルと同じものです。
+<ul>
+<li><a href="../archives/ascii-ptex/jvf/standard.tar.gz">standard.tar.gz</a><br>
+    pTeX基本和文書体(min5〜10, goth5〜10, tmin5〜10, tgoth5〜10)
+<li><a href="../archives/ascii-ptex/jvf/nmin-ngoth.tar.gz">nmin-ngoth.tar.gz</a><br>
+    nmin5〜10, ngoth5〜10
+<li><a href="../archives/ascii-ptex/jvf/jis.tar.gz">jis.tar.gz</a><br>
+    JIS組版規則に合わせたフォント(jis, jisg, jisgn、jis-v, jisg-v, jisgn-v)
+<li><a href="../archives/ascii-ptex/jvf/morisawa.tar.gz">morisawa.tar.gz</a><br>
+    モリサワ基本5書体(リュウミンL、中ゴシックBBB、太ミン、太ゴ、じゅん101)
+</ul>
+
+
+<p>
+<hr>
+<h3><a name="mendexk">■mendexk</h3>
+makeindex互換の索引整形ツールです。つぎのような特徴があります。
+<ul>
+<li>基本的に makeindex 上位互換。
+<li>和文索引の読みの入力を減らすために、読みと熟語を対応させる
+	辞書ファイルを使用。
+<li>和文の読みは辞書順に自動変換。
+<li>数字・記号-&gt;欧文-&gt;和文の順にこだわらない索引の作成が可能。
+<li>ただし、makeindexと比べて実行速度が非常に遅い。
+</ul>
+
+詳細については<a href="../etc/README.mendexk.txt">README.txt</a>を
+参照してください。
+
+<ul>
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.6f.tar.gz">mendexk2.6f.tar.gz</a>
+	(<a href="../etc/ChangeLog.mendexk.txt">更新履歴</a>)
+</ul>
+
+
+<p>
+<hr>
+<h3><a name="ftphosts">■pTeX配布サイト一覧</a></h3>
+
+pTeXおよびpLaTeXのソースファイルは、つぎの場所から配布されています。
+
+<ul>
+<li><a href="../archives/ascii-ptex/">
+             http://ascii.asciimw.jp/pb/ptex/archives/ascii-ptex</a>
+<li><a href="http://www.ring.gr.jp/">Ringサーバ群</a>の
+	<a href="http://www.ring.gr.jp/pub/text/TeX/ascii-ptex/">
+	/pub/text/TeX/ascii-ptex/</a>
+</ul>
+
+Ringサーバ群には、つぎのファイルも置かれています。
+
+<ul>
+<li><a href="http://www.ring.gr.jp/pub/text/TeX/ptex-win32/">Win32版</a>実行ファイル
+<li><a href="http://www.ring.gr.jp/pub/text/TeX/dviout/">dviout</a>(Win32用プレビューア)実行ファイル
+<li><a href="http://www.ring.gr.jp/pub/mac/TeX/">MacOS版</a>実行ファイル
+<li><a href="http://www.ring.gr.jp/pub/text/CTAN/">CTANのミラー</a>
+</ul>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (kpathsearch)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>ライブラリ検索パスについて</h2>
+ここでは、kpathsearchライブラリによる、新しいライブラリ検索パスについて
+説明をしています。
+<p>
+
+<ul>
+<li><a href="#kpathsea">kpathsearchについて</a>
+<li><a href="#lsr">ls-Rについて</a>
+<li><a href="#kpsewhich">kpsewhichについて</a>
+</ul>
+
+<hr>
+<h3><a name="kpathsea">■kpathsearchについて</a></h3>
+
+pTeX 2.0以降は、フォントファイルやマクロファイルを探しにいくとき、
+kpathsearchライブラリを用いてディスク内を検索します。
+<p>
+kpathsearchライブラリの設定ファイルは、
+<a href="../etc/texmf.cnf">texmf.cnf</a>というファイルです。
+通常、$TEXMF/web2cディレクトリに収められています。
+環境変数 TEXMFCNF に、texmf.cnfのあるディレクトリを指定すれば、
+マルチユーザ環境の場合などで、個人ごとに設定を変更することもできます。
+<p>
+texmf.cnf内では、つぎのようにして検索パスを設定します。
+<pre>
+    TEXINPUTS.platex = .:$TEXMF/tex/platex2e//:$TEXMF/tex/latex2e//:$TEXMF/tex//
+</pre>
+上記の例では、platexというコマンドの環境変数TEXINPUTSの設定を行っています。
+このように、kpathsearchでは、「何々のコマンドの環境変数」のような指定が
+可能になっています。
+<p>
+なお、$TEXMFは、TeXのライブラリディレクトリのルートが設定されている変数です。
+デフォルトでは、/usr/local/lib/texmf ディレクトリです。
+<p>
+肝心の検索パスですが、先ほどの例では、
+<ol>
+<li>. (カレントディレクトリ)
+<li>$TEXMF/tex/platex2e//
+<li>$TEXMF/tex/latex2e//
+<li>$TEXMF/tex//
+</ol>
+のような順序で探しにいきます。ここで「//」という表記は、
+「サブディレクトリも検索せよ」という表記です。
+したがって、kpathsearchライブラリを用いると、
+<pre>
+    TEXINPUTS=.:$TEXMF/tex/platex2e/base:$TEXMF/tex/platex2e/misc:
+                $TEXMF/tex/latex2e/base:$TEXMF/tex/latex2e/contrib:
+                ... :$TEXMF/tex/amstex: ... $TEXMF/tex/plain ...:
+</pre>
+のように、すべてのディレクトリを指定する必要がないので、とても簡単で、
+わかりやすくなります。
+<p>
+２重スラッシュ「//」を付けないと、サブディレクトリ内のファイルを探しに
+はいきません。
+<p>
+つぎのように、ディレクトリパスの途中で用いることもできます。
+<pre>
+    TFMFONTS = .:$TEXMF/fonts//tfm
+</pre>
+このように用いると、$TEXMF/fontsディレクトリの下にある、
+最後が「tfm」のディレクトリにあるファイルだけを探し、
+「src」や「pk」ディレクトリなどにはアクセスしません。
+<pre>
+    $TEXMF/fonts/adobe/.../tfm
+    $TEXMF/fonts/public/cm/tfm
+    $TEXMF/fonts/public/dc/tfm
+     ...
+</pre>
+<p>
+<hr>
+<h3><a name="lsr">■ls-R</a></h3>
+kpathsearchライブラリは、便利なのですが、
+ディレクトリ構造が深くなっていくにつれ、
+ファイルを見つけだすまでの時間がかかってきます。
+<p>
+ファイル検索に時間がかかるようになってきた場合は、
+つぎのコマンドを実行して、$TEXMFディレクトリに「ls-R」という名前の
+ファイルを作ります。
+<pre>
+    ls -R $TEXMF &gt $TEXMF/ls-R
+</pre>
+ls-Rは、$TEXMFディレクトリからではなく、ルートディレクトリからである
+ことに注意をしてください。
+<p>
+<hr>
+<h3><a name="kpsewhich">■kpsewhich</a></h3>
+検索パスにサブディレクトリを指定しなくてもよいので、
+設定を調べるのは簡単になりましたが、そのぶん、どこにあるファイルが
+読み込まれているのかを調べることが難しくなりました。
+また、TeXのライブラリディレクトリの階層が深くなったので、
+一つ一つ探すのもたいへんです。
+<p>
+このように、どのファイルが読み込まれているのかを調べるためのプログラムが
+<b>kpsewhich</b>です。
+このプログラムのソースは、kpathsearchライブラリのソースと一緒に入っています。
+<p>
+使い方は、
+<pre>
+    kpsewhich cmr10.tfm
+</pre>
+のようにすれば、そのファイルがある場所が、
+<pre>
+    /usr/local/lib/texmf/public/cm/tfm/cmr10.tfm
+</pre>
+のように表示されます。
+<p>
+また、特定のプログラムの環境変数を調べるときには、
+つぎのようにします。
+<pre>
+    kpsewhich -program platex -expand '$TEXINPUTS'
+</pre>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

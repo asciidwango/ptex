@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (What's new)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>pTeX新着情報とホームページ更新情報(2004年分)</h2>
+過去の変更：
+<a href="changes2003.html">2003年</a>／
+<a href="changes2002.html">2002年</a>／
+<a href="changes2001.html">2001年</a>／
+<a href="changes2000.html">2000年</a>／
+<a href="changes1999.html">1999年</a>／
+<a href="changes1998.html">1998年</a>／
+<a href="changes1997.html">1997年</a>／
+<a href="changes1996.html">1996年</a>／
+<a href="changes1995.html">1995年</a>
+<p>
+<hr>
+
+<h4>2004/12/15</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.8.tar.gz">ptex-src-3.1.8.tar.gz</a>を公開します。
+<ul>
+<li>ptex: コントロールシーケンス名の処理誤りを修正。
+  (例：\Te^^5e^58 が \TeX として評価されない)
+<li>ptex: コントロールシーケンス直後の ^^形式が漢字として認識されて
+   しまう場合があるのを修正 (例：\TeX^^83A ⇒ \TeXア)
+   (以上、ありがとうございます、井上さん)。
+<li>ptex: 端末やログファイルでの改行位置のタイミングの修正
+   (ありがとうございます、角藤さん)。
+</ul>
+<!--
+<p>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.5.1.tar.gz">ptex-src-3.1.5.1.tar.gz</a>を公開します。
+<ul>
+<li>p3.1.7とp3.1.8の修正を反映。
+</ul>
+-->
+</ul>
+
+
+<h4>2004/12/9</h4>
+<ul>
+<li><del><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.7.tar.gz">ptex-src-3.1.7.tar.gz</a>を公開します。</del>
+<ul>
+<li>ptex: ^^形式を含むコントロールシーケンス名への対応誤りを修正しました。
+<li>ptex: 表示不可能文字の範囲を3.1.4と同じにしました
+        (Missing character では ^^ 形式で出力します)。
+<li>mkconf: TEXINPUTS.{ptex,platex}-{sjis,jis,euc}のエントリを
+    作成するようにしました。
+</ul>
+</ul>
+
+<h4>2004/12/7</h4>
+<ul>
+<li><del><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.6.tar.gz">ptex-src-3.1.6.tar.gz</a>を公開します。</del>
+<ul>
+<li>ptex: tetex-2.99.4.20041128-beta に対応(ありがとうございます、角藤さん)。
+</ul>
+<p>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.5.tar.gz">ptex-src-3.1.5.tar.gz</a>を公開します。
+<ul>
+<li>ptex: コントロールシーケンス名の、^^形式の文字と次の文字を
+    漢字としてみなす場合があるのを修正
+<li>ptex: JISエンコーディングファイルを読み込んだ後、`漢字イン' の状態が
+    ファイルの終わりを越えて有効になってしまう場合があるのを修正
+    (以上、ありがとうございます、井上さん)。
+<li>ptex: Missing character などのメッセージでの印字不可能文字
+    を^^形式で出力するように修正。
+<li>pltotf: SJISコードのPLファイルから、TFMファイルを正しく作れない
+    のを修正(ありがとうございます、角藤さん、青木さん)。
+</ul>
+<p>
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.6a1.tar.gz">dvipsk-jpatch-p1.6a1.tar.gz</a>を公開します。
+<ul>
+<li>$TEXMF/dvips/base/config.ps が作られないように Makefile を修正。
+</ul>
+</ul>
+
+
+<h4>2004/11/25</h4>
+<ul>
+<li>「<a href="printing.html">TeX関連のサービス窓口</a>」の
+プレインさんのTeX編集部の連絡先が変わりました。
+</li>
+</ul>
+
+<h4>2004/09/13</h4>
+<ul>
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.4.tar.gz">ptex-src-3.1.4.tar.gz</a>を公開します。
+<ul>
+<li>行末記号を漢字の第1バイトに当たる文字にした場合、行の次の文字
+    と共に漢字にしようとしてしまうのを修正。
+<li>1バイト文字のうち、漢字の第1バイトに当たる文字のカテゴリー
+    コードが無効な文字となってしまうのを修正。
+<li>^^形式で入力された文字コードが漢字の第1バイトに当たる場合、
+    次の文字と共に漢字にしようとしてしまうのを修正。
+<li>\string で扱う文字の漢字判定を厳密化。
+<li>jbibtexを改行コードCRに対応。
+    (以上、ありがとうございます、井上さん)
+<li>数式内で \char を使用した場合に1バイト文字が漢字と誤認識される
+    バグを修正(ありがとうございます、角籐さん)。
+<li>契約条文和訳を修正。
+</ul>
+<p>
+<li><a href="../archives/ascii-ptex/tetex/ptex-texmf-2.2.tar.gz">ptex-texmf-2.2.tar.gz</a>を公開します。
+<ul>
+<li>verbatim環境で余計な前後空きが発生しないように \fontfamily を修正。
+<li>JY1,JT1以外の和文エンコーディングも使用できるように修正。
+<li>\part, \chapter の \@afterindentfalse を \@afterindenttrue に変更。
+<li>jclasses.dtx: \section, \subsection, \subsubsection の前後空きの
+    伸縮幅を修正。
+<li>LaTeX2e 2003/12/01 版への対応を確認。
+<li>min, goth, nmin, ngoth のtfmに余計な文字コードの定義があったので
+    削除。
+<li>契約条文和訳を修正。
+</ul>
+<p>
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.6a.tar.gz">dvipsk-jpatch-p1.6a.tar.gz</a>を公開します。
+<ul>
+<li>make install で config.ps, psfonts.map がインストールされるように
+    Makefile を修正。
+<li>dvi2ps用のマクロでEPSファイルを読み込んだ場合にMac用改行コードが正しく
+    認識されない不具合を修正。
+</ul>
+<p>
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.5a.tar.gz">mendexk2.5a.tar.gz</a>を公開します。
+<ul>
+<li>引数の入力ファイル名から拡張子(.idx)を省略した場合にエラーが発生するバグを
+    修正。
+</ul>
+</ul>
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

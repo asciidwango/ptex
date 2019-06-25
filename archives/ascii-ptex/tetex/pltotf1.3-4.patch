@@ -1,0 +1,43 @@
+pltotf の、下記のバグを修正します。
+
+  * charsintype に全角空白文字を指定された pl ファイルから、
+    正しい tfm ファイルを作れない。
+
+begin 644 pltotf-2000-11-13.patch
+M*BHJ('!L=&]T9BYC:"YO<FEG"4UO;B!.;W8@,3,@,34Z,S`Z-#(@,C`P,`HM
+M+2T@<&QT;W1F+F-H"4UO;B!.;W8@,3,@,34Z,CDZ-#D@,C`P,`HJ*BHJ*BHJ
+M*BHJ*BHJ*BH**BHJ(#$L-2`J*BHJ"BTM+2`Q+#8@+2TM+0H@("4@5&AI<R!I
+M<R!A(&-H86YG92!F:6QE(&9O<B!41G1O4$P*("`E"BL@)2`H,3$O,3,O,C`P
+M,"D@2TX@4$QT;U1&('`Q+C0@*#,N-2P@5V5B,F,@-RXR*0H@("4@*#`S+S(W
+M+S$Y.3@I($M.(%!,=&]41B!P,2XS("@S+C4L(%=E8C)C(#<N,BD*("`E"B`@
+M0'@@6S!=(&PN-3(@+2!P5&58.@HJ*BHJ*BHJ*BHJ*BHJ*BH**BHJ(#$Q+#$W
+M("HJ*BH*("!`>"!;,ET@;"XV.2`M('!495@Z"B`@0&0@8F%N;F5R/3TG5&AI
+M<R!I<R!03'1O5$8L(%9E<G-I;VX@,RXU)R![<')I;G1E9"!W:&5N('1H92!P
+M<F]G<F%M('-T87)T<WT*("!`>0HA($!D(&)A;FYE<CT])U1H:7,@:7,@3FEH
+M;VYG;R!03'1O5$8L(%9E<G-I;VX@<#$N,RP@8F%S960@;VX@4$QT;U1&+"!6
+M97)S:6]N(#,N-2<*("`@('MP<FEN=&5D('=H96X@=&AE('!R;V=R86T@<W1A
+M<G1S?0H@($!Z"B`@"BTM+2`Q,BPQ."`M+2TM"B`@0'@@6S)=(&PN-CD@+2!P
+M5&58.@H@($!D(&)A;FYE<CT])U1H:7,@:7,@4$QT;U1&+"!697)S:6]N(#,N
+M-2<@>W!R:6YT960@=VAE;B!T:&4@<')O9W)A;2!S=&%R='-]"B`@0'D*(2!`
+M9"!B86YN97(]/2=4:&ES(&ES($YI:&]N9V\@4$QT;U1&+"!697)S:6]N('`Q
+M+C0L(&)A<V5D(&]N(%!,=&]41BP@5F5R<VEO;B`S+C4G"B`@("![<')I;G1E
+M9"!W:&5N('1H92!P<F]G<F%M('-T87)T<WT*("!`>@H@(`HJ*BHJ*BHJ*BHJ
+M*BHJ*BH**BHJ(#8P-"PV,3`@*BHJ*@H@(`H@($`\3W5T<'5T('1H92!K86YJ
+M:2!C:&%R86-T97(@='EP92!I;F9O0#X]"B`@8F5G:6X@;W5T7W-I>F4H,"D[
+M(&]U=%]S:7IE*#`I.R![('1H92!D969A=6QT('T*(2!F;W(@:V%N:FE?='EP
+M95]I;F1E>#H],2!T;R!M87A?:V%N:FD@9&\*("`@(&)E9VEN(&EF(&MA;FII
+M7W1Y<&5;:V%N:FE?='EP95]I;F1E>%T^,"!T:&5N"B`@("`@(&)E9VEN(&]U
+M=%]S:7IE*&EN9&5X7W1O7VII<RAK86YJ:5]T>7!E7VEN9&5X*2D["B`@("`@
+M(&]U=%]S:7IE*&MA;FII7W1Y<&5;:V%N:FE?='EP95]I;F1E>%TI.PHM+2T@
+M-C`U+#8Q,2`M+2TM"B`@"B`@0#Q/=71P=70@=&AE(&MA;FII(&-H87)A8W1E
+M<B!T>7!E(&EN9F]`/CT*("!B96=I;B!O=71?<VEZ92@P*3L@;W5T7W-I>F4H
+M,"D[('L@=&AE(&1E9F%U;'0@?0HA(&9O<B!K86YJ:5]T>7!E7VEN9&5X.CTP
+M('1O(&UA>%]K86YJ:2!D;PH@("`@8F5G:6X@:68@:V%N:FE?='EP95MK86YJ
+M:5]T>7!E7VEN9&5X73XP('1H96X*("`@("`@8F5G:6X@;W5T7W-I>F4H:6YD
+M97A?=&]?:FES*&MA;FII7W1Y<&5?:6YD97@I*3L*("`@("`@;W5T7W-I>F4H
+?:V%N:FE?='EP95MK86YJ:5]T>7!E7VEN9&5X72D["@``
+`
+end
+
+--
+株式会社アスキー 出版技術部

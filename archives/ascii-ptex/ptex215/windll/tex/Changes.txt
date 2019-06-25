@@ -1,0 +1,180 @@
+************************************************************************
+                        TeX DLL for Windows 95/NT
+                               TeX 3.14159
+                             ASCII pTeX 2.1.5
+                            Web2c version 7.0
+                             DLL version 1.0.2
+                  Copyright (C) 1997, Kazunori Asayama
+
+                                変更履歴
+
+************************************************************************
+
+○ Version 1.0.1 (1997/09/30) -> Version 1.0.2 (1997/10/13)
+
+<変更されたモジュール＞
+
+* plib.zip
+* platex.zip
+* setup.exe
+* _setup.tsm
+* dvips.zip
+* texdll0.zip
+* texdll1.zip
+* texdll2.zip
+* kpsemomo.zip
+
+＜変更内容＞
+
+* plib.zip 中のフォントディレクトリの構造を TDS にあわせて変更。
+* pLaTeX のモジュールに、Babel パッケージのハイフネーション定義対策の
+  ためのファイルを追加。
+* mendex のソートがおかしかった不具合を修正 (したつもり)。
+* 一部ドキュメントの記述内容の修正。
+* セットアッププログラムで GPL の日本語訳が表示されなかった不具合を修正。
+* 桃薗版 Kpathsea.dll のソースコードを頒布パッケージに追加。
+* MakeTeX.dll の設定項目を若干変更。詳細は registry.txt を参照のこと。
+
+
+○ Version 1.0 (1997/09/17) -> Version 1.0.1 (1997/09/30)
+
+＜変更・追加されたモジュール＞
+
+* setup.exe
+* _setup.tsm
+* README.txt
+* a2bk-vf.zip
+* dvips.zip
+* texdll0.zip
+* texdll1.zip
+* texdll2.zip
+* lib.zip
+* latex.zip
+* ltxpkg.zip
+* plib.zip
+* platex.zip
+
+＜削除されたモジュール＞
+
+すべてのファイル
+
+＜変更内容＞
+
+* セットアッププログラムによる共有ファイルの置き換えを厳密に行うように
+  修正。
+* セットアッププログラムの起動を排他的に行うように (複数同時に起動
+  できないように) 修正。
+* MakeTeXPK 及び MakeTeXTFM で METAFONT を scrollmode で動作させるように
+  変更。
+* MakeTeXTFM が TFM の生成に成功している場合にも失敗のリザルトコードを
+  返すことがあった不具合を修正。
+* mendex の man page が頒布パッケージから欠落していたのを追加。
+* 複数の書庫に分散していたパッケージをできる限り一つのファイルに統合。
+* 書庫の作成に用いるアーカイバを Info-ZIP による zip に変更。
+* バイナリの作成に使用したコンパイラを VC++ 5.0 ServicePack 2 に
+  アップデート。それに伴い、付属のランタイムライブラリ
+  (msvcrt.dll、mfc42.dll) もバージョンアップ。
+
+
+○ Version 1.0 Beta2 (1997/07/31) -> Version 1.0 (1997/09/17)
+
+＜変更されたモジュール＞
+
+* setup.exe
+* main.lst
+* archive.lst
+* registry.lst
+* README.txt
+* LICENSE.txt
+* ASCII.txt
+* platex.lzh
+* dvips1.lzh
+* dvips2.lzh
+* texdll0.lzh
+* texdll1.lzh
+* texdll2.lzh
+* texdll3.lzh
+* lib1.lzh
+* ltxpkg2.lzh
+* plib.lzh
+
+＜変更内容＞
+
+* pTeX をバージョン 2.1.5 beta 9 から バージョン 2.1.5 (正式リリース版) へ
+  アップデート。
+* dvips を version 5.66a p1.3 から version 5.66a p1.3a へアップデート。
+* Mendex を version 2.3h から version 2.4b にアップデート。
+* pLaTeX2e を 1997/07/02 patch level 1 バージョンから 1997/07/02 patch level 2
+  バージョンへアップデート。
+* LaserWriter 標準 35 書体の PS NFSS 用の *.fd 等のセットを最新版に更新。
+* texindex version 2.1 を追加。ただしコマンドライン版のみ。
+* セットアッププログラムの GUI を若干変更。
+* セットアッププログラムが TeX による処理時に SEGV で落ちる可能性があった
+  不具合を修正。
+* セットアッププログラムで「キャンセル」ボタンを押した後の動作がおかしくなる
+  ことがあった不具合を修正。
+* バイナリの作成に使用したコンパイラを VC++ 5.0 にアップデート。
+  同時にコンパイラの最適化オプションを変更して高速化。
+* lib1.lzh に LaTeX 2.09 を追加。
+* plib.lzh に pLaTeX 2.09 及び ASCII 日本語 LaTeX を追加。
+
+
+○ Version 1.0 Beta1 (1997/07/01) -> Version 1.0 Beta2 (1997/07/31)
+
+＜変更・追加されたモジュール＞
+
+* setup.exe
+* main.lst
+* archive.lst
+* registry.lst
+* README.txt
+* LICENSE.txt
+* ASCII.txt
+* latex.lzh
+* platex.lzh
+* ltxpkg1.lzh
+* ltxpkg2.lzh
+* texdll0.lzh
+* texdll1.lzh
+* texdll2.lzh
+* texdll3.lzh
+* lib1.lzh
+* lib2.lzh
+
+＜削除されたモジュール＞
+
+* lib.lzh
+
+＜変更内容＞
+
+* pTeX をバージョン 2.1.5 beta 6 からバージョン 2.1.5 beta 9 へアップ
+  デート。
+* Mendex を version 2.3g から version 2.3h へアップデート。
+* LaTeX2e を 1996/12/01 patch level 1 バージョンから 1997/06/01 バージョ
+  ンへアップデート。同時に packages もアップデート。
+* pLaTeX2e を 1997/02/01 patch level 2 バージョンから 1997/07/02 patch level 1
+  バージョンへアップデート。
+* セットアップ時に VC++ のランタイムライブラリが必要な場合にコピーに失
+  敗していた不具合を修正。
+* セットアップ時に AMS TeX をインストールするように変更。
+* セットアップ時に AMS LaTeX をデフォルトでインストールするように変更。
+* AMS フォントをパッケージに追加。ライブラリの書庫のサイズが大きくなり
+  すぎたので二つに分割。
+* Mendex が読み込むデフォルトの辞書を定義するためのレジストリキーを変更
+  (他の意味に使われているものと名前がぶつかっていたため)。
+* ソースコードに含まれる差分が不足していたのを追加。
+* サンプル GUI の細かな不具合を修正。
+* コマンドライン版 METAFONT のカスタマイズをするとオンラインディスプレイ
+  機能が無条件に無効になっていた不具合を修正。
+* 環境によって、カスタマイズプログラムのプロパティシートの全体が
+  表示されないことがあった不具合を修正。
+* KpseCnfEdit.exe が mfc42.dll を必要としていたため、mfc42.dll が
+  無い環境で起動できなかった不具合を修正 (というよりも、TeX DLL で利用
+  する MFC のバージョンを統一) 。
+* コマンドライン版のプログラムが NEC 98 の Windows95 環境で、2 バイト文字
+  を画面に出力する際に SEGV で落ちることがあった OS または VC++ ランタイムの
+  不具合に対する対策をとったつもり。
+* dvips が SEGV で落ちることがあった不具合を修正。
+
+------
+以上。

@@ -1,0 +1,50 @@
+pLaTeX <1998/02/17> 版に付属のクラスファイルと tascmac.sty に対する
+パッチファイルです。
+
+クラスファイルは、\ProvidesFiles に記述されている日付を訂正します。
+
+tascmac.sty は、LaTeX の tools/calc パッケージを一緒に使ったとき、
+screen 環境、itembox 環境、boxnote 環境がエラーになるのを修正します。
+
+パッチファイルを pLaTeX のライブラリディレクトリ
+（たとえば /usr/local/share/texmf/tex/platex/base）に置いて、
+
+    patch -s < pl980227.patch
+    platex plcls.ins
+
+としてください。
+
+なお pLaTeX フォーマットファイルは、作り直さなくてもかまいません。
+また pLaTeX のカーネルバージョンも変更ありません。
+
+begin 644 pl980227.patch.gz
+M'XL("#2+]C0``W!L.3@P,C(W+G!A=&-H`-U6;6_;-A#^W/Z*6P=WB2';HF3'
+MBM$$'@)D"+85`SI@`\9^H"3:8BR+`DG;\13]]Y'4B^W4V;*BV98%B*`C[X[/
+M/<_QK&ZW"[=12J2DLA^KNSX7;/[J%QK#-0T!AH#\R>A\,G(!G9\'KWN]WH'[
+MJVO!K*<W!A1,T'#BHLJS>_AG;!B-G3,?K`G0`<QF,Y)*J@W\GM)8_DQ_O>9B
+M2521_T"TX='2.+[KQH*MJ;A\_17@GP1?LYC*:Y;28A]*^9L^=SQPSP>N#VO4
+M1PE\4"2+B8BA2@?6^Z--.6A2VOQ;ON#5*Q&*12F];,^Y,C'%;;U>6@:J.O1;
+M[[GJ"`:NU]1Q^RQU'-,G0$X0M/J\0RA7;\/%Y2%6%2X0ZD<IKVI"WF-.WLYI
+MH(BBINP6V+V@.1?J/N1\<0GP9.U,"N3FZMZ`NS>'/REZID'!B62_4^"Y8CP[
+M_7BHB)8NYM%J23,554REZDZO&/SX.ZI,53?9C!]*9;NA8JWIAG^:M2=URJ.L
+M_7GT<[%F>DT1&2U)U)=JNYLY/Q*A!PZX_L1S)R,[2<XLQWO>#T;.<#CQW<='
+M#G+&NX'SID[S!AK4H!.F374PXP(,YS!?+5G?A-BP*YYO-<)$P<G5*81;<YKO
+MP+<?KFYN]*;0DA`;_Q9NEKF@4NZO]C7[-LVN!$#NP`O@FR"P&U4BF=.(D12T
+MC^#2$)C13<PT2CR59$U52"1-649EPF;*LH*<\]T4^M>*ZYA_:)I)JW+R_?O3
+M"4BJ`!^"!I;!DF4L)W,*-%LSP3,#M,KRY3DZUA!>X/C#IB6P!AGR.SS-]/,"
+M)_H)BN/$M'R!IQK-7.1XE26M$^A-"<0^0X,9K\5*D[QAL4I0WPUR!3'-5>*/
+M<F6OP33<7.!-7(5C$J])%E&S"KVAOI+FM\!`UYN%]8FW)0[G@J]R'-(YRXJ&
+ML;(P40\H/59W65I@,9UAFL4Z<<:5+D>_[W)A:H^P!=BC<R)8%FLQ+C0HS&<S
+MEBDJ;,X%RW&DVZ0JP80T1#5E%9^R@!,]/7##6[RM[$_<JA'JNXX_;EKY!8I2
+M=DS33W9WX%1G@(?M?U2KER35T6\ZSQFUWPRVD*DHSLKJ319>WT36UEWA&X/6
+MWTJU\[!U1H?.GC%FS+CJDO%:YB2B1=_'+8.ZW%*[1AML3(L5=FKJ=>CI$Z`6
+MM&HK&873NJT>E]2D_+L734:"TNRX>)V]OI;1'@0C38N]J)FW,CW4U:90"<OL
+M@DF6TFQN@E89J]_+`AG.$B,=7E!AQF*G^F0=.6=>>\/^1S)]H:OWGQ7OV)T;
+MN\ZX_:S!\Y2'),53IN@RP8ERFY66X6HGSMVJY$:A4;W3CK9#B8SKH4B>F3=3
+MIBO,N;PHOD9E94DEM.65G<_0SX0\0:L:='</]8%^9LDR_\P"1HN_5+"Z<..A
+7$Z#VPKULC3[_CKTHV?X`WU4R*0P1```:
+`
+end
+--
+中野 賢 <ken-na@ascii.co.jp>
+株式会社アスキー アスキーデザインワークス テクニカルセンター

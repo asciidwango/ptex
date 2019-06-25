@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (Introduction)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>はじめに</h2>
+
+<h3>■TeXと日本語TeX</h3>
+
+<b>TeX</b>システムは、Standford大学の<nobr><a href="http://www-cs-staff.Stanford.EDU/~knuth/index.html">Donald. E. Knuth先生</a></nobr>が開発した組版システムで、つぎのような特徴があります。
+
+<ul>
+<li>美しい仕上り
+<li>高度な数式組版能力
+<li>マクロ機能による拡張性
+<li>多様な出力環境への対応
+<li>マークアップ方式での組版指定
+<li>オープンソース
+</ul>
+
+このTeXに、つぎのような日本語機能を追加したものが<b>日本語TeX</b>です。
+とくに、縦組機能をサポートしているバージョンを、横組だけの日本語TeXと区別し、
+<b>pTeX（Publishing TeX）</b>と呼んでいます。
+
+<ul>
+<li>横組と縦組の混在<br>
+	横組だけでなく、縦組でも文章を組版できます。
+	また、１ページに横組と縦組の混在も可能です。
+<li>日本語禁則処理<br>
+	句読点や括弧類の禁則処理に対応しています。
+<li>文字間スペース<br>
+	和文と和文、和文と欧文の間のスペースを調整することで、
+	高い品質を得られます。
+<li>JFMによる和文文字組版<br>
+	日本語の文字組版にJFMファイルを用います。
+</ul>
+
+日本語TeXの、これまでの大きなトピックを表に示します。
+
+<p>
+<center>
+<table border="1" cellpadding="3">
+<tr><th>年</th><th>バージョン</th><th align="left">トピック</th></tr>
+<tr><td>1987</td><td>j1.0</td>
+	<td>最初のバージョン</td></tr>
+<tr><td>1987</td><td>j1.1</td>
+	<td>NEC PC9801シリーズ用の日本語MicroTeX発売</td></tr>
+<tr><td>1990</td><td>j1.7 p1.0.9</td>
+	<td>縦組への対応（TUGboat number 3, volume11）</td></tr>
+<tr><td>1995</td><td>p2.0</td>
+	<td>TeX 3に対応</td></tr>
+<tr><td>2002</td><td>p3.0</td>
+	<td>使用条件を<a href="../etc/COPYRIGHT.txt">BSDライセンス</a>
+		（<a href="../etc/COPYRIGHT-jis.txt">日本語訳</a>）に</td></tr>
+</table>
+</center>
+
+
+<h3>■LaTeXと日本語LaTeX</h3>
+
+TeXを用いると高い品質での組版結果を得ることができますが、
+文章ファイルへの命令の指定が簡単ではありません。
+そこで、<a href="http://research.microsoft.com/users/lamport/">Leslie Lamport</a>が開発したのが<b>LaTeX</b>です。
+<p>
+LaTeXは、一般のユーザがTeXを簡単に扱えるよう、つぎのような機能を提供します。
+
+<ul>
+<li>見出しや箇条書き、表組など、文章の構成要素を指定するコマンド体系
+<li>目次や索引、相互参照などのサポート
+<li>フロート型の図表
+<li>スタイルファイル（レイアウトのテンプレート）の利用
+</ul>
+
+LaTeXの機能はすべて、TeXのマクロ機能だけで実現されているため、
+TeXが稼働するシステムならば、どこでも利用することができます。
+また、TeXの機能を直接利用するよりも簡単です。
+この結果、TeXそのものを使うよりも、LaTeXで文章を作成するほうが一般的
+になっています。
+<p>
+アスキーの日本語LaTeXは、LaTeXを日本語組版用に調整をしたものです。
+pTeXと同様に、縦組機能をサポートした日本語LaTeXを<b>pLaTeX</b>と
+呼んでいます。
+
+
+<h3>■LaTeX2eと日本語LaTeX2e</h3>
+
+LaTeXは、TeXの性能を気軽に使えるとあって、世界中で広く利用されてきました。
+その反面、言語や用途向けにいくつものバリエーションが存在してしまいました。
+そこで、それらのLaTeXをまとめようとして開発されたのが<b>LaTeX2e</b>です。
+<p>
+LaTeX2eは、特別な機能を<b>パッケージ</b>として提供することで、
+ユーザが使う場面に応じて、必要な機能を選択することができます。
+また、Postscript環境への親和性も高くなりました。
+<p>
+このLaTeX2eを日本語化したものが<b>日本語LaTeX2e</b>です。
+日本語LaTeX2eは、横組だけのバージョンは存在しませんが、
+<b>pLaTeX2e</b>と呼んでいます。
+<p>
+なお、LaTeX2eの登場によって、それまでのLaTeXを明示するときは、
+<b>LaTeX 2.09</b>と言われます。
+
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (property list format)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+
+<h2>PLファイルとJPLファイル</h2>
+PLファイルは、TFMファイルの内容を<b>プロパティ</b>（特性）という
+概念を使って視覚化したものです。
+JPLファイルも、PLファイルと同様にメトリックファイルを視覚化したものですが、
+TFMファイルではなく、JFMファイルの内容を表すことが違います。
+ファイル名はどちらも、<b>フォント名.pl</b>という形式でつけられます。
+<p>
+プロパティは階層構造になっており、
+たとえば<tt>LIGTABLE</tt>や<tt>CHARACTER</tt>などの
+プロパティは、その中のさらに細分化したプロパティを持っています。
+PLファイルでは、`('と`)'を用いることで、階層構造を表現する仕組みになっています。
+<p>
+<ul>
+<li><a href="pl-ex.html">PLファイルの例</a>
+<li><a href="jpl-ex.html">JPLファイルの例</a>
+<p>
+<li><a href="#toplevel">最上位レベルのプロパティ</a>
+<li><a href="#character">CHARACTERで使えるプロパティ</a>
+<li><a href="#fontdimen">FONTDIMENで使えるプロパティ</a>
+<li><a href="#gluekern">GLUEKERNで使えるプロパティ</a>
+<li><a href="#ligtable">LIGTABLEで使えるプロパティ</a>
+<li><a href="#type">TYPEで使えるプロパティ</a>
+<li><a href="#etc">その他のプロパティ</a>
+<li><a href="format.html">数値の表現形式</a>
+</ul>
+
+<p>
+<hr>
+<h3><a name="toplevel">■最上位レベルのプロパティ</a></h3>
+<ul>
+<li><a href="boundarychar.html">BOUNDARYCHAR</a>
+<li><a href="checksum.html">CHECKSUM</a>
+<li><a href="character.html">CHARACTER</a> <img src="../images/pl.gif" alt="pl">
+<li><a href="charsintype.html">CHARSINTYPE</a> <img src="../images/jpl.gif" alt="jpl">
+<li><a href="codingscheme.html">CODINGSCHEME</a>
+<li><a href="designsize.html">DESIGNSIZE</a>
+<li><a href="designunits.html">DESIGNUNITS</a>
+<li><a href="direction.html">DIRECTION</a> <img src="../images/jpl.gif" alt="jpl">
+<li><a href="extrastretch.html">EXTRASTRETCH</a> <img src="../images/jpl.gif" alt="jpl">
+<li><a href="extrashrink.html">EXTRASHRINK</a> <img src="../images/jpl.gif" alt="jpl">
+<li><a href="face.html">FACE</a>
+<li><a href="family.html">FAMILY</a>
+<li><a href="fontdimen.html">FONTDIMEN</a>
+<li><a href="gluekern.html">GLUEKERN</a> <img src="../images/jpl.gif" alt="jpl">
+<li><a href="header.html">HEADER</a>
+<li><a href="ligtable.html">LIGTABLE</a> <img src="../images/pl.gif" alt="pl">
+<li><a href="sevenbitsafeflag.html">SEVENBITSAFEFLAG</a>
+<li><a href="type.html">TYPE</a> <img src="../images/jpl.gif" alt="jpl">
+</ul>
+
+<p>
+<hr>
+<h3><a name="character">■<a href="character.html">CHARACTER</a>で使えるプロパティ
+<img src="../images/pl.gif" alt="pl"></a></h3>
+<ul>
+<li>CHARWD
+<li>CHARHT
+<li>CHARDP
+<li>CHARIC
+<li>NEXTLARGER
+<li>VARCHAR
+  <ul>
+  <li>TOP, MID, BOT, REP
+  </ul>
+</ul>
+
+<p>
+<hr>
+<h3><a name="fontdimen">■</a><a href="fontdimen.html">FONTDIMEN</a>で使えるプロパティ</h3>
+<ul>
+<li>SLANT, SPACE, STRETCH, SHRINK, XHEIGHT, QUAD, EXTRASPACE
+<li>NUM1, NUM2, NUM3, DEMON1, DEMON2, SUP1, SUP2, SUP3, SUB1, SUB2,<br>
+    SUPDROP, SUBDROP, DELIM1, DELIM2, AXISHEIGHT
+<li>DEFAULTRULETHICKNESS, BIGOPSPACING1, BIGOPSPACING2, BIGOPSPACING3,<br>
+    BIGOPSPACING4, BIGOPSPACING5
+<li>PARAMETER
+</ul>
+
+<p>
+<hr>
+<h3><a name="gluekern">■<a href="gluekern.html">GLUEKERN</a>で使えるプロパティ
+<img src="../images/jpl.gif" alt="jpl"></a></h3>
+<ul>
+<li>LABEL
+<li>GLUE
+<li>KRN
+<li>STOP
+<li>SKIP
+</ul>
+
+<p>
+<hr>
+<h3><a name="ligtable">■<a href="ligtable.html">LIGTABLE</a>で使えるプロパティ
+<img src="../images/pl.gif" alt="pl"></a></h3>
+<ul>
+<li>LABEL
+<li>LABEL BOUNDARYCHAR
+<li>LIG
+<li>KRN
+<li>STOP
+<li>SKIP
+</ul>
+
+<p>
+<hr>
+<h3><a name="type">■<a href="type.html">TYPE</a>で使えるプロパティ
+<img src="../images/jpl.gif" alt="pl"></a></h3>
+<ul>
+<li>CHARWD
+<li>CHARHT
+<li>CHARDP
+<li>CHARIC
+</ul>
+
+<p>
+<hr>
+<h3><a name="etc">■その他のプロパティ</a></a></h3>
+<ul>
+<li><a href="comment.html">COMMENT</a>
+</ul>
+
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

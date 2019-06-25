@@ -1,0 +1,39 @@
+pTeX 2.1.8 の Makefile.in ファイルに対するパッチです。
+つぎの問題を修正します。
+
+  * texmf.cnf を作ろうとするとき、cp コマンドでエラーとなる
+  * platex.fmt ファイルを作ろうとしてエラーとなる。
+
+このパッチファイルを web2c-7.2/web2c/ptex218 ディレクトリに置いて、
+    patch < Makefile.in.patch
+    ./configure {EUC|JIS|SJIS}
+    make
+    make install
+としてください。
+
+begin 644 Makefile.in.patch
+M*BHJ($UA:V5F:6QE+FEN+F]R:6<)1G)I($UA<B`R-R`R,SHS-3HQ-B`Q.3DX
+M"BTM+2!-86ME9FEL92YI;@E7960@07!R(#$U(#$T.C$T.C4Q(#$Y.3@**BHJ
+M*BHJ*BHJ*BHJ*BHJ"BHJ*B`V+#$R("HJ*BH*("!D969A=6QT(#H@<')O9W)A
+M;7,@9F]R;6%T<PH@(`H@('!R;V=R86US/7!T97@@=&9T;W!L('!L=&]T9B!P
+M9'9I='EP92!J8FEB=&5X"B$@9F]R;6%T<SUP=&5X+F9M="!P;&%T97@N9FUT
+M"B`@"B`@86-?:6YC;'5D92`N+B\N+B]M86ME+W!A=&AS+FUA:V4*("`*+2TM
+M(#8L,3(@+2TM+0H@(&1E9F%U;'0@.B!P<F]G<F%M<R!F;W)M871S"B`@"B`@
+M<')O9W)A;7,]<'1E>"!T9G1O<&P@<&QT;W1F('!D=FET>7!E(&IB:6)T97@*
+M(2!F;W)M871S/7!T97@N9FUT"B`@"B`@86-?:6YC;'5D92`N+B\N+B]M86ME
+M+W!A=&AS+FUA:V4*("`**BHJ*BHJ*BHJ*BHJ*BHJ"BHJ*B`Q-3DL,38U("HJ
+M*BH*("!A;&Q?9FUT<STD*&9O<FUA=',I"B`@"B`@=&5X;68N8VYF.B`N+B\N
+M+B]K<&%T:'-E82]T97AM9BYC;F8*(2`)8W`@)#P@=&5X;68N8VYF"B`@"20H
+M4TA%3$PI("0H=&AI<V1I<BDO;6MC;VYF("0H=&AI<V1I<BD*("`*("!D=6UP
+M96YV(#T@5$58349#3D8])"AT:&ES9&ER*2!415A-1CTD*'1E>&UF*2`*+2TM
+M(#$U.2PQ-C4@+2TM+0H@(&%L;%]F;71S/20H9F]R;6%T<RD*("`*("!T97AM
+M9BYC;F8Z("XN+RXN+VMP871H<V5A+W1E>&UF+F-N9@HA(`EC<"`N+B\N+B]K
+M<&%T:'-E82]T97AM9BYC;F8@=&5X;68N8VYF"B`@"20H4TA%3$PI("0H=&AI
+M<V1I<BDO;6MC;VYF("0H=&AI<V1I<BD*("`*("!D=6UP96YV(#T@5$58349#
+>3D8])"AT:&ES9&ER*2!415A-1CTD*'1E>&UF*2`*
+`
+end
+--
+1998年4月15日
+中野 賢 <ken-na@ascii.co.jp>
+〒151-8024 (株)アスキー テクニカルセンター

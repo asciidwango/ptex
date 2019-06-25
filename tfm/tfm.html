@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<title>The publishing TeX (TFM format)</title>
+</head>
+<body bgcolor="#F5F5DC">
+
+<h2>TFMファイルの構成要素</h2>
+TFMファイルは、ワード（４バイト）を単位としてデータが記述されています。
+また、１ワード内の各バイトは、上位バイトから下位バイトの順に並べられています。
+<p>
+最初の６ワードは、半ワードずつに区切られ、TFMファイルを構成する12個の
+要素のサイズが収められています。
+<p>
+これらの値は、すべて「２の15乗」よりも小さい非負の値です。
+また、つぎの条件を満たしていなければなりません。
+<pre>
+    bc-1 ≦ ec ≦ 255, ne ≦ 256<br>
+    lf = 6 + lh + (ec - bc + 1) + nw + nh + nd + ni + nl + nk + ne + np
+</pre>
+<p>
+
+<hr>
+<a name="tfmmap"></a>
+<a href="/cgi-bin/imagemap/pb/ptex/tfm/tfm.map">
+<img src="../images/tfm.gif" alt="figure of tfm" align=left ISMAP>
+</a>
+
+<var>lf</var> …… ファイルのワード数<br>
+<var>lh</var> …… <var>header</var>のワード数<br>
+<var>bc</var> …… フォント内に含まれる一番小さなコード<br>
+<var>ec</var> …… フォント内に含まれる一番大きなコード<br>
+<var>nw</var> …… <var>width</var>テーブルのワード数<br>
+<var>nh</var> …… <var>height</var>テーブルのワード数<br>
+<var>nd</var> …… <var>depth</var>テーブルのワード数<br>
+<var>ni</var> …… <var>italic</var>テーブルのワード数<br>
+<var>nl</var> …… <var>lig/kern</var>テーブルのワード数<br>
+<var>nk</var> …… <var>kern</var>テーブルのワード数<br>
+<var>ne</var> …… <var>exten</var>テーブルのワード数<br>
+<var>np</var> …… <var>param</var>テーブルのワード数
+<p>
+<var><a href="#header">header</a></var><br>
+<var><a href="#char_info">char_info</a></var><br>
+<var><a href="#width">width</a></var><br>
+<var><a href="#width">height</a></var><br>
+<var><a href="#width">depth</a></var><br>
+<var><a href="#width">italic</a></var><br>
+<var><a href="#ligkern">lig/kern</a></var><br>
+<var><a href="#kern">kern</a></var><br>
+<var><a href="#exten">exten</a></var><br>
+<var><a href="#param">param</a></var><br>
+<br clear=all>
+
+<hr>
+<h3><a name="header">■header</a></h3>
+
+<var>header</var>部には、最低限「チェックサム（check sum）」と
+「デザインサイズ（design size）」の２ワードが収められている必要があります。
+TeXはここまでの情報を使いますが、Xeroxの印刷ソフトウェアなどで用いるTFMには、
+最低限18ワードが必要です。
+
+<ul>
+<li><var>header</var>[0]<br>
+  32ビットのチェックサムを表し、この情報がそのままDVIファイルに収められます。
+  この情報は、TeXの使用したTFMファイルと、印字に使用しようとしている
+  GFなどのグリフファイルが整合のとれたものかどうかを
+  デバイスドライバが確認するためのものです。
+  ただし、そのフォントファイルかこのTFMファイルのチェックサムのいずれかが
+  ゼロの場合はチェックは行なわれません。
+<p>
+<li><var>header</var>[1]<br>
+  フォントのデザインサイズ（ポイント数）を「２の-20乗」を１単位として表した
+  数値です。最小値は1.0です。
+  よく使われるデザインサイズは``10ポイント''フォント用の10.0です。
+  これは、このフォントが10ポイントサイズで使われるときに最適になるように
+  デザインされているということです。
+  TeXのユーザが`<tt>at δ pt'</tt>とした場合、その他のパラメータはその比率
+ （δをデザインサイズで割った値）で拡大されます。
+  10pt用のフォントが<tt>at 15pt</tt>で呼び出されると、それぞれのパラメータが
+  「15/10.0=1.5」倍となるということです。
+  <p>
+  TFMファイルでのサイズは、すべてこのデザインサイズを単位にしています。
+  したがって、たとえば1emまたは\quadを示す<var>param</var>[6]には、
+  しばしば、2^{20}=1.0が収められています。
+  そのために多くのフォントはデザインサイズと1emが同じになっています。
+  <p>
+  その他の寸法は、その絶対値が16デザインサイズ単位よりも小さくなります。
+  先頭バイトが0か255のいずれかのTFMファイルの中で、
+  <var>header</var>[1]と<var>param</var>[1]だけが「２の-20乗」を基準にしています。
+<p>
+<li><var>header</var>[2..11]<br>
+  もしあれば、文字コーディングスキーマを示す40バイトが収められています。
+  先頭バイトは０から39まであり、この文字列の中に入っている実際に意味の
+  あるバイト数を示しています。
+  文字列には、このフォントで表されている文字コードの種類が記述されています。
+  たとえば、<tt>ASCII</tt>は標準ASCIIコード、
+  <tt>TeX text</tt>は<tt>cmr10</tt>や<tt>cmti9</tt>のようなTeXフォント、
+  <tt>TeX math extension</tt>は<tt>cmex10</tt>や<tt>cmex10</tt>のようなTeX数式用フォント、
+  <tt>XEROX</tt>はXeroxフォント、<tt>GRAPHIC</tt>は特別な目的の非アルファベットフォント、
+  <tt>UNSPECIFIED</tt>はこの部分が未定義のデフォルト値です。
+  この文字列の中に丸括弧が現れることは決してありません。
+<p>
+<li><var>header</var>[12..16]<br>
+  もしあれば、`<tt>CMR</tt>'や`<tt>HELVETICA</tt>'といったフォントファミリーの名前が
+  20バイト収められています。このフィールドは``フォント識別子''とも呼ばれます。
+<p>
+<li><var>header</var>[17]<br>
+  もしあれば、次のような情報が入っています。
+<pre>
+  １バイト目  seven_bit_safe_flag
+  ２バイト目  未定義
+  ３バイト目  未定義
+  ４バイト目  face
+</pre>
+  ４バイト目の<var>face</var>が18よりも小さい数値ならば、
+  ``ウェイト、斜体、長体/平体''を表しています。
+  0, 2, 4（ミディアム、ボールド、ライト）のいずれかと
+  0, 1（斜体なし、斜体）のいずれかと
+  0, 6, 12（正体、長体、平体）のいずれかを足したものです。
+  たとえば、13ならば0+1+12となり、このフォントが
+  「ミディアムで斜体で平体」であることを示しています。
+<p>
+<li><var>header</var>[18以上]<br>
+  この部分もあるかもしれません。とりあえずこの部分は<var>header</var>[18],
+  <var>header</var>[19]などと呼びます。
+</ul>
+
+<hr>
+<h3><a name="char_info">■char_info</a></h3>
+<ul>
+<li><var>char_info</var>[<var>bc</var>..<var>ec</var>]
+</ul>
+
+TFMファイルには、コードが<var>bc</var>から<var>ec</var>までの
+$bc-ec+1$文字が含まれています。<var>char_info</var>には、
+１文字ごとに各パラメータテーブル内のインデックスが１ワードにパックされ
+記述されています。１文字分の<var>char_info</var>は、つぎの６つのフィールドを
+持っています。
+
+<table>
+<td>
+<ul>
+<li><var>width_index</var> (8ビット)
+<li><var>height_index</var> (4ビット)
+<li><var>depth_index</var> (4ビット)
+</ul>
+</td>
+<td>
+<ul>
+<li><var>italic_index</var> (6ビット)
+<li><var>tag</var> (2ビット)
+<li><var>remainder</var> (8ビット)
+</ul>
+</td>
+</table>
+
+<img src="../images/charinfo.gif" alt="charinfo">
+<p>
+
+実際の文字幅は<var>width</var>[<var>width_index</var>]（デザインサイズ単位）で
+示されています。TFMファイルは、256種類の文字幅を持つことができますが、
+高さと深さは16種類、イタリック補正値は64種類しか持つことはできません。
+<p>
+なお、<var>width</var>[0]=<var>height</var>[0]=<var>depth</var>[0]=<var>italic</var>[0]=0という
+関係は、いつでも保たれているので、あるインデックスがゼロの場合は、その他の値も
+ゼロであることを意味します。
+また、<var>width_index</var>は、その文字がそのフォントに含まれている限りは、決して
+ゼロにはなりません。したがって、
+ある文字が有効であるならば、その文字は<var>bc</var>と<var>ec</var>の間にあり、
+非ゼロの<var>width_index</var>を持っています。
+<p>
+<var>tag</var>フィールドは、<var>remainder</var>フィールドをどのような目的で使うかを
+示しています。
+<p>
+<ul>
+<li><var>tag</var>=0は、<var>remainder</var>を使わないことを意味しています。
+<li><var>tag</var>=1は、その文字が<var>lig_kern</var>[<var>remainder</var>]から開始する
+ligature/kerningプログラムを持っていることを意味しています。
+<li><var>tag</var>=2は、その文字が、より適切なサイズの文字へのリンクの一部で
+あることを示しています。
+その<var>remainder</var>フィールドには、次に大きな文字のコードが格納されています。
+<li><var>tag</var>=3は、その文字コードが、小さな部品を組み合わせて大きな文字に
+するための、伸張可能な文字であることを意味しています。
+それらの部品は<var>exten</var>[<var>remainder</var>]に記述されています。
+</ul>
+<p>
+
+<hr>
+<h3><a name="width">■width, height, depth, italic</a></h3>
+<ul>
+<li><var>width</var>[0..<var>nw</var>-1] …… 文字の幅
+<li><var>height</var>[0..<var>nh</var>-1] …… 文字の高さ
+<li><var>depth</var>[0..<var>nd</var>-1] …… 文字の深さ
+<li><var>italic</var>[0..<var>ni</var>-1] …… イタリック補正値
+</ul>
+それぞれの値は、デザインサイズの「2の-20乗」倍が1単位です。
+これらの値は、<var>char_info</var>からのインデックスにより参照されます。
+<p>
+
+<hr>
+<h3><a name="ligkern">■lig/kern</a></h3>
+<ul>
+<li><var>lig/kern</var>[0..<var>nl</var>-1]
+</ul>
+<p>
+<img src="../images/ligkern.gif" alt="ligkern">
+<p>
+<var>lig_kern</var>には、特別な文字の組合せのときに行なう動作が、
+簡単なプログラム構造として含まれています。
+<ul>
+<li><var>skip_byte</var>は、
+この値が128以上のときはプログラムの終了を示します。
+それ以外のときは、次のステップまでスキップする値を示します。
+<p>
+<li><var>next_char</var>は、
+現在の文字に<var>next_char</var>が続いていれば、オペレーションを実行し、
+終了します。これ以外の場合は、次のステップに進みます。
+<p>
+<li><var>op_byte</var>は、この値が128より小さければ合字ステップです。
+そうでなければカーンステップになります。
+<p>
+<li><var>remainder</var>は、カーンステップの場合、
+<var>kern</var>[256*(<var>op_byte</var>-128)+<var>remainder</var>]の量の追加スペースを
+現在の文字の後ろに挿入します。
+この量は、文字を近付けるために負になる場合もあります。
+</ul>
+<p>
+合字ステップには８種類があり、
+4a+2b+c (0≦a≦b+c かつ 0≦b,c≦1)の<var>op_byte</var>になっています。
+a, b, c の取る値の組合せをつぎに示します。
+また、参考にプロパティリストでの表記も示します。
+<pre>
+    a   b   c   4a+2b+c   PLtoTF
+    0   0   0     0         LIG
+    0   0   1     1         LIG/
+    0   1   0     2        /LIG
+    0   1   1     3        /LIG/
+    1   0   1     5         LIG/&gt;
+    1   1   0     6        /LIG&gt;
+    1   1   1     7        /LIG/&gt;
+    2   1   1    11        /LIG/&gt;&gt;
+</pre>
+
+合字ステップでは、まず、現在の文字と次の文字の間に
+<var>remainder</var>コードの文字を挿入します。
+そして、b=0の場合は、現在の文字を削除します。
+そして、c=0の場合は、<var>next_char</var>を削除します。
+そして、a文字をスキップし、つぎの文字に到達します
+（その文字もligature/kerningプログラムを持っているかもしれません）。
+<p>
+a=0 かつ b=1 のとき、現在の文字が変更されないことに注意してください。
+また、a=b かつ c=1 のときは、現在の文字が変わり、<var>next_char</var>は変更されません。
+<p>
+<var>lig_kern</var>配列の最初の命令が<var>skip_byte</var>=255の場合、
+<var>next_char</var>バイトは、そのフォントの右バウンダリ文字と呼ばれます。
+<var>next_char</var>の値は<var>bc</var>と<var>ec</var>の間にある必要はありません。
+<p>
+<var>lig_kern</var>配列の最後の命令が<var>skip_byte</var>=255の場合、
+それは256*<var>op_byte</var>+<var>remainder</var>から始まる、
+左バウンダリ用の特別な<var>lig_kern</var>プログラムです。
+<p>
+ある文字の<var>lig_kern</var>プログラムの最初の命令が<var>skip_byte</var>&gt;128の場合、
+実際には、そのプログラムは256*<var>op_byte</var>+<var>remainder</var>の位置から開始します。
+この機能によって、大きな<var>ig_kern</var>配列にアクセスすることができます。
+その理由は、最初の命令は&#62;=255以外の位置でなければならないためです。
+<p>
+<var>lig_kern</var>配列内の<var>skip_byte</var>&#62;128である他の命令は、
+256*<var>op_byte</var>+<var>remainder</var><<var>nl</var>でなくてはいけません。
+もし、そのような命令が通常のプログラムに入っているならば、
+無条件に停止し、いかなる合字コマンドも実行されません。
+<p>
+
+<hr>
+<h3><a name="kern">■kern</a></h3>
+<ul>
+<li><var>kern</var>[0..<var>nk</var>-1] …… カーニング量
+</ul>
+<var>lig/kern</var>プログラムで用いるカーニング量です。
+デザインサイズの「2の-20乗」が1単位です。
+<p>
+
+<hr>
+<h3><a name="exten">■exten</a></h3>
+<ul>
+<li><var>exten</var>[0..<var>ne</var>-1] …… 組み合わせ文字のコード
+</ul>
+組み合わせ文字に使われる文字コードが格納されており、各ワードはつぎの
+構造になります。
+接続パーツ以外の、各パーツのコードには、そのパーツが不必要ならば０が入ります。
+<p>
+<p>
+<img src="../images/exten.gif" alt="exten">
+<p>
+
+<hr>
+<h3><a name="param">■param</a></h3>
+TFMファイルの最後は<var>param</var>部です。この部分は<var>fix_word</var>の別の並びです。
+
+<ul>
+<li><var>param</var>[1] …… <var>slant</var><br>
+  文字の傾いている量を示し、アクセントの出力位置を補正するのに使われます。
+  <var>slant</var>=.25は、１単位上に移動するとき、同時に.25単位だけ右にも
+  移動することを示しています。この数値は、純粋に「２の20乗」を単位としており、
+  デザインサイズの影響を受けません。
+<p>
+<li><var>param</var>[2] …… <var>space</var><br>
+  単語間の通常のスペースの量を示します。フォント内にある
+  `\spacechar'は空白を空けること以外に、何もする必要がないことに注意をしてください。
+<p>
+<li><var>param</var>[3] …… <var>space_strech</var><br>
+  単語間のスペースの伸び量を示します。
+<p>
+<li><var>param</var>[4] …… <var>space_shrink</var><br>
+  単語間のスペースの縮み量を示します。
+<p>
+<li><var>param</var>[5] …… <var>x_height</var><br>
+  上げたり下げたりの必要のないアクセント用の文字の高さを示しています。
+<p>
+<li><var>param</var>[6] …… <var>quad</var><br>
+  このフォントの1emの長さです。
+<p>
+<li><var>param</var>[7] …… <var>extra_space</var><br>
+  文の終わりで<var>param</var>[2]に加える量を示しています。
+</ul>
+
+コーディングスキーマが<tt>TeX math symbols</tt>の場合は、
+さらに次の15個のパラメータが加えられます。
+
+<pre>
+    num1, num2, num3, demon1. demon2, sup1, sup2, sup3,
+    sub1, sub2, supdrop, subdrop, dimen1, dimen2, axis_height
+</pre>
+
+また、コーディングスキーマが<tt>TeX math extension</tt>の場合は、
+次の６個のパラメータが加えられます。
+
+<pre>
+    default_rule_thickness, big_op_spacing1 から big_op_spacing5
+</pre>
+
+
+<p>
+<hr>
+<a href="../index.html">[pTeX home page]</a>
+<a href="index.html">[TFM,JFMの目次]</a>
+<hr>
+<!--#include virtual="/ssi/analytics.html" -->
+</body>
+</html>

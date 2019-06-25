@@ -1,0 +1,35 @@
+pLaTeX のクラスファイル 1.1m に対するパッチです。
+
+pl980409.patch で reject されてしまう部分の修正です。
+
+●インストール方法
+
+※ このパッチをあてる前に、以下のパッチをあててください。
+     * pl980227.patch
+     * pl980323.patch
+     * pl980409.patch
+
+pLaTeX <1997/02/17> 版のディレクトリに移動して、
+   patch < pl980413.patch
+としてください。
+
+更新される jclasses.dtx ファイルから、クラスファイルを作成する必要は
+ありません。また、pLaTeX のフォーマットファイルも再度、作成する必要
+はありません。
+
+begin 644 pl980413.patch.gz
+M'XL("/#%,34``W!L.3@P-#$S+G!A=&-H`-5135/",!`]RZ]8#UPZE*&"V')#
+M%$7!+T#1>9=04EIH24V#@(S_W90J(YX\>-`];+*;M_MV\PS#H(D;LB3A27&D
+MED4A@_%>1\RH'DNRRF15:X=VK:POCF/G3-/<@7]'.K62G2&-74MCL@I6A381
+M49X0>!X+$TX15\QT113QF4I?\M0,0E[;(4KSN7U=10T1K_2,ODIY#@O:55-W
+M1/5NH]72SS(6DJE`S(J;HI2*>GZ0D*>[DCYC)A4)CY3/*6ZS'A\<<$I6B>)1
+M,8.;/[4M`[Q@.R(:/G>GW7FTKE1*E;=L)9UDDKF*RQX;ACQ+TKH?QUR:+M/?
+MH`UU'*.!$YRBB3.<HX4+7**-#JYPC1O<X@Y=]-#'/1XPP".>/CI16RR^=F(8
+MPL4('![&\!%@@BE"1)A!(,8S)!(HS/&"!998X76C[D:CS]5^6Z/4V7]2J++M
+-_".AW@$*5?^OM@,``)A!
+`
+end
+--
+1998年4月13日
+中野 賢 <ken-na@ascii.co.jp>
+〒151-8024 (株)アスキー デザインワークス テクニカルセンター
