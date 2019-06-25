@@ -1,36 +1,36 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>kanjiskip</title>
 </head>
 <body bgcolor="#F5F5DC">
-<h2><a name="kanjiskip">\kanjiskip=$B!T%0%k!<!U(B</a></h2>
-$BO"B3$9$k4A;z!J#2%P%$%H%3!<%I!K4V$K<+F0E*$KA^F~$9$k%0%k!<$NCM$r3JG<$9$k%l%8%9%?$G$9!#(B
-$B$3$N=hM}$O!"(B<a href="autospacing.html">\autospacing</a>,
-<a href="noautospacing.html">\noautospacing</a>$B$K$h$C$F9T$&$+9T$o$J$$$+$N;XDj$r$7$^$9!#(B
-$B$3$N%l%8%9%?$NCM$O!"%Q%i%0%i%U$N=*$o$j$+!"$^$?$O(B\hbox$B$N:G8e$N;~E@$G<h$j9~$s$G(B
-$B=hM}$7$^$9!#$7$?$,$C$F!"F10l%Q%i%0%i%UFb!"$"$k$$$O(B\hbox$BFb$G2?EY$+CM$rJQ2=$7$F$b!"(B
-$B:G8e$K@_Dj$7$?CM$G=hM}$5$l$^$9!#(B
+<h2><a name="kanjiskip">\kanjiskip=《グルー》</a></h2>
+連続する漢字（２バイトコード）間に自動的に挿入するグルーの値を格納するレジスタです。
+この処理は、<a href="autospacing.html">\autospacing</a>,
+<a href="noautospacing.html">\noautospacing</a>によって行うか行わないかの指定をします。
+このレジスタの値は、パラグラフの終わりか、または\hboxの最後の時点で取り込んで
+処理します。したがって、同一パラグラフ内、あるいは\hbox内で何度か値を変化しても、
+最後に設定した値で処理されます。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
     \kanjiskip=10pt plus 1pt minus1pt
 </pre>
 
 <p>
-<b>$B4XO";v9`(B</b>
+<b>関連事項</b>
 <p>
 <a href="autospacing.html">\autospacing</a>,
 <a href="noautospacing.html">\noautospacing</a>,
 <a href="xkanjiskip.html">\xkanjiskip</a>,
 <a href="inhibitglue.html">\inhibitglue</a>,
-<a href="../base/xkanjiskip.html#kanjiskip" target="_top">$B4A;z4V%9%Z!<%9(B</a>
+<a href="../base/xkanjiskip.html#kanjiskip" target="_top">漢字間スペース</a>
 
 <p>
 <hr>
 <a href="../index.html" target="_top">[pTeX home page]</a>.
-<a href="index.html" target="_top">[$B%W%j%_%F%#%V$NL\<!(B]</a>
+<a href="index.html" target="_top">[プリミティブの目次]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>

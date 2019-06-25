@@ -1,42 +1,42 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>xspcode</title>
 </head>
 <body bgcolor="#F5F5DC">
-<h2><a name="xspcode">\xspcode$B!T#8%S%C%H?tCM!U(B=$B!T(B0|1|2|3$B!U(B</a></h2>
-$BO"B3$9$k4A;z!J#2%P%$%H%3!<%I!K$H1Q;z!J#1%P%$%H%3!<%I!K$N4V$K<+F0E*$KA^F~$9$k(B
-$B%9%Z!<%9$K$D$$$F!"$I$N1Q;z$H4A;z$N4V$GA^F~$9$k$+$7$J$$$+$r;XDj$7$^$9!#(B
-$B$3$N;XDj$O#0!A#3$N$$$:$l$+$r@_Dj$9$k$3$H$G!"$D$.$NF0:n$rA*Br$7$^$9!#(B
+<h2><a name="xspcode">\xspcode《８ビット数値》=《0|1|2|3》</a></h2>
+連続する漢字（２バイトコード）と英字（１バイトコード）の間に自動的に挿入する
+スペースについて、どの英字と漢字の間で挿入するかしないかを指定します。
+この指定は０〜３のいずれかを設定することで、つぎの動作を選択します。
 <p>
 <pre>
-    0  $B1Q;z$HA08e$N4A;z$N4V$N=hM}$r6X;_$9$k!#(B
-    1  $BJ8;z$HD>A0$N4A;z$H$N4V$K$@$1%9%Z!<%9$NA^F~$r5v2D$9$k!#(B
-    2  $BD>8e$N4A;z$H$N4V$K$@$1%9%Z!<%9$NA^F~$r5v2D$9$k!#(B
-    3  $BA08e$N4A;z$H$N4V$KBP$7$F!"%9%Z!<%9$NA^F~$r5v2D$9$k!#(B
+    0  英字と前後の漢字の間の処理を禁止する。
+    1  文字と直前の漢字との間にだけスペースの挿入を許可する。
+    2  直後の漢字との間にだけスペースの挿入を許可する。
+    3  前後の漢字との間に対して、スペースの挿入を許可する。
 </pre>
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
     \xspcode`A=0
     \xspcode`B=3
     \xspcode`;=2
 </pre>
-$B$H$9$k$H!"(B`A'$B$KBP$9$k=hM}$r6X;_$7!"(B`B'$B$KBP$7$FA08e$N=hM}$r5v2D$7$^$9!#(B
-$B$^$?!"(B`;'$B$KBP$7$F$OD>8e$X$N%9%Z!<%9$NA^F~$r5v2D$7$^$9!#(B
+とすると、`A'に対する処理を禁止し、`B'に対して前後の処理を許可します。
+また、`;'に対しては直後へのスペースの挿入を許可します。
 
 <p>
-<b>$B4XO";v9`(B</b>
+<b>関連事項</b>
 <p>
 <a href="inhibitxspcode.html">\inhibitxspcode</a>,
 <a href="xkanjiskip.html">\xkanjiskip</a>,
-<a href="../base/xkanjiskip.html#yakumono" target="_top">$B5-9fN`$H$N4V(B</a>
+<a href="../base/xkanjiskip.html#yakumono" target="_top">記号類との間</a>
 
 <p>
 <hr>
 <a href="../index.html" target="_top">[pTeX home page]</a>.
-<a href="index.html" target="_top">[$B%W%j%_%F%#%V$NL\<!(B]</a>
+<a href="index.html" target="_top">[プリミティブの目次]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>

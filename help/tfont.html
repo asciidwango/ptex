@@ -1,23 +1,23 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>tfont</title>
 </head>
 <body bgcolor="#F5F5DC">
 <h2><a name="tfont">\tfont</a></h2>
-`\font'$B$HF1$8$G$9!#$?$@$7!"(B`\showmode'$B$J$I$N%W%j%_%F%#%V$HAH$_9g$o$;$?>l9g$O!"(B
-$B%+%l%s%H$N=DAHMQ$NOBJ8%U%)%s%H$rJV$7$^$9!#%U%)%s%H$NDj5A$K$O!"(B\font, \tfont$B$N(B
-$B$$$:$l$r;H$C$F$b2$J8%U%)%s%H!"=DAHMQ$NOBJ8%U%)%s%H$NDj5A$,2DG=$G$9!#(B
+`\font'と同じです。ただし、`\showmode'などのプリミティブと組み合わせた場合は、
+カレントの縦組用の和文フォントを返します。フォントの定義には、\font, \tfontの
+いずれを使っても欧文フォント、縦組用の和文フォントの定義が可能です。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
     \tfont\tate-mincho=tmin10 at 24pt
 </pre>
-$B$H$9$k$H!"(B\tate-mincho $B$K(B24$B%]%$%s%H$NL@D+BN$,3d$jEv$F$i$l$^$9!#(B
+とすると、\tate-mincho に24ポイントの明朝体が割り当てられます。
 <p>
 
-<b>$B4XO";v9`(B</b>
+<b>関連事項</b>
 <p>
 <a href="jfam.html">\jfam</a>,
 <a href="jfont.html">\jfont</a>
@@ -25,7 +25,7 @@
 <p>
 <hr>
 <a href="../index.html" target="_top">[pTeX home page]</a>.
-<a href="index.html" target="_top">[$B%W%j%_%F%#%V$NL\<!(B]</a>
+<a href="index.html" target="_top">[プリミティブの目次]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>

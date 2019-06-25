@@ -1,218 +1,218 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>pTeX primitives</title>
 </head>
 <body bgcolor="#F5F5DC">
-<h2>pTeX$B$N3HD%%W%j%_%F%#%V$HJQ?t(B</h2>
+<h2>pTeXの拡張プリミティブと変数</h2>
 
-<h3><a name="autospacing">$B"#(B\autospacing</a></h3>
-$B4A;z!J#2%P%$%H%3!<%I!K4V$X$N%0%k!<$N<+F0A^F~$r5v2D$7$^$9!#(B
+<h3><a name="autospacing">■\autospacing</a></h3>
+漢字（２バイトコード）間へのグルーの自動挿入を許可します。
 <p>
-$B$?$@$7!"$3$N%3%^%s%I$r;XDj$7$?2U=j$G$O$J$/!"(B
-$BCJMn$d%\%C%/%9$J$I$,AH$_N)$F$i$l$?;~E@$N>uBV$,!"(B
-$B$=$NCJMn$d%\%C%/%9A4BN$K1F6A$7$^$9!#(B
+ただし、このコマンドを指定した箇所ではなく、
+段落やボックスなどが組み立てられた時点の状態が、
+その段落やボックス全体に影響します。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#noautospacing">\noautospacing</a>,
 <a href="zz.html#autoxspacing">\autoxspacing</a>,
 <a href="zz.html#noautoxspacing">\noautoxspacing</a>,
 <a href="zz.html#inhibitglue">\inhibitglue</a>,
-<a href="../base/xkanjiskip.html#kanjiskip" target="_top">$B4A;z4V%9%Z!<%9(B</a>
+<a href="../base/xkanjiskip.html#kanjiskip" target="_top">漢字間スペース</a>
 <p>
 <hr>
 
-<h3><a name="autoxspacing">$B"#(B\autoxspacing</a></h3>
-$B4A;z!J#2%P%$%H%3!<%I!K$H1Q;z!J#1%P%$%H%3!<%I!K4V$X$N%0%k!<$N(B
-$B<+F0A^F~$r5v2D$7$^$9!#(B
+<h3><a name="autoxspacing">■\autoxspacing</a></h3>
+漢字（２バイトコード）と英字（１バイトコード）間へのグルーの
+自動挿入を許可します。
 <p>
-$B$?$@$7!"$3$N%3%^%s%I$r;XDj$7$?2U=j$G$O$J$/!"(B
-$BCJMn$d%\%C%/%9$J$I$,AH$_N)$F$i$l$?;~E@$N>uBV$,!"(B
-$B$=$NCJMn$d%\%C%/%9A4BN$K1F6A$7$^$9!#(B
+ただし、このコマンドを指定した箇所ではなく、
+段落やボックスなどが組み立てられた時点の状態が、
+その段落やボックス全体に影響します。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#autospacing">\autospacing</a>,
 <a href="zz.html#noautospacing">\noautospacing</a>,
 <a href="zz.html#noautoxspacing">\noautoxspacing</a>,
 <a href="zz.html#xspcode">\xspcode</a>,
 <a href="zz.html#inhibitxspcode">\inhibitxspcode</a>
-<a href="../base/xkanjiskip.html#xkanjiskip" target="_top">$BOB2$J84V%9%Z!<%9(B</a>
+<a href="../base/xkanjiskip.html#xkanjiskip" target="_top">和欧文間スペース</a>
 <p>
 <hr>
 
-<h3><a name="euc">$B"#(B\euc$B!T(B16$B%S%C%H?tCM!U(B</a></h3>
-EUC$B%3!<%I$+$iFbIt%3!<%I$X$NJQ49$r9T$$$^$9!#(B
+<h3><a name="euc">■\euc《16ビット数値》</a></h3>
+EUCコードから内部コードへの変換を行います。
 <p>
-<b>$BNc(B</b><br>
+<b>例</b><br>
 <pre>
 \char\euc"B0A5
 </pre>
-$B$O!"(B`$B0%(B'$B$G$9!#(B
+は、`哀'です。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#jis">\jis</a>,
 <a href="zz.html#kuten">\kuten</a>,
 <a href="zz.html#sjis">\sjis</a>,
-<a href="../base/kanjicode.html" target="_top">$B4A;z%3!<%I$K$D$$$F(B</a>
+<a href="../base/kanjicode.html" target="_top">漢字コードについて</a>
 <p>
 <hr>
 
-<h3><a name="inhibitglue">$B"#(B\inhibitglue</a></h3>
-$BOBJ8%U%)%s%H$N%a%H%j%C%/>pJs$+$i!"<+F0E*$KA^F~$5$l$k%0%k!<$NA^F~$r6X;_$7$^$9!#(B
-$B$3$N%W%j%_%F%#%V$rA^F~$7$?2U=j$K$N$_M-8z$G$9!#(B
+<h3><a name="inhibitglue">■\inhibitglue</a></h3>
+和文フォントのメトリック情報から、自動的に挿入されるグルーの挿入を禁止します。
+このプリミティブを挿入した箇所にのみ有効です。
 <p>
-<b>$B4XO";v9`(B</b><br>
-<a href="../base/xkanjiskip.html#jfmglue" target="_top">$BOBJ8%U%)%s%H$K$h$k%9%Z!<%9(B</a>,
+<b>関連事項</b><br>
+<a href="../base/xkanjiskip.html#jfmglue" target="_top">和文フォントによるスペース</a>,
 <p>
 <hr>
 
-<h3><a name="inhibitxspcode">$B"#(B\inhibitxspcode$B!T(B16$B%S%C%H?tCM!U(B=$B!T(B0|1|2|3$B!U(B</a></h3>
-$BO"B3$9$k4A;z!J#2%P%$%H%3!<%I!K$H1Q;z!J#1%P%$%H%3!<%I!K$N4V$K<+F0E*$KA^F~$9$k(B
-$B%9%Z!<%9$K$D$$$F!"$I$N4A;z$H1Q;z$N4V$GA^F~$9$k$+$7$J$$$+$r;XDj$7$^$9!#(B
-$B$3$N;XDj$O#0!A#3$N$$$:$l$+$r@_Dj$9$k$3$H$G!"$D$.$NF0:n$rA*Br$7$^$9!#(B
+<h3><a name="inhibitxspcode">■\inhibitxspcode《16ビット数値》=《0|1|2|3》</a></h3>
+連続する漢字（２バイトコード）と英字（１バイトコード）の間に自動的に挿入する
+スペースについて、どの漢字と英字の間で挿入するかしないかを指定します。
+この指定は０〜３のいずれかを設定することで、つぎの動作を選択します。
 <p>
 <pre>
-    0  $B4A;z$H1Q;z4V$N=hM}$r6X;_$9$k!#(B
-    1  $BJ8;z$HD>A0$N1Q;z$H$N4V$K$@$1%9%Z!<%9$NA^F~$r6X;_$9$k!#(B
-    2  $BD>8e$N1Q;z$H$N4V$K$@$1%9%Z!<%9$NA^F~$r6X;_$9$k!#(B
-    3  $BA08e$N1Q;z$H$N4V$KBP$7$F!"%9%Z!<%9$NA^F~$r5v2D$9$k!#(B
+    0  漢字と英字間の処理を禁止する。
+    1  文字と直前の英字との間にだけスペースの挿入を禁止する。
+    2  直後の英字との間にだけスペースの挿入を禁止する。
+    3  前後の英字との間に対して、スペースの挿入を許可する。
 </pre>
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
-    \inhibitxspcode`$B!)(B=0
-    \inhibitxspcode`$B!J(B=2
-    \inhibitxspcode`$B!K(B=1
+    \inhibitxspcode`？=0
+    \inhibitxspcode`（=2
+    \inhibitxspcode`）=1
 </pre>
-$B$H$9$k$H!"(B`$B!)(B'$B$HA08e$N1Q;z$KBP$9$k=hM}$r6X;_$7$^$9!#(B
-$B$^$?!"(B`$B!J(B'$B$KBP$7$F$OD>8e$N1Q;z$H$N4V$X$N=hM}$r6X;_$7!"(B
-`$B!K(B'$B$KBP$7$F$OD>A0$N1Q;z$H$N4V$X$N=hM}$r6X;_$7$F$$$^$9!#(B
+とすると、`？'と前後の英字に対する処理を禁止します。
+また、`（'に対しては直後の英字との間への処理を禁止し、
+`）'に対しては直前の英字との間への処理を禁止しています。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#xspcode">\xspcode</a>,
 <a href="zz.html#xkanjiskip">\xkanjiskip</a>,
-<a href="../base/xkanjiskip.html#yakumono" target="_top">$B5-9fN`$H$N4V(B</a>
+<a href="../base/xkanjiskip.html#yakumono" target="_top">記号類との間</a>
 <p>
 <hr>
 
-<h3><a name="jcharwidowpenalty">$B"#(B\jcharwidowpenalty=$B!T?tCM!U(B</a></h3>
-$B%Q%i%0%i%U$N:G8e$N4A;z$,8IN)$7$F2~9T$5$l$k$N$rKI$0$?$a$N%Z%J%k%F%#$G$9!#(B
-$B%Q%i%0%i%U$N:G8e$K#1J8;z0J>e$N#16h!"#26h$K4^$^$l$kJ8;z$,$"$k>l9g$O!"(B
-$B$=$ND>A0$K$"$k#2%P%$%H%3!<%I$KBP$7$F!"$3$N%Z%J%k%F%#$,;H$o$l$^$9!#(B
+<h3><a name="jcharwidowpenalty">■\jcharwidowpenalty=《数値》</a></h3>
+パラグラフの最後の漢字が孤立して改行されるのを防ぐためのペナルティです。
+パラグラフの最後に１文字以上の１区、２区に含まれる文字がある場合は、
+その直前にある２バイトコードに対して、このペナルティが使われます。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
     \jcharwidowpenalty=500
 </pre>
 <p>
 <hr>
 
-<h3><a name="jfam">$B"#(B\jfam</a></h3>
-`\jfont'$B$HF1MM$K!"(B`\fam'$B$H$[$\F1$8F0:n$r$7$^$9!#(B
-`\showthe'$B$J$I$HAH$_9g$o$;$k$3$H$G!"%+%l%s%H$NOBJ8%U%)%s%H%U%!%_%j!<$r(B
-$BJV$7$^$9!#$?$@$7!"$3$N%W%j%_%F%#%V$G$O!"2$J8%U%)%s%H$N%U%!%_%j!<$b(B
-$BOBJ8%U%!%_%j!<$H$7$FDj5A$7$^$9$N$G!"Cm0U$,I,MW$G$9!#(B
+<h3><a name="jfam">■\jfam</a></h3>
+`\jfont'と同様に、`\fam'とほぼ同じ動作をします。
+`\showthe'などと組み合わせることで、カレントの和文フォントファミリーを
+返します。ただし、このプリミティブでは、欧文フォントのファミリーも
+和文ファミリーとして定義しますので、注意が必要です。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
     \showthe\jfam
 </pre>
-$B$H$9$k$H!"%+%l%s%H$NOBJ8%U%)%s%H%U%!%_%j!<$rJV$7$^$9!#(B
+とすると、カレントの和文フォントファミリーを返します。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#jfont">\jfont</a>,
 <a href="zz.html#tfont">\tfont</a>
 <p>
 <hr>
 
-<h3><a name="jfont">$B"#(B\jfont</a></h3>
-`\font'$B$HF1$8$G$9!#$?$@$7!"(B`\showmode'$B$J$I$N%W%j%_%F%#%V$HAH$_9g$o$;$?>l9g$O!"(B
-$B%+%l%s%H$N2#AHMQ$NOBJ8%U%)%s%H$rJV$7$^$9!#%U%)%s%H$NDj5A$K$O!"(B\font, \jfont$B$N(B
-$B$$$:$l$r;H$C$F$b2$J8%U%)%s%H!"2#AHMQ$NOBJ8%U%)%s%H$NDj5A$,2DG=$G$9!#(B
+<h3><a name="jfont">■\jfont</a></h3>
+`\font'と同じです。ただし、`\showmode'などのプリミティブと組み合わせた場合は、
+カレントの横組用の和文フォントを返します。フォントの定義には、\font, \jfontの
+いずれを使っても欧文フォント、横組用の和文フォントの定義が可能です。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
     \jfont\mincho=min10 at 24pt
 </pre>
-$B$H$9$k$H!"(B\mincho $B$K(B24$B%]%$%s%H$NL@D+BN$,3d$jEv$F$i$l$^$9!#(B
+とすると、\mincho に24ポイントの明朝体が割り当てられます。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#jfam">\jfam</a>,
 <a href="zz.html#tfont">\tfont</a>
 <p>
 <hr>
 
-<h3><a name="jis">$B"#(B\jis$B!T(B16$B%S%C%H?tCM!U(B</a></h3>
-JIS$B%3!<%I$+$iFbIt%3!<%I$X$NJQ49$r9T$$$^$9!#(B
+<h3><a name="jis">■\jis《16ビット数値》</a></h3>
+JISコードから内部コードへの変換を行います。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
 \char\jis"346E
 </pre>
-$B$O!"(B`$B4n(B'$B$G$9!#(B
+は、`喜'です。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#euc">\euc</a>,
 <a href="zz.html#kuten">\kuten</a>,
 <a href="zz.html#sjis">\sjis</a>,
-<a href="../base/kanjicode.html" target="_top">$B4A;z%3!<%I$K$D$$$F(B</a>
+<a href="../base/kanjicode.html" target="_top">漢字コードについて</a>
 <p>
 <hr>
 
-<h3><a name="kanjiskip">$B"#(B\kanjiskip=$B!T%0%k!<!U(B</a></h3>
-$BO"B3$9$k4A;z!J#2%P%$%H%3!<%I!K4V$K<+F0E*$KA^F~$9$k%0%k!<$NCM$r(B
-$B3JG<$9$k%l%8%9%?$G$9!#(B
-$B$3$N=hM}$O!"(B<a href="zz.html#autospacing">\autospacing</a>,
-<a href="zz.html#noautospacing">\noautospacing</a>$B$K$h$C$F9T$&$+9T$o$J$$$+$N(B
-$B;XDj$r$7$^$9!#$3$N%l%8%9%?$NCM$O!"%Q%i%0%i%U$N=*$o$j$+!"$^$?$O(B\hbox$B$N(B
-$B:G8e$N;~E@$G<h$j9~$s$G=hM}$7$^$9!#$7$?$,$C$F!"F10l%Q%i%0%i%UFb!"(B
-$B$"$k$$$O(B\hbox$BFb$G2?EY$+CM$rJQ2=$7$F$b!":G8e$K@_Dj$7$?CM$G=hM}$5$l$^$9!#(B
+<h3><a name="kanjiskip">■\kanjiskip=《グルー》</a></h3>
+連続する漢字（２バイトコード）間に自動的に挿入するグルーの値を
+格納するレジスタです。
+この処理は、<a href="zz.html#autospacing">\autospacing</a>,
+<a href="zz.html#noautospacing">\noautospacing</a>によって行うか行わないかの
+指定をします。このレジスタの値は、パラグラフの終わりか、または\hboxの
+最後の時点で取り込んで処理します。したがって、同一パラグラフ内、
+あるいは\hbox内で何度か値を変化しても、最後に設定した値で処理されます。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
     \kanjiskip=10pt plus 1pt minus1pt
 </pre>
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#autospacing">\autospacing</a>,
 <a href="zz.html#noautospacing">\noautospacing</a>,
 <a href="zz.html#xkanjiskip">\xkanjiskip</a>,
 <a href="zz.html#inhibitglue">\inhibitglue</a>,
-<a href="../base/xkanjiskip.html#kanjiskip" target="_top">$B4A;z4V%9%Z!<%9(B</a>
+<a href="../base/xkanjiskip.html#kanjiskip" target="_top">漢字間スペース</a>
 <p>
 <hr>
 
-<h3><a name="kansuji">$B"#(B\kansuji $B!T?tCM!U(B</a></h3>
-$B?tCM$r4A?t;z$G=PNO$7$^$9!#(B
+<h3><a name="kansuji">■\kansuji 《数値》</a></h3>
+数値を漢数字で出力します。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
-\kansuji 1987$BG/(B
+\kansuji 1987年
 </pre>
-$B$O!"(B`$B0l6eH,<7G/(B'$B$H=PNO$5$l$^$9!#(B
+は、`一九八七年'と出力されます。
 <p>
-$B=PNO$5$l$kJ8;z$O(B\kansujichar$B$G;XDj$9$k$3$H$,$G$-$^$9!#(B
-$B%G%U%)%k%H$O!V!;0lFs;0;M8^O;<7H,6e!W$G$9!#(B
+出力される文字は\kansujicharで指定することができます。
+デフォルトは「〇一二三四五六七八九」です。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#kansujichar">\kansujichar</a>
 <p>
 <hr>
 
-<h3><a name="kansujichar">$B"#(B\kansujichar$B!T(B0$B!A(B9$B$N$$$:$l$+!U(B=$B!T(B16$B%S%C%H?tCM!U(B</a></h3>
-\kansuji$B$G=PNO$9$kJ8;z$r@_Dj$7$^$9!#(B
+<h3><a name="kansujichar">■\kansujichar《0〜9のいずれか》=《16ビット数値》</a></h3>
+\kansujiで出力する文字を設定します。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
-\kansujichar1=`$B0m(B
+\kansujichar1=`壱
 \kansujichar2=\euc"C6F5\relax
 \kansujichar3=\jis"3B32\relax
 \kansuji 1234
 </pre>
-$B$O!"(B`$B0mFu;2;M(B'$B$H=PNO$5$l$^$9!#(B
+は、`壱弐参四'と出力されます。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#kansuji">\kansuji</a>,
 <a href="zz.html#euc">\euc</a>,
 <a href="zz.html#jis">\jis</a>,
@@ -221,107 +221,107 @@ JIS$B%3!<%I$+$iFbIt%3!<%I$X$NJQ49$r9T$$$^$9!#(B
 <p>
 <hr>
 
-<h3><a name="kuten">$B"#(B\kuten$B!T(B16$B%S%C%H?tCM!U(B</a></h3>
-$B6hE@%3!<%I$+$iFbIt%3!<%I$X$NJQ49$r9T$$$^$9!#(B
+<h3><a name="kuten">■\kuten《16ビット数値》</a></h3>
+区点コードから内部コードへの変換を行います。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
 \char\kuten"253C
 </pre>
-$B$O!"(B`$BE\(B'(37$B6h(B60$BE@(B)$B$G$9!#(B
+は、`怒'(37区60点)です。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#euc">\euc</a>,
 <a href="zz.html#jis">\jis</a>,
 <a href="zz.html#sjis">\sjis</a>,
-<a href="../base/kanjicode.html" target="_top">$B4A;z%3!<%I$K$D$$$F(B</a>
+<a href="../base/kanjicode.html" target="_top">漢字コードについて</a>
 <p>
 <hr>
 
-<h3><a name="noautospacing">$B"#(B\noautospacing</a></h3>
-$B4A;z!J#2%P%$%H%3!<%I!K4V$X$N%0%k!<$N<+F0A^F~$r6X;_$7$^$9!#(B
+<h3><a name="noautospacing">■\noautospacing</a></h3>
+漢字（２バイトコード）間へのグルーの自動挿入を禁止します。
 <p>
-$B$?$@$7!"$3$N%3%^%s%I$r;XDj$7$?2U=j$G$O$J$/!"(B
-$BCJMn$d%\%C%/%9$J$I$,AH$_N)$F$i$l$?;~E@$N>uBV$,!"(B
-$B$=$NCJMn$d%\%C%/%9A4BN$K1F6A$7$^$9!#(B
+ただし、このコマンドを指定した箇所ではなく、
+段落やボックスなどが組み立てられた時点の状態が、
+その段落やボックス全体に影響します。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#autospacing">\autospacing</a>,
 <a href="zz.html#autoxspacing">\autoxspacing</a>,
 <a href="zz.html#noautoxspacing">\noautoxspacing</a>,
 <a href="zz.html#inhibitglue">\inhibitglue</a>
-<a href="../base/xkanjiskip.html#kanjiskip" target="_top">$B4A;z4V%9%Z!<%9(B</a>
+<a href="../base/xkanjiskip.html#kanjiskip" target="_top">漢字間スペース</a>
 <p>
 <hr>
 
-<h3><a name="noautoxspacing">$B"#(B\noautoxspacing</a></h3>
-$B4A;z!J#2%P%$%H%3!<%I!K$H1Q;z!J#1%P%$%H%3!<%I!K4V$X$N%0%k!<$N<+F0A^F~$r(B
-$B6X;_$7$^$9!#(B
+<h3><a name="noautoxspacing">■\noautoxspacing</a></h3>
+漢字（２バイトコード）と英字（１バイトコード）間へのグルーの自動挿入を
+禁止します。
 <p>
-$B$?$@$7!"$3$N%3%^%s%I$r;XDj$7$?2U=j$G$O$J$/!"(B
-$BCJMn$d%\%C%/%9$J$I$,AH$_N)$F$i$l$?;~E@$N>uBV$,!"(B
-$B$=$NCJMn$d%\%C%/%9A4BN$K1F6A$7$^$9!#(B
+ただし、このコマンドを指定した箇所ではなく、
+段落やボックスなどが組み立てられた時点の状態が、
+その段落やボックス全体に影響します。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#autospacing">\autospacing</a>,
 <a href="zz.html#noautospacing">\noautospacing</a>,
 <a href="zz.html#autoxspacing">\autoxspacing</a>,
 <a href="zz.html#xspcode">\xspcode</a>,
 <a href="zz.html#inhibitxspcode">\inhibitxspcode</a>
-<a href="../base/xkanjiskip.html#xkanjiskip" target="_top">$BOB2$J84V%9%Z!<%9(B</a>
+<a href="../base/xkanjiskip.html#xkanjiskip" target="_top">和欧文間スペース</a>
 <p>
 <hr>
 
-<h3><a name="postbreakpenalty">$B"#(B\postbreakpenaltyt$B!T(B16$B%S%C%H?tCM!U(B=$B!T?tCM!U(B</a>
+<h3><a name="postbreakpenalty">■\postbreakpenaltyt《16ビット数値》=《数値》</a>
 </h3>
-$B;XDj$9$kJ8;z$N8eJ}$KA^F~$9$k%Z%J%k%F%#CM$r@_Dj$7$^$9!#(B
-$B$3$N;XDj$O!"9TKv6XB'$N;XDj$K$"$?$j$^$9!#(B
+指定する文字の後方に挿入するペナルティ値を設定します。
+この指定は、行末禁則の指定にあたります。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
-    \postbreakpenalty`$B!#(B=10000
+    \postbreakpenalty`。=10000
 </pre>
-$B$H$9$k$3$H$K$h$j!"(B`$B!#(B'$B$N8eJ}$K(B10000$B$N%Z%J%k%F%#CM$rIU$1!"9TKv6XB'J8;z$N(B
-$BBP>]J8;z$K$7$^$9!#(B
+とすることにより、`。'の後方に10000のペナルティ値を付け、行末禁則文字の
+対象文字にします。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#prebreakpenalty">\prebreakpenalty</a>
 <p>
 <hr>
 
-<h3><a name="prebreakpenalty">$B"#(B\prebreakpenaltyt$B!T(B16$B%S%C%H?tCM!U(B=$B!T?tCM!U(B</a>
+<h3><a name="prebreakpenalty">■\prebreakpenaltyt《16ビット数値》=《数値》</a>
 </h3>
-$B;XDj$9$kJ8;z$NA0J}$KA^F~$9$k%Z%J%k%F%#CM$r@_Dj$7$^$9!#(B
-$B$3$N;XDj$O!"9TF,6XB'$N;XDj$K$"$?$j$^$9!#(B
+指定する文字の前方に挿入するペナルティ値を設定します。
+この指定は、行頭禁則の指定にあたります。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
-    \prebreakpenalty`$B$"(B=1000
+    \prebreakpenalty`あ=1000
 </pre>
-$B$H$9$k$3$H$K$h$j!"(B`$B$"(B'$B$NA0J}$K(B1000$B$N%Z%J%k%F%#CM$rIU$1!"9TF,6XB'J8;z$N(B
-$BBP>]J8;z$K$7$^$9!#(B
+とすることにより、`あ'の前方に1000のペナルティ値を付け、行頭禁則文字の
+対象文字にします。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#postbreakpenalty">\postbreakpenalty</a>
 <p>
 <hr>
 
-<h3><a name="showmode">$B"#(B\showmode</a></h3>
-$B4A;z(B-$B4A;z4V$H4A;z(B-$BOB2$J84V$K<+F0E*$K6uGr$rA^F~$5$l$k$+$I$&$+$K$D$$$F!"(B
-$B8=:_$N>uBV$rI=<($7$^$9!#(B
+<h3><a name="showmode">■\showmode</a></h3>
+漢字-漢字間と漢字-和欧文間に自動的に空白を挿入されるかどうかについて、
+現在の状態を表示します。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <p>
-$B4A;z(B-$B4A;z4V$*$h$S4A;z(B-$BOB2$J84V$K<+F0E*$K6uGr$rA^F~$9$k>uBV$N$H$-$K!"(B
+漢字-漢字間および漢字-和欧文間に自動的に空白を挿入する状態のときに、
 <pre>
     \showmode
 </pre>
-$B$H$9$k$H!"$D$.$N$h$&$KI=<($5$l$^$9!#(B
+とすると、つぎのように表示されます。
 <pre>
     > auto spacing mode; 
     > auto xspacing mode.
 </pre>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#autospacing">\autospacing</a>,
 <a href="zz.html#noautospacing">\noautospacing</a>,
 <a href="zz.html#autoxspacing">\autoxspacing</a>,
@@ -329,167 +329,167 @@ JIS$B%3!<%I$+$iFbIt%3!<%I$X$NJQ49$r9T$$$^$9!#(B
 <p>
 <hr>
 
-<h3><a name="sjis">$B"#(B\sjis$B!T(B16$B%S%C%H?tCM!U(B</a></h3>
-$B%7%U%H(BJIS$B%3!<%I$+$iFbIt%3!<%I$X$NJQ49$r9T$$$^$9!#(B
+<h3><a name="sjis">■\sjis《16ビット数値》</a></h3>
+シフトJISコードから内部コードへの変換を行います。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
 \char\sjis"8A79
 </pre>
-$B$O!"(B`$B3Z(B'$B$G$9!#(B
+は、`楽'です。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#euc">\euc</a>,
 <a href="zz.html#jis">\jis</a>,
 <a href="zz.html#kuten">\kuten</a>,
 <p>
 <hr>
 
-<h3><a name="tate">$B"#(B\tate</a></h3>
-$BAHJ}8~$r=DJ}8~$K$9$k%W%j%_%F%#%V$G$9!#(B
-$B%+%l%s%H$NOBJ8%U%)%s%H$O!"=DAHMQ$N%U%)%s%H$K$J$j$^$9!#(B
+<h3><a name="tate">■\tate</a></h3>
+組方向を縦方向にするプリミティブです。
+カレントの和文フォントは、縦組用のフォントになります。
 <p>
-$B$J$*!"AHJ}8~$NJQ99$O!"%\%C%/%9:n@.%3%^%s%I$N:G=i$G@k8@$7$J$/$F$O$$$1$^$;$s!#(B
-$B$^$?!"%\%C%/%9$r%3%T!<$7$?$j!"E83+$9$k>l9g$O!"F1$8AHJ}8~$N%\%C%/%9Fb$G(B
-$B$J$/$F$O$J$j$^$;$s!#(B
+なお、組方向の変更は、ボックス作成コマンドの最初で宣言しなくてはいけません。
+また、ボックスをコピーしたり、展開する場合は、同じ組方向のボックス内で
+なくてはなりません。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#yoko">\yoko</a>
 <p>
 <hr>
 
-<h3><a name="tbaselineshift">$B"#(B\tbaselineshift</a></h3>
-$B=DAH%\%C%/%9Fb$G$N!"OB2$J8%U%)%s%H4V$N%Y!<%9%i%$%s$rD4@0$9$k$?$a$N(B
-$B%0%k!<$r3JG<$9$k%l%8%9%?$G$9!#(B
-$B$3$N%l%8%9%?$NCM$O!"A^F~2U=j0J9_$GM-8z$H$J$j$^$9!#(B
+<h3><a name="tbaselineshift">■\tbaselineshift</a></h3>
+縦組ボックス内での、和欧文フォント間のベースラインを調整するための
+グルーを格納するレジスタです。
+このレジスタの値は、挿入箇所以降で有効となります。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#ybaselineshift">\ybaselineshift</a>
 <p>
 <hr>
 
-<h3><a name="tfont">$B"#(B\tfont</a></h3>
-`\font'$B$HF1$8$G$9!#$?$@$7!"(B`\showmode'$B$J$I$N%W%j%_%F%#%V$HAH$_9g$o$;$?>l9g$O!"(B
-$B%+%l%s%H$N=DAHMQ$NOBJ8%U%)%s%H$rJV$7$^$9!#%U%)%s%H$NDj5A$K$O!"(B\font, \tfont$B$N(B
-$B$$$:$l$r;H$C$F$b2$J8%U%)%s%H!"=DAHMQ$NOBJ8%U%)%s%H$NDj5A$,2DG=$G$9!#(B
+<h3><a name="tfont">■\tfont</a></h3>
+`\font'と同じです。ただし、`\showmode'などのプリミティブと組み合わせた場合は、
+カレントの縦組用の和文フォントを返します。フォントの定義には、\font, \tfontの
+いずれを使っても欧文フォント、縦組用の和文フォントの定義が可能です。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
     \tfont\tate-mincho=tmin10 at 24pt
 </pre>
-$B$H$9$k$H!"(B\tate-mincho $B$K(B24$B%]%$%s%H$NL@D+BN$,3d$jEv$F$i$l$^$9!#(B
+とすると、\tate-mincho に24ポイントの明朝体が割り当てられます。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#jfam">\jfam</a>,
 <a href="zz.html#jfont">\jfont</a>
 <p>
 <hr>
 
-<h3><a name="xkanjiskip">$B"#(B\xkanjiskip=$B!T%0%k!<!U(B</a></h3>
-$BO"B3$9$k4A;z!J#2%P%$%H%3!<%I!K$H1Q;z!J#1%P%$%H%3!<%I!K4V$K<+F0E*$K(B
-$BA^F~$9$k%0%k!<$NCM$r3JG<$9$k%l%8%9%?$G$9!#(B
-$B$3$N=hM}$O!"(B<a href="zz.html#autoxspacing">\autoxspacing</a>,
-<a href="zz.html#noautoxspacing">\noautoxspacing</a>$B$K$h$C$F9T$&$+9T$o$J$$$+$N(B
-$B;XDj$r$7$^$9!#$3$N%l%8%9%?$NCM$O!"%Q%i%0%i%U$N=*$o$j$+!"$^$?$O(B\hbox$B$N(B
-$B:G8e$N;~E@$G<h$j9~$s$G=hM}$7$^$9!#$7$?$,$C$F!"F10l%Q%i%0%i%UFb!"(B
-$B$"$k$$$O(B\hbox$BFb$G2?EY$+CM$rJQ2=$7$F$b!":G8e$K@_Dj$7$?CM$G=hM}$5$l$^$9!#(B
+<h3><a name="xkanjiskip">■\xkanjiskip=《グルー》</a></h3>
+連続する漢字（２バイトコード）と英字（１バイトコード）間に自動的に
+挿入するグルーの値を格納するレジスタです。
+この処理は、<a href="zz.html#autoxspacing">\autoxspacing</a>,
+<a href="zz.html#noautoxspacing">\noautoxspacing</a>によって行うか行わないかの
+指定をします。このレジスタの値は、パラグラフの終わりか、または\hboxの
+最後の時点で取り込んで処理します。したがって、同一パラグラフ内、
+あるいは\hbox内で何度か値を変化しても、最後に設定した値で処理されます。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
     \xkanjiskip=10pt plus 1pt minus1pt
 </pre>
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#autoxspacing">\autoxspacing</a>,
 <a href="zz.html#noautoxspacing">\noautoxspacing</a>,
 <a href="zz.html#kanjiskip">\kanjiskip</a>,
 <a href="zz.html#xspcode">\xspcode</a>,
-<a href="../base/xkanjiskip.html#xkanjiskip" target="_top">$BOB2$J84V%9%Z!<%9(B</a>
+<a href="../base/xkanjiskip.html#xkanjiskip" target="_top">和欧文間スペース</a>
 <p>
 <hr>
 
-<h3><a name="xspcode">$B"#(B\xspcode$B!T#8%S%C%H?tCM!U(B=$B!T(B0|1|2|3$B!U(B</a></h3>
-$BO"B3$9$k4A;z!J#2%P%$%H%3!<%I!K$H1Q;z!J#1%P%$%H%3!<%I!K$N4V$K<+F0E*$KA^F~$9$k(B
-$B%9%Z!<%9$K$D$$$F!"$I$N1Q;z$H4A;z$N4V$GA^F~$9$k$+$7$J$$$+$r;XDj$7$^$9!#(B
-$B$3$N;XDj$O#0!A#3$N$$$:$l$+$r@_Dj$9$k$3$H$G!"$D$.$NF0:n$rA*Br$7$^$9!#(B
+<h3><a name="xspcode">■\xspcode《８ビット数値》=《0|1|2|3》</a></h3>
+連続する漢字（２バイトコード）と英字（１バイトコード）の間に自動的に挿入する
+スペースについて、どの英字と漢字の間で挿入するかしないかを指定します。
+この指定は０〜３のいずれかを設定することで、つぎの動作を選択します。
 <p>
 <pre>
-    0  $B1Q;z$HA08e$N4A;z$N4V$N=hM}$r6X;_$9$k!#(B
-    1  $BJ8;z$HD>A0$N4A;z$H$N4V$K$@$1%9%Z!<%9$NA^F~$r5v2D$9$k!#(B
-    2  $BD>8e$N4A;z$H$N4V$K$@$1%9%Z!<%9$NA^F~$r5v2D$9$k!#(B
-    3  $BA08e$N4A;z$H$N4V$KBP$7$F!"%9%Z!<%9$NA^F~$r5v2D$9$k!#(B
+    0  英字と前後の漢字の間の処理を禁止する。
+    1  文字と直前の漢字との間にだけスペースの挿入を許可する。
+    2  直後の漢字との間にだけスペースの挿入を許可する。
+    3  前後の漢字との間に対して、スペースの挿入を許可する。
 </pre>
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
     \xspcode`A=0
     \xspcode`B=3
     \xspcode`;=2
 </pre>
-$B$H$9$k$H!"(B`A'$B$KBP$9$k=hM}$r6X;_$7!"(B`B'$B$KBP$7$FA08e$N=hM}$r5v2D$7$^$9!#(B
-$B$^$?!"(B`;'$B$KBP$7$F$OD>8e$X$N%9%Z!<%9$NA^F~$r5v2D$7$^$9!#(B
+とすると、`A'に対する処理を禁止し、`B'に対して前後の処理を許可します。
+また、`;'に対しては直後へのスペースの挿入を許可します。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#inhibitxspcode">\inhibitxspcode</a>,
 <a href="zz.html#xkanjiskip">\xkanjiskip</a>,
-<a href="../base/xkanjiskip.html#yakumono" target="_top">$B5-9fN`$H$N4V(B</a>
+<a href="../base/xkanjiskip.html#yakumono" target="_top">記号類との間</a>
 <p>
 <hr>
 
-<h3><a name="ybaselineshift">$B"#(B\ybaselineshift</a></h3>
-$B2#AH%\%C%/%9Fb$G$N!"OB2$J8%U%)%s%H4V$N%Y!<%9%i%$%s$rD4@0$9$k$?$a$N(B
-$B%0%k!<$r3JG<$9$k%l%8%9%?$G$9!#(B
-$B$3$N%l%8%9%?$NCM$O!"A^F~2U=j0J9_$GM-8z$H$J$j$^$9!#(B
+<h3><a name="ybaselineshift">■\ybaselineshift</a></h3>
+横組ボックス内での、和欧文フォント間のベースラインを調整するための
+グルーを格納するレジスタです。
+このレジスタの値は、挿入箇所以降で有効となります。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#tbaselineshift">\tbaselineshift</a>
 <p>
 <hr>
 
-<h3><a name="yoko">$B"#(B\yoko</a></h3>
-$BAHJ}8~$r2#J}8~$K$9$k%W%j%_%F%#%V$G$9!#(B
-$B%+%l%s%H$NOBJ8%U%)%s%H$O!"2#AHMQ$N%U%)%s%H$K$J$j$^$9!#(B
+<h3><a name="yoko">■\yoko</a></h3>
+組方向を横方向にするプリミティブです。
+カレントの和文フォントは、横組用のフォントになります。
 <p>
-$B$J$*!"AHJ}8~$NJQ99$O!"%\%C%/%9:n@.%3%^%s%I$N:G=i$G@k8@$7$J$/$F$O$$$1$^$;$s!#(B
-$B$^$?!"%\%C%/%9$r%3%T!<$7$?$j!"E83+$9$k>l9g$O!"F1$8AHJ}8~$N%\%C%/%9Fb$G(B
-$B$J$/$F$O$J$j$^$;$s!#(B
+なお、組方向の変更は、ボックス作成コマンドの最初で宣言しなくてはいけません。
+また、ボックスをコピーしたり、展開する場合は、同じ組方向のボックス内で
+なくてはなりません。
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#tate">\tate</a>
 <p>
 <hr>
 
-<h3><a name="zh">$B"#(Bzh</a></h3>
-ex$B$HF1$8$h$&$K%+%l%s%H%U%)%s%H$,;}$D9b$5(B+$B?<$5$r<($9C10L5-9f$G$9!#(B
-$B$?$@$7!"%+%l%s%HOBJ8%U%)%s%H$r;2>H$7$^$9!#(B
-$B$^$?!"=DAH%\%C%/%9$NFbIt$G$O%+%l%s%H$N=DAH%U%)%s%H!"(B
-$B2#AH%\%C%/%9$NFbIt$G$O%+%l%s%H$N2#AH%U%)%s%H$N9b$5(B+$B?<$5$r;2>H$7$^$9!#(B
+<h3><a name="zh">■zh</a></h3>
+exと同じようにカレントフォントが持つ高さ+深さを示す単位記号です。
+ただし、カレント和文フォントを参照します。
+また、縦組ボックスの内部ではカレントの縦組フォント、
+横組ボックスの内部ではカレントの横組フォントの高さ+深さを参照します。
 <p>
-$B=DAH%U%)%s%H$H2#AH%U%)%s%H$G$O!"(B`$B9b$5(B'$B$H(B`$B?<$5(B'$B$r<($90LCV$,0[$J$k$3$H$K(B
-$BCm0U$7$F$/$@$5$$!#(B
+縦組フォントと横組フォントでは、`高さ'と`深さ'を示す位置が異なることに
+注意してください。
 <p>
 <center>
 <img src="../images/zwzh.gif">
 </center>
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#zw">zw</a>
 <p>
 <hr>
 
-<h3><a name="zw">$B"#(Bzw</a></h3>
-em$B$HF1$8$h$&$K%+%l%s%H%U%)%s%H$,;}$DJ8;zI}$r<($9C10L5-9f$G$9!#(B
-$B$?$@$7!"%+%l%s%HOBJ8%U%)%s%H$r;2>H$7$^$9!#(B
-$B$^$?!"=DAH%\%C%/%9$NFbIt$G$O%+%l%s%H$N=DAH%U%)%s%H!"(B
-$B2#AH%\%C%/%9$NFbIt$G$O%+%l%s%H$N2#AH%U%)%s%H$NI}$r;2>H$7$^$9!#(B
+<h3><a name="zw">■zw</a></h3>
+emと同じようにカレントフォントが持つ文字幅を示す単位記号です。
+ただし、カレント和文フォントを参照します。
+また、縦組ボックスの内部ではカレントの縦組フォント、
+横組ボックスの内部ではカレントの横組フォントの幅を参照します。
 <p>
-$B=DAH%U%)%s%H$H2#AH%U%)%s%H$G$O!"(B`$BI}(B'$B$r<($90LCV$,0[$J$k$3$H$KCm0U$7$F$/$@$5$$!#(B
+縦組フォントと横組フォントでは、`幅'を示す位置が異なることに注意してください。
 <p>
 <center>
 <img src="../images/zwzh.gif">
 </center>
 <p>
-<b>$B4XO";v9`(B</b><br>
+<b>関連事項</b><br>
 <a href="zz.html#zh">zh</a>
 <p>
 <hr>

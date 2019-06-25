@@ -1,24 +1,24 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>jfam</title>
 </head>
 <body bgcolor="#F5F5DC">
 <h2><a name="jfam">\jfam</a></h2>
-`\jfont'$B$HF1MM$K!"(B`\fam'$B$H$[$\F1$8F0:n$r$7$^$9!#(B
-`\showthe'$B$J$I$HAH$_9g$o$;$k$3$H$G!"%+%l%s%H$NOBJ8%U%)%s%H%U%!%_%j!<$r(B
-$BJV$7$^$9!#$?$@$7!"$3$N%W%j%_%F%#%V$G$O!"2$J8%U%)%s%H$N%U%!%_%j!<$bOBJ8%U%!%_%j!<$H$7$F(B
-$BDj5A$7$^$9$N$G!"Cm0U$,I,MW$G$9!#(B
+`\jfont'と同様に、`\fam'とほぼ同じ動作をします。
+`\showthe'などと組み合わせることで、カレントの和文フォントファミリーを
+返します。ただし、このプリミティブでは、欧文フォントのファミリーも和文ファミリーとして
+定義しますので、注意が必要です。
 <p>
-<b>$BNc(B</b>
+<b>例</b>
 <pre>
     \showthe\jfam
 </pre>
-$B$H$9$k$H!"%+%l%s%H$NOBJ8%U%)%s%H%U%!%_%j!<$rJV$7$^$9!#(B
+とすると、カレントの和文フォントファミリーを返します。
 
 <p>
-<b>$B4XO";v9`(B</b>
+<b>関連事項</b>
 <p>
 <a href="jfont.html">\jfont</a>,
 <a href="tfont.html">\tfont</a>
@@ -26,7 +26,7 @@
 <p>
 <hr>
 <a href="../index.html" target="_top">[pTeX home page]</a>.
-<a href="index.html" target="_top">[$B%W%j%_%F%#%V$NL\<!(B]</a>
+<a href="index.html" target="_top">[プリミティブの目次]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>
