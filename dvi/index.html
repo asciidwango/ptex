@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (DVI)</title>
 </head>
 <style type="text/css">
@@ -11,346 +11,346 @@ DT { font-weight: bold; }
 </style>
 <body bgcolor="#F5F5DC">
 
-<h2>DVI$B%U%)!<%^%C%H(B</h2>
+<h2>DVIフォーマット</h2>
 
-DVI$B%U%!%$%k$O!"%U%!%$%k$N@hF,$+$i=g$K!"(B
-$B%W%j%"%s%V%kIt!"%Z!<%85-=RIt!"%]%9%H%"%s%V%kIt$G9=@.$5$l$^$9!#(B
+DVIファイルは、ファイルの先頭から順に、
+プリアンブル部、ページ記述部、ポストアンブル部で構成されます。
 
 <dl>
-<dt>$B%W%j%"%s%V%kIt(B</dt>
+<dt>プリアンブル部</dt>
   <dd>
-  $B#1$D$N(B<a href="#pre">pre$BL?Na(B</a>$B$@$1$G9=@.$5$l$^$9!#(B
-  DVI$B%U%!%$%k$N%U%)!<%^%C%H!&%P!<%8%g%s$d%3%a%s%H$N$[$+!"(B
-  $B$=$N%U%!%$%k$G;HMQ$9$kC10L$r@_Dj$7$^$9!#(B
+  １つの<a href="#pre">pre命令</a>だけで構成されます。
+  DVIファイルのフォーマット・バージョンやコメントのほか、
+  そのファイルで使用する単位を設定します。
   </dd>
 <p>
-<dt>$B%Z!<%85-=RIt(B</dt>
+<dt>ページ記述部</dt>
   <dd>
-  $B%W%j%"%s%V%kIt$H%]%9%H%"%s%V%kIt$N4V$K!"%Z!<%8?t$NJ,$@$1CV$+$l$^$9!#(B
-  $B3F%Z!<%8$O(B bop $BL?Na$G;O$^$j!"(Beop $BL?Na$G=*$j$^$9!#$3$N4V$K!"(B
-  $B%U%)%s%H$NDj5A$d@ZBX$(!"%+%l%s%H%]%$%s%H$N0\F0!"J8;z$d7S@~$NIA2h$J$I$N(B
-  $BL?Na$,$O$$$j$^$9!#(B
+  プリアンブル部とポストアンブル部の間に、ページ数の分だけ置かれます。
+  各ページは bop 命令で始まり、eop 命令で終ります。この間に、
+  フォントの定義や切替え、カレントポイントの移動、文字や罫線の描画などの
+  命令がはいります。
   <p>
-  $B%Z!<%85-=RIt$N:G=i$NItJ,!J(Bbop$BL?Na!K$G$O!"$5$^$6$^$J=i4|2=$r9T$$$^$9!#(B
-  (h,v,w,x,y,z) $B%l%8%9%?$K$=$l$>$l#0$rBeF~$7!"(B
-  $B$=$l$i$rB`Hr$9$k$?$a$N%9%?%C%/$r6u$N>uBV$K$7$^$9!#(B
-  $B$^$?!"(Bf $B%l%8%9%?$r%U%)%s%H$,A*Br$5$l$F$$$J$$>uBV$K$7$^$9!#(B
+  ページ記述部の最初の部分（bop命令）では、さまざまな初期化を行います。
+  (h,v,w,x,y,z) レジスタにそれぞれ０を代入し、
+  それらを退避するためのスタックを空の状態にします。
+  また、f レジスタをフォントが選択されていない状態にします。
   <p>
-  $B$J$*!"3F%l%8%9%?$N0UL#$O<!$N$H$*$j$G$9!#(B
+  なお、各レジスタの意味は次のとおりです。
   <blockquote>
   <table border="1">
-  <tr><td>$B%l%8%9%?(B</td><td>$B0UL#(B</td></tr>
-  <tr><td>h</td><td>$B%+%l%s%H%]%$%s%H$N?eJ?0LCV(B</td></tr>
-  <tr><td>v</td><td>$B%+%l%s%H%]%$%s%H$N?bD>0LCV(B</td></tr>
-  <tr><td>w, x</td><td>$B?eJ?0\F0NL(B</td></tr>
-  <tr><td>y, z</td><td>$B?bD>0\F0NL(B</td></tr>
-  <tr><td>f</td><td>$B%+%l%s%H%U%)%s%H(B</td></tr>
+  <tr><td>レジスタ</td><td>意味</td></tr>
+  <tr><td>h</td><td>カレントポイントの水平位置</td></tr>
+  <tr><td>v</td><td>カレントポイントの垂直位置</td></tr>
+  <tr><td>w, x</td><td>水平移動量</td></tr>
+  <tr><td>y, z</td><td>垂直移動量</td></tr>
+  <tr><td>f</td><td>カレントフォント</td></tr>
   </table>
   </blockquote>
-  $B%+%l%s%H%]%$%s%H(B (h,v) $B$O!"MQ;f$N>e$+$i#1%$%s%A!":8$+$i#1%$%s%A$r:BI87O$N(B
-  $B86E@$H$7$?0LCV$G$9!#(Bh $B$O1&J}8~!"(Bv $B$O2<J}8~$GBg$-$/$J$j$^$9!#(B
-  $B$?$@$7!"(B<a href="#tate">$B=DAH$N>l9g(B</a>$B$O0\F0J}8~$,JQ$o$j$^$9!#(B
+  カレントポイント (h,v) は、用紙の上から１インチ、左から１インチを座標系の
+  原点とした位置です。h は右方向、v は下方向で大きくなります。
+  ただし、<a href="#tate">縦組の場合</a>は移動方向が変わります。
   </dd>
 <p>
-<dt>$B%]%9%H%"%s%V%kIt(B</dt>
+<dt>ポストアンブル部</dt>
   <dd>
-  <a href="#post">post$BL?Na(B</a>$B!"(B
-  $BJ#?t$N%U%)%s%HDj5A!J(B<a href="#fnt_def">fnt_def$BL?Na(B</a>$B!K!"(B
-  <a href="#post_post">post_post$BL?Na(B</a>$B$H$G9=@.$5$l$^$9!#(B
+  <a href="#post">post命令</a>、
+  複数のフォント定義（<a href="#fnt_def">fnt_def命令</a>）、
+  <a href="#post_post">post_post命令</a>とで構成されます。
   <p>
-  $B%U%)%s%HDj5A$O!"$=$N%U%!%$%k$G!"$O$8$a$F;H$o$l$k$H$-$K!"(B
-  $B%Z!<%85-=RIt$K8=$l$^$9!#$=$7$F!"%]%9%H%"%s%V%kIt$G$O!"(B
-  $B$=$l$i$N%U%)%s%HDj5A$,$^$H$a$i$l$F$$$^$9!#(B
-  $B$D$^$j!"%U%)%s%HDj5A$O!"%Z!<%85-=RIt$H%]%9%H%"%s%V%kIt$NN>J}$K(B
-  $B#12s$:$D=P8=$7$^$9!#(B
+  フォント定義は、そのファイルで、はじめて使われるときに、
+  ページ記述部に現れます。そして、ポストアンブル部では、
+  それらのフォント定義がまとめられています。
+  つまり、フォント定義は、ページ記述部とポストアンブル部の両方に
+  １回ずつ出現します。
   </dd>
 </dl>
 
 
 <hr>
-<h3>$B"#(BDVI$BL?Na0lMw(B</h3>
-DVI$BL?Na$O!"#1%P%$%H$NL?Na$H$=$l$KB3$/#0%P%$%H0J>e$N%Q%i%a!<%?$G9=@.$5$l$^$9!#(B
+<h3>■DVI命令一覧</h3>
+DVI命令は、１バイトの命令とそれに続く０バイト以上のパラメータで構成されます。
 <p>
-$B#1%P%$%H0J>e$N%Q%i%a!<%?$O!":G=i$N%P%$%H$,:G>e0L!"(B
-$B:G8e$N%P%$%H$,:G2<0L$N=g=x$G3JG<$5$l$^$9!#(B
-$B%Q%i%a!<%?$K$O$$$/$D$+$N7?$,$"$j$^$9!#(B
+１バイト以上のパラメータは、最初のバイトが最上位、
+最後のバイトが最下位の順序で格納されます。
+パラメータにはいくつかの型があります。
 <blockquote>
 <dl>
 <dt>unsinged</dt>
-	<dd>$B#1%P%$%H$G$O(B0$B!A(B255$B!"#2%P%$%H$G$O(B0$B!A(B65535$B!"#3%P%$%H$G$O(B0$B!A(B2^{24}$B!"(B
-	$B#4%P%$%H$G$O(B0$B!A(B2^{31}$B$NHO0O$N?tCM$r07$$$^$9!#(B
+	<dd>１バイトでは0〜255、２バイトでは0〜65535、３バイトでは0〜2^{24}、
+	４バイトでは0〜2^{31}の範囲の数値を扱います。
 	</dd>
 <dt>singed</dt>
-	<dd>$B#2$NJd?tI=8=$GIi$N?t$rI=$7$^$9!#(B
-	$B#1%P%$%H$G$O(B-128$B!A(B127$B!"#2%P%$%H$G$O(B-32768$B!A(B2767$B!"(B
-	$B#3%P%$%H$G$O(B-2^{24}$B!A(B2^{24}-1$B!"(B
-	$B#4%P%$%H$G$O(B-2^{31}$B!A(B2^{31}-1$B$NHO0O$N?tCM$r07$$$^$9!#(B
+	<dd>２の補数表現で負の数を表します。
+	１バイトでは-128〜127、２バイトでは-32768〜2767、
+	３バイトでは-2^{24}〜2^{24}-1、
+	４バイトでは-2^{31}〜2^{31}-1の範囲の数値を扱います。
 	</dd>
 <dt>dimension</dt>
-	<dd>dimension$B$O(Bsigned$B!JId9f$"$j!K$N%G!<%?$G$9!#(B
-	$BC10L$O(B<a href="#pre">pre$BL?Na(B</a>$B!"(B<a href="#post">post$BL?Na(B</a>$B$GM?$($^$9!#(B
-	$BDL>o!"(BTeX$B$G@8@.$9$k(BDVI$B$G$O(B1sp$B!J(B2^{-16}pt$B!K$,C10L$H$J$C$F$$$^$9!#(B
+	<dd>dimensionはsigned（符号あり）のデータです。
+	単位は<a href="#pre">pre命令</a>、<a href="#post">post命令</a>で与えます。
+	通常、TeXで生成するDVIでは1sp（2^{-16}pt）が単位となっています。
 	</dd>
 <dt>pointer</dt>
-	<dd>DVI$B%U%!%$%kFb$N0LCV$r%U%!%$%k$N@hF,$+$i$N%P%$%H?t$GI=$7$^$9!#(B
-	$B%U%!%$%k$N:G=i$N%P%$%H$O#0$GI=$7$^$9!#(Bpointer$B$,(B-1$B$N>l9g$O!"(B
-	$B!V2?$b;X$7$F$$$J$$>uBV!J(Bnull$B!K!W$rI=$7$^$9!#(B
+	<dd>DVIファイル内の位置をファイルの先頭からのバイト数で表します。
+	ファイルの最初のバイトは０で表します。pointerが-1の場合は、
+	「何も指していない状態（null）」を表します。
 	</dd>
 <dt>string</dt>
-	<dd>ASCII$BJ8;zNs$G$9!#J8;zNs$ND9$5$O(Bunsined$B$G5-=R$7$^$9!#(B
+	<dd>ASCII文字列です。文字列の長さはunsinedで記述します。
 	</dd>
 </dl>
 </blockquote>
 <p>
-$B0J2<$K(BDVI$BL?Na$r<($7$^$9!#(B
+以下にDVI命令を示します。
 <dl>
-<dt>$BL?Na$N%3!<%I!J(B10$B?J?t!K(B $B!D(B DVI$BL?Na(B {$B0z?t(B[$B0z?t$N%P%$%H?t(B]}</dt>
-	<dd>$B0UL#(B
+<dt>命令のコード（10進数） … DVI命令 {引数[引数のバイト数]}</dt>
+	<dd>意味
 	</dd><p>
-<dt>0 $B!A(B 127 $B!D(B set_char_0 $B!A(B set_char_127</dt>
+<dt>0 〜 127 … set_char_0 〜 set_char_127</dt>
 	<dd>
-	set_char_# $B$O!"%U%)%s%H(B f $B$N%3!<%IHV9f(B # $B$NJ8;z$r!"(B
-	$B%Z!<%8>e$N(B (h,v) $B$N0LCV$H$=$NJ8;z$N%j%U%!%l%s%9%]%$%s%H$,(B
-	$B0lCW$9$k$h$&$K0u;z$7$^$9!#$=$7$F!"$=$NJ8;z$NI}$NJ,$@$1(B h $B$rA}2C$5$;$^$9!#(B
-	$BJ8;zI}$,%<%m$h$j>.$5$$>l9g!"(Bh $B$O8:>/$7$^$9!#(B
+	set_char_# は、フォント f のコード番号 # の文字を、
+	ページ上の (h,v) の位置とその文字のリファレンスポイントが
+	一致するように印字します。そして、その文字の幅の分だけ h を増加させます。
+	文字幅がゼロより小さい場合、h は減少します。
 	</dd><p>
-<dt>128 $B!D(B set1 c[1]</dt>
-<dt>129 $B!D(B set2 c[2]</dt>
-<dt>130 $B!D(B set3 c[3]</dt>
-<dt>131 $B!D(B set4 c[4]</dt>
+<dt>128 … set1 c[1]</dt>
+<dt>129 … set2 c[2]</dt>
+<dt>130 … set3 c[3]</dt>
+<dt>131 … set4 c[4]</dt>
 	<dd>
-	$B%3!<%IHV9f$,(B c $B$NJ8;z$r0u;z$9$k0J30$O!"(Bset_char_0 $B$HF1$8$G$9!#(B
+	コード番号が c の文字を印字する以外は、set_char_0 と同じです。
 	<br>
-	pTeX$B$G$O!"(Bset2$BL?Na$r;H$C$F4A;z!J(BJIS$B%3!<%I!K$r;XDj$7$^$9!#(B
+	pTeXでは、set2命令を使って漢字（JISコード）を指定します。
 	</dd><p>
-<dt>132 $B!D(B set_rule a[4] b[4]</dt><dd>
-	(h,v) $B$N0LCV$K:82<$rCV$-!"9b$5(B a$B!"2#I}(B b $B$N9u$$;M3Q$rIA$-$^$9!#(B
-	$B$=$7$F!"(Bh $B$r(B h+b $B$K$7$^$9!#(B
-	a $B$"$k$$$O(B b $B$,%<%m0J2<$N>l9g!"2?$bIA$/$Y$-$G$O$"$j$^$;$s!#(B
-	b<0 $B$G$O2?$b5/$3$j$^$;$s$,!"(Bh $B$O8:>/$9$k$3$H$KCm0U$7$F$/$@$5$$!#(B
+<dt>132 … set_rule a[4] b[4]</dt><dd>
+	(h,v) の位置に左下を置き、高さ a、横幅 b の黒い四角を描きます。
+	そして、h を h+b にします。
+	a あるいは b がゼロ以下の場合、何も描くべきではありません。
+	b<0 では何も起こりませんが、h は減少することに注意してください。
 	<br>
-	a $B$H(B b $B$O(B dimension $B$G$9!#(B
+	a と b は dimension です。
 	</dd><p>
-<dt>133 $B!D(B put1 c[1]</dt>
-<dt>134 $B!D(B put2 c[2]</dt>
-<dt>135 $B!D(B put3 c[3]</dt>
-<dt>136 $B!D(B put4 c[4]</dt>
-<dt>137 $B!D(B put_rule a[4] b[4]</dt>
+<dt>133 … put1 c[1]</dt>
+<dt>134 … put2 c[2]</dt>
+<dt>135 … put3 c[3]</dt>
+<dt>136 … put4 c[4]</dt>
+<dt>137 … put_rule a[4] b[4]</dt>
 	<dd>
-	`put' $B%3%^%s%I$O!"J8;z$d7S@~$r0u;z$7$?8e!"(B
-	$B;2>HE@$r0\F0$7$J$$$3$H$r=|$$$F(B `set' $B%3%^%s%I$HF1$8$G$9!#(B
+	`put' コマンドは、文字や罫線を印字した後、
+	参照点を移動しないことを除いて `set' コマンドと同じです。
 	<br>
-	a $B$H(B b $B$O(B dimension $B$G$9!#(B
+	a と b は dimension です。
 	</dd><p>
-<dt>138 $B!D(B nop</dt><dd>
-	$B2?$b$7$^$;$s!#(BDVI$BL?Na$N4V$K$O$$$/$DMQ$$$F$b$+$^$$$^$;$s$,!"(B
-	DVI$BL?Na$H%Q%i%a!<%?$N4V!"$*$h$S%Q%i%a!<%?$N4V$G$O;HMQ$G$-$^$;$s!#(B
+<dt>138 … nop</dt><dd>
+	何もしません。DVI命令の間にはいくつ用いてもかまいませんが、
+	DVI命令とパラメータの間、およびパラメータの間では使用できません。
 	</dd><p>
-<dt>139 $B!D(B bop c0[4] c1[4]...c9[4] p[4]</dt><dd>
-	$B%Z!<%8=hM}$N3+;O$r0UL#$7$^$9!#(B
+<dt>139 … bop c0[4] c1[4]...c9[4] p[4]</dt><dd>
+	ページ処理の開始を意味します。
 	<br>
-	(h,v,w,x,y,z) $B$r(B (0,0,0,0,0,0) $B$K$7!"%9%?%C%/$r6u$K$7$^$9!#(B
-	$B$^$?!"%+%l%s%H%U%)%s%H(B f $B$OL$Dj5A$N>uBV$K$J$j$^$9!#(B
+	(h,v,w,x,y,z) を (0,0,0,0,0,0) にし、スタックを空にします。
+	また、カレントフォント f は未定義の状態になります。
 	<br>
-	c0 $B!A(B c9 $B$N(B 10 $B8D$N%Q%i%a!<%?$O!"(BTeX $B$G$3$N%Z!<%8$,(B \shipout $B$5$l$?$H$-$N(B
-	\count0 $B!A(B \count9 $B$NCM$G$9!#(B
+	c0 〜 c9 の 10 個のパラメータは、TeX でこのページが \shipout されたときの
+	\count0 〜 \count9 の値です。
 	<br>
-	$B%Q%i%a!<%?(B p $B$OD>A0$N(B bop $B$N0LCV$G$9!#(B
-	$B:G=i$N(B bop $B$K$O(B -1 $B$,$O$$$C$F$$$^$9!#(B
+	パラメータ p は直前の bop の位置です。
+	最初の bop には -1 がはいっています。
 	</dd><p>
-<dt>140 $B!D(B eop</dt><dd>
-	$B%Z!<%8=hM}$N40N;$r0UL#$7$^$9!#(B
+<dt>140 … eop</dt><dd>
+	ページ処理の完了を意味します。
 	</dd><p>
-<dt>141 $B!D(B push</dt><dd>
-	$B%9%?%C%/$K8=:_$N(B (h,v,w,x,y,z) $B$NCM$r@Q$_>e$2$^$9!#(B
-	f $B%l%8%9%?$NCM$O%W%C%7%e$5$l$J$$$3$H$KCm0U$7$F$/$@$5$$!#(B
+<dt>141 … push</dt><dd>
+	スタックに現在の (h,v,w,x,y,z) の値を積み上げます。
+	f レジスタの値はプッシュされないことに注意してください。
 	</dd><p>
-<dt>142 $B!D(B pop</dt><dd>
-	$B%9%?%C%/$+$i(B (h,v,w,x,y,z) $B$r<h$j=P$7$^$9!#(B
+<dt>142 … pop</dt><dd>
+	スタックから (h,v,w,x,y,z) を取り出します。
 	</dd><p>
-<dt>143 $B!D(B right1 b[1]</dt>
-<dt>144 $B!D(B right2 b[2]</dt>
-<dt>145 $B!D(B right3 b[3]</dt>
-<dt>146 $B!D(B right4 b[4]</dt>
+<dt>143 … right1 b[1]</dt>
+<dt>144 … right2 b[2]</dt>
+<dt>145 … right3 b[3]</dt>
+<dt>146 … right4 b[4]</dt>
 	<dd>
-	h $B%l%8%9%?$r(B h+b $B$K@_Dj$7$^$9!#$D$^$j!"(Bb $BC10L$@$11&$K0\F0$7$^$9!#(B
-	b<0 $B$N>l9g!";2>HE@$O:8$K0\F0$7$^$9!#(B
+	h レジスタを h+b に設定します。つまり、b 単位だけ右に移動します。
+	b<0 の場合、参照点は左に移動します。
 	<br>
-	b $B$O(B dimension $B$G$9!#(B
+	b は dimension です。
 	</dd><p>
-<dt>147 $B!D(B w0</dt>
+<dt>147 … w0</dt>
 	<dd>
-	h $B$r(B h+w $B$K@_Dj$7$^$9!#$D$^$j!"(Bw $BC10L$@$11&$K0\F0$7$^$9!#(B
+	h を h+w に設定します。つまり、w 単位だけ右に移動します。
 	</dd><p>
-<dt>148 $B!D(B w1 b[1]</dt>
-<dt>149 $B!D(B w2 b[2]</dt>
-<dt>150 $B!D(B w3 b[3]</dt>
-<dt>151 $B!D(B w4 b[4]</dt>
+<dt>148 … w1 b[1]</dt>
+<dt>149 … w2 b[2]</dt>
+<dt>150 … w3 b[3]</dt>
+<dt>151 … w4 b[4]</dt>
 	<dd>
-	w $B%l%8%9%?$r(B b $B$K@_Dj$7!"(Bh $B%l%8%9%?$r(B h+b $B$K@_Dj$7$^$9!#(B
-	b $B$NHO0O$O(B right $BL?Na$HF1$8$G$9!#(B
-	$B$3$N%3%^%s%I$O!"8=:_$N(B w $B%l%8%9%?$rJQ99$7!"(Bb $B$@$11&$K0\F0$7$^$9!#(B
+	w レジスタを b に設定し、h レジスタを h+b に設定します。
+	b の範囲は right 命令と同じです。
+	このコマンドは、現在の w レジスタを変更し、b だけ右に移動します。
 	</dd><p>
-<dt>152 $B!D(B x0</dt>
-<dt>153 $B!D(B x1 b[1]</dt>
-<dt>154 $B!D(B x2 b[2]</dt>
-<dt>155 $B!D(B x3 b[3]</dt>	
-<dt>156 $B!D(B x4 b[4]</dt>
+<dt>152 … x0</dt>
+<dt>153 … x1 b[1]</dt>
+<dt>154 … x2 b[2]</dt>
+<dt>155 … x3 b[3]</dt>	
+<dt>156 … x4 b[4]</dt>
 	<dd>
-	`x'$B%3%^%s%I$O!"(Bw $B%l%8%9%?$G$J$/!"(Bx $B%l%8%9%?$rBP>]$K$9$k$3$H$r=|$-!"(B
-	`w'$B%3%^%s%I$HF1$8$G$9!#(B
+	`x'コマンドは、w レジスタでなく、x レジスタを対象にすることを除き、
+	`w'コマンドと同じです。
 	</dd><p>
-<dt>157 $B!D(B down1 a[1]</dt>
-<dt>158 $B!D(B down2 a[2]</dt>
-<dt>159 $B!D(B down3 a[3]</dt>
-<dt>160 $B!D(B down4 a[4]</dt>
+<dt>157 … down1 a[1]</dt>
+<dt>158 … down2 a[2]</dt>
+<dt>159 … down3 a[3]</dt>
+<dt>160 … down4 a[4]</dt>
 	<dd>
-	v $B%l%8%9%?$r(B v+a $B$K@_Dj$7$^$9!#(Ba $BC10L$@$12<$K0\F0$7$^$9!#(B
-	a<0 $B$N>l9g!";2>HE@$O>e$K0\F0$7$^$9!#(B
+	v レジスタを v+a に設定します。a 単位だけ下に移動します。
+	a<0 の場合、参照点は上に移動します。
 	<br>
-	a $B$O(B dimension $B$G$9!#(B
+	a は dimension です。
 	</dd><p>
-<dt>161 $B!D(B y0</dt>
+<dt>161 … y0</dt>
 	<dd>
-	v $B%l%8%9%?$r(B v+y $B$K@_Dj$9$k!#$D$^$j!"(By $BC10L$@$12<$K0\F0$9$k!#(B
+	v レジスタを v+y に設定する。つまり、y 単位だけ下に移動する。
 	</dd><p>
-<dt>162 $B!D(B y1 a[1]</dt>
-<dt>163 $B!D(B y2 a[2]</dt>
-<dt>164 $B!D(B y3 a[3]</dt>
-<dt>165 $B!D(B y4 a[4]</dt>
+<dt>162 … y1 a[1]</dt>
+<dt>163 … y2 a[2]</dt>
+<dt>164 … y3 a[3]</dt>
+<dt>165 … y4 a[4]</dt>
 	<dd>
-	y $B%l%8%9%?$K(B a $B$r@_Dj$7!"(Bv $B%l%8%9%?$r(B v+a $B$K@_Dj$7$^$9!#(B
-	a $B$NHO0O$O(B down $BL?Na$HF1$8$G$9!#(B
-	$B$3$N%3%^%s%I$O!"8=:_$N(B y $B%l%8%9%?$rJQ99$7!"(Ba $B$@$12<$K0\F0$7$^$9!#(B
+	y レジスタに a を設定し、v レジスタを v+a に設定します。
+	a の範囲は down 命令と同じです。
+	このコマンドは、現在の y レジスタを変更し、a だけ下に移動します。
 	</dd><p>
-<dt>166 $B!D(B z0</dt>
-<dt>167 $B!D(B z1 a[1]</dt>
-<dt>168 $B!D(B z2 a[2]</dt>
-<dt>169 $B!D(B z3 a[3]</dt>
-<dt>170 $B!D(B z4 a[4]</dt>
+<dt>166 … z0</dt>
+<dt>167 … z1 a[1]</dt>
+<dt>168 … z2 a[2]</dt>
+<dt>169 … z3 a[3]</dt>
+<dt>170 … z4 a[4]</dt>
 	<dd>
-	`z'$B%3%^%s%I$O!"(By $B%l%8%9%?$G$J$/!"(Bz $B%l%8%9%?$rBP>]$K$9$k$3$H$r=|$-!"(B
-	`y'$B%3%^%s%I$HF1$8$G$9!#(B
+	`z'コマンドは、y レジスタでなく、z レジスタを対象にすることを除き、
+	`y'コマンドと同じです。
 	</dd><p>
-<dt>171 $B!A(B 234 $B!D(B fnt_num_0 $B!A(B fnt_num_63</dt>
+<dt>171 〜 234 … fnt_num_0 〜 fnt_num_63</dt>
 	<dd>
-	fnt_num_# $B$O!"(Bf $B%l%8%9%?$r(B # $B$K@_Dj$7$^$9!#(B
-	$B%U%)%s%H(B # $B$O!"$3$l0JA0$K(B<a href="#fnt_def">fnt_def<a/>
-	$B$K$h$jDj5A$5$l$F$$$J$1$l$P$J$j$^$;$s!#(B
+	fnt_num_# は、f レジスタを # に設定します。
+	フォント # は、これ以前に<a href="#fnt_def">fnt_def<a/>
+	により定義されていなければなりません。
 	</dd><p>
-<dt>235 $B!D(B fnt1 k[1]</dt>
-<dt>236 $B!D(B fnt2 k[2]</dt>
-<dt>237 $B!D(B fnt3 k[3]</dt>
-<dt>238 $B!D(B fnt4 k[4]</dt>
+<dt>235 … fnt1 k[1]</dt>
+<dt>236 … fnt2 k[2]</dt>
+<dt>237 … fnt3 k[3]</dt>
+<dt>238 … fnt4 k[4]</dt>
 	<dd>
-	f $B%l%8%9%?$r(B k $B$K@_Dj$7$^$9!#(B
+	f レジスタを k に設定します。
 	</dd><p>
-<dt>239 $B!D(B xxx1 k[1] x[k]</dt>
-<dt>240 $B!D(B xxx2 k[2] x[k]</dt>	
-<dt>241 $B!D(B xxx3 k[3] x[k]</dt>
-<dt>242 $B!D(B xxx4 k[4] x[k]</dt>
+<dt>239 … xxx1 k[1] x[k]</dt>
+<dt>240 … xxx2 k[2] x[k]</dt>	
+<dt>241 … xxx3 k[3] x[k]</dt>
+<dt>242 … xxx4 k[4] x[k]</dt>
 	<dd>
-	$B$3$N%3%^%s%I$O0lHL$KIT3NDj$G$9!#(B
-	$BFCJL$J(BDVIreading$B%W%m%0%i%`$,;HMQ$5$l$F$$$J$1$l$P!"(B
-	(k+2) $B%P%$%H$N(B nop $BL?Na$H$7$F5!G=$7$^$9!#(B
+	このコマンドは一般に不確定です。
+	特別なDVIreadingプログラムが使用されていなければ、
+	(k+2) バイトの nop 命令として機能します。
 	</dd><p>
-<dt><a name="fnt_def">243</a> $B!D(B fnt_def1 k[1] c[4] s[4] d[4] a[1] l[1] n[a+l]</dt>
-<dt>244 $B!D(B fnt_def2 k[2] c[4] s[4] d[4] a[1] l[1] n[a+l]</dt>
-<dt>245 $B!D(B fnt_def3 k[3] c[4] s[4] d[4] a[1] l[1] n[a+l]</dt>
-<dt>246 $B!D(B fnt_def4 k[4] c[4] s[4] d[4] a[1] l[1] n[a+l]</dt>
+<dt><a name="fnt_def">243</a> … fnt_def1 k[1] c[4] s[4] d[4] a[1] l[1] n[a+l]</dt>
+<dt>244 … fnt_def2 k[2] c[4] s[4] d[4] a[1] l[1] n[a+l]</dt>
+<dt>245 … fnt_def3 k[3] c[4] s[4] d[4] a[1] l[1] n[a+l]</dt>
+<dt>246 … fnt_def4 k[4] c[4] s[4] d[4] a[1] l[1] n[a+l]</dt>
 	<dd>
-	$B%U%)%s%HHV9f(B k $B$rDj5A$7$^$9!#(B
+	フォント番号 k を定義します。
 	<ul>
-	<li>k $B!D(B unsinged<br>
-		$B%U%)%s%HHV9f$G$9!#(Bfnt_num$BL?Na$d(Bfnt$BL?Na$G$O!"$3$NHV9f$r;H$C$F%U%)%s%H$r(B
-		$B8F$S=P$7$^$9!##4<oN`$NL?Na$,MQ0U$5$l$F$$$k$N$G!"%U%)%s%HHV9f$r#4%P%$%H(B
-		$B$^$G@8@.$G$-$^$9!#$?$@$7!"(BTeX$B$G$O!"DL>o(Bfnt_def1$BL?Na$7$+@8@.$7$^$;$s!#(B
-	<li>c $B!D(B unsigned<br>
-		TFM$B%U%!%$%k$N%A%'%C%/%5%`$G$9!#(BTeX$B$,A[Dj$7$F$$$k(BTFM$B$H%G%P%$%9%I%i%$%P$N(B
-		$B%"%/%;%9$9$k%U%)%s%H$,F10l$G$"$k$N$r3NG'$9$k$N$K;H$$$^$9!#(B
-	<li>s $B!D(B dimension<br>
-		$B%U%)%s%H$N%G%6%$%s%5%$%:$r(Bscaled$B$d(Bat$B$7$?CM$,$O$$$C$F$$$^$9!#(B
-	<li>d $B!D(B dimension<br>
-		$B%U%)%s%H$N%G%6%$%s%5%$%:$,$O$$$C$F$$$^$9!#(B
-	<li>n[a+l] $B!D(B string<br>
-		$B%U%)%s%HL>$G$9!#(Bn[0..(a-1)]$B$K%G%#%l%/%H%jL>!"(Bn[a..(a+l-1)]
-		$B$K%U%!%$%kL>$,$O$$$C$F$$$^$9!#(B
+	<li>k … unsinged<br>
+		フォント番号です。fnt_num命令やfnt命令では、この番号を使ってフォントを
+		呼び出します。４種類の命令が用意されているので、フォント番号を４バイト
+		まで生成できます。ただし、TeXでは、通常fnt_def1命令しか生成しません。
+	<li>c … unsigned<br>
+		TFMファイルのチェックサムです。TeXが想定しているTFMとデバイスドライバの
+		アクセスするフォントが同一であるのを確認するのに使います。
+	<li>s … dimension<br>
+		フォントのデザインサイズをscaledやatした値がはいっています。
+	<li>d … dimension<br>
+		フォントのデザインサイズがはいっています。
+	<li>n[a+l] … string<br>
+		フォント名です。n[0..(a-1)]にディレクトリ名、n[a..(a+l-1)]
+		にファイル名がはいっています。
 	</ul>
 	</dd><p>
-<dt><a name="pre">247</a> $B!D(B pre i[1] num[4] den[4] mag[4] k[1] x[k]</dt>
+<dt><a name="pre">247</a> … pre i[1] num[4] den[4] mag[4] k[1] x[k]</dt>
 	<dd>
-	$B%W%j%"%s%V%k$N3+;O$r<($7$^$9!#(B
-	DVI$B%U%!%$%k$N0lHV:G=i$KMh$J$1$l$P$J$j$^$;$s!#(B
+	プリアンブルの開始を示します。
+	DVIファイルの一番最初に来なければなりません。
 	<ul>
-	<li>i[1] $B!D(B unsinged<br>
-		DVI$B%U%!%$%k$N%U%)!<%^%C%H$N%P!<%8%g%s!#(BTeX$B$G$O#2$G$9!#(B
-	<li>num[4]$B!"(Bden[4] $B!D(B unsinged<br>
-		DVI$B%U%!%$%kCf$K8=$l$k(Bdimension$B!J@#K!!K$NC10L$r(B num/den$B!_(B10^{-7} [m]
-		$B$K$7$^$9!#(B
+	<li>i[1] … unsinged<br>
+		DVIファイルのフォーマットのバージョン。TeXでは２です。
+	<li>num[4]、den[4] … unsinged<br>
+		DVIファイル中に現れるdimension（寸法）の単位を num/den×10^{-7} [m]
+		にします。
 		<br>
-		TeX$B$K$h$C$F@8@.$5$l$k(BDVI$B%U%!%$%k$O$D$M$K!"(Bnum=25400000$B!"(B
-		den=7227$B!_(B2^{16}=473628672$B$H$J$C$F$*$j!"(B
-		1sp$B!J(Bscaled point$B!'(B2^{-16}pt$B!K$rC10L$H$7$F$$$^$9!#(B
-	<li>mag[4] $B!D(B unsigned<br>
-		TeX$B$N%W%j%_%F%#%VJQ?t(B\magnification$B$G;XDj$5$l$?3HBgN($G$9!#(B
-		dimension$B$H(Bnum$B!"(Bden$B$G7h$a$?D9$5$r(B
-		mag/1000$BG\$7$F0u;z$7$^$9!#(B
-		$B3HBg=L>.$r9T$o$J$$>l9g$O(B1000$B$G$9!#(B
-	<li>k[1] $B!D(B unsinged<br>
-		$B%3%a%s%H$NJ8;z?t!#(B
-	<li>x[k] $B!D(B string<br>
-		DVI$B$r:n@.$7$?%W%m%0%i%`$N%3%a%s%H$G$9!#(B
-		TeX$B$N=PNO$K$O!"<!$N$h$&$JJ8;zNs$,$O$$$C$F$$$^$9!#(B
+		TeXによって生成されるDVIファイルはつねに、num=25400000、
+		den=7227×2^{16}=473628672となっており、
+		1sp（scaled point：2^{-16}pt）を単位としています。
+	<li>mag[4] … unsigned<br>
+		TeXのプリミティブ変数\magnificationで指定された拡大率です。
+		dimensionとnum、denで決めた長さを
+		mag/1000倍して印字します。
+		拡大縮小を行わない場合は1000です。
+	<li>k[1] … unsinged<br>
+		コメントの文字数。
+	<li>x[k] … string<br>
+		DVIを作成したプログラムのコメントです。
+		TeXの出力には、次のような文字列がはいっています。
 		<pre>
     TeX output 2003.02.18:1223
 		</pre>
 </ul>
 	</dd><p>
-<dt><a name="post">248</a> $B!D(B post p[4] num[4] den[4] mag[4] l[4] u[4] s[2] t[2]</dt>
+<dt><a name="post">248</a> … post p[4] num[4] den[4] mag[4] l[4] u[4] s[2] t[2]</dt>
 	<dd>
-	$B%]%9%H%"%s%V%k$N3+;O$r<($7$^$9!#(B
+	ポストアンブルの開始を示します。
 	<ul>
-	<li>p[4] $B!D(B pointer<br>
-		$B:G8e$N%Z!<%85-=RIt$N@hF,!J(Bbop$BL?Na!K0LCV!#(B
-	<li>num[4]$B!"(Bden[4]$B!"(Bmag[4]<br>
-		pre$BL?Na$HF1$8CM$,$O$$$C$F$$$^$9!#(B
-	<li>l[4] $B!D(B dimension
-		$B$3$N%U%!%$%k$K4^$^$l$k%Z!<%8$N(Bheight+depth$B$N$&$A!":GBg$N$b$N!#(B
-	<li>u[4] $B!D(B dimension
-		$B$3$N%U%!%$%k$K4^$^$l$k%Z!<%8$N(Bwidth$B$N$&$A!":GBg$N$b$N!#(B
-	<li>s[2] $B!D(B unsigned<br>
-		$B$3$N%U%!%$%k$O$$$C$F$$$k%Z!<%85-=RIt$r2r<a$9$k$N$KI,MW$J%9%?%C%/$N?<$5!#(B
-	<li>t[2] $B!D(B unsigned<br>
-		$BAm%Z!<%8?t!J(Bbop$BL?Na$N8D?t!K!#(B
+	<li>p[4] … pointer<br>
+		最後のページ記述部の先頭（bop命令）位置。
+	<li>num[4]、den[4]、mag[4]<br>
+		pre命令と同じ値がはいっています。
+	<li>l[4] … dimension
+		このファイルに含まれるページのheight+depthのうち、最大のもの。
+	<li>u[4] … dimension
+		このファイルに含まれるページのwidthのうち、最大のもの。
+	<li>s[2] … unsigned<br>
+		このファイルはいっているページ記述部を解釈するのに必要なスタックの深さ。
+	<li>t[2] … unsigned<br>
+		総ページ数（bop命令の個数）。
 	</ul>
 	</dd><p>
-<dt><a name="post_post">249</a> $B!D(B post_post q[4] i[1] ($B#48D0J>e$N(B)223</dt>
+<dt><a name="post_post">249</a> … post_post q[4] i[1] (４個以上の)223</dt>
 	<dd>
-	$B%]%9%H%"%s%V%k$N=*$j$r<($7$^$9!#(B
-	DVI$B%U%!%$%k$N0lHV:G8e$KMh$J$1$l$P$J$j$^$;$s!#(B
+	ポストアンブルの終りを示します。
+	DVIファイルの一番最後に来なければなりません。
 	<ul>
-	<li>q[4] $B!D(B pointer<br>
-		post$BL?Na$N0LCV$r<($7$^$9!#(B
-	<li>i[1] $B!D(B unsigned<br>
-		DVI$B$N%P!<%8%g%s$rI=$7$^$9!#(B
-		pTeX$B$G=DAH$_5!G=$r;H$C$F$$$k>l9g$O#3$K$J$j$^$9!#(B
-	<li>($B#48D0J>e$N(B)223<br>
-		DVI$B%U%!%$%k$N%H!<%?%k%5%$%:$r#4$NG\?t$K$9$k$?$a$K!"(B
-		$B:G8e$N#4!A#7%P%$%H$K$O(B223(10$B?J?t(B)$B$,$O$$$C$F$$$^$9!#(B
-		$B#4%P%$%H0J>e$rCV$/$3$H$G!"(B
-		223$B$O0lHV:G8e$K2C$($i$l$k0l<o$N=pL>$H$J$C$F$$$^$9!#(B
+	<li>q[4] … pointer<br>
+		post命令の位置を示します。
+	<li>i[1] … unsigned<br>
+		DVIのバージョンを表します。
+		pTeXで縦組み機能を使っている場合は３になります。
+	<li>(４個以上の)223<br>
+		DVIファイルのトータルサイズを４の倍数にするために、
+		最後の４〜７バイトには223(10進数)がはいっています。
+		４バイト以上を置くことで、
+		223は一番最後に加えられる一種の署名となっています。
 	</ul>
 	</dd><p>
-<dt>250 $B!A(B 254</dt>
+<dt>250 〜 254</dt>
 	<dd>
-	$BL$Dj5A(B
+	未定義
 	</dd><p>
-<dt>255 $B!D(B dir d[1] (ptex)</dt>
+<dt>255 … dir d[1] (ptex)</dt>
 	<dd>
-	d $B$OAHJ}8~$r<($7$^$9!#%<%m$,2#AH!"#1$,=DAH$G$9!#(B
-	$B8e=R$N(B<a href="#tate">$B=DAH$K$D$$$F(B</a>$B$b;2>H$7$F$/$@$5$$!#(B
+	d は組方向を示します。ゼロが横組、１が縦組です。
+	後述の<a href="#tate">縦組について</a>も参照してください。
 	<br>
-	$B%*%j%8%J%k$N(B TeX $B$G$OL$Dj5A$G$9!#(B
+	オリジナルの TeX では未定義です。
 	</dd>
 </dl>
 
@@ -359,33 +359,33 @@ DVI$BL?Na$O!"#1%P%$%H$NL?Na$H$=$l$KB3$/#0%P%$%H0J>e$N%Q%i%a!<%?$G9=@.$5$l$^$9!#
 
 <hr>
 <a name="tate"></a>
-<h3>$B"#=DAH$K$D$$$F(B</h3>
-$B=>Mh$N(B DVI $BL?Na$G$O!"(Bright $BL?Na$O?eJ?J}8~$X$N0\F0!"(B
-down $BL?Na$O?bD>J}8~$X$N0\F0$r0UL#$7$F$$$^$9$,!"(B
-pTeX $B$N3HD%(B DVI $B$G$O!"(Bright $BL?Na$O!V;zAw$jJ}8~!W$X$N0\F0!"(B
-down $BL?Na$O!V9TAw$jJ}8~!W$X$N0\F0$r0UL#$7$F$$$^$9!#(B
+<h3>■縦組について</h3>
+従来の DVI 命令では、right 命令は水平方向への移動、
+down 命令は垂直方向への移動を意味していますが、
+pTeX の拡張 DVI では、right 命令は「字送り方向」への移動、
+down 命令は「行送り方向」への移動を意味しています。
 <p>
-$B2#AH$H=DAH$G$N!";zAw$jJ}8~$*$h$S9TAw$jJ}8~$N8~$-$O!"<!$N$h$&$K$J$j$^$9!#(B
+横組と縦組での、字送り方向および行送り方向の向きは、次のようになります。
 
 <blockquote>
 <table border="1">
-<tr><td>$BAH$_J}8~(B</td>			<td>$B;zAw$jJ}8~(B</td><td>$B9TAw$jJ}8~(B</td></tr>
-<tr><td align="center">$B2#(B</td>	<td>$B?eJ?1&8~$-(B</td><td>$B?bD>2<8~$-(B</td></tr>
-<tr><td align="center">$B=D(B</td>	<td>$B?bD>2<8~$-(B</td><td>$B?eJ?:88~$-(B</td></tr>
+<tr><td>組み方向</td>			<td>字送り方向</td><td>行送り方向</td></tr>
+<tr><td align="center">横</td>	<td>水平右向き</td><td>垂直下向き</td></tr>
+<tr><td align="center">縦</td>	<td>垂直下向き</td><td>水平左向き</td></tr>
 </table>
 </blockquote>
 
 <p>
-$B$D$^$j!"(Bset_char_#$B!"(Bset?$B!"(Bset_rule$B!"(Bright?$B!"(Bw?$B!"(Bx? $B$O!"(B
-$B=DJ}8~$K0\F0$9$kL?Na$H$J$j$^$9!#(B
-$B$^$?!"(Bdown?$B!"(By?$B!"(Bz? $B$O!"2#J}8~$K0\F0$9$kL?Na$H$J$j$^$9!#(B
+つまり、set_char_#、set?、set_rule、right?、w?、x? は、
+縦方向に移動する命令となります。
+また、down?、y?、z? は、横方向に移動する命令となります。
 <p>
-$BJ8;z$O!"%Y!<%9%i%$%s$NJ}8~$,;zAw$j$NJ}8~$H0lCW$9$k$h$&$K!"(B
-$BI,MW$J$i2sE>$7$F0u;z$7$^$9!#(B
+文字は、ベースラインの方向が字送りの方向と一致するように、
+必要なら回転して印字します。
 <p>
-$B$J$*!"(BpTeX$B$G=DAH5!G=$rMQ$$$?(B DVI $B%U%!%$%k$r:n@.$9$k$H!"(B
-<a href="#post_post">post_post$BL?Na(B</a>
-$B$G$N%U%)!<%^%C%H$N%P!<%8%g%s$,#3$K$J$j$^$9!#(B
+なお、pTeXで縦組機能を用いた DVI ファイルを作成すると、
+<a href="#post_post">post_post命令</a>
+でのフォーマットのバージョンが３になります。
 <hr>
 <a href="../index.html">[pTeX home page]</a>
 <hr>
