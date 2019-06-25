@@ -1,48 +1,48 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (install hints)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
 <a name="qanda"><!-- older label --></a>
-<h2>$B%$%s%9%H!<%k%R%s%H$H%P%0>pJs(B</h2>
+<h2>インストールヒントとバグ情報</h2>
 
 <ul>
-<li><a href="#hints">$B%$%s%9%H!<%k$K4X$9$k%R%s%H(B</a>
+<li><a href="#hints">インストールに関するヒント</a>
 <p>
-<li><a href="#bugs">$B%P%0>pJs(B</a>
+<li><a href="#bugs">バグ情報</a>
 </ul>
 <p>
 <hr>
 
-<h3><a name="hints">$B"#%$%s%9%H!<%k$K4X$9$k%R%s%H(B</a></h3>
+<h3><a name="hints">■インストールに関するヒント</a></h3>
 
-$B%$%s%9%H!<%k$9$k$H$-$NLdBj$d<j=g$J$I$K$D$$$F4JC1$K$^$H$a$F$"$j$^$9!#(B
-$B;29M$K$7$F$/$@$5$$!#(B
+インストールするときの問題や手順などについて簡単にまとめてあります。
+参考にしてください。
 <p>
-$B$^$?!"(B<a href="../etc/INSTALL.kpathsea">kpathsea/INSTALL</a>$B$K$b(B
-$B$$$/$D$+$NLdBj$KBP$9$kBP=hJ}K!$,=R$Y$i$l$F$$$^$9$N$G!"(B
-$B$=$A$i$b$*FI$_$/$@$5$$!#(B
+また、<a href="../etc/INSTALL.kpathsea">kpathsea/INSTALL</a>にも
+いくつかの問題に対する対処方法が述べられていますので、
+そちらもお読みください。
 
 <!--
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-TeX$B$r5/F0$7$?$H$-$K!"$D$.$N$h$&$J%(%i!<$H$J$k!J$9$Y$F$N(BOS$B!K(B</h3>
+TeXを起動したときに、つぎのようなエラーとなる（すべてのOS）</h3>
 <pre>
 I cannot find tex.pool : Bad path?
 </pre>
-tex$B%3%^%s%I$,(Btex.pool$B%U%!%$%k$r8+IU$1$i$l$^$;$s!#(B
-$B$D$.$N$3$H$r3NG'$7$F$/$@$5$$!#(B
+texコマンドがtex.poolファイルを見付けられません。
+つぎのことを確認してください。
 <ul>
-<li>$B<B9T$7$?(Btex$B$,L\E*$N$b$N$+$I$&$+$N3NG'(B<br>
+<li>実行したtexが目的のものかどうかの確認<br>
 <pre>
 which tex
 </pre>
-<li>$B$=$N(Btex$B%3%^%s%I$,;2>H$9$k(Bpool$B%U%!%$%k$N3NG'(B<br>
+<li>そのtexコマンドが参照するpoolファイルの確認<br>
 <pre>
-kpsewhich --progname=$B!T%Q%9L>(B/$B!U(Btex tex.pool
+kpsewhich --progname=《パス名/》tex tex.pool
 </pre>
 </ul>
 -->
@@ -50,8 +50,8 @@ kpsewhich --progname=$B!T%Q%9L>(B/$B!U(Btex tex.pool
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-latex$B$N%U%)!<%^%C%H%U%!%$%k$r:n$k$H$-$K!"(B
-$B<!$N$h$&$J%(%i!<$G=*N;$7$F$7$^$&!J$9$Y$F$N(BOS$B!K(B</h3>
+latexのフォーマットファイルを作るときに、
+次のようなエラーで終了してしまう（すべてのOS）</h3>
 <pre>
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! You are attempting to make a LaTeX format from a source file
@@ -76,17 +76,17 @@ Transcript written on latex.log.
 make[1]: *** [latex.fmt] Error 1
 make[1]: Leaving directory `/usr/local/src/web2c-7.2/web2c
 </pre>
-LaTeX$B$N%U%)!<%^%C%H$r:n@.$9$k$?$a$N%=!<%9%U%!%$%k$,8E$$%P!<%8%g%s$G$9!#(B
+LaTeXのフォーマットを作成するためのソースファイルが古いバージョンです。
 <p>
-CTAN$B%5%$%H$N(Bmacros/latex/unpacked$B%G%#%l%/%H%j$K$"$k%U%!%$%k$r!"(B
-$B%$%s%9%H!<%k$9$k%^%7%s$N(B$TEXMF/tex/latex/base$B%G%#%l%/%H%j$KCV$-$^$9!#(B
+CTANサイトのmacros/latex/unpackedディレクトリにあるファイルを、
+インストールするマシンの$TEXMF/tex/latex/baseディレクトリに置きます。
 <p>
-CTAN$B%5%$%H$N0lMw$O!"(B<a href="http://www.tug.org/ctan.html">http://www.tug.org/ctan.html</a>$B$r;2>H$7$F$/$@$5$$!#(B
+CTANサイトの一覧は、<a href="http://www.tug.org/ctan.html">http://www.tug.org/ctan.html</a>を参照してください。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-make$B$,<!$N$h$&$J%(%i!<$G=*N;$7$F$7$^$&!J(BSolaris 2.6, Solaris 7$B!K(B</h3>
+makeが次のようなエラーで終了してしまう（Solaris 2.6, Solaris 7）</h3>
 <pre>
 make[1]: Entering directory `/usr/share/src/web2c-7.2/kpathsea'
 make[1]: *** No rule to make target `../make/*.make', needed by 
@@ -94,8 +94,8 @@ make[1]: *** No rule to make target `../make/*.make', needed by
 make[1]: Leaving directory `/usr/share/src/web2c-7.2/kpathsea'
 make: *** [do-kpathsea] Error 2
 </pre>
-GNU make 3.77$B$NLdBj$N$h$&$G$9!#$D$.$N%*%W%7%g%s$r;XDj$7$F!"(B
-gmake$B<+BN$r:F%3%s%Q%$%k$9$kI,MW$,$"$k$=$&$G$9!#(B
+GNU make 3.77の問題のようです。つぎのオプションを指定して、
+gmake自体を再コンパイルする必要があるそうです。
 <pre>
 ...
 cd glob; rm -f *.o
@@ -107,10 +107,10 @@ cd ..; make
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-patch$B$K<:GT$9$k!J$9$Y$F$N(BOS$B!K(B</h3>
-$B%U%!%$%k$NCf?H$r8+$F!"(Bpatch$B$N7A<0$+$I$&$+$r3NG'$7$F$/$@$5$$!#(B
-$B$?$H$($P!"$D$.$N$h$&$K$o$1$N$o$+$i$J$$J8;zNs$NJB$S$@$C$?$i!"(B
-$B%Q%C%A$NFbMF$O(Buuencode$B$5$l$F$$$k$H$$$&$3$H$G$9!#(B
+patchに失敗する（すべてのOS）</h3>
+ファイルの中身を見て、patchの形式かどうかを確認してください。
+たとえば、つぎのようにわけのわからない文字列の並びだったら、
+パッチの内容はuuencodeされているということです。
 <pre>
 begin 644 pl980413.patch.gz
 M'XL("/#%,34``W!L.3@P-#$S+G!A=&-H`-5135/",!`]RZ]8#UPZE*&"V')#
@@ -125,14 +125,14 @@ MPL4('![&\!%@@BE"1)A!(,8S)!(HS/&"!998X76C[D:CS]5^6Z/4V7]2J++M
 `
 end
 </pre>
-$B$3$N%U%!%$%k!J$?$H$($P!"(Bsample.txt$B!K$+$i%Q%C%A%U%!%$%k$r:n$j=P$9$K$O!"(B
-$B$D$.$N$h$&$K$7$^$9!#(B
+このファイル（たとえば、sample.txt）からパッチファイルを作り出すには、
+つぎのようにします。
 <ol>
-<li>uudecode sample.txt $B!D!D(B pl980413.patch.gz$B$,:n@.$5$l$k(B
-<li>gunzip pl980413.patch.gz $B!D!D(B pl980413.patch$B$,:n@.$5$l$k(B
+<li>uudecode sample.txt …… pl980413.patch.gzが作成される
+<li>gunzip pl980413.patch.gz …… pl980413.patchが作成される
 </ol>
-$B:G8e$KE83+$5$l$?%U%!%$%k$,(Bpatch$B%3%^%s%I$G=hM}$r$9$k%Q%C%A%U%!%$%k$G!"(B
-$B$D$.$N$h$&$K!">/$7$O$o$+$k%F%-%9%H$K$J$C$F$$$k$O$:$G$9!#(B
+最後に展開されたファイルがpatchコマンドで処理をするパッチファイルで、
+つぎのように、少しはわかるテキストになっているはずです。
 <pre>
 *** jclasses.dtx.orig   Mon Apr 13 16:58:33 1998
 --- jclasses.dtx        Mon Apr 13 16:59:08 1998
@@ -171,45 +171,45 @@ end
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-make $B$K<:GT$9$k!J$9$Y$F$N(BOS$B!K(B</h3>
+make に失敗する（すべてのOS）</h3>
   
-$B;HMQ$9$k(B GNU $B%W%m%0%i%`$N%P!<%8%g%s$rJQ$($F$_$F$/$@$5$$!#(B
-$B%P!<%8%g%s$K$h$j!"0z?t$J$I$,0[$J$k>l9g$b$"$j$^$9$N$G!"(B
-Makefile $B$,I,MW$H$7$F$$$k%P!<%8%g%s$+$I$&$+$r$43NG'$/$@$5$$!#(B
+使用する GNU プログラムのバージョンを変えてみてください。
+バージョンにより、引数などが異なる場合もありますので、
+Makefile が必要としているバージョンかどうかをご確認ください。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-yytext$B$,%3%s%U%j%/%H$9$k!J$9$Y$F$N(BOS$B!K(B</h3>
+yytextがコンフリクトする（すべてのOS）</h3>
 <pre>
     In file included from web2c.lex:4:
     web2c.h:54: conflicting types for `yytext'
     lex.yy.c:524: previous declaration of `yytext'
 </pre>
-web2c/web2c/web2c.h $B$N!"(BDECLARE_YYTEXT$B$NItJ,$r$D$.$N$$$:$l$+$K=$@5$7$F$/$@$5$$!#(B
+web2c/web2c/web2c.h の、DECLARE_YYTEXTの部分をつぎのいずれかに修正してください。
 <pre>
     extern char yytext[];
     extern unsigned char yytext[];
     extern char *yytext;
     extern unsigned char *yytext;
 </pre>
-$B$I$N@k8@J8$r;HMQ$9$k$N$+$O!"(B
+どの宣言文を使用するのかは、
 <pre>
     echo %% | flex -t | grep yytext
 </pre>
-$B$N$h$&$K<B9T$7!"(B<b>yytext</b>$B$N@k8@ItJ,$rC5$7$^$9!#(B
+のように実行し、<b>yytext</b>の宣言部分を探します。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-hypot() $B$,%3%s%U%j%/%H$9$k!J(BLinux$B!K(B</h3>
-make $B$N%*%W%7%g%s$K!V(B-Dhypot$B!W$r;XDj$7$^$9!#(B
+hypot() がコンフリクトする（Linux）</h3>
+make のオプションに「-Dhypot」を指定します。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-alloca() $B$,%3%s%U%j%/%H$9$k!J(BLinux$B!K(B</h3>
-web2c/web2c/web2c.h $B$N!"$D$.$N9T$r%3%a%s%H$K$7$^$9!#(B
+alloca() がコンフリクトする（Linux）</h3>
+web2c/web2c/web2c.h の、つぎの行をコメントにします。
 <pre>
     extern void *alloca(); 
 </pre>
@@ -217,32 +217,32 @@ web2c/web2c/web2c.h $B$N!"$D$.$N9T$r%3%a%s%H$K$7$^$9!#(B
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-wchar_t $B$,%3%s%U%j%/%H$9$k!J(BLinux with Accelerated X1.2, IRIX$B!K(B</h3>
-make $B$N%*%W%7%g%s$K!V(B-DNO_FOIL_X_WCHAR_T$B!W$r;XDj$7$^$9!#(B
+wchar_t がコンフリクトする（Linux with Accelerated X1.2, IRIX）</h3>
+make のオプションに「-DNO_FOIL_X_WCHAR_T」を指定します。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-METAFONT $B$N%3%s%Q%$%k(B(Solaris)</h3>
-kpathsea-2.6/web2c/mf $B$N(BMakefile $B$N(B
+METAFONT のコンパイル(Solaris)</h3>
+kpathsea-2.6/web2c/mf のMakefile の
 <pre>
     wlibs = -lXt  -lX11 
 </pre>
-$B$r(B
+を
 <pre>
     wlibs = -lXt  -lX11 -lICE -lSM 
 </pre>
-$B$KJQ99$7$^$9!#(B
+に変更します。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-make install $B$K<:GT$9$k!J(BIRIX, Solaris$B!K(B</h3>
-$B$D$.$N$h$&$K$7$F!"(Bmake$B$r$7$^$9!#(B
+make install に失敗する（IRIX, Solaris）</h3>
+つぎのようにして、makeをします。
 <pre>
     make install INSTALL="`pwd`/install-sh"
 </pre>
-$B$^$?$O(B
+または
 <pre>
     make install INSTALL="bsdinst"
 </pre>
@@ -251,80 +251,80 @@ make install $B$K<:GT$9$k!J(BIRIX, Solaris$B!K(B</h3>
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
 <a name="hints-0508">
-make install$B$7$F$$$F(Binfo$B%U%!%$%k$N:n@.$K<:GT$9$k!J$9$Y$F$N(BOS$B!K(B
+make installしていてinfoファイルの作成に失敗する（すべてのOS）
 <pre>
     makeinfo --paragraph-indent=2 -I//gnu/gnuorg kpathsea.texi -o kpathsea.info
     Making info file `kpathsea.info' from `kpathsea.texi'.
     kpathsea.texi:435: itemize requires an argument: the formatter for @item.
 </pre>
 </a></h3>
-kpathsea-2.6/kpathsea/kpathsea.texi$B$N(B435$B9TL\$r$D$.$N$h$&$K$7$^$9!#(B
+kpathsea-2.6/kpathsea/kpathsea.texiの435行目をつぎのようにします。
 <pre>
-    $B=$@5A0!'(B@itemize
-    $B=$@58e!'(B@itemize @bullet
+    修正前：@itemize
+    修正後：@itemize @bullet
 </pre>
-makeinfo (texinfo)$B$N%P!<%8%g%s$K$h$k$h$&$G$9!#(B
+makeinfo (texinfo)のバージョンによるようです。
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-unpack.ins $B$NE83+$K<:GT$9$k(B</h3>
-tracefnt.sty $B$K=q$-9~$_5v2D$,$J$$$HESCf$G<:GT$7$^$9!#(B
-UNIX $B%7%9%F%`$J$i$P!"!V(Bchmod +w tracefnt.sty$B!W$J$I$G=q$-9~$_5v2D$r(B
-$BM?$($F$/$@$5$$!#(BDOS $B%7%9%F%`$J$i$P!"!V(Battrib -R tracefnt.sty$B!W$J$I$G=q$-9~$_(B
-$B6X;_B0@-$r$O$:$7$^$9!#(BMS-Windows $B$J$i$P!"%U%!%$%k%^%M!<%8%c$N(B
-$B!V%U%!%$%k!W(B-$B!VB0@-$NJQ99!W$G=q$-9~$_B0@-$rA`:n$G$-$^$9!#(B
+unpack.ins の展開に失敗する</h3>
+tracefnt.sty に書き込み許可がないと途中で失敗します。
+UNIX システムならば、「chmod +w tracefnt.sty」などで書き込み許可を
+与えてください。DOS システムならば、「attrib -R tracefnt.sty」などで書き込み
+禁止属性をはずします。MS-Windows ならば、ファイルマネージャの
+「ファイル」-「属性の変更」で書き込み属性を操作できます。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-TFM, JFM $B%U%!%$%k$,$*$+$7$$$H$$$&%(%i!<$,5/$-$k(B</h3>
-Winzip$B$J$I$G(B lib-6.9.tar.gz $B$d(B plib-*.tar.gz $B$rE83+$9$k>l9g!"(B
-$B!V(BOptions$B!W(B-$B!V(BConfigurations$B!W(B-$B!V(BTAR File LF to CR/LF Conversion$B!W(B
-$B$N%A%'%C%/$r$O$:$7$F$/$@$5$$!#(BTFM$B%U%!%$%k$J$I$N%P%$%J%j%U%!%$%k$,(B
-$B@5$7$/E83+$5$l$^$;$s!#$=$N$[$+$N%"!<%+%$%P%W%m%0%i%`$K$D$$$F$b!"(B
-$BF1MM$N5!G=$,$"$k>l9g$O!"Cm0U$r$7$F$/$@$5$$!#(B
+TFM, JFM ファイルがおかしいというエラーが起きる</h3>
+Winzipなどで lib-6.9.tar.gz や plib-*.tar.gz を展開する場合、
+「Options」-「Configurations」-「TAR File LF to CR/LF Conversion」
+のチェックをはずしてください。TFMファイルなどのバイナリファイルが
+正しく展開されません。そのほかのアーカイバプログラムについても、
+同様の機能がある場合は、注意をしてください。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-$B%U%)%s%H(B(lcircle10.tfm, lcirclew10.tfm) $B$,8+$D$+$i$J$$(B</h3>
-$TEXMF/fonts/public/latex/lcircle10.tfm $B$r(B lcirc10.tfm $B$K!"(B
-lcirclew10.tfm $B$r(B lcircw10.tfm $B$K%3%T!<$9$k$+L>A0$rJQ99$7$^$9!#(B
-$B$J$*!"(BMS-DOS$B$N$h$&$K%m%s%0%U%!%$%kL>$,;H$($J$$%7%9%F%`$G$O!"(B
-$BE83+;~$K(B lcircle1.tfm, lcirclew.tfm $B$N$h$&$K$J$C$F$$$^$9$N$G!"$3$l$i$r(B
-$B$=$l$>$l!"(Blcirc10.tfm, lcircw10.tfm $B$K%3%T!<$9$k$+L>A0$rJQ99$7$^$9!#(B
+フォント(lcircle10.tfm, lcirclew10.tfm) が見つからない</h3>
+$TEXMF/fonts/public/latex/lcircle10.tfm を lcirc10.tfm に、
+lcirclew10.tfm を lcircw10.tfm にコピーするか名前を変更します。
+なお、MS-DOSのようにロングファイル名が使えないシステムでは、
+展開時に lcircle1.tfm, lcirclew.tfm のようになっていますので、これらを
+それぞれ、lcirc10.tfm, lcircw10.tfm にコピーするか名前を変更します。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-LaTeX $B$N%U%!%$%k$N%P!<%8%g%s$K$D$$$F(B</h3>
-lib-6.9.tar.gz$B$N(Btexmf/tex/latex2e/base$B%G%#%l%/%H%j$K$"$k(BLaTeX2e$B$O!"(B
-&lt;1994/12/01&gt;$BHG$G$"$j!"(BpLaTeX2e &lt;1995/09/01&gt;$BHG$OBP1~$7$F$$$^$;$s!#(B
-$B$7$?$,$C$F!"(BpLaTeX2e &lt;1995/09/01&gt;$BHG$r:n@.$9$k>l9g$O!"1Q8lHG$r%$%s%9%H!<%k(B
-$B$9$kA0$K!"$^$:(B texmf/tex/latex2e/base $B$r:o=|$7$F$/$@$5$$!#(B
-$B$=$7$F!"(BLaTeX2e &lt;1995/06/01&gt;$BHG$r%$%s%9%H!<%k$7!"(B
-pLaTeX2e &lt;1995/09/01&gt;$BHG$r%$%s%9%H!<%k$7$F$/$@$5$$!#(B
+LaTeX のファイルのバージョンについて</h3>
+lib-6.9.tar.gzのtexmf/tex/latex2e/baseディレクトリにあるLaTeX2eは、
+&lt;1994/12/01&gt;版であり、pLaTeX2e &lt;1995/09/01&gt;版は対応していません。
+したがって、pLaTeX2e &lt;1995/09/01&gt;版を作成する場合は、英語版をインストール
+する前に、まず texmf/tex/latex2e/base を削除してください。
+そして、LaTeX2e &lt;1995/06/01&gt;版をインストールし、
+pLaTeX2e &lt;1995/09/01&gt;版をインストールしてください。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-pLaTeX$B$NE83+$K$D$$$F(B</h3>
-pLaTeX$B$N%U%!%$%k$r(Bplcore.ins$B$GE83+$9$k$H$-$O!"I,$:(Biniptex$B$r$*;H$$$/$@$5$$!#(B
-initex$B$GE83+$9$k$H!"(Bkinsoku.tex$B$N4A;z%3!<%I$,Fs$D$N(B8$B?J?t$H$7$FE83+$5$l$F(B
-$B$7$^$&$?$a!"(Biniptex$B$G%U%)!<%^%C%H%U%!%$%k$r:n$m$&$H$9$k$H$-$K!"(B
-$B%(%i!<$,$G$^$9!#(B
+pLaTeXの展開について</h3>
+pLaTeXのファイルをplcore.insで展開するときは、必ずiniptexをお使いください。
+initexで展開すると、kinsoku.texの漢字コードが二つの8進数として展開されて
+しまうため、iniptexでフォーマットファイルを作ろうとするときに、
+エラーがでます。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
-pTeX$B$H(BTeX$B$N%U%)!<%^%C%H%U%!%$%k:n@.$K$D$$$F(B</h3>
-pTeX$B$H(BTeX$B$N%U%)!<%^%C%H%U%!%$%k$r:n@.$9$k$H$-!"$D$.$N$h$&$K!"(B
-$B!V(B\dump$B!W%3%^%s%I$N!V(B\$B!W$r%7%'%k%W%m%0%i%`$K2r<a$5$l$J$$$h$&$K%(%9%1!<%W$r(B
-$B$7$J$/$F$O$$$1$J$$$3$H$KCm0U$r$7$F$/$@$5$$!#(B
+pTeXとTeXのフォーマットファイル作成について</h3>
+pTeXとTeXのフォーマットファイルを作成するとき、つぎのように、
+「\dump」コマンドの「\」をシェルプログラムに解釈されないようにエスケープを
+しなくてはいけないことに注意をしてください。
 <pre>
     iniptex tex.tex \\dump
 </pre>
-$B$^$?$O(B
+または
 <pre>
     iniptex tex.tex '\dump'
 </pre>
@@ -332,14 +332,14 @@ pTeX$B$H(BTeX$B$N%U%)!<%^%C%H%U%!%$%k$r:n@.$9$k$H$-!"$D$.$N$h$&$K!"(B
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
 <a name="hints-1212">
-$B?t<0%U%!%_%j$rDj5A$G$-$J$$$H$$$&%a%C%;!<%8$,I=<($5$l$k(B </a></h3>
-pTeX$B$G$O!"=DAH%U%)%s%H$NL@D+!"%4%7%C%/$G!"$=$l$>$l0l$D$E$D%U%!%_%j$rDj5A$7$F(B
-$B$$$^$9!#$7$?$,$C$F!"(BAMS$B$J$I$N%Q%C%1!<%8$HAH$_9g$o$;$k$H(BTeX$B$N;}$F$k%U%!%_%j(B
-$B$N?t!J(B16$B8D!K$r%*!<%P!<$7$F$7$^$&$?$a!"%U%!%_%j$r3d$jEv$F$i$l$:$K%(%i!<$H(B
-$B$J$j$^$9!#(B
+数式ファミリを定義できないというメッセージが表示される </a></h3>
+pTeXでは、縦組フォントの明朝、ゴシックで、それぞれ一つづつファミリを定義して
+います。したがって、AMSなどのパッケージと組み合わせるとTeXの持てるファミリ
+の数（16個）をオーバーしてしまうため、ファミリを割り当てられずにエラーと
+なります。
 <p>
-$B$3$l$r2sHr$9$k$K$O!"(Bptex.tex(jplain.tex)$B$J$i$P!"(B38$B9TL\!A(B53$B9TL\$^$G$r(B
-$B0J2<$N$h$&$K=$@5$9$l$P!"5l%P!<%8%g%s$HF1$8$h$&$K;H$&$3$H$,$G$-$^$9!#(B
+これを回避するには、ptex.tex(jplain.tex)ならば、38行目〜53行目までを
+以下のように修正すれば、旧バージョンと同じように使うことができます。
 <pre>
     \newfam\minfam % \min is family 8
     \newfam\gtfam  % \gt is family 9
@@ -354,24 +354,24 @@ pTeX$B$G$O!"=DAH%U%)%s%H$NL@D+!"%4%7%C%/$G!"$=$l$>$l0l$D$E$D%U%!%_%j$rDj5A$7$F
 </pre>
 <i>(1995/12/12) </i>
 <p>
-jplain.tex$B$r>e5-$N=$@5$r;\$7$?FbMF$GG[I[$9$k$h$&$K$7$^$7$?!#(B
+jplain.texを上記の修正を施した内容で配布するようにしました。
 <i>(1997/02/03) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
 <a name="hints-1218">
-pTeX$B%[!<%`%Z!<%8$+$i;}$C$F$-$?!"(Bweb2c.kpathsea-2.6.help$B$N%Q%C%A$rEv$F$k$H(B
-$B%(%i!<$K$J$k!#(B</a></h3>
-WEB$B%V%i%&%6$K$h$C$F$O!"!V(BSave as...$B!W$GC1$J$k%F%-%9%H%U%!%$%k$H$7$F(B
-$BJ]B8$G$-$J$$$b$N$,$"$k$h$&$G$9!#$=$N$?$a!"(Bweb2c.kpathsea-2.6.help$B$r(B
-$B05=L%U%!%$%k$H$7$^$7$?(B<i>(1995/12/18) </i>$B!#(B
+pTeXホームページから持ってきた、web2c.kpathsea-2.6.helpのパッチを当てると
+エラーになる。</a></h3>
+WEBブラウザによっては、「Save as...」で単なるテキストファイルとして
+保存できないものがあるようです。そのため、web2c.kpathsea-2.6.helpを
+圧縮ファイルとしました<i>(1995/12/18) </i>。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
 <a name="hints-1228">
-$B%U%)!<%^%C%H%U%!%$%k$r:n$k$H$-!"$D$.$N$h$&$J%a%C%;!<%8$,I=<($5$l$k!#(B
+フォーマットファイルを作るとき、つぎのようなメッセージが表示される。
 <pre>
     This is pTeX, Version 3.1415 p2.1.4 (EUC) (C version 6.1) (INITEX)
     ! I can't find file `ptex.tex'.
@@ -380,30 +380,30 @@ WEB$B%V%i%&%6$K$h$C$F$O!"!V(BSave as...$B!W$GC1$J$k%F%-%9%H%U%!%$%k$H$7$F(B
     Please type another input file name:
 </pre></a></h3>
 <ul>
-<li>$B5l%P!<%8%g%s$N(Biniptex$B$,<B9T$5$l$F$$$J$$$+$I$&$+$r3NG'$7$F$/$@$5$$!#(B
-  $B5l%P!<%8%g%s$H0[$J$k>l=j$K%$%s%9%H!<%k$7$?>l9g$K$O!"(B
-  $BI,$:$I$N(Biniptex$B$,<B9T$5$l$F$$$k$N$+$r3NG'$7$F$/$@$5$$!#(B
+<li>旧バージョンのiniptexが実行されていないかどうかを確認してください。
+  旧バージョンと異なる場所にインストールした場合には、
+  必ずどのiniptexが実行されているのかを確認してください。
 <p>
-<li>lib-6.9.tar.gz$B$H(Bplib-|euc,jis,sj|.tar.gz$B$J$I!"I,MW$J%i%$%V%i%j%U%!%$%k$r(B
-  $BE83+$7$F$"$k$+$I$&$+$r3NG'$7$F$/$@$5$$!#(B
+<li>lib-6.9.tar.gzとplib-|euc,jis,sj|.tar.gzなど、必要なライブラリファイルを
+  展開してあるかどうかを確認してください。
 <p>
-<li>$BE83+$7$F$"$k>l=j$,!"(Bconfigure$B$G;XDj$7$?>l=j$+$I$&$+$r3NG'$7$F$/$@$5$$!#(B
-  configure$B$K2?$b;XDj$r$7$F$$$J$$>l9g!"(Biniptex$B$d(Bvirptex$B$O!"(B
-  /usr/local/lib/texmf$B%G%#%l%/%H%j0J2<$rC5$7$K9T$-$^$9!#(B
+<li>展開してある場所が、configureで指定した場所かどうかを確認してください。
+  configureに何も指定をしていない場合、iniptexやvirptexは、
+  /usr/local/lib/texmfディレクトリ以下を探しに行きます。
 <p>
-<li>$B4D6-JQ?t(BTEXINPUTS$B$,;XDj$5$l$F(B<b>$B$$$J$$(B</b>$B$+$I$&$+$r3NG'$7$F$/$@$5$$!#(B
-  $B5l%P!<%8%g%s$G@_Dj$7$F$$$?>l9g$J$I!"$=$N$^$^;D$C$F$$$k$3$H$,$"$j$^$9$N$G!"(B
-  $B$=$N@_Dj$r(B<b>$B$7$J$$(B</b>$B$h$&$K$7$F!"%G%U%)%k%H0LCV$r;2>H$9$k$h$&$K$7$F(B
-  $B$/$@$5$$!#%G%U%)%k%H$N@_Dj$HJQ99$7$?$$>l9g$O!"(B
-  $B!V(B<a href="kpathsea.html">$B%i%$%V%i%j8!:w%Q%9$K$D$$$F(B</a>$B!W$r(B
-  $B;29M$K$7$F$/$@$5$$!#(B
+<li>環境変数TEXINPUTSが指定されて<b>いない</b>かどうかを確認してください。
+  旧バージョンで設定していた場合など、そのまま残っていることがありますので、
+  その設定を<b>しない</b>ようにして、デフォルト位置を参照するようにして
+  ください。デフォルトの設定と変更したい場合は、
+  「<a href="kpathsea.html">ライブラリ検索パスについて</a>」を
+  参考にしてください。
 </ul>
-<i>(1995/12/28) </i>$B!#(B
+<i>(1995/12/28) </i>。
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
 <a name="hints-0411">
-platex.dtx$B$r=hM}$9$k$H!"$D$.$N$h$&$J7Y9p$,=PNO$5$l$k!#(B
+platex.dtxを処理すると、つぎのような警告が出力される。
 <pre>
     LaTeX Font Warning: Font shape `JY1/mc/m/sc' undefined
     LaTeX Font Warning: Font shape `JT1/mc/m/sc' undefined
@@ -413,37 +413,37 @@ platex.dtx$B$r=hM}$9$k$H!"$D$.$N$h$&$J7Y9p$,=PNO$5$l$k!#(B
     LaTeX Font Warning: Font shape `JT1/mc/m/sl' undefined
     LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 </pre></a></h3>
-$BF|K\8l%U%)%s%H$K$O!"%$%?%j%C%/(B(it)$B!"%9%b!<%k%-%c%W%9(B(sc)$B!"%9%i%s%H(B(sl)$B$N(B
-$B$=$l$>$l$N=qBN$KBP1~$9$k$b$N$,$"$j$^$;$s$N$GDj5A$7$F$$$^$;$s!#(B
-$B$=$N$?$a!">e5-$N$h$&$K!"$=$l$>$l$N=qBN$KBP1~$9$k=qBN$,L$Dj5A$H$$$&(B
-$B7Y9p%a%C%;!<%8$,=PNO$5$l$^$9$,!"%(%i!<$G$b%P%0$G$b$"$j$^$;$s!#(B
-<i>(1996/04/11) </i>$B!#(B
+日本語フォントには、イタリック(it)、スモールキャプス(sc)、スラント(sl)の
+それぞれの書体に対応するものがありませんので定義していません。
+そのため、上記のように、それぞれの書体に対応する書体が未定義という
+警告メッセージが出力されますが、エラーでもバグでもありません。
+<i>(1996/04/11) </i>。
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
 <a name="hints-0411"></a>
 <a name="hints-0808"></a>
-pLaTeX$B$d(BLaTeX$B$NF0:n3NG'$N$?$a!"(Bltxcheck$B$r=hM}$7$?$H$-!"(B
-$B?7$7$/(BCTAN$B%5%$%H$+$i;}$C$F$-$?%U%)%s%H$r;H$C$F$b!"(B
-$B!H8E$$(Bdc$B%U%)%s%H!I$H$$$&%a%C%;!<%8$,=PNO$5$l$k!#(B
+pLaTeXやLaTeXの動作確認のため、ltxcheckを処理したとき、
+新しくCTANサイトから持ってきたフォントを使っても、
+“古いdcフォント”というメッセージが出力される。
 </h3>
-$B3F(BCTAN$B%5%$%H$N%_%i!<%j%s%0$N%9%1%8%e!<%k$NDxEY$K$h$C$F!"(B
-$B!H8E$$%P!<%8%g%s$N(Bdc$B%U%)%s%H!I$,CV$+$l$F$$$k>l9g$,$"$j$^$9!#(B
-$B$=$N$H$-$K$OJL$N(BCTAN$B%5%$%H$+$i!H?7$7$$(Bdc$B%U%)%s%H!I$rF~<j$7!"(B
-$B<+J,$N(B$TEXMF/fonts/dc$B%G%#%l%/%H%j$H:9$749$($^$9!#(B<br>
-CTAN$B%5%$%H$N0lMw$O!"(B
+各CTANサイトのミラーリングのスケジュールの程度によって、
+“古いバージョンのdcフォント”が置かれている場合があります。
+そのときには別のCTANサイトから“新しいdcフォント”を入手し、
+自分の$TEXMF/fonts/dcディレクトリと差し換えます。<br>
+CTANサイトの一覧は、
 <a href="http://tug2.cs.umb.edu/ctan/ctansite.txt">
-http://tug2.cs.umb.edu/ctan/ctansite.txt</a>$B$r;2>H$7$F$/$@$5$$!#(B<br>
-dc$B%U%)%s%H$O!"(BCTAN$B%5%$%H$N(Bfonts/dc$B%G%#%l%/%H%j$K$"$j$^$9!#(B
+http://tug2.cs.umb.edu/ctan/ctansite.txt</a>を参照してください。<br>
+dcフォントは、CTANサイトのfonts/dcディレクトリにあります。
 <i>(1996/04/11), (1996/08/08) </i>
 
 
 <hr size=1>
 <h3><img src="../images/q-blue.gif" alt="hints">
 <a name="remakeclass">
-pLaTeX2e $B$N%/%i%9%U%!%$%k$r:n@.$7D>$7$?$$(B
+pLaTeX2e のクラスファイルを作成し直したい
 </a></h3>
-$B$D$.$N%3%^%s%I$r<B9T$7$^$9!#(B
+つぎのコマンドを実行します。
 <pre>
     platex jclasses.ins
 </pre>
@@ -452,33 +452,33 @@ pLaTeX2e $B$N%/%i%9%U%!%$%k$r:n@.$7D>$7$?$$(B
 
 <p>
 <hr>
-<h2><a name="bugs">$B%P%0>pJs(B</a></h2>
+<h2><a name="bugs">バグ情報</a></h2>
 
-$B$3$A$i$K$K4s$;$i$l$?%P%0>pJs$r$^$H$a$F$"$j$^$9!#(B
+こちらにに寄せられたバグ情報をまとめてあります。
 <ul>
-<li><a href="#ptex-bugs">pTeX, pLaTeX$B$N%P%0>pJs(B</a>
-<li><a href="#mendex-bugs">mendex$B$N%P%0>pJs(B</a>
+<li><a href="#ptex-bugs">pTeX, pLaTeXのバグ情報</a>
+<li><a href="#mendex-bugs">mendexのバグ情報</a>
 </ul>
 
 <p>
 <hr>
-<h3><a name="ptex-bugs">$B"#(BpTeX, pLaTeX$B$N%P%0>pJs(B</a></h3>
+<h3><a name="ptex-bugs">■pTeX, pLaTeXのバグ情報</a></h3>
 
-pTeX$B$H(BpLaTeX$B$N(B
-$B:G?7HG$O!V(B<a href="sources.html">TeX $B%=!<%9%U%!%$%k(B</a>$B!W$N(B
-$B%Z!<%8$+$iF~<j$9$k$3$H$,$G$-$^$9!#(B
+pTeXとpLaTeXの
+最新版は「<a href="sources.html">TeX ソースファイル</a>」の
+ページから入手することができます。
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="ptex-bugs-970124">
-pLaTeX2e: ascmac$B%Q%C%1!<%8$N(B\Return, \return$B%3%^%s%I$r;H$C$F$b%j%?!<%s5-9f$,I=<($5$l$J$$!#(B
+pLaTeX2e: ascmacパッケージの\Return, \returnコマンドを使ってもリターン記号が表示されない。
 </a></h3>
-plib-{euc,jis,sj}.tar.gz $B$K4^$^$l$F$$$k!"(Bascgrp.mf, ascgrp.tfm$B$K(B
-$B%j%?!<%s5-9f$N@_Dj$,$"$j$^$;$s$G$7$?!#(B
-$B!V(B<a href="sources.html#unixptex">pTeX$B$N%=!<%9(B</a>$B!W$+$i!"(B
-ascgrp.tar.gz$B$r%@%&%s%m!<%I8e!"E83+$9$k$H(B ascgrp.mf $B$H(B ascgrp.tfm $B$H$$$&(B
-$BFs$D$N%U%!%$%k$,$G$-$^$9$N$G!"$=$l$>$l$r0J2<$N%G%#%l%/%H%j$K$"$k%U%!%$%k(B
-$B$HCV$-49$($F$/$@$5$$!#(B
+plib-{euc,jis,sj}.tar.gz に含まれている、ascgrp.mf, ascgrp.tfmに
+リターン記号の設定がありませんでした。
+「<a href="sources.html#unixptex">pTeXのソース</a>」から、
+ascgrp.tar.gzをダウンロード後、展開すると ascgrp.mf と ascgrp.tfm という
+二つのファイルができますので、それぞれを以下のディレクトリにあるファイル
+と置き換えてください。
 <pre>
 ascgrp.mf --- $TEXMF/fonts/ascgrp/src
 ascgrp.tfm --- $TEXMF/fonts/ascgrp/tfm
@@ -489,14 +489,14 @@ ascgrp.tfm --- $TEXMF/fonts/ascgrp/tfm
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="ptex-bugs-961031">
-pLaTeX2e: verse $B4D6-$G!H(B@centercr$B!I$H$$$&J8;zNs$,=PNO$5$l$F$7$^$&(B
+pLaTeX2e: verse 環境で“@centercr”という文字列が出力されてしまう
 </a></h3>
-pLaTeX$BI8=`%/%i%9%U%!%$%k!J(Bjclasses.dtx$B$+$i:n@.$5$l$^$9!K$N%P%0$G$9!#(B
-jlcasses.dtx$B$N(B2700$B9TL\IU6a$N(Bverse$B4D6-$NDj5A$r!"0J2<$N$h$&$K=$@5$7!"(B
-<a href="#remakeclass">$B%/%i%9%U%!%$%k$r:n@.$7D>$7(B</a>$B$F$/$@$5$$!#(B
+pLaTeX標準クラスファイル（jclasses.dtxから作成されます）のバグです。
+jlcasses.dtxの2700行目付近のverse環境の定義を、以下のように修正し、
+<a href="#remakeclass">クラスファイルを作成し直し</a>てください。
 <pre>
     \newenvironment{verse}
-      {\let\\\@centercr  %%% '\' $B$r(B1$B$D:o=|(B
+      {\let\\\@centercr  %%% '\' を1つ削除
        \list{}{\itemsep\z@ \itemindent -1.5em%
                \listparindent\itemindent
                \rightmargin\leftmargin \advance\leftmargin 1.5em}%
@@ -508,32 +508,32 @@ jlcasses.dtx$B$N(B2700$B9TL\IU6a$N(Bverse$B4D6-$NDj5A$r!"0J2<$N$h$&$K=$@5$7
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="ptex-bugs-960604">
-pTeX: $B$H$-$I$-$*$+$7$JF0:n!J6XB'$,Jx$l$?$j!"J8;zI}$,0[>o$K69$/$J$C$?$j!K$r$9$k(B
+pTeX: ときどきおかしな動作（禁則が崩れたり、文字幅が異常に狭くなったり）をする
 </a></h3>
-$B0J2<$N%W%m%H%?%$%W@k8@$,$J$$$?$a!"(BTeX$B$NFbIt$G%G!<%?$N<u$1EO$7$,$*$+$7$/$J$k(B
-$B$3$H$,$"$k$h$&$G$9!#(B
-$B$D$.$N(B3$B9T$r(Bcoeace.add$B%U%!%$%k$KDI2C$7$F!":F%3%s%Q%$%k$7$F$/$@$5$$!#(B
+以下のプロトタイプ宣言がないため、TeXの内部でデータの受け渡しがおかしくなる
+ことがあるようです。
+つぎの3行をcoeace.addファイルに追加して、再コンパイルしてください。
 <pre>
     extern void settok(void);
     extern halfword mktok(short, char);
     extern quarterword getjfmpos(KANJIcode, short);
 </pre>
-$B"($J$*!"$3$N%P%0$O<B9T%U%!%$%k$r:n@.$9$k%3%s%Q%$%i$K0MB8$7$^$9!#(B
+※なお、このバグは実行ファイルを作成するコンパイラに依存します。
 <i>(1996/06/04) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="ptex-bugs-960507">
-pLaTeX: dtx$B%U%!%$%k$r%3%s%Q%$%k$9$k$H$D$.$N$h$&$J%(%i!<$,5/$-$k(B
+pLaTeX: dtxファイルをコンパイルするとつぎのようなエラーが起きる
 <pre>
     ! Package doc Error: Checksum not passed (3820&lt;&gt;3849).
 </pre></a></h3>
-$B$=$N(Bdtx$B%U%!%$%k$N@hF,ItJ,$K=q$+$l$F$$$k(BCheckSum$B$NCM$r@5$7$$CM(B
-$B!J$3$N>l9g$O(B3820$B$r(B3894$B!K$K=$@5$7$F$/$@$5$$!#(B
+そのdtxファイルの先頭部分に書かれているCheckSumの値を正しい値
+（この場合は3820を3894）に修正してください。
 <pre>
-    $B=$@5A0!'(B% \CheckSum{3820}
-    $B=$@58e!'(B% \CheckSum{3894}
+    修正前：% \CheckSum{3820}
+    修正後：% \CheckSum{3894}
 </pre>
 <i>(1996/05/07) </i>
 <p>
@@ -541,11 +541,11 @@ pLaTeX: dtx$B%U%!%$%k$r%3%s%Q%$%k$9$k$H$D$.$N$h$&$J%(%i!<$,5/$-$k(B
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="ptex-bugs-960110">
-pLaTeX: landscape $B%*%W%7%g%s$r;XDj$7$F$b%i%s%I%9%1!<%W%b!<%I$GAH$^$l$J$$(B
+pLaTeX: landscape オプションを指定してもランドスケープモードで組まれない
 </a></h3>
-pLaTeX$BI8=`%/%i%9%U%!%$%k!J(Bjclasses.dtx$B$+$i:n@.$5$l$^$9!K$N%P%0$G$9!#(B
-jlcasses.dtx$B$N(B530$B9TL\$+$i(B534$B9TL\$^$G$r$D$.$N$h$&$K=$@5$7!"(B
-$B%/%i%9%U%!%$%k$r:n@.$7D>$;$P!"@5$7$$F0:n$r$9$k$h$&$K$J$j$^$9!#(B
+pLaTeX標準クラスファイル（jclasses.dtxから作成されます）のバグです。
+jlcasses.dtxの530行目から534行目までをつぎのように修正し、
+クラスファイルを作成し直せば、正しい動作をするようになります。
 <pre>
     \if@landscape
       \setlength\@tempdima{\paperheight}
@@ -558,111 +558,111 @@ jlcasses.dtx$B$N(B530$B9TL\$+$i(B534$B9TL\$^$G$r$D$.$N$h$&$K=$@5$7!"(B
 </pre>
 <i>(1996/01/10) </i>
 <br>
-pLaTeX2e &lt;1996/03/05&gt; $BHG$G=$@5$7$^$7$?(B<i>(1996/03/12) </i>$B!#(B
+pLaTeX2e &lt;1996/03/05&gt; 版で修正しました<i>(1996/03/12) </i>。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="ptex-bugs-1220">
-pTeX Windows NT$BHG!'?t<0%b!<%I$,$*$+$7$/$J$k(B
+pTeX Windows NT版：数式モードがおかしくなる
 </a></h3>
-$B%3%s%Q%$%i$N:GE,2=%l%Y%k$K$h$k1F6A$N$h$&$G$9!#(B
-$B:GE,2=%l%Y%k$r2<$2$F:n@.$7$?%P%$%J%j$r:n@.$7$^$7$?$N$G!"(B
-1995$BG/(B12$B7n(B20 $B8aA0(B7$B;~0JA0$KF~<j$5$l$?$+$?$O!"(B
-$B:G?7%P!<%8%g%s$rF~<j$7$F$/$@$5$$$H$N$3$H$G$9!#(B
+コンパイラの最適化レベルによる影響のようです。
+最適化レベルを下げて作成したバイナリを作成しましたので、
+1995年12月20 午前7時以前に入手されたかたは、
+最新バージョンを入手してくださいとのことです。
 <i>(1995/12/20) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="ptex-bugs-1212">
-pLaTeX$B!'(Bdviprt $B$N%I%-%e%a%s%H$r%3%s%Q%$%k$7$F$$$kESCf$GF0:n$,;_$^$k(B
+pLaTeX：dviprt のドキュメントをコンパイルしている途中で動作が止まる
 </a></h3>
-$B8=:_!"860x$rD4::Cf$G$9(B<i>(1995/12/12) </i>$B!#(B<br>
-dviprt/dviout$B$N%I%-%e%a%s%H$r(BpLaTeX2e$BBP1~$K$9$k$3$H$G2r7h$7$F(B
-$B$$$?$@$-$^$7$?!#(B
-<i>(1996/05/07) </i>$B!#(B
+現在、原因を調査中です<i>(1995/12/12) </i>。<br>
+dviprt/dvioutのドキュメントをpLaTeX2e対応にすることで解決して
+いただきました。
+<i>(1996/05/07) </i>。
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
-pTeX$B!'4A;z$N%U%!%$%kL>$,;H$($J$$!)(B</h3>
-$B4A;z%U%!%$%kL>$r07$($k$h$&$K$9$k$?$a$N(B
-<a href="../archives/ascii-ptex/ptex214/updatefiles/ptex-2.1f2-2.1.4-patch.tar.gz">$B%Q%C%A(B
-$B%U%!%$%k(B</a>$B$r:n@.$7$^$7$?!#%P!<%8%g%s$O!"(B2.1.4$B$K$J$j$^$9!#(B
-$B:n$jJ}$O!"IUB0$N(BREADME$B%U%!%$%k$r;2>H$7$F$/$@$5$$!#(B
+pTeX：漢字のファイル名が使えない？</h3>
+漢字ファイル名を扱えるようにするための
+<a href="../archives/ascii-ptex/ptex214/updatefiles/ptex-2.1f2-2.1.4-patch.tar.gz">パッチ
+ファイル</a>を作成しました。バージョンは、2.1.4になります。
+作り方は、付属のREADMEファイルを参照してください。
 <i>(1995/12/12) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
-pTeX$B!'J8=q$r%3%s%Q%$%k$7$F$$$kESCf$G!"(B"This can't happen (disc4)"$B$H$$$&(B 
-$B%(%i!<$,5/$-$k(B
+pTeX：文書をコンパイルしている途中で、"This can't happen (disc4)"という 
+エラーが起きる
 </h3>
-$B%P!<%8%g%s(B2.1.4$B$G=$@5$7$^$7$?!#(B
+バージョン2.1.4で修正しました。
 <i>(1995/12/12) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="ptex-bugs-1121">
-PLtoTF$B!'(BGLUEKERN$B%W%m%Q%F%#$G(BCOMMENT$B%W%m%Q%F%#$,;H$($J$$!)(B
+PLtoTF：GLUEKERNプロパティでCOMMENTプロパティが使えない？
 </a></h3>
-PLtoTF$B$N%P%0$G$9!#=$@5$9$k$?$a$N(B
-<a href="../archives/ascii-ptex/ptex214/updatefiles/pltotf11patch.tar.gz">$B%Q%C%A%U%!%$%k(B</a>$B$r(B
-$B:n@.$7$^$7$?!#(B
-$B:n$jJ}$O!"IUB0$N(BREADME$B%U%!%$%k$r;2>H$7$F$/$@$5$$!#(B
+PLtoTFのバグです。修正するための
+<a href="../archives/ascii-ptex/ptex214/updatefiles/pltotf11patch.tar.gz">パッチファイル</a>を
+作成しました。
+作り方は、付属のREADMEファイルを参照してください。
 <i>(1995/11/21) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
-pLaTeX2e$B!'8_49%b!<%I$N=DAH$_$G!"5SCm$,$*$+$7$/$J$k(B</h3>
-$B8_49%b!<%I$G$N!"5SCm%3%^%s%I$r3HD%$7$F$$$^$;$s$G$7$?!#(B
-$B8=:_!"$=$N$[$+$N%P%0$N=$@5$b4^$a$?%Q%C%A%U%!%$%k$r:n@.$7$F$$$^$9!#(B
-$B$b$&$7$P$i$/$*BT$A$/$@$5$$!#(B
+pLaTeX2e：互換モードの縦組みで、脚注がおかしくなる</h3>
+互換モードでの、脚注コマンドを拡張していませんでした。
+現在、そのほかのバグの修正も含めたパッチファイルを作成しています。
+もうしばらくお待ちください。
 <i>(1995/11/21) </i>
 <br>
-pLaTeX2e &lt;1996/03/05&gt; $BHG$G=$@5$7$^$7$?!#(B
+pLaTeX2e &lt;1996/03/05&gt; 版で修正しました。
 <i>(1996/03/12) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
-pLaTeX2e$B!'(B\Rensuji, \prensuji$B$,;H$($J$$!)(B</h3>
-pLaTeX2e &lt;1995/09/01&gt;$B$G$O!"(B\rensuji, \Rensuji, \prensuji$B$N#3$D$N(B
-$B%3%^%s%I$r(B\rensuji$B$N0l$D$K$^$H$a$^$7$?$N$G<BAu$5$l$F$$$^$;$s!#(B
-\rensuji$B%3%^%s%I$r$*;H$$$/$@$5$$!#(B
+pLaTeX2e：\Rensuji, \prensujiが使えない？</h3>
+pLaTeX2e &lt;1995/09/01&gt;では、\rensuji, \Rensuji, \prensujiの３つの
+コマンドを\rensujiの一つにまとめましたので実装されていません。
+\rensujiコマンドをお使いください。
 <p>
-$B8_49%b!<%I$G$O!"(B\Rensuji, \prensuji$B$r;H$($k$h$&$K$7$^$9!#(B
-$B$H$j$"$($:$O!"(Bpl209.def$B$NCf$G!"(B
+互換モードでは、\Rensuji, \prensujiを使えるようにします。
+とりあえずは、pl209.defの中で、
 <pre>
     \let\Rensuji\rensuji
     \let\prensuji\rensuji
 </pre>
-$B$H$7$F$*;H$$$/$@$5$$!#(B<i>(1995/11/21) </i>
+としてお使いください。<i>(1995/11/21) </i>
 <br>
-pLaTeX2e &lt;1996/03/05&gt; $BHG$G=$@5$7$^$7$?!#(B
+pLaTeX2e &lt;1996/03/05&gt; 版で修正しました。
 <i>(1996/03/12) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
-pLaTeX2e$B!'(B\DeclareFixedFont$B$GOBJ8%U%)%s%H$rDj5A$G$-$J$$!)(B</h3>
-pLaTeX2e &lt;1995/09/01&gt;$B$G$O!"$^$@F|K\8l2=$r$7$F$$$^$;$s!#(B
-$B<!$N%P!<%8%g%s$GDs6!$r$7$^$9!#(B<i>(1995/11/21) </i>
-pLaTeX2e &lt;1996/03/05&gt; $BHG$G=$@5$7$^$7$?!#(B
+pLaTeX2e：\DeclareFixedFontで和文フォントを定義できない？</h3>
+pLaTeX2e &lt;1995/09/01&gt;では、まだ日本語化をしていません。
+次のバージョンで提供をします。<i>(1995/11/21) </i>
+pLaTeX2e &lt;1996/03/05&gt; 版で修正しました。
 <i>(1996/03/12) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="ptex-bugs-960130">
-pLaTeX2e$B!'(B\topmargin$B$G@_Dj$7$?CM$,H?1G$5$l$J$$(B</a></h3>
-plcore.ltx$B!J(Bploutput.dtx$B!K$N$D$.$N2U=j$r=$@5$7!"(B
-$B%U%)!<%^%C%H%U%!%$%k$r:n@.$7$F$/$@$5$$!#(B
+pLaTeX2e：\topmarginで設定した値が反映されない</a></h3>
+plcore.ltx（ploutput.dtx）のつぎの箇所を修正し、
+フォーマットファイルを作成してください。
 <p>
-<b>$B=$@5A0(B</b>
+<b>修正前</b>
 <blockquote>
 <pre>
 \iftombow
@@ -674,7 +674,7 @@ plcore.ltx$B!J(Bploutput.dtx$B!K$N$D$.$N2U=j$r=$@5$7!"(B
 </pre>
 </blockquote>
 <p>
-<b>$B=$@58e(B</b>
+<b>修正後</b>
 <blockquote>
 <pre>
      \@@topmargin\topmargin
@@ -688,86 +688,86 @@ plcore.ltx$B!J(Bploutput.dtx$B!K$N$D$.$N2U=j$r=$@5$7!"(B
 <i>(1995/11/21) </i>,
 <i>(1996/01/30) </i>
 <br>
-pLaTeX2e &lt;1996/03/05&gt; $BHG$G=$@5$7$^$7$?!#(B
+pLaTeX2e &lt;1996/03/05&gt; 版で修正しました。
 <i>(1996/03/12) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="ptex-bug-1114">
-texmf/bibtex/jbib $B0J2<$N%G%#%l%/%H%j$K$"$k%U%!%$%k$,$*$+$7$$!)(B
+texmf/bibtex/jbib 以下のディレクトリにあるファイルがおかしい？
 </a></h3>
-plib-sj.tar.gz$B$H(Bplib-jis.tar.gz$B$K4^$^$l$F$$$k!"(B
-jbib$B0J2<$N%U%!%$%k$,(BEUC$B%3!<%I$N$^$^$G$7$?!#(B
+plib-sj.tar.gzとplib-jis.tar.gzに含まれている、
+jbib以下のファイルがEUCコードのままでした。
 <i>(1995/11/14) </i>
 <p>
 
 <hr>
-<h3><a name="mendex-bugs">$B"#(Bmendex$B$N%P%0>pJs(B</a></h3>
+<h3><a name="mendex-bugs">■mendexのバグ情報</a></h3>
 
-mendex$B%W%m%0%i%`$N(B
-$B:G?7HG$O!V(B<a href="sources.html#tools">TeX $B%=!<%9%U%!%$%k(B</a>$B!W$N(B
-$B%Z!<%8$+$iF~<j$9$k$3$H$,$G$-$^$9!#(B
+mendexプログラムの
+最新版は「<a href="sources.html#tools">TeX ソースファイル</a>」の
+ページから入手することができます。
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="mendex-bugs-960130">
-preamble, postamble$B$rJ#?t9T$K$o$1$F5-=R$G$-$J$$!#(B
+preamble, postambleを複数行にわけて記述できない。
 </a></h3>
-$B%P!<%8%g%s(B2.3e$B$N%P%0$G$9!#(B
-$B=$@5$7$?HG$r(B mendex 2.3f $B$H$7$F8x3+$7$^$9!#(B
+バージョン2.3eのバグです。
+修正した版を mendex 2.3f として公開します。
 <i>(1996/12/09) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="mendex-bugs-960130">
-$B$D$.$N$h$&$J:w0z9`L\$r@5$7$/=hM}$G$-$J$$!#(B
+つぎのような索引項目を正しく処理できない。
 <blockquote>
 <pre>
 \indexentry{"\"!@verb+"\"!+}{10}
 </pre>
 </blockquote>
 </a></h3>
-$B:w0z9`L\$K4^$^$l$k!V(B"\"$B!W$NItJ,$N!V(B\$B!W$r%(%9%1!<%WJ8;z$H$7$FG'<1$7$F$7$^$&(B
-mendex$B$N%P%0$G$9!#(B
+索引項目に含まれる「"\"」の部分の「\」をエスケープ文字として認識してしまう
+mendexのバグです。
 <p>
-$B%=!<%9%U%!%$%k(B fread.c $B$N(B 76 $B9TL\$r$r$D$.$N$h$&$K=$@5$7!"(Bmendex$B$r(B
-$B:n$jD>$7$F$/$@$5$$!#(B
+ソースファイル fread.c の 76 行目ををつぎのように修正し、mendexを
+作り直してください。
 <p>
-<b>$B=$@5A0(B</b>
+<b>修正前</b>
 <blockquote>
 <pre>
 if (buff[j]==escape) {
 </pre>
 </blockquote>
 <p>
-<b>$B=$@58e(B</b>
+<b>修正後</b>
 <blockquote>
 <pre>
 if ((quo==0)&&(buff[j]==escape)) {
 </pre>
 </blockquote>
 <i>(1996/01/30) </i>
-$B%P!<%8%g%s(B2.3f$B$G$O!"$3$N=$@5$r;\$7$F$"$j$^$9!#(B
+バージョン2.3fでは、この修正を施してあります。
 <i>(1996/12/09) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="mendex-bugs-1212">
-EUC$B%3%s%Q%$%i$G(BSJIS$BHG$r:n$l$J$$(B
+EUCコンパイラでSJIS版を作れない
 </a></h3>
-$B:n$l$k$h$&$K$7$?=$@5HG$r(B mendexk 2.3e $B$H$7$F8x3+$7$^$9!#(B
-$B$^$?!"$3$N%P!<%8%g%s$G$O!"F1$8:w0z8l$N>e8B$O%a%b%j$N6u$-MFNL$K1~$8$F!"(B
-$BF0E*$K7hDj$5$l$^$9!#(B
+作れるようにした修正版を mendexk 2.3e として公開します。
+また、このバージョンでは、同じ索引語の上限はメモリの空き容量に応じて、
+動的に決定されます。
 <i>(1995/12/12) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
 <a name="mendex-bugs-1114">
-pldoc.idx$B$r=hM}$9$k$H!"$D$.$N$h$&$J%(%i!<$,5/$-$k(B
+pldoc.idxを処理すると、つぎのようなエラーが起きる
 </a></h3>
 <blockquote>
 <pre>
@@ -779,14 +779,14 @@ Error: Extra `=' in pldoc.idx, line 1834....done.(2412 entries accepted.)
 Nothing written in output file.
 </pre>
 </blockquote>
-$BF1$8:w0z8l$,(B64$B8D0J>e$K$J$k$H!"$3$N$h$&$J%(%i!<$,5/$3$j$^$9!#(B
-$B$3$N%(%i!<$r2sHr$9$k%P!<%8%g%s$r(Bmendexk 2.3d$B$H$7$F8x3+$7$^$9!#(B
+同じ索引語が64個以上になると、このようなエラーが起こります。
+このエラーを回避するバージョンをmendexk 2.3dとして公開します。
 <i>(1995/11/14) </i>
 <p>
 
 <hr size=1>
 <h3><img src="../images/q-red.gif" alt="question">
-pldoc.glo$B$r=hM}$9$k$H!"$D$.$N$h$&$J%(%i!<$,5/$-$k(B</h3>
+pldoc.gloを処理すると、つぎのようなエラーが起きる</h3>
 <blockquote>
 <pre>
 This is mendex version2.3c [26-Oct-95].
@@ -797,11 +797,11 @@ Error: Extra `&gt;' in pldoc.glo, line 1....done.(26 entries accepted.)
 Nothing written in output file.
 </pre>
 </blockquote>
-pldoc.glo$B$N#19TL\$N(B"&#60;"$B$,%(%i!<$r5/$3$7$F$$$^$9!#(B
-$B$H$j$"$($:!"(Bpldoc.glo$B$N#19TL\$r:o=|$7$F!":FEY(B mendex $B$G=hM}$7$F$/$@$5$$!#(B
+pldoc.gloの１行目の"&#60;"がエラーを起こしています。
+とりあえず、pldoc.gloの１行目を削除して、再度 mendex で処理してください。
 <p>
-$B$3$N9T$O!"(Bplvers.dtx$B$r%3%s%Q%$%k$7$F=PNO$5$l$?9T$G$9!#(B
-plvers.dtx$B$N=$@5HG$O!"<!4|%P!<%8%g%s$GDs6!$7$^$9!#(B
+この行は、plvers.dtxをコンパイルして出力された行です。
+plvers.dtxの修正版は、次期バージョンで提供します。
 <i>(1995/11/14) </i>
 
 

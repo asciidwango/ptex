@@ -2,395 +2,395 @@
 <!-- TeX page -->
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (sources)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>$B"#(BpTeX 3.1.10 (TeX 3.141592, Web2C 7.5.4)</h2>
-pTeX 3.1.9 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.1.10 (TeX 3.141592, Web2C 7.5.4)</h2>
+pTeX 3.1.9 からの変更点：
 <ul>
-<li>ptex, tftopl, pltotf, jbibtex: -kanji $B%*%W%7%g%s$,(B -version $B%*%W%7%g%s$N4A;z%3!<%I>pJs$KH?1G$5$l$k$h$&=$@5(B
-<li>Makefile.in: texmf.cnf $BCf$N%Q%95-=R$,(B teTeX-3.0 $B$N5-K!$K6a$/$J$k$h$&$K=$@5(B
-<li>ptex: $BJQ?t$N=i4|2=K:$l$N$?$a!"4D6-$K$h$C$FAHHG7k2L$,0[$J$k>I>u$r$r=$@5(B
-<li>pltotf, tftopl: 16$B6h$N4A;z$N07$$$K<:GT$9$kIT6q9g$r=$@5(B
+<li>ptex, tftopl, pltotf, jbibtex: -kanji オプションが -version オプションの漢字コード情報に反映されるよう修正
+<li>Makefile.in: texmf.cnf 中のパス記述が teTeX-3.0 の記法に近くなるように修正
+<li>ptex: 変数の初期化忘れのため、環境によって組版結果が異なる症状をを修正
+<li>pltotf, tftopl: 16区の漢字の扱いに失敗する不具合を修正
 </ul>
 <ul>
-<li><a href="../etc/INSTALL-ptex3_1_10.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL-ptex3_1_10.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.10.tar.gz">ptex-src-3.1.10.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 3.1.9 (TeX 3.141592, Web2C 7.5.4)</h2>
-pTeX 3.1.8 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.1.9 (TeX 3.141592, Web2C 7.5.4)</h2>
+pTeX 3.1.8 からの変更点：
 <ul>
-<li>platex $B$N8!:w%Q%9$K(B tex/platex $B$rF~$l$J$$$h$&$K=$@5(B
-<li>$BC18l$N@hF,$G(B LIG/ $B$r9T$&$h$&$J(BTFM$B$r;HMQ$9$k$H%Y!<%9%i%$%s%7%U%H$,(B0$B$G$J$$>l9g$K0[>o=*N;$9$k%P%0$r=$@5(B
+<li>platex の検索パスに tex/platex を入れないように修正
+<li>単語の先頭で LIG/ を行うようなTFMを使用するとベースラインシフトが0でない場合に異常終了するバグを修正
 </ul>
 <ul>
-<li><a href="../etc/INSTALL-ptex3_1_9.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL-ptex3_1_9.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.9.tar.gz">ptex-src-3.1.9.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 3.1.8 (TeX 3.141592, Web2C 7.5.4)</h2>
-pTeX 3.1.7 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.1.8 (TeX 3.141592, Web2C 7.5.4)</h2>
+pTeX 3.1.7 からの変更点：
 <ul>
-<li>make install $B$N:G8e$K(B mktexlsr $B$N<B9T$rDI2C(B
-<li>Makefile.in, INSTALL.txt: teTeX-3.0$B$N(BTEXMF$B%G%#%l%/%H%j$NJQ99$KH<$$=$@5(B
-<li>$B%3%s%H%m!<%k%7!<%1%s%9L>$N=hM}8m$j$r=$@5!#(B($BNc!'(B\Te^^5e^58 $B"M(B \Te^^58 $B$H$J$j!"(B\TeX $B$H$7$FI>2A$5$l$J$$(B)
-<li>$B%3%s%H%m!<%k%7!<%1%s%9D>8e$N(B ^^$B7A<0$,4A;z$H$7$FG'<1$5$l$F$7$^$&>l9g$,$"$k$N$r=$@5(B ($BNc!'(B\TeX^^83A $B"M(B \TeX$B%"(B)
-<li>$BC<Kv$d%m%0%U%!%$%k$G$N2~9T0LCV$N%?%$%_%s%0$N=$@5(B
+<li>make install の最後に mktexlsr の実行を追加
+<li>Makefile.in, INSTALL.txt: teTeX-3.0のTEXMFディレクトリの変更に伴い修正
+<li>コントロールシーケンス名の処理誤りを修正。(例：\Te^^5e^58 ⇒ \Te^^58 となり、\TeX として評価されない)
+<li>コントロールシーケンス直後の ^^形式が漢字として認識されてしまう場合があるのを修正 (例：\TeX^^83A ⇒ \TeXア)
+<li>端末やログファイルでの改行位置のタイミングの修正
 </ul>
 <ul>
-<li><a href="../etc/INSTALL-ptex3_1_8_1.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL-ptex3_1_8_1.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.8.1.tar.gz">ptex-src-3.1.8.1.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 3.1.7 (TeX 3.141592, Web2C 7.5.3)</h2>
-pTeX 3.1.5 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.1.7 (TeX 3.141592, Web2C 7.5.3)</h2>
+pTeX 3.1.5 からの変更点：
 <ul>
-<li>tetex-2.99.4.20041128-beta $B$KBP1~(B($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)$B!#(B
-<li>$BI=<(IT2DG=J8;z$NHO0O$r(B3.1.4$B$HF1$8$K$7$^$7$?(B
-    (Missing character $B$G$O(B ^^ $B7A<0$G=PNO$7$^$9(B)$B!#(B
-<li>texmf.cnf$B$K(BTEXINPUTS.{ptex,platex}-{sjis,jis,euc}$B$N%(%s%H%j$rDI2C$9$k(B
-    $B$h$&$K$7$^$7$?!#(B
+<li>tetex-2.99.4.20041128-beta に対応(ありがとうございます、角藤さん)。
+<li>表示不可能文字の範囲を3.1.4と同じにしました
+    (Missing character では ^^ 形式で出力します)。
+<li>texmf.cnfにTEXINPUTS.{ptex,platex}-{sjis,jis,euc}のエントリを追加する
+    ようにしました。
 </ul>
 <ul>
-<li><a href="../etc/INSTALL-ptex3_1_7.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL-ptex3_1_7.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.7.tar.gz">ptex-src-3.1.7.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 3.1.6 (TeX 3.141592, Web2C 7.5.3)</h2>
-pTeX 3.1.5 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.1.6 (TeX 3.141592, Web2C 7.5.3)</h2>
+pTeX 3.1.5 からの変更点：
 <ul>
-<li>ptex: tetex-2.99.4.20041128-beta $B$KBP1~(B($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)$B!#(B
+<li>ptex: tetex-2.99.4.20041128-beta に対応(ありがとうございます、角藤さん)。
 </ul>
 <ul>
-<li><a href="../etc/INSTALL-ptex3_1_6.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL-ptex3_1_6.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.6.tar.gz">ptex-src-3.1.6.tar.gz</a>
 </ul>
 
 
 <hr>
-<h2>$B"#(BpTeX 3.1.4 (TeX 3.14159, Web2C 7.4.5)</h2>
-pTeX 3.0 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.1.4 (TeX 3.14159, Web2C 7.4.5)</h2>
+pTeX 3.0 からの変更点：
 <ul>
-<li>$B9TKv5-9f$r4A;z$NBh(B1$B%P%$%H$KEv$?$kJ8;z$K$7$?>l9g!"9T$N<!$NJ8;z(B
-    $B$H6&$K4A;z$K$7$h$&$H$7$F$7$^$&$N$r=$@5(B(3.1.4)$B!#(B
-<li>1$B%P%$%HJ8;z$N$&$A!"4A;z$NBh(B1$B%P%$%H$KEv$?$kJ8;z$N%+%F%4%j!<(B
-    $B%3!<%I$,L58z$JJ8;z$H$J$C$F$7$^$&$N$r=$@5(B(3.1.4)$B!#(B
-<li>^^$B7A<0$GF~NO$5$l$?J8;z%3!<%I$,4A;z$NBh(B1$B%P%$%H$KEv$?$k>l9g!"(B
-    $B<!$NJ8;z$H6&$K4A;z$K$7$h$&$H$7$F$7$^$&$N$r=$@5(B(3.1.4)$B!#(B
-<li>\string $B$G07$&J8;z$N4A;zH=Dj$r87L)2=(B(3.1.4)$B!#(B
-<li>jbibtex$B$r2~9T%3!<%I(BCR$B$KBP1~(B(3.1.4)$B!#(B
-    ($B0J>e!"$"$j$,$H$&$4$6$$$^$9!"0f>e$5$s(B)
-<li>$B?t<0Fb$G(B \char $B$r;HMQ$7$?>l9g$K(B1$B%P%$%HJ8;z$,4A;z$H8mG'<1$5$l$k(B
-    $B%P%0$r=$@5(B($B$"$j$,$H$&$4$6$$$^$9!"3Qd[$5$s(B)(3.1.4)$B!#(B
-<li>$B7@Ls>rJ8OBLu$r=$@5(B(3.1.4)$B!#(B
-<li>-kanji=sjis $B$N$H$-!"(B\kansujichar $B$G!"4|BT$7$?J8;z$,@_Dj$5$l$J$$$N$r(B
-    $B=$@5$7$?(B($B$"$j$,$H$&!"3QF#$5$s(B)(3.1.3)$B!#(B
-<li>$BC<Kv(B/$B%m%0$X$N%a%C%;!<%8$G!"0u;z$G$-$J$$J8;z$,!"$=$N$^$^=PNO$5$l$F$7$^$&(B
-    $B$3$H$,$"$k$N$KBP=h$7$^$7$?(B($BNc!'(B\hbox to0pt{$\gamma$}})(3.1.3)$B!#(B
-<li>\kansujichar$B%W%j%_%F%#%V(B(\kansuji$B$G=PNO$5$l$kJ8;z$r;XDj$9$k(B)$B$r(B
-     $BF3F~$7$?(B(3.1.2)$B!#(B
-<li>$B4A;z$,(B ^^ $B7A<0$G%3%s%=!<%k$KI=<($5$l$k$N$r=$@5(B(3.1.1)$B!#(B
-<li>Web2C 7.4.5(teTeX-src-2.0.tar.gz)$B$XBP1~(B(3.1)$B!#(B
-<li>main_memory$B$d(Bhash_extra$B$J$I$rBg$-$/$7!"KDBg$J%^%/%mDj5A$r$9$k$H!"(B
-    $B!V(B!Missing control sequence inserted.$B!W$N%(%i!<$K$J$k$N$r=$@5(B(3.1)$B!#(B
+<li>行末記号を漢字の第1バイトに当たる文字にした場合、行の次の文字
+    と共に漢字にしようとしてしまうのを修正(3.1.4)。
+<li>1バイト文字のうち、漢字の第1バイトに当たる文字のカテゴリー
+    コードが無効な文字となってしまうのを修正(3.1.4)。
+<li>^^形式で入力された文字コードが漢字の第1バイトに当たる場合、
+    次の文字と共に漢字にしようとしてしまうのを修正(3.1.4)。
+<li>\string で扱う文字の漢字判定を厳密化(3.1.4)。
+<li>jbibtexを改行コードCRに対応(3.1.4)。
+    (以上、ありがとうございます、井上さん)
+<li>数式内で \char を使用した場合に1バイト文字が漢字と誤認識される
+    バグを修正(ありがとうございます、角籐さん)(3.1.4)。
+<li>契約条文和訳を修正(3.1.4)。
+<li>-kanji=sjis のとき、\kansujichar で、期待した文字が設定されないのを
+    修正した(ありがとう、角藤さん)(3.1.3)。
+<li>端末/ログへのメッセージで、印字できない文字が、そのまま出力されてしまう
+    ことがあるのに対処しました(例：\hbox to0pt{$\gamma$}})(3.1.3)。
+<li>\kansujicharプリミティブ(\kansujiで出力される文字を指定する)を
+     導入した(3.1.2)。
+<li>漢字が ^^ 形式でコンソールに表示されるのを修正(3.1.1)。
+<li>Web2C 7.4.5(teTeX-src-2.0.tar.gz)へ対応(3.1)。
+<li>main_memoryやhash_extraなどを大きくし、膨大なマクロ定義をすると、
+    「!Missing control sequence inserted.」のエラーになるのを修正(3.1)。
 </ul>
 <ul>
-<li><a href="../etc/INSTALL-ptex3_1_4.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL-ptex3_1_4.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.4.tar.gz">ptex-src-3.1.4.tar.gz</a>
-<li>pTeX$B%i%$%V%i%j!'(B
+<li>pTeXライブラリ：
     <a href="../archives/ascii-ptex/tetex/ptex-texmf-2.2.tar.gz">ptex-texmf-2.2.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 3.1.3 (TeX 3.14159, Web2C 7.4.5)</h2>
-pTeX 3.1.2 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.1.3 (TeX 3.14159, Web2C 7.4.5)</h2>
+pTeX 3.1.2 からの変更点：
 <ul>
-<li>-kanji=sjis $B$N$H$-!"(B\kansujichar $B$G!"4|BT$7$?J8;z$,@_Dj$5$l$J$$$N$r(B
-    $B=$@5$7$?!J$"$j$,$H$&!"3QF#$5$s!K!#(B
-<li>$BC<Kv(B/$B%m%0$X$N%a%C%;!<%8$G!"0u;z$G$-$J$$J8;z$,!"$=$N$^$^=PNO$5$l$F$7$^$&(B
-    $B$3$H$,$"$k$N$KBP=h$7$^$7$?!JNc!'(B\hbox to0pt{$\gamma$}}$B!K!#(B
+<li>-kanji=sjis のとき、\kansujichar で、期待した文字が設定されないのを
+    修正した（ありがとう、角藤さん）。
+<li>端末/ログへのメッセージで、印字できない文字が、そのまま出力されてしまう
+    ことがあるのに対処しました（例：\hbox to0pt{$\gamma$}}）。
 </ul>
 <ul>
-<li><a href="../etc/INSTALL-ptex3_1_3.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL-ptex3_1_3.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.3.tar.gz">ptex-src-3.1.3.tar.gz</a>
-<li>pTeX$B%i%$%V%i%j!'(B
+<li>pTeXライブラリ：
     <a href="../archives/ascii-ptex/tetex/ptex-texmf-2.2.tar.gz">ptex-texmf-2.2.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 3.1.2 (TeX 3.14159, Web2C 7.4.5)</h2>
-pTeX 3.1.1 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.1.2 (TeX 3.14159, Web2C 7.4.5)</h2>
+pTeX 3.1.1 からの変更点：
 <ul>
-<li>\kansujichar$B%W%j%_%F%#%V!J(B\kansuji$B$G=PNO$5$l$kJ8;z$r;XDj$9$k!K$rF3F~!#(B
+<li>\kansujicharプリミティブ（\kansujiで出力される文字を指定する）を導入。
 </ul>
 <ul>
-<li><a href="../etc/INSTALL.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.2.tar.gz">ptex-src-3.1.2.tar.gz</a>
-<li>pTeX$B%i%$%V%i%j!'(B
+<li>pTeXライブラリ：
     <a href="../archives/ascii-ptex/tetex/ptex-texmf-2.1.tar.gz">ptex-texmf-2.1.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 3.1.1 (TeX 3.14159, Web2C 7.4.5)</h2>
-pTeX 3.1$B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.1.1 (TeX 3.14159, Web2C 7.4.5)</h2>
+pTeX 3.1からの変更点：
 <ul>
-<li>$B4A;z$,(B ^^ $B7A<0$G%3%s%=!<%k$KI=<($5$l$k$N$r=$@5!#(B
+<li>漢字が ^^ 形式でコンソールに表示されるのを修正。
 </ul>
 <ul>
-<li><a href="../etc/INSTALL.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.1.tar.gz">ptex-src-3.1.1.tar.gz</a>
-<li>pTeX$B%i%$%V%i%j!'(B
+<li>pTeXライブラリ：
     <a href="../archives/ascii-ptex/tetex/ptex-texmf-2.1.tar.gz">ptex-texmf-2.1.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 3.1 (TeX 3.14159, Web2C 7.4.5)</h2>
-pTeX 3.0.5 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.1 (TeX 3.14159, Web2C 7.4.5)</h2>
+pTeX 3.0.5 からの変更点：
 <ul>
-<li>Web2C 7.4.5$B!J(BteTeX-src-2.0.tar.gz$B!K$XBP1~!#(B
-<li>sjis $BF0:n0J30$N$H$-!"(B\char\sjis $B$,@5$7$/F0$+$J$$$N$r=$@5(B
-<li>$B<B83E*$KF~$l$F$"$C$?%W%j%_%F%#%V!J(B\kansuji$B!"(B\tozen$B!K$r<h$j=|$$$?(B
-<li>main_memory$B$d(Bhash_extra$B$J$I$rBg$-$/$7!"KDBg$J%^%/%mDj5A$r$9$k$H!"(B
-    $B!V(B!Missing control sequence inserted.$B!W$N%(%i!<$K$J$k$N$r=$@5!#(B
+<li>Web2C 7.4.5（teTeX-src-2.0.tar.gz）へ対応。
+<li>sjis 動作以外のとき、\char\sjis が正しく動かないのを修正
+<li>実験的に入れてあったプリミティブ（\kansuji、\tozen）を取り除いた
+<li>main_memoryやhash_extraなどを大きくし、膨大なマクロ定義をすると、
+    「!Missing control sequence inserted.」のエラーになるのを修正。
 </ul>
 <ul>
-<li><a href="../etc/INSTALL.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.tar.gz">ptex-src-3.1.tar.gz</a>
-<li>pTeX$B%i%$%V%i%j!'(B
+<li>pTeXライブラリ：
     <a href="../archives/ascii-ptex/tetex/ptex-texmf-2.1.tar.gz">ptex-texmf-2.1.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 3.0.5 (TeX 3.14159, Web2C 7.3.11)</h2>
-pTeX 3.0.1 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.0.5 (TeX 3.14159, Web2C 7.3.11)</h2>
+pTeX 3.0.1 からの変更点：
 <ul>
-<li>Web2C 7.3.11$B!J(Bweb2c-7.3.11.tar.gz$B!"(BteTeX-src-beta-20021114.tar.gz$B!K$XBP1~!#(B
-<li>-kanji$B%*%W%7%g%s$rDI2C(B<br>
-  $B$3$l$^$G$N%P!<%8%g%s$G$O!";HMQ$9$k4A;z%3!<%I$r%3%s%Q%$%k;~$K7hDj$7!"8GDj$7$F$$$^$7$?$,!"<B9T;~$K@ZBX$($i$l$k$h$&$K$7$^$7$?!#$?$H$($P!"(B
+<li>Web2C 7.3.11（web2c-7.3.11.tar.gz、teTeX-src-beta-20021114.tar.gz）へ対応。
+<li>-kanjiオプションを追加<br>
+  これまでのバージョンでは、使用する漢字コードをコンパイル時に決定し、固定していましたが、実行時に切替えられるようにしました。たとえば、
 <pre>
-    ptex -kanji=sjis $B%U%!%$%kL>(B 
+    ptex -kanji=sjis ファイル名 
 </pre>
-$B$H$9$k$H!"=>Mh!V(B./configure SJIS$B!W$G:n@.$7$?(Bptex$B$HF1$8F0:n$r$7$^$9!#(B
+とすると、従来「./configure SJIS」で作成したptexと同じ動作をします。
 </ul>
 <ul>
-<li><a href="../etc/INSTALL.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.0.5.tar.gz">ptex-src-3.0.5.tar.gz</a>
-<li>pTeX$B%i%$%V%i%j!'(B
+<li>pTeXライブラリ：
     <a href="../archives/ascii-ptex/tetex/ptex-texmf-2.0.tar.gz">ptex-texmf-2.0.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 3.0.4 (TeX 3.14159, Web2C 7.3.9)</h2>
-pTeX 3.0.1 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.0.4 (TeX 3.14159, Web2C 7.3.9)</h2>
+pTeX 3.0.1 からの変更点：
 <ul>
-<li>Web2C 7.3.9$B!J(Bweb2c-7.3.9.tar.gz$B$*$h$S(BteTeX-src-beta-20021022.tar.gz$B!K$XBP1~(B\
-$B!#(B
-<li>-kanji$B%*%W%7%g%s$rDI2C(B<br>
-  $B$3$l$^$G$N%P!<%8%g%s$G$O!";HMQ$9$k4A;z%3!<%I$r%3%s%Q%$%k;~$K7hDj$7!"8GDj$7$F$$(B
-$B$^$7$?$,!"<B9T;~$K@ZBX$($i$l$k$h$&$K$7$^$7$?!#$?$H$($P!"(B
+<li>Web2C 7.3.9（web2c-7.3.9.tar.gzおよびteTeX-src-beta-20021022.tar.gz）へ対応\
+。
+<li>-kanjiオプションを追加<br>
+  これまでのバージョンでは、使用する漢字コードをコンパイル時に決定し、固定してい
+ましたが、実行時に切替えられるようにしました。たとえば、
 <pre>
-    ptex -kanji=sjis $B%U%!%$%kL>(B
+    ptex -kanji=sjis ファイル名
 </pre>
-$B$H$9$k$H!"=>Mh!V(B./configure SJIS$B!W$G:n@.$7$?(Bptex$B$HF1$8F0:n$r$7$^$9!#(B
+とすると、従来「./configure SJIS」で作成したptexと同じ動作をします。
 </ul>
 <ul>
-<li><a href="../etc/INSTALL.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.0.4.tar.gz">ptex-src-3.0.4.tar.gz</a>
-<li>pTeX$B%i%$%V%i%j!'(B
+<li>pTeXライブラリ：
     <a href="../archives/ascii-ptex/tetex/ptex-texmf-2.0.tar.gz">ptex-texmf-2.0.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 3.0.1 (TeX 3.14159, teTeX 1.0)</h2>
-pTeX 2.1.10 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 3.0.1 (TeX 3.14159, teTeX 1.0)</h2>
+pTeX 2.1.10 からの変更点：
 <ul>
-<li>$BG[I[$*$h$S;HMQ>r7o$r(B
-	<a href="../etc/COPYRIGHT.txt">BSD$B%i%$%;%s%9(B</a>
-	<a href="../etc/COPYRIGHT-jis.txt">$B!JF|K\8lLu!K(B</a>$B$KJQ99(B(3.0)$B!#(B
-<li>$B%O%$%U%M!<%7%g%s$K4X$9$k%P%0$N=$@5(B(3.0)$B!#(B
-<li>$B2<5-$N%=!<%9$G$b%3%s%Q%$%k$G$-$k$h$&$K$7$?(B(3.0.1)$B!#(B
+<li>配布および使用条件を
+	<a href="../etc/COPYRIGHT.txt">BSDライセンス</a>
+	<a href="../etc/COPYRIGHT-jis.txt">（日本語訳）</a>に変更(3.0)。
+<li>ハイフネーションに関するバグの修正(3.0)。
+<li>下記のソースでもコンパイルできるようにした(3.0.1)。
 	<ul>
 	<li>tetex-supp.tgz
 	<li>web2c-7.3.3.tar.gz
 	<li>teTeX-src-beta-20011202.tar.gz
 	</ul>
-	src-special$B$N5!G=$,;H$($k$h$&%3%s%Q%$%k$5$l$?>l9g!"(B
-	--help$B$N%a%C%;!<%8$K(B<nobr>--src-specials</nobr>$B$N@bL@$,=PNO$5$l$^$9!#(B
+	src-specialの機能が使えるようコンパイルされた場合、
+	--helpのメッセージに<nobr>--src-specials</nobr>の説明が出力されます。
 </ul>
-$BI,MW$J%U%!%$%k!'(B
+必要なファイル：
 <ul>
-<li>pTeX $B%=!<%9!'(B
+<li>pTeX ソース：
 	<ul>
 	<li><a href="../archives/ascii-ptex/tetex/INSTALL-ptex-3.0.1.txt">INSTALL.txt</a>
-		$BIUB0$N%U%!%$%k$H:9$7BX$($F$/$@$5$$!#(B
+		付属のファイルと差し替えてください。
     <li><a href="../archives/ascii-ptex/tetex/ptex-src-3.0.1.tar.gz">ptex-src-3.0.1.tar.gz</a>
 	<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.0.1.patch">ptex-src-3.0.1.patch</a>
-		teTeX-src-beta-20011202$B$HAH$_9g$o$;$k$H$-(B<b>$B$@$1(B</b>$BI,MW!#(B
+		teTeX-src-beta-20011202と組み合わせるとき<b>だけ</b>必要。
 	</ul>
-<li>pTeX $B%i%$%V%i%j!'(B
+<li>pTeX ライブラリ：
     <a href="../archives/ascii-ptex/tetex/ptex-texmf-2.0.tar.gz">ptex-texmf-2.0.tar.gz</a>
-<li>teTeX $B%=!<%9!'(B
+<li>teTeX ソース：
     <a href="../archives/ascii-ptex/tetex/teTeX-src-1.0.7.tar.gz">teTeX-src-1.0.7.tar.gz</a>
-<li>teTeX $B%i%$%V%i%j!'(B
+<li>teTeX ライブラリ：
     <a href="../archives/ascii-ptex/tetex/teTeX-texmf-1.0.2.tar.gz">teTeX-texmf-1.0.2.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 2.1.10 (TeX 3.14159, teTeX 1.0)</h2>
-pTeX 2.1.10 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 2.1.10 (TeX 3.14159, teTeX 1.0)</h2>
+pTeX 2.1.10 からの変更点：
 <ul>
 <li><a href="../archives/ascii-ptex/tetex/ptex2.1.9-10.patch">ptex2.1.9-10.patch</a></br>
-glue$B%Q%?!<%s?t(B > $BJ8;z%?%$%W?t$N(B jfm $B$r%m!<%I$G$-$J$$%P%0$N=$@5(B
+glueパターン数 > 文字タイプ数の jfm をロードできないバグの修正
 <li><a href="../archives/ascii-ptex/tetex/ptex2.1.9-10_2.patch">ptex2.1.9-10_2.patch</a></br>
-ptex --version $B$N$H$-$N%P!<%8%g%s$,(B 2.1.9 $B$N%^%^$J$N$r=$@5(B
+ptex --version のときのバージョンが 2.1.9 のママなのを修正
 <li><a href="../archives/ascii-ptex/tetex/pltotf1.3-4.patch">pltotf1.3-4.patch</a></br>
-charsintype $B$NA43Q6uGrJ8;z$r=hM}$7$J$$%P%0$N=$@5(B
+charsintype の全角空白文字を処理しないバグの修正
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 2.1.9 (TeX 3.14159, teTeX 1.0)</h2>
-pTeX 2.1.8 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 2.1.9 (TeX 3.14159, teTeX 1.0)</h2>
+pTeX 2.1.8 からの変更点：
 <ul>
-<li>teTeX 1.0 (Web2C 7.3.1, kpathsea 3.2) $B$KBP1~!#(B
+<li>teTeX 1.0 (Web2C 7.3.1, kpathsea 3.2) に対応。
 </ul>
-$BI,MW$J%U%!%$%k!'(B
+必要なファイル：
 <ul>
-<li>pTeX $B%=!<%9!'(B
+<li>pTeX ソース：
 <a href="../archives/ascii-ptex/tetex/ptex-src-2.1.9-1.tar.gz">ptex-src-2.1.9-1.tar.gz</a>
-<li>pTeX $B%i%$%V%i%j!'(B
+<li>pTeX ライブラリ：
 <a href="../archives/ascii-ptex/tetex/ptex-texmf-1.8.tar.gz">ptex-texmf-1.8.tar.gz</a>
-<li>teTeX $B%=!<%9!'(B
+<li>teTeX ソース：
 <a href="../archives/ascii-ptex/tetex/teTeX-src-1.0.7.tar.gz">teTeX-src-1.0.7.tar.gz</a>
-<li>teTeX $B%i%$%V%i%j!'(B
+<li>teTeX ライブラリ：
 <a href="../archives/ascii-ptex/tetex/teTeX-texmf-1.0.2.tar.gz">teTeX-texmf-1.0.2.tar.gz</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 2.1.8 (TeX 3.14159, Web2C 7.2, kpathsea 3.2)</h2>
-pTeX 2.1.7 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 2.1.8 (TeX 3.14159, Web2C 7.2, kpathsea 3.2)</h2>
+pTeX 2.1.7 からの変更点：
 <ul>
-<li>Web2C 7.2, kpathsea 3.2 $B$KBP1~!#(B
+<li>Web2C 7.2, kpathsea 3.2 に対応。
 </ul>
-$BI,MW$J%U%!%$%k!'(B
+必要なファイル：
 <ul>
-<li>pTeX $B%=!<%9%U%!%$%k!'(B
+<li>pTeX ソースファイル：
 	<a href="../archives/ascii-ptex"/ptex218/ptex218.tar.gz>ptex218.tar.gz</a>
-	$B!JIUB0$N(BREADME.txt$B!K(B
-<li>pTeX $B%i%$%V%i%j!'$D$.$N$$$:$l$+(B
+	（付属のREADME.txt）
+<li>pTeX ライブラリ：つぎのいずれか
 	<ul>
 	<li>EUC(plib-1.4-euc.tar.gz)
 	<li>JIS(plib-1.4-jis.tar.gz)
 	<li>Shift JIS(plib-1.4-sj.tar.gz)
 	</ul>
-	$B"(A02s$N$b$N$K(Bptexskip.tex$B$r(B $B4^$a$?$@$1$G$9!#(B
-<li>TeX $B%=!<%9%U%!%$%k!'(B web-7.2.tar.gz
-<li>Web2c $B%=!<%9%U%!%$%k!'(B web2c-7.2.tar.gz
-<li>TeX $B%i%$%V%i%j!'(B texmflib-7.3.tar.gz
+	※前回のものにptexskip.texを 含めただけです。
+<li>TeX ソースファイル： web-7.2.tar.gz
+<li>Web2c ソースファイル： web2c-7.2.tar.gz
+<li>TeX ライブラリ： texmflib-7.3.tar.gz
 <p>
-<li>Makefile.in$B$KBP$9$k%Q%C%A!J(B1998/4/15$B!K(B
+<li>Makefile.inに対するパッチ（1998/4/15）
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 2.1.7 (TeX 3.14159, Web2c 7.0, kpathsea 3.0)</h2>
-pTeX 2.1.6 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 2.1.7 (TeX 3.14159, Web2c 7.0, kpathsea 3.0)</h2>
+pTeX 2.1.6 からの変更点：
 <ul>
-<li>\leaders$B$GCV$$$?J8;z$N0LCV$,B7$o$J$$$N$r=$@5(B<br>
+<li>\leadersで置いた文字の位置が揃わないのを修正<br>
      <a href="../archives/ascii-ptex/ptex215/patch215to217.diff.gz.txt">
-     pTeX 2.1.5$B$N%=!<%9%U%!%$%k$KBP$9$k%Q%C%A(B</a>
+     pTeX 2.1.5のソースファイルに対するパッチ</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpTeX 2.1.6 (TeX 3.14159, Web2c 7.0, kpathsea 3.0)</h2>
-pTeX 2.1.5 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 2.1.6 (TeX 3.14159, Web2c 7.0, kpathsea 3.0)</h2>
+pTeX 2.1.5 からの変更点：
 <ul>
-<li>\inhibitxspcode$B$,;XDjDL$j$KF0:n$7$F$$$J$+$C$?$N$r=$@5(B<br>
+<li>\inhibitxspcodeが指定通りに動作していなかったのを修正<br>
      <a href="../archives/ascii-ptex/ptex215/patch215to216.diff.gz.txt">
-     pTeX 2.1.5$B$N%=!<%9%U%!%$%k$KBP$9$k%Q%C%A(B</a>
+     pTeX 2.1.5のソースファイルに対するパッチ</a>
 <p>
-<li>$TEXMF/web2c/texmf.cnf$B%U%!%$%k$N(BBSTINPUTS.jibtex$B$N:G8e$G(B
-    $B2~9T$5$l$J$$$N$r=$@5(B<br>
+<li>$TEXMF/web2c/texmf.cnfファイルのBSTINPUTS.jibtexの最後で
+    改行されないのを修正<br>
      <a href="../archives/ascii-ptex/ptex215/mkconf.patch">
-     mkconf$B%9%/%j%W%H$KBP$9$k%Q%C%A(B</a>
+     mkconfスクリプトに対するパッチ</a>
 </ul>
 <p>
 
 <hr>
-<h2>$B"#(BpTeX 2.1.5 (TeX 3.14159, Web2c 7.0, kpathsea 3.0)</h2>
-pTeX 2.1.4 $B$+$i$NJQ99E@!'(B
+<h2>■pTeX 2.1.5 (TeX 3.14159, Web2c 7.0, kpathsea 3.0)</h2>
+pTeX 2.1.4 からの変更点：
 <ul>
-<li>Web2c 7.0, kpathsea 3.0 $B$KBP1~(B
-<li>$B?t<0$NA08e$KA^F~$5$l$k%9%Z!<%9$NA^F~F0:n$NJQ99!#(B
-    $B>\:Y$O!"0J2<$N$$$:$l$+$N%U%!%$%k$r;2>H$7$F$/$@$5$$!#(B
+<li>Web2c 7.0, kpathsea 3.0 に対応
+<li>数式の前後に挿入されるスペースの挿入動作の変更。
+    詳細は、以下のいずれかのファイルを参照してください。
     <ul>
-    <li><a href="../etc/ptexskip.tex">TeX$B%U%!%$%k(B (JIS)</a>
-    <li><a href="../etc/ptexskip.dvi">DVI$B%U%!%$%k(B</a>
-    <li><a href="../etc/ptexskip.pdf">PDF$B%U%!%$%k(B</a>
+    <li><a href="../etc/ptexskip.tex">TeXファイル (JIS)</a>
+    <li><a href="../etc/ptexskip.dvi">DVIファイル</a>
+    <li><a href="../etc/ptexskip.pdf">PDFファイル</a>
     </ul>
-<li>\{y,t}baselineshift$B$,%<%m$G$J$$$H$-!"%O%$%U%M!<%7%g%s$,8z$+$J$$$N$r=$@5!#(B
-<li>\jcharwidowpenalty$B$K$h$j!"9TKv6XB'$,8z$+$J$/$J$k$N$r=$@5!#(B
-<li>$B9g;z$H$J$kJ8;z$KBP$9$k6XB'%Z%J%k%F%#A^F~$N2~A1!#(B
-<li>\char{\jis,\euc,\sjis,\kuten}$B$N8e$m$K9g;z$H$J$k2DG=@-$N$"$kJ8;z$,(B
-    $BB3$$$?$H$-!"$*$+$7$/$J$k>l9g$,$"$k$N$r=$@5!#(B
+<li>\{y,t}baselineshiftがゼロでないとき、ハイフネーションが効かないのを修正。
+<li>\jcharwidowpenaltyにより、行末禁則が効かなくなるのを修正。
+<li>合字となる文字に対する禁則ペナルティ挿入の改善。
+<li>\char{\jis,\euc,\sjis,\kuten}の後ろに合字となる可能性のある文字が
+    続いたとき、おかしくなる場合があるのを修正。
 </ul>
 
 <p>
-$BI,MW$J%U%!%$%k!'(B
+必要なファイル：
 <ul>
-<li>pTeX $B%=!<%9%U%!%$%k!'(B
+<li>pTeX ソースファイル：
     <a href="../archives/ascii-ptex/ptex215/ptex215.tar.gz">ptex215.tar.gz</a>
-    $B!J(B<a href="../etc/READMEptex215.txt">$BIUB0$N(BREADME.txt</a>$B!K(B
-<li>pTeX $B%i%$%V%i%j!'(B
+    （<a href="../etc/READMEptex215.txt">付属のREADME.txt</a>）
+<li>pTeX ライブラリ：
     <a href="../archives/ascii-ptex/ptex215/plib13-euc.tar.gz">EUC</a>,
     <a href="../archives/ascii-ptex/ptex215/plib13-jis.tar.gz">JIS</a>,
     <a href="../archives/ascii-ptex/ptex215/plib13-sj.tar.gz">Shift JIS</a>
-<li>TeX $B%=!<%9%U%!%$%k!'(B
+<li>TeX ソースファイル：
     <a href="../archives/ascii-ptex/ptex215/web2c/web-7.0.tar.gz">web-7.0.tar.gz</a>
-<li>Web2c $B%=!<%9%U%!%$%k!'(B
+<li>Web2c ソースファイル：
     <a href="../archives/ascii-ptex/ptex215/web2c/web2c-7.0.tar.gz">web2c-7.0.tar.gz</a>
-<li>TeX $B%i%$%V%i%j!'(B
+<li>TeX ライブラリ：
     <a href="../archives/ascii-ptex/ptex215/web2c/texmflib-7.2.tar.gz">texmflib-7.2.tar.gz</a>
 </ul>
 
 
 <hr>
-<h2>$B"#(BpTeX 2.1.4 (TeX 3.1415, web2c 6.1, kpathsea 2.6)</h2>
+<h2>■pTeX 2.1.4 (TeX 3.1415, web2c 6.1, kpathsea 2.6)</h2>
 
 <p>
-pTeX 2.1.1$B$+$i(B2.1.4$B$X$NJQ99E@!'(B
+pTeX 2.1.1から2.1.4への変更点：
 <ul>
-<li>$B4A;z%U%!%$%kL>$,07$($J$$(B
-<li>"This can't happen (desc4)"$B$H$$$&%(%i!<$,5/$-$k(B
+<li>漢字ファイル名が扱えない
+<li>"This can't happen (desc4)"というエラーが起きる
 </ul>
 
 <p>
-$BI,MW$J%U%!%$%k!'(B
+必要なファイル：
 <ul>
 <li><a href="../archives/ascii-ptex/ptex214/ptex-2.1.4.tar.gz">
-    pTeX 2.1.4 $B%=!<%9%U%!%$%k(B (ptex-2.1.4.tar.gz)</a><br>
-    $B!J(B<a href="../archives/ascii-ptex/ptex214/updatefiles/ptex-2.1f2-2.1.4-patch.tar.gz">
-    pTeX 2.1.1$B$+$i(B2.1.4$B$X$N%Q%C%A(B (ptex-2.1f2-2.1.4-patch.tar.gz)</a>$B!K(B
+    pTeX 2.1.4 ソースファイル (ptex-2.1.4.tar.gz)</a><br>
+    （<a href="../archives/ascii-ptex/ptex214/updatefiles/ptex-2.1f2-2.1.4-patch.tar.gz">
+    pTeX 2.1.1から2.1.4へのパッチ (ptex-2.1f2-2.1.4-patch.tar.gz)</a>）
 <p>
-<li>pTeX $B%i%$%V%i%j(B
-  ($B%^%/%m!"(BJFM$B%U%!%$%k!"(BjBibTeX$B4XO"$N%U%!%$%k!"%I%-%e%a%s%H$J$I(B)
+<li>pTeX ライブラリ
+  (マクロ、JFMファイル、jBibTeX関連のファイル、ドキュメントなど)
   <ul>
   <li><a href="../archives/ascii-ptex/ptex214/plib-euc.tar.gz">EUC (plib-euc.tar.gz)</a>
   <br>
@@ -399,7 +399,7 @@ pTeX 2.1.1$B$+$i(B2.1.4$B$X$NJQ99E@!'(B
   <li><a href="../archives/ascii-ptex/ptex214/plib-sj.tar.gz">Shift JIS (plib-sj.tar.gz)</a>
   </ul>
 <p>
-<li>TeX$B%*%j%8%J%k%=!<%9(B
+<li>TeXオリジナルソース
 <ul>
 <li><a href="../archives/ascii-ptex/ptex214/corresponding-sources/web-6.1.tar.gz">
     web-6.1.tar.gz</a>
@@ -409,12 +409,12 @@ pTeX 2.1.1$B$+$i(B2.1.4$B$X$NJQ99E@!'(B
     web2c.kpathsea-2.6.help</a>
 <li><a href="../archives/ascii-ptex/ptex214/corresponding-sources/lib-6.9.tar.gz">
     lib-6.9.tar.gz</a>
-<li>$B$D$.$N%U%!%$%k$N$$$:$l$+(B
+<li>つぎのファイルのいずれか
   <ul>
   <li><a href="../archives/ascii-ptex/ptex214/corresponding-sources/dvipsk-5.58f.tar.gz">
       dvipsk-5.58f.tar.gz</a>
      (<a href="../archives/ascii-ptex/ptex214/dvipsk-jpatch-p1.2.tar.gz">
-      $BF|K\8l%Q%C%A(B (p1.2)</a>)
+      日本語パッチ (p1.2)</a>)
   <li><a href="../archives/ascii-ptex/ptex214/corresponding-sources/xdvik-18f.tar.gz">
       xdvik-18f.tar.gz</a>
   <li><a href="../archives/ascii-ptex/ptex214/corresponding-sources/dviljk-2.5.tar.gz">
@@ -423,37 +423,37 @@ pTeX 2.1.1$B$+$i(B2.1.4$B$X$NJQ99E@!'(B
 </ul>
 <p>
 <li><a href="../archives/ascii-ptex/ptex214/updatefiles/pltotf11patch.tar.gz">
-    PLtoTF$B$N%Q%C%A(B (pltotf11patch.tar.gz)</a><br>
-    GLUE$B%W%m%Q%F%#$G(BCOMMENT$B%W%m%Q%F%#$,;H$($J$$$N$r=$@5$9$k$?$a$N(B
-    $B%Q%C%A%U%!%$%k$G$9!#(B
+    PLtoTFのパッチ (pltotf11patch.tar.gz)</a><br>
+    GLUEプロパティでCOMMENTプロパティが使えないのを修正するための
+    パッチファイルです。
 <p>
   <li><a href="../archives/ascii-ptex/ptex214/updatefiles/ascgrp.tar.gz">
       ascgrp.tar.gz</a>
       <br>
-      pTeX$B%i%$%V%i%j%U%!%$%kFb$N(Bascgrp.mf, ascgrp.tfm$B%U%!%$%k$G(B
-      $B%j%?!<%s5-9f$,;H$($J$$$N$r=$@5$7$F$"$j$^$9!#(B
+      pTeXライブラリファイル内のascgrp.mf, ascgrp.tfmファイルで
+      リターン記号が使えないのを修正してあります。
   <p>
   <a name="jplain"></a>
   <li><a href="../archives/ascii-ptex/ptex214/updatefiles/jplain.tar.gz">jplain.tar.gz</a>
       <br>
-      ptex.tex, jplain.tex$B$G(B$TEXMf$B$H$7$F$$$?$N$r(B$TEXMF$B$K=$@5$7$F$"$j$^$9!#(B
+      ptex.tex, jplain.texで$TEXMfとしていたのを$TEXMFに修正してあります。
       <br>
-      $B$^$?!"(Bjplain.tex$B$r2#AH@lMQ$N%U%)!<%^%C%H%U%!%$%k$r:n@.$9$k$h$&$K(B
-      $B=$@5$7$F$"$j$^$9!#(Bjplain.tex$B$X$N=$@5$O!V%$%s%9%H!<%k$N%R%s%H!W$N(B
-      $B!V(B<a href="hints.html#hints-1212">$B?t<0%U%!%_%j$rDj5A$G$-$J$$$H(B
-      $B$$$&%a%C%;!<%8$,I=<($5$l$k(B</a>$B!W$G$NBP=hJ}K!$r;\$7$?$N$HF1$8FbMF$G$9!#(B
+      また、jplain.texを横組専用のフォーマットファイルを作成するように
+      修正してあります。jplain.texへの修正は「インストールのヒント」の
+      「<a href="hints.html#hints-1212">数式ファミリを定義できないと
+      いうメッセージが表示される</a>」での対処方法を施したのと同じ内容です。
 </ul>
 
-<h3><a name="dosptex">$B"#(BDOS$BHG(B pTeX 2.1.4</a></h3>
-$B^I;3$5$s$K$h$k(BDOS$BHG!#%*%j%8%J%k$O!"(B
+<h3><a name="dosptex">■DOS版 pTeX 2.1.4</a></h3>
+淺山さんによるDOS版。オリジナルは、
 <a href="ftp://ftp.media.kyoto-u.ac.jp/TeX/ASCII-pTeX/dos">
-         ftp.media.kyoto-u.ac.jp/TeX/ASCII-pTeX/dos</a>$B$K$"$j$^$9!#(B
+         ftp.media.kyoto-u.ac.jp/TeX/ASCII-pTeX/dos</a>にあります。
 
 <ul>
 <li><a href="../archives/ascii-ptex/ptex214/dos/ptx214-0.zip">ptx214-0.zip
-    ($B%=!<%9(B)</a> (73237 bytes)
+    (ソース)</a> (73237 bytes)
 <li><a href="../archives/ascii-ptex/ptex214/dos/ptx214-1.zip">ptx214-1.zip
-    ($B6&DL(B)</a> (763226 bytes)
+    (共通)</a> (763226 bytes)
 <li><a href="../archives/ascii-ptex/ptex214/dos/ptx214-2.zip">ptx214-2.zip
     (pTeX, mendex, JBibTeX)</a> (512314 bytes)
 <li><a href="../archives/ascii-ptex/ptex214/dos/ptx214-3.zip">ptx214-3.zip
@@ -464,39 +464,39 @@ pTeX 2.1.1$B$+$i(B2.1.4$B$X$NJQ99E@!'(B
 <li><a href="../archives/ascii-ptex/ptex214/dos/dvps558p.zip">dvps558p.zip
     (dvips)</a> (546920 bytes)
 <li><a href="../archives/ascii-ptex/ptex214/dos/dvps558s.zip">dvps558s.zip
-    (dvips$B%Q%C%A%U%!%$%k(B)</a> (5806 bytes)
+    (dvipsパッチファイル)</a> (5806 bytes)
 <p>
 <li><a href="../archives/ascii-ptex/ptex214/dos/vftool12.zip">vftool12.zip
     (vftool 1.2)</a> (103045 bytes)
 <li><a href="../archives/ascii-ptex/ptex214/dos/afm-a2bk.zip">afm-a2bk.zip
-    (pTeX$BMQ(BAFM$B%U%)%s%H(B)</a> (229955 bytes)
+    (pTeX用AFMフォント)</a> (229955 bytes)
 <li><a href="../archives/ascii-ptex/ptex214/dos/vf-a2bk.zip">vf-a2bk.zip
-    (pTeX$BMQ(BVF$B%U%)%s%H(B)</a> (942252 bytes)
+    (pTeX用VFフォント)</a> (942252 bytes)
 </ul>
 <p>
 
 <blockquote>
-$BCm0U!'(B
+注意：
 <hr>
-$B>e5-$N%U%!%$%k$O!"(BUnzip 5.12$B$GE83+$7$F$/$@$5$$!#(B
-<a href="../archives/ascii-ptex/ptex214/dos/unz512x3.exe">Windows 3.1$BMQ(B</a>$B$H(B
-<a href="../archives/ascii-ptex/ptex214/dos/unz512xN.exe">Windows 95, NT$BMQ(B</a>$B$H$,(B
-$B$"$j$^$9!#(B
+上記のファイルは、Unzip 5.12で展開してください。
+<a href="../archives/ascii-ptex/ptex214/dos/unz512x3.exe">Windows 3.1用</a>と
+<a href="../archives/ascii-ptex/ptex214/dos/unz512xN.exe">Windows 95, NT用</a>とが
+あります。
 <hr>
-$B%i%$%V%i%j$d(BpLaTeX2e, LateX2e$B$N%U%!%$%k$O!"(BUNIX$BHG$r$=$N$^$^;HMQ$9$k$3$H$,(B
-$B$G$-$^$9!#$?$@$7!"E83+$9$k%W%m%0%i%`$K$h$C$F$O!"%U%!%$%k$N2~9T%3!<%I$J$I$r(B
-$B<+F0JQ49$9$k5!G=$r;}$D$b$N$,$"$j$^$9$,!"%i%$%V%i%j%U%!%$%k$rE83+$9$k$H$-(B
-$B$K$O!"$=$l$i$N5!G=$r%*%U$K$7$F$/$@$5$$!#(BTFM$B$d(BJFM$B%U%!%$%k$J$I$N(B
-$B%P%$%J%j%U%!%$%k$,@5$7$/E83+$5$l$J$$>l9g$,$"$j$^$9!#(B
+ライブラリやpLaTeX2e, LateX2eのファイルは、UNIX版をそのまま使用することが
+できます。ただし、展開するプログラムによっては、ファイルの改行コードなどを
+自動変換する機能を持つものがありますが、ライブラリファイルを展開するとき
+には、それらの機能をオフにしてください。TFMやJFMファイルなどの
+バイナリファイルが正しく展開されない場合があります。
 <hr>
-$B%=!<%9%U%!%$%k$r%3%s%Q%$%k$9$k>l9g$O!"(B
-<a href="ftp://ftp.riken.go.jp/pub/SimTel/vendors/djgpp">DJ's GPP</a>$B$N(B
-$B%i%$%V%i%j$J$I$,I,MW$G$9!#(B
+ソースファイルをコンパイルする場合は、
+<a href="ftp://ftp.riken.go.jp/pub/SimTel/vendors/djgpp">DJ's GPP</a>の
+ライブラリなどが必要です。
 <hr>
 </blockquote>
 
-<h3><a name="os2ptex">$B"#(BOS/2$BHG(B pTeX 2.1.4</a></h3>
-$B?yK\$5$s$K$h$k(BOS/2$BHG!#(BNifty-Serve FOS2ADV 7$BHV%i%$%V%i%j$K$"$j$^$9!#(B
+<h3><a name="os2ptex">■OS/2版 pTeX 2.1.4</a></h3>
+杉本さんによるOS/2版。Nifty-Serve FOS2ADV 7番ライブラリにあります。
 
 <p>
 <hr>

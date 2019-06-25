@@ -1,106 +1,106 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (Introduction)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>$B$O$8$a$K(B</h2>
+<h2>はじめに</h2>
 
-<h3>$B"#(BTeX$B$HF|K\8l(BTeX</h3>
+<h3>■TeXと日本語TeX</h3>
 
-<b>TeX</b>$B%7%9%F%`$O!"(BStandford$BBg3X$N(B<nobr><a href="http://www-cs-staff.Stanford.EDU/~knuth/index.html">Donald. E. Knuth$B@h@8(B</a></nobr>$B$,3+H/$7$?AHHG%7%9%F%`$G!"$D$.$N$h$&$JFCD'$,$"$j$^$9!#(B
-
-<ul>
-<li>$BH~$7$$;E>e$j(B
-<li>$B9bEY$J?t<0AHHGG=NO(B
-<li>$B%^%/%m5!G=$K$h$k3HD%@-(B
-<li>$BB?MM$J=PNO4D6-$X$NBP1~(B
-<li>$B%^!<%/%"%C%WJ}<0$G$NAHHG;XDj(B
-<li>$B%*!<%W%s%=!<%9(B
-</ul>
-
-$B$3$N(BTeX$B$K!"$D$.$N$h$&$JF|K\8l5!G=$rDI2C$7$?$b$N$,(B<b>$BF|K\8l(BTeX</b>$B$G$9!#(B
-$B$H$/$K!"=DAH5!G=$r%5%]!<%H$7$F$$$k%P!<%8%g%s$r!"2#AH$@$1$NF|K\8l(BTeX$B$H6hJL$7!"(B
-<b>pTeX$B!J(BPublishing TeX$B!K(B</b>$B$H8F$s$G$$$^$9!#(B
+<b>TeX</b>システムは、Standford大学の<nobr><a href="http://www-cs-staff.Stanford.EDU/~knuth/index.html">Donald. E. Knuth先生</a></nobr>が開発した組版システムで、つぎのような特徴があります。
 
 <ul>
-<li>$B2#AH$H=DAH$N:.:_(B<br>
-	$B2#AH$@$1$G$J$/!"=DAH$G$bJ8>O$rAHHG$G$-$^$9!#(B
-	$B$^$?!"#1%Z!<%8$K2#AH$H=DAH$N:.:_$b2DG=$G$9!#(B
-<li>$BF|K\8l6XB'=hM}(B<br>
-	$B6gFIE@$d3g8LN`$N6XB'=hM}$KBP1~$7$F$$$^$9!#(B
-<li>$BJ8;z4V%9%Z!<%9(B<br>
-	$BOBJ8$HOBJ8!"OBJ8$H2$J8$N4V$N%9%Z!<%9$rD4@0$9$k$3$H$G!"(B
-	$B9b$$IJ<A$rF@$i$l$^$9!#(B
-<li>JFM$B$K$h$kOBJ8J8;zAHHG(B<br>
-	$BF|K\8l$NJ8;zAHHG$K(BJFM$B%U%!%$%k$rMQ$$$^$9!#(B
+<li>美しい仕上り
+<li>高度な数式組版能力
+<li>マクロ機能による拡張性
+<li>多様な出力環境への対応
+<li>マークアップ方式での組版指定
+<li>オープンソース
 </ul>
 
-$BF|K\8l(BTeX$B$N!"$3$l$^$G$NBg$-$J%H%T%C%/$rI=$K<($7$^$9!#(B
+このTeXに、つぎのような日本語機能を追加したものが<b>日本語TeX</b>です。
+とくに、縦組機能をサポートしているバージョンを、横組だけの日本語TeXと区別し、
+<b>pTeX（Publishing TeX）</b>と呼んでいます。
+
+<ul>
+<li>横組と縦組の混在<br>
+	横組だけでなく、縦組でも文章を組版できます。
+	また、１ページに横組と縦組の混在も可能です。
+<li>日本語禁則処理<br>
+	句読点や括弧類の禁則処理に対応しています。
+<li>文字間スペース<br>
+	和文と和文、和文と欧文の間のスペースを調整することで、
+	高い品質を得られます。
+<li>JFMによる和文文字組版<br>
+	日本語の文字組版にJFMファイルを用います。
+</ul>
+
+日本語TeXの、これまでの大きなトピックを表に示します。
 
 <p>
 <center>
 <table border="1" cellpadding="3">
-<tr><th>$BG/(B</th><th>$B%P!<%8%g%s(B</th><th align="left">$B%H%T%C%/(B</th></tr>
+<tr><th>年</th><th>バージョン</th><th align="left">トピック</th></tr>
 <tr><td>1987</td><td>j1.0</td>
-	<td>$B:G=i$N%P!<%8%g%s(B</td></tr>
+	<td>最初のバージョン</td></tr>
 <tr><td>1987</td><td>j1.1</td>
-	<td>NEC PC9801$B%7%j!<%:MQ$NF|K\8l(BMicroTeX$BH/Gd(B</td></tr>
+	<td>NEC PC9801シリーズ用の日本語MicroTeX発売</td></tr>
 <tr><td>1990</td><td>j1.7 p1.0.9</td>
-	<td>$B=DAH$X$NBP1~!J(BTUGboat number 3, volume11$B!K(B</td></tr>
+	<td>縦組への対応（TUGboat number 3, volume11）</td></tr>
 <tr><td>1995</td><td>p2.0</td>
-	<td>TeX 3$B$KBP1~(B</td></tr>
+	<td>TeX 3に対応</td></tr>
 <tr><td>2002</td><td>p3.0</td>
-	<td>$B;HMQ>r7o$r(B<a href="../etc/COPYRIGHT.txt">BSD$B%i%$%;%s%9(B</a>
-		$B!J(B<a href="../etc/COPYRIGHT-jis.txt">$BF|K\8lLu(B</a>$B!K$K(B</td></tr>
+	<td>使用条件を<a href="../etc/COPYRIGHT.txt">BSDライセンス</a>
+		（<a href="../etc/COPYRIGHT-jis.txt">日本語訳</a>）に</td></tr>
 </table>
 </center>
 
 
-<h3>$B"#(BLaTeX$B$HF|K\8l(BLaTeX</h3>
+<h3>■LaTeXと日本語LaTeX</h3>
 
-TeX$B$rMQ$$$k$H9b$$IJ<A$G$NAHHG7k2L$rF@$k$3$H$,$G$-$^$9$,!"(B
-$BJ8>O%U%!%$%k$X$NL?Na$N;XDj$,4JC1$G$O$"$j$^$;$s!#(B
-$B$=$3$G!"(B<a href="http://research.microsoft.com/users/lamport/">Leslie Lamport</a>$B$,3+H/$7$?$N$,(B<b>LaTeX</b>$B$G$9!#(B
+TeXを用いると高い品質での組版結果を得ることができますが、
+文章ファイルへの命令の指定が簡単ではありません。
+そこで、<a href="http://research.microsoft.com/users/lamport/">Leslie Lamport</a>が開発したのが<b>LaTeX</b>です。
 <p>
-LaTeX$B$O!"0lHL$N%f!<%6$,(BTeX$B$r4JC1$K07$($k$h$&!"$D$.$N$h$&$J5!G=$rDs6!$7$^$9!#(B
+LaTeXは、一般のユーザがTeXを簡単に扱えるよう、つぎのような機能を提供します。
 
 <ul>
-<li>$B8+=P$7$d2U>r=q$-!"I=AH$J$I!"J8>O$N9=@.MWAG$r;XDj$9$k%3%^%s%IBN7O(B
-<li>$BL\<!$d:w0z!"Aj8_;2>H$J$I$N%5%]!<%H(B
-<li>$B%U%m!<%H7?$N?^I=(B
-<li>$B%9%?%$%k%U%!%$%k!J%l%$%"%&%H$N%F%s%W%l!<%H!K$NMxMQ(B
+<li>見出しや箇条書き、表組など、文章の構成要素を指定するコマンド体系
+<li>目次や索引、相互参照などのサポート
+<li>フロート型の図表
+<li>スタイルファイル（レイアウトのテンプレート）の利用
 </ul>
 
-LaTeX$B$N5!G=$O$9$Y$F!"(BTeX$B$N%^%/%m5!G=$@$1$G<B8=$5$l$F$$$k$?$a!"(B
-TeX$B$,2TF/$9$k%7%9%F%`$J$i$P!"$I$3$G$bMxMQ$9$k$3$H$,$G$-$^$9!#(B
-$B$^$?!"(BTeX$B$N5!G=$rD>@\MxMQ$9$k$h$j$b4JC1$G$9!#(B
-$B$3$N7k2L!"(BTeX$B$=$N$b$N$r;H$&$h$j$b!"(BLaTeX$B$GJ8>O$r:n@.$9$k$[$&$,0lHLE*(B
-$B$K$J$C$F$$$^$9!#(B
+LaTeXの機能はすべて、TeXのマクロ機能だけで実現されているため、
+TeXが稼働するシステムならば、どこでも利用することができます。
+また、TeXの機能を直接利用するよりも簡単です。
+この結果、TeXそのものを使うよりも、LaTeXで文章を作成するほうが一般的
+になっています。
 <p>
-$B%"%9%-!<$NF|K\8l(BLaTeX$B$O!"(BLaTeX$B$rF|K\8lAHHGMQ$KD4@0$r$7$?$b$N$G$9!#(B
-pTeX$B$HF1MM$K!"=DAH5!G=$r%5%]!<%H$7$?F|K\8l(BLaTeX$B$r(B<b>pLaTeX</b>$B$H(B
-$B8F$s$G$$$^$9!#(B
+アスキーの日本語LaTeXは、LaTeXを日本語組版用に調整をしたものです。
+pTeXと同様に、縦組機能をサポートした日本語LaTeXを<b>pLaTeX</b>と
+呼んでいます。
 
 
-<h3>$B"#(BLaTeX2e$B$HF|K\8l(BLaTeX2e</h3>
+<h3>■LaTeX2eと日本語LaTeX2e</h3>
 
-LaTeX$B$O!"(BTeX$B$N@-G=$r5$7Z$K;H$($k$H$"$C$F!"@$3&Cf$G9-$/MxMQ$5$l$F$-$^$7$?!#(B
-$B$=$NH?LL!"8@8l$dMQES8~$1$K$$$/$D$b$N%P%j%(!<%7%g%s$,B8:_$7$F$7$^$$$^$7$?!#(B
-$B$=$3$G!"$=$l$i$N(BLaTeX$B$r$^$H$a$h$&$H$7$F3+H/$5$l$?$N$,(B<b>LaTeX2e</b>$B$G$9!#(B
+LaTeXは、TeXの性能を気軽に使えるとあって、世界中で広く利用されてきました。
+その反面、言語や用途向けにいくつものバリエーションが存在してしまいました。
+そこで、それらのLaTeXをまとめようとして開発されたのが<b>LaTeX2e</b>です。
 <p>
-LaTeX2e$B$O!"FCJL$J5!G=$r(B<b>$B%Q%C%1!<%8(B</b>$B$H$7$FDs6!$9$k$3$H$G!"(B
-$B%f!<%6$,;H$&>lLL$K1~$8$F!"I,MW$J5!G=$rA*Br$9$k$3$H$,$G$-$^$9!#(B
-$B$^$?!"(BPostscript$B4D6-$X$N?FOB@-$b9b$/$J$j$^$7$?!#(B
+LaTeX2eは、特別な機能を<b>パッケージ</b>として提供することで、
+ユーザが使う場面に応じて、必要な機能を選択することができます。
+また、Postscript環境への親和性も高くなりました。
 <p>
-$B$3$N(BLaTeX2e$B$rF|K\8l2=$7$?$b$N$,(B<b>$BF|K\8l(BLaTeX2e</b>$B$G$9!#(B
-$BF|K\8l(BLaTeX2e$B$O!"2#AH$@$1$N%P!<%8%g%s$OB8:_$7$^$;$s$,!"(B
-<b>pLaTeX2e</b>$B$H8F$s$G$$$^$9!#(B
+このLaTeX2eを日本語化したものが<b>日本語LaTeX2e</b>です。
+日本語LaTeX2eは、横組だけのバージョンは存在しませんが、
+<b>pLaTeX2e</b>と呼んでいます。
 <p>
-$B$J$*!"(BLaTeX2e$B$NEP>l$K$h$C$F!"$=$l$^$G$N(BLaTeX$B$rL@<($9$k$H$-$O!"(B
-<b>LaTeX 2.09</b>$B$H8@$o$l$^$9!#(B
+なお、LaTeX2eの登場によって、それまでのLaTeXを明示するときは、
+<b>LaTeX 2.09</b>と言われます。
 
 
 <p>

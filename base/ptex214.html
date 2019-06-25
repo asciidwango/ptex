@@ -2,40 +2,40 @@
 <!-- TeX page -->
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (sources)</title>
 </head>
 <body bgcolor="#C0DCC0">
 
-<h2>pTeX $B%P!<%8%g%s(B 2.1.4</h2>
-TeX 3.1415, web2c 6.1, kpathsea-2.6$B$KBP1~$7$F$$$^$9!#(B
+<h2>pTeX バージョン 2.1.4</h2>
+TeX 3.1415, web2c 6.1, kpathsea-2.6に対応しています。
 
 <ul>
 <li><a href="../../../pub/TeX/ascii-ptex/ptex214/ptex-2.1.4.tar.gz">
-    pTeX 2.1.4 $B%=!<%9%U%!%$%k(B (ptex-2.1.4.tar.gz)</a>
+    pTeX 2.1.4 ソースファイル (ptex-2.1.4.tar.gz)</a>
 <p>
 <li><a href="../../../pub/TeX/ascii-ptex/ptex214/updatefiles/ptex-2.1f2-2.1.4-patch.tar.gz">
-    pTeX 2.1.1$B$+$i(B 2.1.4 $B$X$N%Q%C%A(B (ptex-2.1f2-2.1.4-patch.tar.gz)</a>
+    pTeX 2.1.1から 2.1.4 へのパッチ (ptex-2.1f2-2.1.4-patch.tar.gz)</a>
     <br>
-    $B0J2<$N2U=j$r=$@5$9$k$?$a$N%Q%C%A%U%!%$%k$G$9!#(B
+    以下の箇所を修正するためのパッチファイルです。
     <p>
     <ul>
-    <li>$B4A;z%U%!%$%kL>$,07$($J$$(B
-    <li>"This can't happen (desc4)"$B$H$$$&%(%i!<$,5/$-$k(B
+    <li>漢字ファイル名が扱えない
+    <li>"This can't happen (desc4)"というエラーが起きる
     </ul>
 <p>
 <li><a href="../../../pub/TeX/ascii-ptex/ptex214/updatefiles/pltotf11patch.tar.gz">
-    PLtoTF$B$N%Q%C%A(B (pltotf11patch.tar.gz)</a>
+    PLtoTFのパッチ (pltotf11patch.tar.gz)</a>
     <br>
-    $B0J2<$N2U=j$r=$@5$9$k$?$a$N%Q%C%A%U%!%$%k$G$9!#(B
+    以下の箇所を修正するためのパッチファイルです。
     <p>
     <ul>
-    <li>GLUE$B%W%m%Q%F%#$G(BCOMMENT$B%W%m%Q%F%#$,;H$($J$$(B
+    <li>GLUEプロパティでCOMMENTプロパティが使えない
     </ul>
 <p>
-<li>pTeX $B%i%$%V%i%j(B
-  ($B%^%/%m!"(BJFM$B%U%!%$%k!"(BjBibTeX$B4XO"$N%U%!%$%k!"%I%-%e%a%s%H$J$I(B)
+<li>pTeX ライブラリ
+  (マクロ、JFMファイル、jBibTeX関連のファイル、ドキュメントなど)
   <ul>
   <li><a href="../../../pub/TeX/ascii-ptex/ptex214/plib-euc.tar.gz">EUC (plib-euc.tar.gz)</a>
   <br>
@@ -47,21 +47,21 @@ TeX 3.1415, web2c 6.1, kpathsea-2.6$B$KBP1~$7$F$$$^$9!#(B
   <li><a href="../../../pub/TeX/ascii-ptex/ptex214/updatefiles/ascgrp.tar.gz">
       ascgrp.tar.gz</a>
       <br>
-      pTeX$B%i%$%V%i%j%U%!%$%kFb$N(Bascgrp.mf, ascgrp.tfm$B%U%!%$%k$G(B
-      $B%j%?!<%s5-9f$,;H$($J$$$N$r=$@5$7$F$"$j$^$9!#(B
+      pTeXライブラリファイル内のascgrp.mf, ascgrp.tfmファイルで
+      リターン記号が使えないのを修正してあります。
   <p>
   <a name="jplain"></a>
   <li><a href="../../../pub/TeX/ascii-ptex/ptex214/updatefiles/jplain.tar.gz">jplain.tar.gz</a>
       <br>
-      ptex.tex, jplain.tex$B$G(B$TEXMf$B$H$7$F$$$?$N$r(B$TEXMF$B$K=$@5$7$F$"$j$^$9!#(B
+      ptex.tex, jplain.texで$TEXMfとしていたのを$TEXMFに修正してあります。
       <br>
-      $B$^$?!"(Bjplain.tex$B$r2#AH@lMQ$N%U%)!<%^%C%H%U%!%$%k$r:n@.$9$k$h$&$K(B
-      $B=$@5$7$F$"$j$^$9!#(Bjplain.tex$B$X$N=$@5$O!V%$%s%9%H!<%k$N%R%s%H!W$N(B
-      $B!V(B<a href="hints.html#hints-1212">$B?t<0%U%!%_%j$rDj5A$G$-$J$$$H(B
-      $B$$$&%a%C%;!<%8$,I=<($5$l$k(B</a>$B!W$G$NBP=hJ}K!$r;\$7$?$N$HF1$8FbMF$G$9!#(B
+      また、jplain.texを横組専用のフォーマットファイルを作成するように
+      修正してあります。jplain.texへの修正は「インストールのヒント」の
+      「<a href="hints.html#hints-1212">数式ファミリを定義できないと
+      いうメッセージが表示される</a>」での対処方法を施したのと同じ内容です。
 </ul>
 
-pTeX $B$r%3%s%Q%$%k$9$k$K$O!"0J2<$N%U%!%$%k$bI,MW$G$9!#(B
+pTeX をコンパイルするには、以下のファイルも必要です。
 
 <ul>
 <li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/web-6.1.tar.gz">
@@ -72,12 +72,12 @@ pTeX $B$r%3%s%Q%$%k$9$k$K$O!"0J2<$N%U%!%$%k$bI,MW$G$9!#(B
     web2c.kpathsea-2.6.help</a>
 <li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/lib-6.9.tar.gz">
     lib-6.9.tar.gz</a>
-<li>$B$D$.$N%U%!%$%k$N$$$:$l$+(B
+<li>つぎのファイルのいずれか
   <ul>
   <li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/dvipsk-5.58f.tar.gz">
       dvipsk-5.58f.tar.gz</a>
      (<a href="../../../pub/TeX/ascii-ptex/ptex214/dvipsk-jpatch-p1.2.tar.gz">
-      $BF|K\8l%Q%C%A(B (p1.2)</a>)
+      日本語パッチ (p1.2)</a>)
   <li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/xdvik-18f.tar.gz">
       xdvik-18f.tar.gz</a>
   <li><a href="../../../pub/TeX/ascii-ptex/ptex214/corresponding-sources/dviljk-2.5.tar.gz">

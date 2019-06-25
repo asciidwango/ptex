@@ -1,37 +1,37 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (relationship)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>TeX$B%7%9%F%`$G;H$&%W%m%0%i%`(B</h2>
-$B8=:_$N(BTeX$B%7%9%F%`$O!"$+$J$jBg$-$J%7%9%F%`$K$J$C$F$$$^$9$,!"(B
-TeX$B%7%9%F%`$NCf3K$r$J$9%W%m%0%i%`72$O!"Bg$-$/J,$1$F!"(B
-$BJ8=q%U%!%$%k$r=hM}$7$F(BDVI$B%U%!%$%k$r:n@.$9$k$?$a$N%W%m%0%i%`$H!"(B
-$B:n@.$5$l$?(BDVI$B%U%!%$%k$r=hM}$9$k$?$a$N%W%m%0%i%`$N(B
-$BFs$D$KJ,N`$9$k$3$H$,$G$-$^$9!#(B
+<h2>TeXシステムで使うプログラム</h2>
+現在のTeXシステムは、かなり大きなシステムになっていますが、
+TeXシステムの中核をなすプログラム群は、大きく分けて、
+文書ファイルを処理してDVIファイルを作成するためのプログラムと、
+作成されたDVIファイルを処理するためのプログラムの
+二つに分類することができます。
 
 <center>
 <img src="../images/process1.gif">
 </center>
 
-$BJ8=q%U%!%$%k$r=hM}$7$F!"(BDVI$B%U%!%$%k$r:n@.$9$k%W%m%0%i%`$K$O!"(B
-$B$D$.$N$h$&$J$b$N$,$"$j$^$9!#(B
+文書ファイルを処理して、DVIファイルを作成するプログラムには、
+つぎのようなものがあります。
 
 <ul>
 <li>TeX<br>
-    Knuth$BGn;N$K$h$k%W%m%0%i%`!#0J2<$N$9$Y$F$N%W%m%0%i%`$N4pAC!#(B
+    Knuth博士によるプログラム。以下のすべてのプログラムの基礎。
 <li>LaTeX<br>
-    Leslie Lamport$B;a$K$h$k(BTeX$BMQ%^%/%m%;%C%H!#8=:_$O!"(BLaTeX project term$B$K(B
-    $B$h$j3+H/$5$l$?(BLaTeX2e$B$,<gN.$K$J$C$F$$$k!#(B
+    Leslie Lamport氏によるTeX用マクロセット。現在は、LaTeX project termに
+    より開発されたLaTeX2eが主流になっている。
 <li>pTeX<br>
-    $B%"%9%-!<$K$h$j!"F|K\8l$KBP1~$7$?(BTeX$B$N>e0L8_49%W%m%0%i%`!#(B
-    $B=DAH$d6XB'=hM}$J$I$N5!G=$bDI2C$5$l$F$$$k!#(B
+    アスキーにより、日本語に対応したTeXの上位互換プログラム。
+    縦組や禁則処理などの機能も追加されている。
 <li>pLaTeX<br>
-    $B%"%9%-!<$K$h$j!"F|K\8l$KBP1~$7$?(BLaTeX$B$N>e0L8_49%^%/%m%;%C%H!#(B
-    pTeX$B>e$GF0:n$9$k!#8=:_!"(BLaTeX2e$B$KBP1~$7$F(BpLaTeX2e$B$H$J$C$F$$$k!#(B
+    アスキーにより、日本語に対応したLaTeXの上位互換マクロセット。
+    pTeX上で動作する。現在、LaTeX2eに対応してpLaTeX2eとなっている。
 </ul>
 
 

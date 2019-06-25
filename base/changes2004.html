@@ -1,42 +1,42 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (What's new)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>pTeX$B?7Ce>pJs$H%[!<%`%Z!<%899?7>pJs(B(2004$BG/J,(B)</h2>
-$B2a5n$NJQ99!'(B
-<a href="changes2003.html">2003$BG/(B</a>$B!?(B
-<a href="changes2002.html">2002$BG/(B</a>$B!?(B
-<a href="changes2001.html">2001$BG/(B</a>$B!?(B
-<a href="changes2000.html">2000$BG/(B</a>$B!?(B
-<a href="changes1999.html">1999$BG/(B</a>$B!?(B
-<a href="changes1998.html">1998$BG/(B</a>$B!?(B
-<a href="changes1997.html">1997$BG/(B</a>$B!?(B
-<a href="changes1996.html">1996$BG/(B</a>$B!?(B
-<a href="changes1995.html">1995$BG/(B</a>
+<h2>pTeX新着情報とホームページ更新情報(2004年分)</h2>
+過去の変更：
+<a href="changes2003.html">2003年</a>／
+<a href="changes2002.html">2002年</a>／
+<a href="changes2001.html">2001年</a>／
+<a href="changes2000.html">2000年</a>／
+<a href="changes1999.html">1999年</a>／
+<a href="changes1998.html">1998年</a>／
+<a href="changes1997.html">1997年</a>／
+<a href="changes1996.html">1996年</a>／
+<a href="changes1995.html">1995年</a>
 <p>
 <hr>
 
 <h4>2004/12/15</h4>
 <ul>
-<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.8.tar.gz">ptex-src-3.1.8.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.8.tar.gz">ptex-src-3.1.8.tar.gz</a>を公開します。
 <ul>
-<li>ptex: $B%3%s%H%m!<%k%7!<%1%s%9L>$N=hM}8m$j$r=$@5!#(B
-  ($BNc!'(B\Te^^5e^58 $B$,(B \TeX $B$H$7$FI>2A$5$l$J$$(B)
-<li>ptex: $B%3%s%H%m!<%k%7!<%1%s%9D>8e$N(B ^^$B7A<0$,4A;z$H$7$FG'<1$5$l$F(B
-   $B$7$^$&>l9g$,$"$k$N$r=$@5(B ($BNc!'(B\TeX^^83A $B"M(B \TeX$B%"(B)
-   ($B0J>e!"$"$j$,$H$&$4$6$$$^$9!"0f>e$5$s(B)$B!#(B
-<li>ptex: $BC<Kv$d%m%0%U%!%$%k$G$N2~9T0LCV$N%?%$%_%s%0$N=$@5(B
-   ($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)$B!#(B
+<li>ptex: コントロールシーケンス名の処理誤りを修正。
+  (例：\Te^^5e^58 が \TeX として評価されない)
+<li>ptex: コントロールシーケンス直後の ^^形式が漢字として認識されて
+   しまう場合があるのを修正 (例：\TeX^^83A ⇒ \TeXア)
+   (以上、ありがとうございます、井上さん)。
+<li>ptex: 端末やログファイルでの改行位置のタイミングの修正
+   (ありがとうございます、角藤さん)。
 </ul>
 <!--
 <p>
-<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.5.1.tar.gz">ptex-src-3.1.5.1.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.5.1.tar.gz">ptex-src-3.1.5.1.tar.gz</a>を公開します。
 <ul>
-<li>p3.1.7$B$H(Bp3.1.8$B$N=$@5$rH?1G!#(B
+<li>p3.1.7とp3.1.8の修正を反映。
 </ul>
 -->
 </ul>
@@ -44,93 +44,93 @@
 
 <h4>2004/12/9</h4>
 <ul>
-<li><del><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.7.tar.gz">ptex-src-3.1.7.tar.gz</a>$B$r8x3+$7$^$9!#(B</del>
+<li><del><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.7.tar.gz">ptex-src-3.1.7.tar.gz</a>を公開します。</del>
 <ul>
-<li>ptex: ^^$B7A<0$r4^$`%3%s%H%m!<%k%7!<%1%s%9L>$X$NBP1~8m$j$r=$@5$7$^$7$?!#(B
-<li>ptex: $BI=<(IT2DG=J8;z$NHO0O$r(B3.1.4$B$HF1$8$K$7$^$7$?(B
-        (Missing character $B$G$O(B ^^ $B7A<0$G=PNO$7$^$9(B)$B!#(B
-<li>mkconf: TEXINPUTS.{ptex,platex}-{sjis,jis,euc}$B$N%(%s%H%j$r(B
-    $B:n@.$9$k$h$&$K$7$^$7$?!#(B
+<li>ptex: ^^形式を含むコントロールシーケンス名への対応誤りを修正しました。
+<li>ptex: 表示不可能文字の範囲を3.1.4と同じにしました
+        (Missing character では ^^ 形式で出力します)。
+<li>mkconf: TEXINPUTS.{ptex,platex}-{sjis,jis,euc}のエントリを
+    作成するようにしました。
 </ul>
 </ul>
 
 <h4>2004/12/7</h4>
 <ul>
-<li><del><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.6.tar.gz">ptex-src-3.1.6.tar.gz</a>$B$r8x3+$7$^$9!#(B</del>
+<li><del><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.6.tar.gz">ptex-src-3.1.6.tar.gz</a>を公開します。</del>
 <ul>
-<li>ptex: tetex-2.99.4.20041128-beta $B$KBP1~(B($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)$B!#(B
+<li>ptex: tetex-2.99.4.20041128-beta に対応(ありがとうございます、角藤さん)。
 </ul>
 <p>
-<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.5.tar.gz">ptex-src-3.1.5.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.5.tar.gz">ptex-src-3.1.5.tar.gz</a>を公開します。
 <ul>
-<li>ptex: $B%3%s%H%m!<%k%7!<%1%s%9L>$N!"(B^^$B7A<0$NJ8;z$H<!$NJ8;z$r(B
-    $B4A;z$H$7$F$_$J$9>l9g$,$"$k$N$r=$@5(B
-<li>ptex: JIS$B%(%s%3!<%G%#%s%0%U%!%$%k$rFI$_9~$s$@8e!"(B`$B4A;z%$%s(B' $B$N>uBV$,(B
-    $B%U%!%$%k$N=*$o$j$r1[$($FM-8z$K$J$C$F$7$^$&>l9g$,$"$k$N$r=$@5(B
-    ($B0J>e!"$"$j$,$H$&$4$6$$$^$9!"0f>e$5$s(B)$B!#(B
-<li>ptex: Missing character $B$J$I$N%a%C%;!<%8$G$N0u;zIT2DG=J8;z(B
-    $B$r(B^^$B7A<0$G=PNO$9$k$h$&$K=$@5!#(B
-<li>pltotf: SJIS$B%3!<%I$N(BPL$B%U%!%$%k$+$i!"(BTFM$B%U%!%$%k$r@5$7$/:n$l$J$$(B
-    $B$N$r=$@5(B($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s!"@DLZ$5$s(B)$B!#(B
+<li>ptex: コントロールシーケンス名の、^^形式の文字と次の文字を
+    漢字としてみなす場合があるのを修正
+<li>ptex: JISエンコーディングファイルを読み込んだ後、`漢字イン' の状態が
+    ファイルの終わりを越えて有効になってしまう場合があるのを修正
+    (以上、ありがとうございます、井上さん)。
+<li>ptex: Missing character などのメッセージでの印字不可能文字
+    を^^形式で出力するように修正。
+<li>pltotf: SJISコードのPLファイルから、TFMファイルを正しく作れない
+    のを修正(ありがとうございます、角藤さん、青木さん)。
 </ul>
 <p>
-<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.6a1.tar.gz">dvipsk-jpatch-p1.6a1.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.6a1.tar.gz">dvipsk-jpatch-p1.6a1.tar.gz</a>を公開します。
 <ul>
-<li>$TEXMF/dvips/base/config.ps $B$,:n$i$l$J$$$h$&$K(B Makefile $B$r=$@5!#(B
+<li>$TEXMF/dvips/base/config.ps が作られないように Makefile を修正。
 </ul>
 </ul>
 
 
 <h4>2004/11/25</h4>
 <ul>
-<li>$B!V(B<a href="printing.html">TeX$B4XO"$N%5!<%S%9Ak8}(B</a>$B!W$N(B
-$B%W%l%$%s$5$s$N(BTeX$BJT=8It$NO"Mm@h$,JQ$o$j$^$7$?!#(B
+<li>「<a href="printing.html">TeX関連のサービス窓口</a>」の
+プレインさんのTeX編集部の連絡先が変わりました。
 </li>
 </ul>
 
 <h4>2004/09/13</h4>
 <ul>
-<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.4.tar.gz">ptex-src-3.1.4.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.4.tar.gz">ptex-src-3.1.4.tar.gz</a>を公開します。
 <ul>
-<li>$B9TKv5-9f$r4A;z$NBh(B1$B%P%$%H$KEv$?$kJ8;z$K$7$?>l9g!"9T$N<!$NJ8;z(B
-    $B$H6&$K4A;z$K$7$h$&$H$7$F$7$^$&$N$r=$@5!#(B
-<li>1$B%P%$%HJ8;z$N$&$A!"4A;z$NBh(B1$B%P%$%H$KEv$?$kJ8;z$N%+%F%4%j!<(B
-    $B%3!<%I$,L58z$JJ8;z$H$J$C$F$7$^$&$N$r=$@5!#(B
-<li>^^$B7A<0$GF~NO$5$l$?J8;z%3!<%I$,4A;z$NBh(B1$B%P%$%H$KEv$?$k>l9g!"(B
-    $B<!$NJ8;z$H6&$K4A;z$K$7$h$&$H$7$F$7$^$&$N$r=$@5!#(B
-<li>\string $B$G07$&J8;z$N4A;zH=Dj$r87L)2=!#(B
-<li>jbibtex$B$r2~9T%3!<%I(BCR$B$KBP1~!#(B
-    ($B0J>e!"$"$j$,$H$&$4$6$$$^$9!"0f>e$5$s(B)
-<li>$B?t<0Fb$G(B \char $B$r;HMQ$7$?>l9g$K(B1$B%P%$%HJ8;z$,4A;z$H8mG'<1$5$l$k(B
-    $B%P%0$r=$@5(B($B$"$j$,$H$&$4$6$$$^$9!"3Qd[$5$s(B)$B!#(B
-<li>$B7@Ls>rJ8OBLu$r=$@5!#(B
+<li>行末記号を漢字の第1バイトに当たる文字にした場合、行の次の文字
+    と共に漢字にしようとしてしまうのを修正。
+<li>1バイト文字のうち、漢字の第1バイトに当たる文字のカテゴリー
+    コードが無効な文字となってしまうのを修正。
+<li>^^形式で入力された文字コードが漢字の第1バイトに当たる場合、
+    次の文字と共に漢字にしようとしてしまうのを修正。
+<li>\string で扱う文字の漢字判定を厳密化。
+<li>jbibtexを改行コードCRに対応。
+    (以上、ありがとうございます、井上さん)
+<li>数式内で \char を使用した場合に1バイト文字が漢字と誤認識される
+    バグを修正(ありがとうございます、角籐さん)。
+<li>契約条文和訳を修正。
 </ul>
 <p>
-<li><a href="../archives/ascii-ptex/tetex/ptex-texmf-2.2.tar.gz">ptex-texmf-2.2.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/tetex/ptex-texmf-2.2.tar.gz">ptex-texmf-2.2.tar.gz</a>を公開します。
 <ul>
-<li>verbatim$B4D6-$GM>7W$JA08e6u$-$,H/@8$7$J$$$h$&$K(B \fontfamily $B$r=$@5!#(B
-<li>JY1,JT1$B0J30$NOBJ8%(%s%3!<%G%#%s%0$b;HMQ$G$-$k$h$&$K=$@5!#(B
-<li>\part, \chapter $B$N(B \@afterindentfalse $B$r(B \@afterindenttrue $B$KJQ99!#(B
-<li>jclasses.dtx: \section, \subsection, \subsubsection $B$NA08e6u$-$N(B
-    $B?-=LI}$r=$@5!#(B
-<li>LaTeX2e 2003/12/01 $BHG$X$NBP1~$r3NG'!#(B
-<li>min, goth, nmin, ngoth $B$N(Btfm$B$KM>7W$JJ8;z%3!<%I$NDj5A$,$"$C$?$N$G(B
-    $B:o=|!#(B
-<li>$B7@Ls>rJ8OBLu$r=$@5!#(B
+<li>verbatim環境で余計な前後空きが発生しないように \fontfamily を修正。
+<li>JY1,JT1以外の和文エンコーディングも使用できるように修正。
+<li>\part, \chapter の \@afterindentfalse を \@afterindenttrue に変更。
+<li>jclasses.dtx: \section, \subsection, \subsubsection の前後空きの
+    伸縮幅を修正。
+<li>LaTeX2e 2003/12/01 版への対応を確認。
+<li>min, goth, nmin, ngoth のtfmに余計な文字コードの定義があったので
+    削除。
+<li>契約条文和訳を修正。
 </ul>
 <p>
-<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.6a.tar.gz">dvipsk-jpatch-p1.6a.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.6a.tar.gz">dvipsk-jpatch-p1.6a.tar.gz</a>を公開します。
 <ul>
-<li>make install $B$G(B config.ps, psfonts.map $B$,%$%s%9%H!<%k$5$l$k$h$&$K(B
-    Makefile $B$r=$@5!#(B
-<li>dvi2ps$BMQ$N%^%/%m$G(BEPS$B%U%!%$%k$rFI$_9~$s$@>l9g$K(BMac$BMQ2~9T%3!<%I$,@5$7$/(B
-    $BG'<1$5$l$J$$IT6q9g$r=$@5!#(B
+<li>make install で config.ps, psfonts.map がインストールされるように
+    Makefile を修正。
+<li>dvi2ps用のマクロでEPSファイルを読み込んだ場合にMac用改行コードが正しく
+    認識されない不具合を修正。
 </ul>
 <p>
-<li><a href="../archives/ascii-ptex/mendex/mendexk2.5a.tar.gz">mendexk2.5a.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.5a.tar.gz">mendexk2.5a.tar.gz</a>を公開します。
 <ul>
-<li>$B0z?t$NF~NO%U%!%$%kL>$+$i3HD%;R(B(.idx)$B$r>JN,$7$?>l9g$K%(%i!<$,H/@8$9$k%P%0$r(B
-    $B=$@5!#(B
+<li>引数の入力ファイル名から拡張子(.idx)を省略した場合にエラーが発生するバグを
+    修正。
 </ul>
 </ul>
 

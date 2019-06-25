@@ -1,193 +1,193 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (spacing)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>$BJ8;z4V$N%9%Z!<%9$K$D$$$F(B</h2>
+<h2>文字間のスペースについて</h2>
 
 <ul>
-<li><a href="#kanjiskip">$B4A;z4V%9%Z!<%9(B</a>
-<li><a href="#xkanjiskip">$BOB2$J84V%9%Z!<%9(B</a>
-<li><a href="#jfmglue">$BOBJ8%U%)%s%H$K$h$k%9%Z!<%9(B</a>
-<li><a href="#yakumono">$B5-9fN`$H$N4V(B</a>
+<li><a href="#kanjiskip">漢字間スペース</a>
+<li><a href="#xkanjiskip">和欧文間スペース</a>
+<li><a href="#jfmglue">和文フォントによるスペース</a>
+<li><a href="#yakumono">記号類との間</a>
 </ul>
 
 <p>
 
 <hr>
-<h3><a name="kanjiskip">$B"#4A;z4V%9%Z!<%9(B</a></h3>
-pTeX$B$G$O!"4A;z$H4A;z$N4V$K>.$5$J%9%Z!<%9!J%0%k!<!K$rA^F~$7$^$9!#(B
-$B$3$l$O!"$D$.$N#2$D$NL\E*$N$?$a$K;HMQ$5$l$^$9!#(B
+<h3><a name="kanjiskip">■漢字間スペース</a></h3>
+pTeXでは、漢字と漢字の間に小さなスペース（グルー）を挿入します。
+これは、つぎの２つの目的のために使用されます。
 
 <ul>
-<li>$B9T$NN>C<$r$=$m$($k$?$a$NJ8;z4VD4@0(B
-<li>$BJ8;zAw$j$N<B8=(B
+<li>行の両端をそろえるための文字間調整
+<li>文字送りの実現
 </ul>
 
-$B4A;z4V$K%9%Z!<%9$rF~$l$J$$>l9g!"AH$_I}$,A43QI}$N@0?tG\$K$J$i$J$$8B$j!"(B
-$B9T$NN>C<$r$=$m$($k$?$a$ND4@02U=j$,$J$/$J$j!"%*!<%P!<%U%k$d%"%s%@!<%U%k$K(B
-$B$J$C$F$7$^$$$^$9$N$G!"(BpTeX$B$G$O!"4A;z$H4A;z$N4V$K>.$5$J%9%Z!<%9$rF~$l$F$$$^$9!#(B
-$B$3$N%9%Z!<%9$NBg$-$5$O!"(B<a href="../help/kanjiskip.html">\kanjiskip</a>$B$G(B
-$B@_Dj$5$l$F$*$j!"(BpTeX$B$G$N=i4|CM$O!"(B"0pt plus .4pt minus.4pt"$B$G$9!#(B
-$B$7$?$,$C$FAH$_I}$,A43QI}$K$A$g$&$I<}$^$l$P!"4A;z4V%9%Z!<%9$OF~$j$^$;$s!#(B
-$BD4@0$9$k>l9g$G$b!"$=$l$>$l$N4A;z$N4V$KF~$k%9%Z!<%9$NBg$-$5$O!"(B
+漢字間にスペースを入れない場合、組み幅が全角幅の整数倍にならない限り、
+行の両端をそろえるための調整箇所がなくなり、オーバーフルやアンダーフルに
+なってしまいますので、pTeXでは、漢字と漢字の間に小さなスペースを入れています。
+このスペースの大きさは、<a href="../help/kanjiskip.html">\kanjiskip</a>で
+設定されており、pTeXでの初期値は、"0pt plus .4pt minus.4pt"です。
+したがって組み幅が全角幅にちょうど収まれば、漢字間スペースは入りません。
+調整する場合でも、それぞれの漢字の間に入るスペースの大きさは、
 <pre>
-          $B!!!!!!!!(B      1
-          $BJ8;zI}!_(B--------------
-           $B!!!!!!!!(B1$B9T$NJ8;z?t(B-1
+          　　　　      1
+          文字幅×--------------
+           　　　　1行の文字数-1
 </pre>
-$B$G$9$N$G!"8+$?L\$K$O$^$C$?$/$o$+$j$^$;$s!#(B
-$B$?$@$7!"$3$l$O$9$Y$F$,4A;z$N>l9g$G$9!#OB2$:.?"$N>l9g$K$O!"$[$+$N%9%Z!<%9$d(B
-$B1QC18l$N%O%$%U%M!<%7%g%s$N1F6A$b<u$1$^$9$N$G!"$3$N8B$j$G$O$J$/$J$j$^$9!#(B
+ですので、見た目にはまったくわかりません。
+ただし、これはすべてが漢字の場合です。和欧混植の場合には、ほかのスペースや
+英単語のハイフネーションの影響も受けますので、この限りではなくなります。
 <p>
-$BOBJ8AHHG$G$O!"$"$k0lItJ,$@$1J8;zAw$j$rJQ99$9$k$H$$$&$h$&$J$3$H$,$"$j$^$9!#(B
-pTeX$B$K$OJ8;zAw$j$=$N$b$N$rJQ99$9$k5!G=$,$"$j$^$;$s$,!"4A;z4V$N%9%Z!<%9$r(B
-$B;H$C$FD4@0$9$k$3$H$,$G$-$^$9!#(B
-$B$?$H$($P!"(B
+和文組版では、ある一部分だけ文字送りを変更するというようなことがあります。
+pTeXには文字送りそのものを変更する機能がありませんが、漢字間のスペースを
+使って調整することができます。
+たとえば、
 <pre>
     \kanjiskip=.1zw plus.5pt minus.5pt
 </pre>
-$B$N$h$&$K$9$l$P!"4A;z4V$KA43QI}$N(B10$BJ,$N#1$N%9%Z!<%9$,DI2C$5$l$^$9$N$G!"(B
-$BJ8;zAw$j$,A43Q$N(B1.1$BG\$K$J$C$?$h$&$K8+$($^$9!#(B
-$B5U$K!"$D$.$N$h$&$K$9$k$H!"4A;z4V$NI}$,5M$^$k$3$H$K$J$j$^$9!#(B
+のようにすれば、漢字間に全角幅の10分の１のスペースが追加されますので、
+文字送りが全角の1.1倍になったように見えます。
+逆に、つぎのようにすると、漢字間の幅が詰まることになります。
 <pre>
     \kanjiskip=-.1zw plus.5pt minus.5pt
 </pre>
-$B$J$*!"4A;z4V%9%Z!<%9$O!"?eJ?%j%9%H$NAH$_N)$F$,0lDL$j=*N;$7$?$"$H$GA^F~$5$l$k(B
-$B$H$$$&$3$H$K5$$r$D$1$F$/$@$5$$!#(B
-$B$D$^$j!"CJMn$,=*N;$7$?;~E@!"$9$J$o$A(B\par$B%3%s%H%m!<%k%7!<%1%s%9$+6uGr9T$r8+$D$1$?$H$-$+!"(B
-$B%\%C%/%9$rJD$8$?$H$-$K!"@_Dj$5$l$F$$$kCM$,A^F~$5$l$k$H$$$&$3$H$G$9!#(B
-$B$7$?$,$C$F!"0l$D$NCJMnFb$G2?EY$b@_Dj$rJQ99$7$?$j!"%0%k!<%T%s%0$K$h$C$FItJ,E*$JJQ99$r(B
-$B$7$h$&$H$7$F$b!"CJMn$d%\%C%/%9$N=*N;;~$NCM$H$J$j$^$9!#(B
+なお、漢字間スペースは、水平リストの組み立てが一通り終了したあとで挿入される
+ということに気をつけてください。
+つまり、段落が終了した時点、すなわち\parコントロールシーケンスか空白行を見つけたときか、
+ボックスを閉じたときに、設定されている値が挿入されるということです。
+したがって、一つの段落内で何度も設定を変更したり、グルーピングによって部分的な変更を
+しようとしても、段落やボックスの終了時の値となります。
 <p>
-$B$^$?!"4A;z4V%9%Z!<%9$N<+F0A^F~$O!"(B<a href="../help/noautospacing.html">\noautospacing</a>
-$B$GM^@)!"(B<a href="../help/autospacing.html">\autospacing</a>$B$G5v2D$7$?$j$9$k$3$H$,$G$-$^$9$,!"(B
-$B$3$l$i$bCJMn$d%\%C%/%9$J$I$,AH$_N)$F$i$l$?;~E@$N>uBV$,M-8z$H$J$j$^$9!#(B
+また、漢字間スペースの自動挿入は、<a href="../help/noautospacing.html">\noautospacing</a>
+で抑制、<a href="../help/autospacing.html">\autospacing</a>で許可したりすることができますが、
+これらも段落やボックスなどが組み立てられた時点の状態が有効となります。
 <p>
 
 <hr>
-<h3><a name="xkanjiskip">$B"#OB2$J84V%9%Z!<%9(B</a></h3>
-pTeX$B$G$O!"4A;z$H1Q;z$N4V$K!"<+F0E*$K(B
-<a href="../help/xkanjiskip.html">\xkanjiskip</a>$B$NCM$,A^F~$5$l$^$9!#(B
-$B$3$N%9%Z!<%9$O!"0lHL$K!V;MJ,%"%-!W$H8F$P$l$^$9!#(B
-$BA43QI}$N(B1/4$BI}$N%9%Z!<%9$H$$$&0UL#$G$9!#(B
-pTeX$B$G$N=i4|CM$O!"(B".25zw plus1pt minus1pt"$B$H$J$C$F$$$^$9!#(B
-$B>/$7$N?-=LD9$r;}$?$;$F$$$k$N$O!"3F9T$NN>C<$r$=$m$($k$?$a$G$9!#(B
+<h3><a name="xkanjiskip">■和欧文間スペース</a></h3>
+pTeXでは、漢字と英字の間に、自動的に
+<a href="../help/xkanjiskip.html">\xkanjiskip</a>の値が挿入されます。
+このスペースは、一般に「四分アキ」と呼ばれます。
+全角幅の1/4幅のスペースという意味です。
+pTeXでの初期値は、".25zw plus1pt minus1pt"となっています。
+少しの伸縮長を持たせているのは、各行の両端をそろえるためです。
 <p>
-$BOB2$J84V%9%Z!<%9$NA^F~$O!"(B<a href="../help/noautoxspacing.html">\noautoxspacing</a>$B$H(B
-<a href="../help/autoxspacing.html">\autoxspacing</a>$B$K$h$C$F!"M^@)!?5v2D$r$9$k$3$H$,$G$-$^$9!#(B
-$B$?$@$7!"4A;z4V%9%Z!<%9$HF1MM$K!"CJMnFb$GItJ,E*$KJQ99$9$k$3$H$O$G$-$^$;$s!#(B
+和欧文間スペースの挿入は、<a href="../help/noautoxspacing.html">\noautoxspacing</a>と
+<a href="../help/autoxspacing.html">\autoxspacing</a>によって、抑制／許可をすることができます。
+ただし、漢字間スペースと同様に、段落内で部分的に変更することはできません。
 <p>
-$BOB2$J84V%9%Z!<%9$O!"<+F0A^F~$,M^@)$5$l$F$$$J$1$l$P!"(B
-$B$D$.$N>r7o$,@0$C$?>l=j$KA^F~$5$l$^$9!#(B
+和欧文間スペースは、自動挿入が抑制されていなければ、
+つぎの条件が整った場所に挿入されます。
 
 <ul>
-<li>$B4A;z$H1Q;z$N4V(B<br>
-  $B$?$@$7!"$D$.$N$$$:$l$+!"$"$k$$$ON>J}$N>l9g$O=|$/!'(B<br>
+<li>漢字と英字の間<br>
+  ただし、つぎのいずれか、あるいは両方の場合は除く：<br>
   <ul>
-  <li>$B$=$N4A;z$,!"(B<a href="../help/inhibitxspcode.html">\inhibitxspcode</a>$B$G#0$^$?$O#2$,@_Dj$5$l$F$$$k(B
-  <li>$B$=$N1Q;z$,!"(B<a href="../help/xspcode.html">\xspcode</a>$B$G#0$^$?$O#2$,@_Dj$5$l$F$$$k(B
+  <li>その漢字が、<a href="../help/inhibitxspcode.html">\inhibitxspcode</a>で０または２が設定されている
+  <li>その英字が、<a href="../help/xspcode.html">\xspcode</a>で０または２が設定されている
   </ul>
 <p>
-<li>$B1Q;z$H4A;z$N4V(B<br>
-  $B$?$@$7!"$D$.$N$$$:$l$+!"$"$k$$$ON>J}$N>l9g$O=|$/!'(B<br>
+<li>英字と漢字の間<br>
+  ただし、つぎのいずれか、あるいは両方の場合は除く：<br>
   <ul>
-  <li>$B$=$N1Q;z$,!"(B<a href="../help/xspcode.html">\xspcode</a>$B$G#0$^$?$O#1$,@_Dj$5$l$F$$$k(B
-  <li>$B$=$N4A;z$,!"(B<a href="../help/inhibitxspcode.html">\inhibitxspcode</a>$B$G#0$^$?$O#1$,@_Dj$5$l$F$$$k(B
+  <li>その英字が、<a href="../help/xspcode.html">\xspcode</a>で０または１が設定されている
+  <li>その漢字が、<a href="../help/inhibitxspcode.html">\inhibitxspcode</a>で０または１が設定されている
   </ul>
 </ul>
 
-$B$3$3$G!"!V4A;z$H1Q;z!W!"!V1Q;z$H4A;z!W$H$$$&$N$O!"(B
-$B%^%/%m$,E83+$5$l$?;~E@$G$N>uBV$G$9!#$7$?$,$C$F!"%^%/%m$,E83+$5$l$?$H$-$K(B\kern$B$d(B\hbox{}$B$N$h$&$J(B
-$B%W%j%_%F%#%V$d%\%C%/%9$,A^F~$5$l$?>l9g$O!"OB2$J84V%9%Z!<%9$OF~$j$^$;$s!#(B
-$B$?$@$7!"%$%?%j%C%/Jd@5$rA^F~$9$k%3%^%s%I!J(B\/$B!K$O!"$3$N8B$j$G$O$"$j$^$;$s!#(B
+ここで、「漢字と英字」、「英字と漢字」というのは、
+マクロが展開された時点での状態です。したがって、マクロが展開されたときに\kernや\hbox{}のような
+プリミティブやボックスが挿入された場合は、和欧文間スペースは入りません。
+ただし、イタリック補正を挿入するコマンド（\/）は、この限りではありません。
 <p>
-$BF|K\8l(BTeX version 1.7 p1.0.9G$B$G!"%F%-%9%HFb?t<0$GA^F~$5$l$k%$%?%j%C%/Jd@5$N1F6A$G!"(B
-$B$=$N?t<0$N:G8e$NJ8;z$HB3$/4A;z$H$N4V$K;MJ,%"%-$,F~$j$^$;$s$G$7$?$,!"(B
-$B%P!<%8%g%s(Bp2.1$B0J9_$G$O=$@5$5$l$F$$$^$9(B(<em>1996/09/20</em>)$B!#(B
+日本語TeX version 1.7 p1.0.9Gで、テキスト内数式で挿入されるイタリック補正の影響で、
+その数式の最後の文字と続く漢字との間に四分アキが入りませんでしたが、
+バージョンp2.1以降では修正されています(<em>1996/09/20</em>)。
 <p>
-$B$^$?!"(B\ref$B$d(B\pageref$B%3%^%s%I$K$h$C$FA^F~$5$l$?1Q;z$H!"$=$l$i$N%3%^%s%I$KB3$/4A;z$H$N(B
-$B4V$K;MJ,%"%-$,F~$i$J$+$$$H$$$&%P%0$bJs9p$5$l$F$$$^$9$,!"$3$l$O(BLaTeX$B$N%^%/%m$K$h$k1F6A$G$9!#(B
-$B$3$N%P%0$K$D$$$F$b!"(BpLaTeX2e$B$G$O=$@5$7$F$"$j$^$9(B(<em>1995/08/25</em>)$B!#(B
+また、\refや\pagerefコマンドによって挿入された英字と、それらのコマンドに続く漢字との
+間に四分アキが入らなかいというバグも報告されていますが、これはLaTeXのマクロによる影響です。
+このバグについても、pLaTeX2eでは修正してあります(<em>1995/08/25</em>)。
 <p>
 
 <hr>
-<h3><a name="jfmglue">$B"#OBJ8%U%)%s%H$K$h$k%9%Z!<%9(B</a></h3>
-pTeX$B$G$O!"F|K\8l5!G=$N<B8=$N$?$a$K!"(B
-<a href="../tfm/tfm.html" target=_top>TFM$B%U%)!<%^%C%H(B</a>$B$r3HD%$7$?!"(B
-<a href="../tfm/jfm.html" target=_top>JFM$B%U%)!<%^%C%H(B</a>$B$b;HMQ$7$^$9!#(B
-pTeX$B$O!"4A;z$rFI$_9~$s$@8e!"$=$N4A;z$NBg$-$5$rCN$k$?$a$K(BJFM$B%U%!%$%k$r;2>H$7$^$9!#(B
-JFM$B%U%!%$%k$G$O!"$[$H$s$I$N4A;z$,A43QI}$H$J$C$F$$$^$9$,!"5-9fN`$J$I$OA43QI}$r;}$C$F$$$^$;$s!#(B
-$B$b$7!"$9$Y$F$NJ8;z$rA43QI}$H$9$k$H!"$D$.$N?^$G$o$+$k$h$&$K!"J8;z$NAH$_9g$o$;$K$h$C$F!"(B
-$BL50UL#$J%9%Z!<%9$,$G$-$F$7$^$$$^$9!#(B
+<h3><a name="jfmglue">■和文フォントによるスペース</a></h3>
+pTeXでは、日本語機能の実現のために、
+<a href="../tfm/tfm.html" target=_top>TFMフォーマット</a>を拡張した、
+<a href="../tfm/jfm.html" target=_top>JFMフォーマット</a>も使用します。
+pTeXは、漢字を読み込んだ後、その漢字の大きさを知るためにJFMファイルを参照します。
+JFMファイルでは、ほとんどの漢字が全角幅となっていますが、記号類などは全角幅を持っていません。
+もし、すべての文字を全角幅とすると、つぎの図でわかるように、文字の組み合わせによって、
+無意味なスペースができてしまいます。
 <p>
 <center>
 <img src="../images/zenkaku-only.gif">
 </center>
 <p>
-$B$=$3$G!"J8;z$NAH$_9g$o$;$K$h$C$F%9%Z!<%9$rD4@0$9$k$h$&$J;EAH$_$r$D$1$^$7$?!#(B
+そこで、文字の組み合わせによってスペースを調整するような仕組みをつけました。
 <p>
 <center>
 <img src="../images/zenkaku-glue.gif">
 </center>
 <p>
-$B$J$*!"$3$N%9%Z!<%9$O!"(B\hskip$B$K$h$k%9%Z!<%9$H$J$C$F$$$^$9$N$G!"(B
-$B9TF,$d9TKv$J$I$G$O>C$($F$J$/$J$j$^$9!#(B
+なお、このスペースは、\hskipによるスペースとなっていますので、
+行頭や行末などでは消えてなくなります。
 <p>
-$B$^$?!"$3$N%9%Z!<%9$rIU$1$?$/$J$$>l9g$O!"$=$N2U=j$K(B
-<a href="../help/inhibitglue.html">\inhibitglue</a>$B$r;XDj$7$^$9!#(B
-$B$3$N>l9g!"$=$NJ8;z$OK\Mh$NJ8;zI}$G=hM}$5$l$^$9!#(B
+また、このスペースを付けたくない場合は、その箇所に
+<a href="../help/inhibitglue.html">\inhibitglue</a>を指定します。
+この場合、その文字は本来の文字幅で処理されます。
 <p>
 
 <hr>
-<h3><a name="yakumono">$B"#5-9fN`$H$N4V(B</a></h3>
-pTeX$B$G$O!"4A;z$H4A;z!"4A;z$H1Q;z$N4V$K<+F0E*$K%9%Z!<%9$,A^F~$5$l$^$9!#(B
-$B$H$3$m$,!"$"$k<o$NJ8;z$,NY$j9g$C$?$H$-$K!"4A;z4V$dOB2$J84V%9%Z!<%9$,F~$C$?$j!"(B
-$B$=$N$^$^J8;zI}$N>pJs$r;H$&$H$+$($C$F=9$/$J$k$3$H$,$"$j$^$9!#(B
-$B4A;z$I$&$7$NAH$_9g$o$;$J$i$P!"(BJFM$B%U%!%$%k$G%3%s%H%m!<%k$9$k$3$H$,$G$-$^$9!#(B
-$B$^$?1QJ8;z$I$&$7$J$i$P!"%*%j%8%J%k$N(BTeX$B$+$i$=$N5!G=$,$"$j$^$9!#(B
-$B$7$?$,$C$F!"LdBj$H$J$k$N$O!"4A;z$H1QJ8;z$N4V$N=hM}$H$$$&$3$H$K$J$j$^$9!#(B
+<h3><a name="yakumono">■記号類との間</a></h3>
+pTeXでは、漢字と漢字、漢字と英字の間に自動的にスペースが挿入されます。
+ところが、ある種の文字が隣り合ったときに、漢字間や和欧文間スペースが入ったり、
+そのまま文字幅の情報を使うとかえって醜くなることがあります。
+漢字どうしの組み合わせならば、JFMファイルでコントロールすることができます。
+また英文字どうしならば、オリジナルのTeXからその機能があります。
+したがって、問題となるのは、漢字と英文字の間の処理ということになります。
 <p>
-pTeX$B$G$O$3$NLdBj$r!"%9%Z!<%9$rA^F~$7$J$$J8;z$r;XDj$9$k$3$H$K$h$C$F2r7h$7$F$$$^$9!#(B
-$B$?$H$($P!"1QJ8;z$N!V(B($B!W$H!"B3$/4A;z$H$N4V$K!"<+F0E*$KA^F~$5$l$kOB2$J84V%9%Z!<%9$r(B
-$BF~$l$?$/$J$$>l9g$O!"(B
+pTeXではこの問題を、スペースを挿入しない文字を指定することによって解決しています。
+たとえば、英文字の「(」と、続く漢字との間に、自動的に挿入される和欧文間スペースを
+入れたくない場合は、
 <pre>
     \xspcode`(=1
 </pre>
-$B$N$h$&$K;XDj$7$^$9!#$9$k$H!"4A;z$H!V(B($B!W$N4V$K$OOB2$J84V%9%Z!<%9$,F~$j$^$9$,!"(B
-$B!V(B($B!W$H4A;z$N4V$K$OF~$j$^$;$s!#(B
-$B;XDj$G$-$k?tCM$K$D$$$F$O!"(B<a href="../help/xspcode.html">\xspcode</a>$B$r;2>H$7$F$/$@$5$$!#(B
+のように指定します。すると、漢字と「(」の間には和欧文間スペースが入りますが、
+「(」と漢字の間には入りません。
+指定できる数値については、<a href="../help/xspcode.html">\xspcode</a>を参照してください。
 <p>
-$B5U$K!"(B<a href="../help/inhibitxspcode.html">\inhibitxspcode</a>$B$G$O!"(B
-$BD>A0!"D>8e$N1Q;z$H$N%9%Z!<%9$rM^@)$7$?$$4A;z$K$D$$$F$r;XDj$9$k$3$H$,$G$-$^$9!#(B
+逆に、<a href="../help/inhibitxspcode.html">\inhibitxspcode</a>では、
+直前、直後の英字とのスペースを抑制したい漢字についてを指定することができます。
 <p>
-$B;29M$K!"(BpTeX$B$N(Bkinsoku.tex$B$G@_Dj$5$l$F$$$kCM$r$7$a$7$^$9!#(B
+参考に、pTeXのkinsoku.texで設定されている値をしめします。
 <pre>
     \xspcode`(=1    \xspcode`)=2     \xspcode`[=1
     \xspcode`]=2    \xspcode``=1     \xspcode`'=2
     \xspcode`;=2    \xspcode`,=2     \xspcode`.=2
 
-    \inhibitxspcode`$B!"(B=1   \inhibitxspcode`$B!#(B=1
-    \inhibitxspcode`$B!$(B=1   \inhibitxspcode`$B!%(B=1
-    \inhibitxspcode`$B!((B=1   \inhibitxspcode`$B!)(B=1
-    \inhibitxspcode`$B!J(B=2   \inhibitxspcode`$B!K(B=1
-    \inhibitxspcode`$B!N(B=2   \inhibitxspcode`$B!O(B=1
-    \inhibitxspcode`$B!P(B=2   \inhibitxspcode`$B!Q(B=1
-    \inhibitxspcode`$B!F(B=2   \inhibitxspcode`$B!G(B=1
-    \inhibitxspcode`$B!H(B=2   \inhibitxspcode`$B!I(B=1
-    \inhibitxspcode`$B!L(B=2   \inhibitxspcode`$B!M(B=1
-    \inhibitxspcode`$B!R(B=2   \inhibitxspcode`$B!S(B=1
-    \inhibitxspcode`$B!T(B=2   \inhibitxspcode`$B!U(B=1
-    \inhibitxspcode`$B!V(B=2   \inhibitxspcode`$B!W(B=1
-    \inhibitxspcode`$B!X(B=2   \inhibitxspcode`$B!Y(B=1
-    \inhibitxspcode`$B!Z(B=2   \inhibitxspcode`$B![(B=1
-    \inhibitxspcode`$B!=(B=0   \inhibitxspcode`$B!A(B=0
-    \inhibitxspcode`$B!D(B=0   \inhibitxspcode`$B!o(B=0
-    \inhibitxspcode`$B!k(B=1   \inhibitxspcode`$B!l(B=1
-    \inhibitxspcode`$B!m(B=1
+    \inhibitxspcode`、=1   \inhibitxspcode`。=1
+    \inhibitxspcode`，=1   \inhibitxspcode`．=1
+    \inhibitxspcode`；=1   \inhibitxspcode`？=1
+    \inhibitxspcode`（=2   \inhibitxspcode`）=1
+    \inhibitxspcode`［=2   \inhibitxspcode`］=1
+    \inhibitxspcode`｛=2   \inhibitxspcode`｝=1
+    \inhibitxspcode`‘=2   \inhibitxspcode`’=1
+    \inhibitxspcode`“=2   \inhibitxspcode`”=1
+    \inhibitxspcode`〔=2   \inhibitxspcode`〕=1
+    \inhibitxspcode`〈=2   \inhibitxspcode`〉=1
+    \inhibitxspcode`《=2   \inhibitxspcode`》=1
+    \inhibitxspcode`「=2   \inhibitxspcode`」=1
+    \inhibitxspcode`『=2   \inhibitxspcode`』=1
+    \inhibitxspcode`【=2   \inhibitxspcode`】=1
+    \inhibitxspcode`—=0   \inhibitxspcode`〜=0
+    \inhibitxspcode`…=0   \inhibitxspcode`¥=0
+    \inhibitxspcode`°=1   \inhibitxspcode`′=1
+    \inhibitxspcode`″=1
 </pre>
 
 <p>

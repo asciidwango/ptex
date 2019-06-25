@@ -2,74 +2,74 @@
 <!-- TeX page -->
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (sources)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>$B"#(BpLaTeX &lt;2006/01/17&gt; (LaTeX &lt;2003/12/01&gt;$BBP1~(B)</h3>
+<h2>■pLaTeX &lt;2006/01/17&gt; (LaTeX &lt;2003/12/01&gt;対応)</h3>
 </a>
-pLaTeX2e$B$O!"(Bptex$B%i%$%V%i%j(B(<a href="../archives/ascii-ptex/tetex/ptex-texmf-2.4.tar.gz">ptex-texmf-2.4.tar.gz</a>)$B$KF~$C$F$$$^$9!#(B
+pLaTeX2eは、ptexライブラリ(<a href="../archives/ascii-ptex/tetex/ptex-texmf-2.4.tar.gz">ptex-texmf-2.4.tar.gz</a>)に入っています。
 <p>
-pLaTeX2e &lt;2005/01/04&gt $BHG$+$i$NJQ99E@!'(B
+pLaTeX2e &lt;2005/01/04&gt 版からの変更点：
 <ul>
-<li>nidanfloat.dtx: $BI,?\%U%)!<%^%C%H%U%!%$%k$r(BpLaTeX2e$B$+$i(BLaTeX2e$B$XJQ99!#(B
-<li>plfonts.dtx: \DeclareFontEncoding@ $BCf$G(B \LastDeclaredEncodeng $B$N:FDj5A$,H4$1(B
-$B$F$$$?$N$GDI2C!#(B
+<li>nidanfloat.dtx: 必須フォーマットファイルをpLaTeX2eからLaTeX2eへ変更。
+<li>plfonts.dtx: \DeclareFontEncoding@ 中で \LastDeclaredEncodeng の再定義が抜け
+ていたので追加。
 </ul>
 
 <hr>
-<h2>$B"#(BpLaTeX &lt;2005/01/04&gt; (LaTeX &lt;2003/12/01&gt;$BBP1~(B)</h2>
+<h2>■pLaTeX &lt;2005/01/04&gt; (LaTeX &lt;2003/12/01&gt;対応)</h2>
 </a>
-pLaTeX2e$B$O!"(Bptex$B%i%$%V%i%j(B(<a href="../archives/ascii-ptex/tetex/ptex-texmf-2.3.tar.gz">ptex-texmf-2.3.tar.gz</a>)$B$KF~$C$F$$$^$9!#(B
+pLaTeX2eは、ptexライブラリ(<a href="../archives/ascii-ptex/tetex/ptex-texmf-2.3.tar.gz">ptex-texmf-2.3.tar.gz</a>)に入っています。
 <p>
-pLaTeX2e &lt;2004/08/10&gt; $BHG$+$i$NJQ99E@!'(B
+pLaTeX2e &lt;2004/08/10&gt; 版からの変更点：
 <ul>
-<li>plfonts.dtx: \fontfamily$BCf$N%U%i%0$r=$@5(B ($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)$B!#(B 
-<li>plvers.dtx: $B%P!<%8%g%sHV9f99?7(B(platex &lt;2005/01/04>&gt;) 
+<li>plfonts.dtx: \fontfamily中のフラグを修正 (ありがとうございます、角藤さん)。 
+<li>plvers.dtx: バージョン番号更新(platex &lt;2005/01/04>&gt;) 
 </ul>
 
 <hr>
-<h2>$B"#(BpLaTeX &lt;2004/08/10&gt; (LaTeX &lt;2003/12/01&gt;$BBP1~(B)</h2>
-pLaTeX2e$B$O!"(Bptex$B%i%$%V%i%j(B(ptex-texmf-2.2.tar.gz)$B$KF~$C$F$$$^$9!#(B
+<h2>■pLaTeX &lt;2004/08/10&gt; (LaTeX &lt;2003/12/01&gt;対応)</h2>
+pLaTeX2eは、ptexライブラリ(ptex-texmf-2.2.tar.gz)に入っています。
 <p>
-pLaTeX2e &lt;2001/09/04&gt; $BHG$+$i$NJQ99E@!'(B
+pLaTeX2e &lt;2001/09/04&gt; 版からの変更点：
 <ul>
-<li>verbatim$B4D6-$GM>7W$JA08e6u$-$,H/@8$7$J$$$h$&$K(B \fontfamily $B$r=$@5!#(B
-<li>JY1,JT1$B0J30$NOBJ8%(%s%3!<%G%#%s%0$b;HMQ$G$-$k$h$&$K=$@5!#(B
-<li>\part, \chapter $B$N(B \@afterindentfalse $B$r(B \@afterindenttrue $B$KJQ99!#(B
-<li>jclasses.dtx: \section, \subsection, \subsubsection $B$NA08e6u$-$N(B
-    $B?-=LI}$r=$@5!#(B
-<li>LaTeX2e 2003/12/01 $BHG$X$NBP1~$r3NG'!#(B
-<li>min, goth, nmin, ngoth $B$N(Btfm$B$KM>7W$JJ8;z%3!<%I$NDj5A$,$"$C$?$N$G(B
-    $B:o=|!#(B
-<li>$B7@Ls>rJ8OBLu$r=$@5!#(B
+<li>verbatim環境で余計な前後空きが発生しないように \fontfamily を修正。
+<li>JY1,JT1以外の和文エンコーディングも使用できるように修正。
+<li>\part, \chapter の \@afterindentfalse を \@afterindenttrue に変更。
+<li>jclasses.dtx: \section, \subsection, \subsubsection の前後空きの
+    伸縮幅を修正。
+<li>LaTeX2e 2003/12/01 版への対応を確認。
+<li>min, goth, nmin, ngoth のtfmに余計な文字コードの定義があったので
+    削除。
+<li>契約条文和訳を修正。
 </ul>
 
 <hr>
-<h2>$B"#(BpLaTeX &lt;2001/09/04&gt; (LaTeX &lt;2001/06/01&gt;$BBP1~(B)</h2>
-pLaTeX2e$B$O!"(Bptex$B%i%$%V%i%j(B(ptex-texmf-2.0.tar.gz)$B$KF~$C$F$$$^$9!#(B
+<h2>■pLaTeX &lt;2001/09/04&gt; (LaTeX &lt;2001/06/01&gt;対応)</h2>
+pLaTeX2eは、ptexライブラリ(ptex-texmf-2.0.tar.gz)に入っています。
 <p>
-pLaTeX2e &lt;2000/11/03&gt $BHG$+$i$NJQ99E@!'(B
+pLaTeX2e &lt;2000/11/03&gt 版からの変更点：
 <ul>
-<li><a href="../etc/plnews07.tex">TeX$B%U%!%$%k(B (JIS)</a>
-<li><a href="../etc/plnews07.dvi">DVI$B%U%!%$%k(B</a>
-<li><a href="../etc/plnews07.pdf">PDF$B%U%!%$%k(B</a>
+<li><a href="../etc/plnews07.tex">TeXファイル (JIS)</a>
+<li><a href="../etc/plnews07.dvi">DVIファイル</a>
+<li><a href="../etc/plnews07.pdf">PDFファイル</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpLaTeX &lt;1998/09/01&gt; (LaTeX &lt;1998/06/01&gt;$BBP1~(B)</h2>
-pLaTeX2e &lt;1998/02/17&gt $BHG$+$i$NJQ99E@!'(B
+<h2>■pLaTeX &lt;1998/09/01&gt; (LaTeX &lt;1998/06/01&gt;対応)</h2>
+pLaTeX2e &lt;1998/02/17&gt 版からの変更点：
 <ul>
-<li><a href="../etc/plnews04.tex">TeX$B%U%!%$%k(B (JIS)</a>
-<li><a href="../etc/plnews04.dvi">DVI$B%U%!%$%k(B</a>
-<li><a href="../etc/plnews04.pdf">PDF$B%U%!%$%k(B</a>
+<li><a href="../etc/plnews04.tex">TeXファイル (JIS)</a>
+<li><a href="../etc/plnews04.dvi">DVIファイル</a>
+<li><a href="../etc/plnews04.pdf">PDFファイル</a>
 </ul>
 
-<b>$BI,MW$J%U%!%$%k!'(B</b><br>
+<b>必要なファイル：</b><br>
 <ul>
-<li>pLaTeX$B%=!<%9%U%!%$%k!'$D$.$N$$$:$l$+(B
-    $B!J(B<a href="../etc/README980901.txt">$BIUB0$N(BREADME.txt</a>$B!K(B
+<li>pLaTeXソースファイル：つぎのいずれか
+    （<a href="../etc/README980901.txt">付属のREADME.txt</a>）
     <ul>
     <li><a href="../archives/ascii-ptex/platex/1998-09-01/pl19980901e.tar.gz">
         EUC (pl19980901e.tar.gz)</a>
@@ -78,55 +78,55 @@ pLaTeX2e &lt;1998/02/17&gt $BHG$+$i$NJQ99E@!'(B
     <li><a href="../archives/ascii-ptex/platex/1998-09-01/pl19980901s.tar.gz">
         Shift JIS (pl19980901s.tar.gz)</a>
     </ul>
-<li>LaTeX2e$B%=!<%9%U%!%$%k!'(B
+<li>LaTeX2eソースファイル：
     <a href="../archives/ascii-ptex/platex/1998-09-01/base-9806.tar.gz">
     base-9806.tar.gz</a>
 </ul>
 
-<b>$B=$@5%U%!%$%k!'(B</b><br>
+<b>修正ファイル：</b><br>
 <ul>
 <li><a href="../archives/ascii-ptex/platex/1998-09-01/plpatch.ltx">plpatch.ltx</a><br>
-  $BJ8=q%U%!%$%k$N%W%j%"%s%V%k$G!"(B
+  文書ファイルのプリアンブルで、
   <pre>
   \renewcommand{\mcdefault}{gt}
   </pre>
-  $B$N$h$&$K$7$FOBJ8$N%G%U%)%k%H=qBN$r;XDj$7$?$H$-!"(B
-  \selectfont$B%3%^%s%I$r<B9T$9$k$^$GH?1G$5$l$J$+$C$?$N$r=$@5$7$^$9!#(B
-  <br><b>$B99?7<j=g!'(B</b><br>
-  platex.ltx$B$HF1$8%G%#%l%/%H%j$KCV$$$F!"%U%)!<%^%C%H%U%!%$%k!J(Bplatex.fmt$B!K(B
-  $B$r:n$jD>$7$^$9!#(B
+  のようにして和文のデフォルト書体を指定したとき、
+  \selectfontコマンドを実行するまで反映されなかったのを修正します。
+  <br><b>更新手順：</b><br>
+  platex.ltxと同じディレクトリに置いて、フォーマットファイル（platex.fmt）
+  を作り直します。
 <p>
 <li><a href="../archives/ascii-ptex/platex/1998-09-01/jclasses.dtx">jclasses.dtx</a><br>
-  pl19980901{e,j,s}.tar.gz$B$K4^$^$l$F$$$k%/%i%9%U%!%$%k$K$D$$$F!"(B
-  $B0J2<$NE@$r=$@5$7$F$"$j$^$9!#(B
+  pl19980901{e,j,s}.tar.gzに含まれているクラスファイルについて、
+  以下の点を修正してあります。
   <ul>
-  <li>report,book$B%/%i%9$G!"(Bsecnumdepth$B%+%&%s%?$r(B-1$B0J2<$K$9$k$H!"(B
-      \chapter$B$K;XDj$7$?8+=P$7$,=PNO$5$l$J$$$N$r=$@5!J(B1998/12/24$B!K!#(B
-  <li>$B%/%i%9%*%W%7%g%s$K(Bmentuke($BLLIU$1(B)$B$r;XDj$9$k$H%(%i!<$K$J$k$N$r=$@5(B
-      $B!J(B1998/10/13$B!K!#(B
-  <li>report,book$B%/%i%9$G!"(Bchapter$BHV9f$,%<%m0J2<$N$H$-!"I=HV9f$K$=$NCM$,(B
-      $B=P$F$7$^$&$N$r=$@5!J(B1998/10/13$B!K!#(B
+  <li>report,bookクラスで、secnumdepthカウンタを-1以下にすると、
+      \chapterに指定した見出しが出力されないのを修正（1998/12/24）。
+  <li>クラスオプションにmentuke(面付け)を指定するとエラーになるのを修正
+      （1998/10/13）。
+  <li>report,bookクラスで、chapter番号がゼロ以下のとき、表番号にその値が
+      出てしまうのを修正（1998/10/13）。
   </ul>
-  <br><b>$B99?7<j=g!'(B</b><br>
+  <br><b>更新手順：</b><br>
   <ol>
-  <li>$B%+%l%s%H%G%#%l%/%H%j$r(BpLaTeX2e$B$r%$%s%9%H!<%k$7$?%G%#%l%/%H%j$K$9$k(B
-  <li>$B$=$N%G%#%l%/%H%j$K(Bjclasses.dtx$B$rCV$/(B
-  <li>pLaTeX$B$G(Bplcls.ins$B$r=hM}$9$k(B<br>
-      $B=*N;8e!"(Bjarticle.cls$B$d(Bjbook.cls$B$J$I$N%/%i%9%U%!%$%k$,:n@.$5$l$^$9!#(B
+  <li>カレントディレクトリをpLaTeX2eをインストールしたディレクトリにする
+  <li>そのディレクトリにjclasses.dtxを置く
+  <li>pLaTeXでplcls.insを処理する<br>
+      終了後、jarticle.clsやjbook.clsなどのクラスファイルが作成されます。
   </ol>
 <p>
 <li><a href="../archives/ascii-ptex/platex/1998-09-01/tascmac.sty">tascmac.sty</a><br>
-  itembox$B4D6-$G!"9`L\$K5SCm$rIU$1$k$HHV9f$,$*$+$7$/$J$k$N$r=$@5$7$F(B
-  $B$"$j$^$9!#(B
-  <br><b>$B99?7<j=g!'(B</b><br>
-  $B4{B8$N(Btascmac.sty$B$HF~$lBX$($^$9!#(B
+  itembox環境で、項目に脚注を付けると番号がおかしくなるのを修正して
+  あります。
+  <br><b>更新手順：</b><br>
+  既存のtascmac.styと入れ替えます。
 </ul>
 
 <hr>
-<h2>$B"#(BpLaTeX &lt;1998/02/17&gt;</h2>
+<h2>■pLaTeX &lt;1998/02/17&gt;</h2>
 <ul>
-<li>pLaTeX$B%=!<%9%U%!%$%k!'$D$.$N$$$:$l$+(B
-    $B!J(B<a href="../etc/README980217.txt">$BIUB0$N(BREADME.txt</a>$B!K(B
+<li>pLaTeXソースファイル：つぎのいずれか
+    （<a href="../etc/README980217.txt">付属のREADME.txt</a>）
     <ul>
     <li><a href="../archives/ascii-ptex/platex/1998-02-17/pl19980217e.tar.gz">
         EUC (pl19980217e.tar.gz)</a>
@@ -135,47 +135,47 @@ pLaTeX2e &lt;1998/02/17&gt $BHG$+$i$NJQ99E@!'(B
     <li><a href="../archives/ascii-ptex/platex/1998-02-17/pl19980217s.tar.gz">
         Shift JIS (pl19980217s.tar.gz)</a>
     </ul>
-<li>LaTeX2e$B%=!<%9%U%!%$%k!'(B
+<li>LaTeX2eソースファイル：
     <a href="../archives/ascii-ptex/platex/1998-02-17/base-9712.tar.gz">
     base-9712.tar.gz</a>
 </ul>
 <p>
-pLaTeX2e &lt;1997/07/02&gt$B$+$i$NJQ99E@$O!"(Bplnews03$B$K$^$H$a$F$"$j$^$9!#(B
+pLaTeX2e &lt;1997/07/02&gtからの変更点は、plnews03にまとめてあります。
 <ul>
-<li><a href="../etc/plnews03.tex">TeX$B%U%!%$%k(B (JIS)</a>
-<li><a href="../etc/plnews03.dvi">DVI$B%U%!%$%k(B</a>
-<li><a href="../etc/plnews03.pdf">PDF$B%U%!%$%k(B</a>
+<li><a href="../etc/plnews03.tex">TeXファイル (JIS)</a>
+<li><a href="../etc/plnews03.dvi">DVIファイル</a>
+<li><a href="../etc/plnews03.pdf">PDFファイル</a>
 </ul>
 
-$B%Q%C%A%U%!%$%k!'(B
+パッチファイル：
 <ul>
 <li><a href="../archives/ascii-ptex/platex/1998-02-17/pl980413.patch.gz.txt">
-$B%/%i%9%U%!%$%k$N=$@5!J(B1998/04/13$B!K(B</a><br>
+クラスファイルの修正（1998/04/13）</a><br>
 <li><a href="../archives/ascii-ptex/platex/1998-02-17/pl980409.patch.gz.txt">
-$B%/%i%9%U%!%$%k$N=$@5!J(B1998/04/09$B!K(B</a><br>
+クラスファイルの修正（1998/04/09）</a><br>
 <li><a href="../archives/ascii-ptex/platex/1998-02-17/pl980323.patch.gz.txt">
-$B%/%i%9%U%!%$%k$N=$@5!J(B1998/03/23$B!K(B</a><br>
+クラスファイルの修正（1998/03/23）</a><br>
 <li><a href="../archives/ascii-ptex/platex/1998-02-17/pl980227.patch.gz.txt">
-$B%/%i%9%U%!%$%k$H(Btascmac.sty$B$KBP$9$k=$@5!J(B1998/02/27$B!K(B</a><br>
+クラスファイルとtascmac.styに対する修正（1998/02/27）</a><br>
 </ul>
 
 
 <hr>
-<h2>$B"#(BpLaTeX &lt;1997/07/02&gt;+2</h2>
-pLaTeX &lt;1997/07/02&gt; $BHG$N=$@5%U%!%$%k$H$7$F!"(B
-$B0J2<$NFs$D$N%U%!%$%k$rG[I[$7$F$$$^$9!#(B
-$B>\:Y$O(B<a href="../etc/README970702+4.txt">$B$3$A$i(B</a>$B$r$4Mw$/$@$5$$!#(B
+<h2>■pLaTeX &lt;1997/07/02&gt;+2</h2>
+pLaTeX &lt;1997/07/02&gt; 版の修正ファイルとして、
+以下の二つのファイルを配布しています。
+詳細は<a href="../etc/README970702+4.txt">こちら</a>をご覧ください。
 <ul>
 <li><a href="../archives/ascii-ptex/platex/1997-07-02/plpatch.ltx">
-    plpatch.ltx</a>$B%Q%C%A%U%!%$%k(B $B%l%Y%k#2(B
+    plpatch.ltx</a>パッチファイル レベル２
 <li><a href="../archives/ascii-ptex/platex/1997-07-02/jclasses.dtx.gz">
-    $B%/%i%9%U%!%$%k(B v1.1h</a>
+    クラスファイル v1.1h</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpLaTeX &lt;1997/07/02&gt;</h2>
+<h2>■pLaTeX &lt;1997/07/02&gt;</h2>
 <a href="../archives/ascii-ptex/platex/1997-07-02/base-9706.tar.gz">
-  LaTeX2e &lt;1997/06/01&gt;</a>$B$KBP1~!#(B
+  LaTeX2e &lt;1997/06/01&gt;</a>に対応。
 <ul>
 <li><a href="../archives/ascii-ptex/platex/1997-07-02/pl970702e.tar.gz">
     EUC (pl970702e.tar.gz)</a>
@@ -184,20 +184,20 @@ pLaTeX &lt;1997/07/02&gt; $BHG$N=$@5%U%!%$%k$H$7$F!"(B
 <li><a href="../archives/ascii-ptex/platex/1997-07-02/pl970702s.tar.gz">
     Shift JIS (pl970702s.tar.gz)</a>
 </ul>
-$B%$%s%9%H!<%k$NJ}K!$O(B<a href="../etc/README970702.txt">$BIUB0$N(BREADME.txt</a>$B$r(B
-$B;2>H$7$F$/$@$5$$!#(B
+インストールの方法は<a href="../etc/README970702.txt">付属のREADME.txt</a>を
+参照してください。
 <p>
-pLaTeX2e &lt;1997/02/01&gt+2$B$+$i$NJQ99E@$O!"(Bplnews02$B$K$^$H$a$F$"$j$^$9!#(B
+pLaTeX2e &lt;1997/02/01&gt+2からの変更点は、plnews02にまとめてあります。
 <ul>
-<li><a href="../etc/plnews02.tex">TeX$B%U%!%$%k(B (JIS)</a>
-<li><a href="../etc/plnews02.dvi">DVI$B%U%!%$%k(B</a>
-<li><a href="../etc/plnews02.pdf">PDF$B%U%!%$%k(B</a>
+<li><a href="../etc/plnews02.tex">TeXファイル (JIS)</a>
+<li><a href="../etc/plnews02.dvi">DVIファイル</a>
+<li><a href="../etc/plnews02.pdf">PDFファイル</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpLaTeX &lt;1997/02/01&gt;+2</h2>
+<h2>■pLaTeX &lt;1997/02/01&gt;+2</h2>
 <a href="../archives/ascii-ptex/platex/1997-02-01/base-9612.tar.gz">
-  LaTeX2e &lt;1996/12/01&gt;</a>$B$KBP1~!#(B
+  LaTeX2e &lt;1996/12/01&gt;</a>に対応。
 <ul>
 <li><a href="../archives/ascii-ptex/platex/1997-02-01/pl9702e.tar.gz">
     EUC (pl9702e.tar.gz)</a>
@@ -206,20 +206,20 @@ pLaTeX2e &lt;1997/02/01&gt+2$B$+$i$NJQ99E@$O!"(Bplnews02$B$K$^$H$a$F$"$j$^$9!
 <li><a href="../archives/ascii-ptex/platex/1997-02-01/pl9702s.tar.gz">
     Shift JIS (pl9702s.tar.gz)</a>
 </ul>
-$B%$%s%9%H!<%kJ}K!$O(B<a href="../etc/README970201.txt">$BIUB0$N(BREADME.txt</a>$B$r(B
-$B;2>H$7$F$/$@$5$$!#(B
+インストール方法は<a href="../etc/README970201.txt">付属のREADME.txt</a>を
+参照してください。
 <p>
-pLaTeX2e &lt;1996/03/05&gt; $B$+$i$NJQ99E@$O(Bplnews01$B$K$^$H$a$F$"$j$^$9!#(B
+pLaTeX2e &lt;1996/03/05&gt; からの変更点はplnews01にまとめてあります。
 <ul>
-<li><a href="../etc/plnews01.tex">TeX$B%U%!%$%k(B (JIS)</a>
-<li><a href="../etc/plnews01.dvi">DVI$B%U%!%$%k(B</a>
-<li><a href="../etc/plnews01.pdf">PDF$B%U%!%$%k(B</a>
+<li><a href="../etc/plnews01.tex">TeXファイル (JIS)</a>
+<li><a href="../etc/plnews01.dvi">DVIファイル</a>
+<li><a href="../etc/plnews01.pdf">PDFファイル</a>
 </ul>
 
 <hr>
-<h2>$B"#(BpLaTeX &lt;1996/03/05&gt;</h2>
+<h2>■pLaTeX &lt;1996/03/05&gt;</h2>
 <a href="../archives/ascii-ptex/platex/1996-03-05/base-9512.tar.gz">
-  LaTeX2e &lt;1995/12/01&gt;</a>$B$KBP1~!#(B
+  LaTeX2e &lt;1995/12/01&gt;</a>に対応。
 <ul>
 <li><a href="../archives/ascii-ptex/platex/1996-03-05/pl9603e.tar.gz">
     EUC (pl9603e.tar.gz)</a>
@@ -230,24 +230,24 @@ pLaTeX2e &lt;1996/03/05&gt; $B$+$i$NJQ99E@$O(Bplnews01$B$K$^$H$a$F$"$j$^$9!#
 </ul>
 
 <hr>
-<h2>$B"#(B<a name="platex209">pLaTeX 2.09, jLaTeX 2.09</a></h2>
-$B!X=DAHBP1~(B $B%Q!<%=%J%kF|K\8l(B TeX$B!Y!J%"%9%-!<!K$KIUB0$7$F$$$?!"(B
-$B%9%?%$%k%U%!%$%k$d%^%/%m%U%!%$%k$G$9!#(B
-<a href="../archives/ascii-ptex/platex/platex209.tar.gz">platex209.tar.gz</a>$B$H(B
-<a href="../archives/ascii-ptex/platex/pl209.tar.gz">pl209.tar.gz</a>$B$H$,$"$j$^$9!#(B
-$B0c$$$O!"E83+$5$l$k%G%#%l%/%H%j$H%U%!%$%k$NL>A0$G$9!#(B
-platex209.tar.gz $B$OK\Mh$N%U%!%$%kL>!"(Bpl209.tar.gz $B$O!V(B8.3 $B7A<0!W$NC;$$(B
-$B%U%!%$%kL>$H$J$C$F$$$^$9!#(B
+<h2>■<a name="platex209">pLaTeX 2.09, jLaTeX 2.09</a></h2>
+『縦組対応 パーソナル日本語 TeX』（アスキー）に付属していた、
+スタイルファイルやマクロファイルです。
+<a href="../archives/ascii-ptex/platex/platex209.tar.gz">platex209.tar.gz</a>と
+<a href="../archives/ascii-ptex/platex/pl209.tar.gz">pl209.tar.gz</a>とがあります。
+違いは、展開されるディレクトリとファイルの名前です。
+platex209.tar.gz は本来のファイル名、pl209.tar.gz は「8.3 形式」の短い
+ファイル名となっています。
 
 <p>
 <center>
 <table border align=center hspace=5 vspace=5>
-<caption>platex209.tar.gz$B$H(Bpl209.tar.gz$B$N0c$$(B</caption>
+<caption>platex209.tar.gzとpl209.tar.gzの違い</caption>
 <tr><td></td>
     <th>platex209.tar.gz</th><th>pl209.tar.gz</th></tr>
-<tr><th>$B%G%#%l%/%H%jL>(B</th>
+<tr><th>ディレクトリ名</th>
     <td><tt>platex209</tt></td>         <td><tt>pl209</tt></td></tr>
-<tr><th>$B0[$J$k%U%!%$%kL>(B</th>
+<tr><th>異なるファイル名</th>
     <td><tt>am_webmac.tex   </tt></td>  <td><tt>am_webma.tex</tt></td></tr>
 <tr><td></td>
     <td><tt>ascjletter.sty  </tt></td>  <td><tt>ascjlett.sty</tt></td></tr>

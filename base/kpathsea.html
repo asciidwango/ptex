@@ -1,73 +1,73 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (kpathsearch)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>$B%i%$%V%i%j8!:w%Q%9$K$D$$$F(B</h2>
-$B$3$3$G$O!"(Bkpathsearch$B%i%$%V%i%j$K$h$k!"?7$7$$%i%$%V%i%j8!:w%Q%9$K$D$$$F(B
-$B@bL@$r$7$F$$$^$9!#(B
+<h2>ライブラリ検索パスについて</h2>
+ここでは、kpathsearchライブラリによる、新しいライブラリ検索パスについて
+説明をしています。
 <p>
 
 <ul>
-<li><a href="#kpathsea">kpathsearch$B$K$D$$$F(B</a>
-<li><a href="#lsr">ls-R$B$K$D$$$F(B</a>
-<li><a href="#kpsewhich">kpsewhich$B$K$D$$$F(B</a>
+<li><a href="#kpathsea">kpathsearchについて</a>
+<li><a href="#lsr">ls-Rについて</a>
+<li><a href="#kpsewhich">kpsewhichについて</a>
 </ul>
 
 <hr>
-<h3><a name="kpathsea">$B"#(Bkpathsearch$B$K$D$$$F(B</a></h3>
+<h3><a name="kpathsea">■kpathsearchについて</a></h3>
 
-pTeX 2.0$B0J9_$O!"%U%)%s%H%U%!%$%k$d%^%/%m%U%!%$%k$rC5$7$K$$$/$H$-!"(B
-kpathsearch$B%i%$%V%i%j$rMQ$$$F%G%#%9%/Fb$r8!:w$7$^$9!#(B
+pTeX 2.0以降は、フォントファイルやマクロファイルを探しにいくとき、
+kpathsearchライブラリを用いてディスク内を検索します。
 <p>
-kpathsearch$B%i%$%V%i%j$N@_Dj%U%!%$%k$O!"(B
-<a href="../etc/texmf.cnf">texmf.cnf</a>$B$H$$$&%U%!%$%k$G$9!#(B
-$BDL>o!"(B$TEXMF/web2c$B%G%#%l%/%H%j$K<}$a$i$l$F$$$^$9!#(B
-$B4D6-JQ?t(B TEXMFCNF $B$K!"(Btexmf.cnf$B$N$"$k%G%#%l%/%H%j$r;XDj$9$l$P!"(B
-$B%^%k%A%f!<%64D6-$N>l9g$J$I$G!"8D?M$4$H$K@_Dj$rJQ99$9$k$3$H$b$G$-$^$9!#(B
+kpathsearchライブラリの設定ファイルは、
+<a href="../etc/texmf.cnf">texmf.cnf</a>というファイルです。
+通常、$TEXMF/web2cディレクトリに収められています。
+環境変数 TEXMFCNF に、texmf.cnfのあるディレクトリを指定すれば、
+マルチユーザ環境の場合などで、個人ごとに設定を変更することもできます。
 <p>
-texmf.cnf$BFb$G$O!"$D$.$N$h$&$K$7$F8!:w%Q%9$r@_Dj$7$^$9!#(B
+texmf.cnf内では、つぎのようにして検索パスを設定します。
 <pre>
     TEXINPUTS.platex = .:$TEXMF/tex/platex2e//:$TEXMF/tex/latex2e//:$TEXMF/tex//
 </pre>
-$B>e5-$NNc$G$O!"(Bplatex$B$H$$$&%3%^%s%I$N4D6-JQ?t(BTEXINPUTS$B$N@_Dj$r9T$C$F$$$^$9!#(B
-$B$3$N$h$&$K!"(Bkpathsearch$B$G$O!"!V2?!9$N%3%^%s%I$N4D6-JQ?t!W$N$h$&$J;XDj$,(B
-$B2DG=$K$J$C$F$$$^$9!#(B
+上記の例では、platexというコマンドの環境変数TEXINPUTSの設定を行っています。
+このように、kpathsearchでは、「何々のコマンドの環境変数」のような指定が
+可能になっています。
 <p>
-$B$J$*!"(B$TEXMF$B$O!"(BTeX$B$N%i%$%V%i%j%G%#%l%/%H%j$N%k!<%H$,@_Dj$5$l$F$$$kJQ?t$G$9!#(B
-$B%G%U%)%k%H$G$O!"(B/usr/local/lib/texmf $B%G%#%l%/%H%j$G$9!#(B
+なお、$TEXMFは、TeXのライブラリディレクトリのルートが設定されている変数です。
+デフォルトでは、/usr/local/lib/texmf ディレクトリです。
 <p>
-$B4N?4$N8!:w%Q%9$G$9$,!"@h$[$I$NNc$G$O!"(B
+肝心の検索パスですが、先ほどの例では、
 <ol>
-<li>. ($B%+%l%s%H%G%#%l%/%H%j(B)
+<li>. (カレントディレクトリ)
 <li>$TEXMF/tex/platex2e//
 <li>$TEXMF/tex/latex2e//
 <li>$TEXMF/tex//
 </ol>
-$B$N$h$&$J=g=x$GC5$7$K$$$-$^$9!#$3$3$G!V(B//$B!W$H$$$&I=5-$O!"(B
-$B!V%5%V%G%#%l%/%H%j$b8!:w$;$h!W$H$$$&I=5-$G$9!#(B
-$B$7$?$,$C$F!"(Bkpathsearch$B%i%$%V%i%j$rMQ$$$k$H!"(B
+のような順序で探しにいきます。ここで「//」という表記は、
+「サブディレクトリも検索せよ」という表記です。
+したがって、kpathsearchライブラリを用いると、
 <pre>
     TEXINPUTS=.:$TEXMF/tex/platex2e/base:$TEXMF/tex/platex2e/misc:
                 $TEXMF/tex/latex2e/base:$TEXMF/tex/latex2e/contrib:
                 ... :$TEXMF/tex/amstex: ... $TEXMF/tex/plain ...:
 </pre>
-$B$N$h$&$K!"$9$Y$F$N%G%#%l%/%H%j$r;XDj$9$kI,MW$,$J$$$N$G!"$H$F$b4JC1$G!"(B
-$B$o$+$j$d$9$/$J$j$^$9!#(B
+のように、すべてのディレクトリを指定する必要がないので、とても簡単で、
+わかりやすくなります。
 <p>
-$B#2=E%9%i%C%7%e!V(B//$B!W$rIU$1$J$$$H!"%5%V%G%#%l%/%H%jFb$N%U%!%$%k$rC5$7$K(B
-$B$O$$$-$^$;$s!#(B
+２重スラッシュ「//」を付けないと、サブディレクトリ内のファイルを探しに
+はいきません。
 <p>
-$B$D$.$N$h$&$K!"%G%#%l%/%H%j%Q%9$NESCf$GMQ$$$k$3$H$b$G$-$^$9!#(B
+つぎのように、ディレクトリパスの途中で用いることもできます。
 <pre>
     TFMFONTS = .:$TEXMF/fonts//tfm
 </pre>
-$B$3$N$h$&$KMQ$$$k$H!"(B$TEXMF/fonts$B%G%#%l%/%H%j$N2<$K$"$k!"(B
-$B:G8e$,!V(Btfm$B!W$N%G%#%l%/%H%j$K$"$k%U%!%$%k$@$1$rC5$7!"(B
-$B!V(Bsrc$B!W$d!V(Bpk$B!W%G%#%l%/%H%j$J$I$K$O%"%/%;%9$7$^$;$s!#(B
+このように用いると、$TEXMF/fontsディレクトリの下にある、
+最後が「tfm」のディレクトリにあるファイルだけを探し、
+「src」や「pk」ディレクトリなどにはアクセスしません。
 <pre>
     $TEXMF/fonts/adobe/.../tfm
     $TEXMF/fonts/public/cm/tfm
@@ -76,44 +76,44 @@ texmf.cnf$BFb$G$O!"$D$.$N$h$&$K$7$F8!:w%Q%9$r@_Dj$7$^$9!#(B
 </pre>
 <p>
 <hr>
-<h3><a name="lsr">$B"#(Bls-R</a></h3>
-kpathsearch$B%i%$%V%i%j$O!"JXMx$J$N$G$9$,!"(B
-$B%G%#%l%/%H%j9=B$$,?<$/$J$C$F$$$/$K$D$l!"(B
-$B%U%!%$%k$r8+$D$1$@$9$^$G$N;~4V$,$+$+$C$F$-$^$9!#(B
+<h3><a name="lsr">■ls-R</a></h3>
+kpathsearchライブラリは、便利なのですが、
+ディレクトリ構造が深くなっていくにつれ、
+ファイルを見つけだすまでの時間がかかってきます。
 <p>
-$B%U%!%$%k8!:w$K;~4V$,$+$+$k$h$&$K$J$C$F$-$?>l9g$O!"(B
-$B$D$.$N%3%^%s%I$r<B9T$7$F!"(B$TEXMF$B%G%#%l%/%H%j$K!V(Bls-R$B!W$H$$$&L>A0$N(B
-$B%U%!%$%k$r:n$j$^$9!#(B
+ファイル検索に時間がかかるようになってきた場合は、
+つぎのコマンドを実行して、$TEXMFディレクトリに「ls-R」という名前の
+ファイルを作ります。
 <pre>
     ls -R $TEXMF &gt $TEXMF/ls-R
 </pre>
-ls-R$B$O!"(B$TEXMF$B%G%#%l%/%H%j$+$i$G$O$J$/!"%k!<%H%G%#%l%/%H%j$+$i$G$"$k(B
-$B$3$H$KCm0U$r$7$F$/$@$5$$!#(B
+ls-Rは、$TEXMFディレクトリからではなく、ルートディレクトリからである
+ことに注意をしてください。
 <p>
 <hr>
-<h3><a name="kpsewhich">$B"#(Bkpsewhich</a></h3>
-$B8!:w%Q%9$K%5%V%G%#%l%/%H%j$r;XDj$7$J$/$F$b$h$$$N$G!"(B
-$B@_Dj$rD4$Y$k$N$O4JC1$K$J$j$^$7$?$,!"$=$N$V$s!"$I$3$K$"$k%U%!%$%k$,(B
-$BFI$_9~$^$l$F$$$k$N$+$rD4$Y$k$3$H$,Fq$7$/$J$j$^$7$?!#(B
-$B$^$?!"(BTeX$B$N%i%$%V%i%j%G%#%l%/%H%j$N3,AX$,?<$/$J$C$?$N$G!"(B
-$B0l$D0l$DC5$9$N$b$?$$$X$s$G$9!#(B
+<h3><a name="kpsewhich">■kpsewhich</a></h3>
+検索パスにサブディレクトリを指定しなくてもよいので、
+設定を調べるのは簡単になりましたが、そのぶん、どこにあるファイルが
+読み込まれているのかを調べることが難しくなりました。
+また、TeXのライブラリディレクトリの階層が深くなったので、
+一つ一つ探すのもたいへんです。
 <p>
-$B$3$N$h$&$K!"$I$N%U%!%$%k$,FI$_9~$^$l$F$$$k$N$+$rD4$Y$k$?$a$N%W%m%0%i%`$,(B
-<b>kpsewhich</b>$B$G$9!#(B
-$B$3$N%W%m%0%i%`$N%=!<%9$O!"(Bkpathsearch$B%i%$%V%i%j$N%=!<%9$H0l=o$KF~$C$F$$$^$9!#(B
+このように、どのファイルが読み込まれているのかを調べるためのプログラムが
+<b>kpsewhich</b>です。
+このプログラムのソースは、kpathsearchライブラリのソースと一緒に入っています。
 <p>
-$B;H$$J}$O!"(B
+使い方は、
 <pre>
     kpsewhich cmr10.tfm
 </pre>
-$B$N$h$&$K$9$l$P!"$=$N%U%!%$%k$,$"$k>l=j$,!"(B
+のようにすれば、そのファイルがある場所が、
 <pre>
     /usr/local/lib/texmf/public/cm/tfm/cmr10.tfm
 </pre>
-$B$N$h$&$KI=<($5$l$^$9!#(B
+のように表示されます。
 <p>
-$B$^$?!"FCDj$N%W%m%0%i%`$N4D6-JQ?t$rD4$Y$k$H$-$K$O!"(B
-$B$D$.$N$h$&$K$7$^$9!#(B
+また、特定のプログラムの環境変数を調べるときには、
+つぎのようにします。
 <pre>
     kpsewhich -program platex -expand '$TEXINPUTS'
 </pre>

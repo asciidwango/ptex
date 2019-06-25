@@ -1,27 +1,27 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (fontsize)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>$B%U%)%s%H$K$D$$$F(B</h2>
+<h2>フォントについて</h2>
 
-$BJ8=q$r%3%s%Q%$%k$7(BDVI$B$r:n@.$9$kCJ3,$^$G$O!"(BTFM$B$H(BJFM$B%U%!%$%k$7$+;2>H$7$^$;$s$N$G!"(B
-$B$I$N=qBN$bG$0U$N%5%$%:$G;HMQ$9$k$3$H$,$G$-$^$9$,!":n@.$5$l$?(BDVI$B$r8+$?$j!"(B
-$B0u:~$9$k$K$O$=$NBg$-$5$KBP1~$9$k%S%C%H%^%C%W%U%)%s%H$,I,MW$G$9!#(B
-$BI,MW$H$J$k%S%C%H%^%C%W%U%)%s%H$O!"$=$NJ8;z$NBg$-$5$@$1$G$J$/!"(B
-$B=PNO$9$k%G%P%$%9$N2rA|EY$G$b0[$J$k$3$H$KCm0U$r$7$F$/$@$5$$!#(B
+文書をコンパイルしDVIを作成する段階までは、TFMとJFMファイルしか参照しませんので、
+どの書体も任意のサイズで使用することができますが、作成されたDVIを見たり、
+印刷するにはその大きさに対応するビットマップフォントが必要です。
+必要となるビットマップフォントは、その文字の大きさだけでなく、
+出力するデバイスの解像度でも異なることに注意をしてください。
 <p>
-$B$D$.$NI=$O!"BeI=E*$J5i?t$H2rA|EY$GMQ$$$i$l$k$H$-$N%0%j%U%U%!%$%k$N(B
-$BBg$-$5$r$^$H$a$?$b$N$G$9!#@5$7$/0u:~$G$-$J$$$H$-$O!"L\E*$NBg$-$5$N(B
-$B%0%j%U%U%!%$%k$,$"$k$+$I$&$+$r3NG'$7$F$/$@$5$$!#(B
+つぎの表は、代表的な級数と解像度で用いられるときのグリフファイルの
+大きさをまとめたものです。正しく印刷できないときは、目的の大きさの
+グリフファイルがあるかどうかを確認してください。
 <p>
-$B$3$N$H$-!";HMQ$9$k(BDVI$B%I%i%$%P$,!"L\E*$N%U%)%s%H$r8+$D$1$F$$$k$+$I$&$+(B
-$B$b3NG'$7$F$/$@$5$$!#4D6-JQ?t$d@_Dj%U%!%$%k$J$I$G8!:w%Q%9$r@_Dj$G$-$k(B
-$B$h$&$K$J$C$F$$$k$3$H$,B?$$$H;W$$$^$9!#>\:Y$O!"(BDVI$B%I%i%$%P$N@bL@=q$r(B
-$B;2>H$7$F$/$@$5$$!#(B
+このとき、使用するDVIドライバが、目的のフォントを見つけているかどうか
+も確認してください。環境変数や設定ファイルなどで検索パスを設定できる
+ようになっていることが多いと思います。詳細は、DVIドライバの説明書を
+参照してください。
 <p>
 <hr>
 <pre>

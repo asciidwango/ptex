@@ -2,13 +2,13 @@
 <!-- TeX page -->
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (sources)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2><a name="ptexsrc">pTeX$B$N%=!<%9(B</a></h2>
-$B$3$3$G$O!"(B<a href="#ftphosts">pTeX$BG[I[%5%$%H(B</a>$B$GG[I[$7$F$$$k%=!<%9%U%!%$%k$K$D$$$F@bL@$7$F$$$^$9!#(B
+<h2><a name="ptexsrc">pTeXのソース</a></h2>
+ここでは、<a href="#ftphosts">pTeX配布サイト</a>で配布しているソースファイルについて説明しています。
 <p>
 <ul>
 <li><a href="#unixptex">pTeX</a>
@@ -19,170 +19,170 @@
 </ul>
 <p>
 
-$B$$$/$D$+$N%*%Z%l!<%F%#%s%0%7%9%F%`MQ$K!"(B
-$B%3%s%Q%$%k:Q$_$N%P%$%J%j!&%Q%C%1!<%8$,G[I[$5$l$F$$$^$9!#(B
+いくつかのオペレーティングシステム用に、
+コンパイル済みのバイナリ・パッケージが配布されています。
 <p>
 <ul>
 <li><a href="http://www.fsci.fuk.kindai.ac.jp/~kakuto/win32-ptex/">
-    win32$BHG(B</a>($B6a5&Bg3X$N3QF#$5$s$K$h$k(B)
+    win32版</a>(近畿大学の角藤さんによる)
 <p>
 <li><a href="http://macptex.appi.keio.ac.jp/~uchiyama/macptex.html">
-    MacOS$BHG(B</a>$B!"(B
+    MacOS版</a>、
 	<a href="http://macptex.appi.keio.ac.jp/~uchiyama/mklinux.html">
-    MkLinux</a>($B7DXf5A=NBg3X$NFb;3$5$s$K$h$k(B)
+    MkLinux</a>(慶應義塾大学の内山さんによる)
 <p>
 <li><a href="http://math.kyokyo-u.ac.jp/~kiriki/ptex/">
-    MacOS X$BHG(B</a>($B6MLZ$5$s$K$h$k(B)
+    MacOS X版</a>(桐木さんによる)
 <p>
-<li>Linux$BHG!'(B
-	<a href="http://www.debian.or.jp/">Debian JP</a>$B!"(B
-	<a href="http://www.jp.redhat.com/">RedHat</a>$B!"(B
-	<a href="http://vinelinux.org/">Vine</a>$B!"(B
-	<a href="http://www.mlb.co.jp/">MLD Linux</a>$B$J$I!"(B
-	$B$[$H$s$I$N%G%#%9%H%j%S%e!<%7%g%s$GMQ0U$5$l$F$$$^$9!#(B
+<li>Linux版：
+	<a href="http://www.debian.or.jp/">Debian JP</a>、
+	<a href="http://www.jp.redhat.com/">RedHat</a>、
+	<a href="http://vinelinux.org/">Vine</a>、
+	<a href="http://www.mlb.co.jp/">MLD Linux</a>など、
+	ほとんどのディストリビューションで用意されています。
 <p>
-<li><a href="http://www.jp.freebsd.org/">FreeBSD</a>$B!"(B
-	<a href="http://www.jp.netbsd.org/ja/JP/">NetBSD</a>$B!"(B
+<li><a href="http://www.jp.freebsd.org/">FreeBSD</a>、
+	<a href="http://www.jp.netbsd.org/ja/JP/">NetBSD</a>、
 	<a href="http://www.openbsd.org/ja/">OpenBSD</a>
 <p>
 <li><a href="http://www.vector.co.jp/authors/VA010974/">
-    DOS$BHG(B pTeX</a>($B>>LZ$5$s$K$h$k(B)
+    DOS版 pTeX</a>(松木さんによる)
 <p>
 <li><a href="http://oku.edu.mie-u.ac.jp/~okumura/texwiki/?OS2-TeX">
-    OS/2$BHG(B pTeX</a>($B_7ED@P$5$s$K$h$k(B)
+    OS/2版 pTeX</a>(澤田石さんによる)
 <p>
-<li><a href="../archives/ascii-ptex/ptex217/windll">Win DLL$BHG(B</a>($B%=%K!<$N^I;3$5$s$K$h$k(B)
+<li><a href="../archives/ascii-ptex/ptex217/windll">Win DLL版</a>(ソニーの淺山さんによる)
 </ul>
 
 
 <p>
 <hr>
 <a name="unixptex">
-<h3>$B"#(BpTeX 3.1.11 (TeX 3.141592, Web2C 7.5.4)</h3>
+<h3>■pTeX 3.1.11 (TeX 3.141592, Web2C 7.5.4)</h3>
 </a>
-pTeX 3.1.10 $B$+$i$NJQ99E@!'(B
+pTeX 3.1.10 からの変更点：
 <ul>
-<li>ptex: 2$B%P%$%HJ8;z4V$N%0%k!<$,$*$+$7$/$J$k%P%0$r=$@5(B
-<li>      \{y|t}baselineshift $B$,?t<0$K$bH?1G$5$l$k$h$&$K=$@5(B
+<li>ptex: 2バイト文字間のグルーがおかしくなるバグを修正
+<li>      \{y|t}baselineshift が数式にも反映されるように修正
 </ul>
 <ul>
-<li><a href="../etc/INSTALL-ptex3_1_11.txt">$B%$%s%9%H!<%k<j=g(B</a>
-<li>pTeX$B%=!<%9!'(B
+<li><a href="../etc/INSTALL-ptex3_1_11.txt">インストール手順</a>
+<li>pTeXソース：
     <a href="../archives/ascii-ptex/tetex/ptex-src-3.1.11.tar.gz">ptex-src-3.1.11.tar.gz</a>
-<li>pTeX$B%i%$%V%i%j!'(B
+<li>pTeXライブラリ：
     <a href="../archives/ascii-ptex/tetex/ptex-texmf-2.5.tar.gz">ptex-texmf-2.5.tar.gz</a>
 </ul>
 
 <p>
 <hr width="50%" align="left">
-<a href="ptex-obsolete.html">$B5l%P!<%8%g%s$N(BpTeX$B%=!<%9%U%!%$%k(B</a>
-$B!J(B<a href="hints.html#hints">$B%$%s%9%H!<%k$N%R%s%H(B</a>$B$H(B
-<a href="hints.html#bugs">$B%P%0>pJs(B</a>$B!K(B
+<a href="ptex-obsolete.html">旧バージョンのpTeXソースファイル</a>
+（<a href="hints.html#hints">インストールのヒント</a>と
+<a href="hints.html#bugs">バグ情報</a>）
 
 <p>
 <hr>
 <a name="platex">
-<h3>$B"#(BpLaTeX &lt;2006/11/10&gt; (LaTeX &lt;2003/12/01&gt;$BBP1~(B)</h3>
+<h3>■pLaTeX &lt;2006/11/10&gt; (LaTeX &lt;2003/12/01&gt;対応)</h3>
 </a>
-pLaTeX2e$B$O!"(Bptex$B%i%$%V%i%j(B(<a href="../archives/ascii-ptex/tetex/ptex-texmf-2.5.tar.gz">ptex-texmf-2.5.tar.gz</a>)$B$KF~$C$F$$$^$9!#(B
+pLaTeX2eは、ptexライブラリ(<a href="../archives/ascii-ptex/tetex/ptex-texmf-2.5.tar.gz">ptex-texmf-2.5.tar.gz</a>)に入っています。
 <p>
-pLaTeX2e &lt;2006/01/17&gt; $BHG$+$i$NJQ99E@!'(B
+pLaTeX2e &lt;2006/01/17&gt; 版からの変更点：
 <ul>
-<li>plfonts.dtx: $a^\mathrm{b}, a_\mathrm{b}$$B$N$h$&$J5-=R$r$7$?>l9g$K%(%i!<$K$J$kLdBj$KBP=h(B
-<li>jclasses.dtx: $B2r@b$rDI2C(B
-<li>plfonts.dtx: \reDeclareMathAlphabet$B$r(BLaTeX &lt;2005/12/01&gti; $B$G?t<0MQ=qBNJQ99L?Na$,(Brubust$B$K$J$C$?$N$KBP1~(B
-<li>jclasses.dtx: pLaTeX 209$B8_49%b!<%I$G?t<0(Bfam$B$,=EJ#;HMQ$5$l$F$$$?$N$r2r>C(B
-<li>tascmac.sty: itembox,screen$B4D6-$G7S@~$,$:$l$k%P%0$r=$@5(B
+<li>plfonts.dtx: $a^\mathrm{b}, a_\mathrm{b}$のような記述をした場合にエラーになる問題に対処
+<li>jclasses.dtx: 解説を追加
+<li>plfonts.dtx: \reDeclareMathAlphabetをLaTeX &lt;2005/12/01&gti; で数式用書体変更命令がrubustになったのに対応
+<li>jclasses.dtx: pLaTeX 209互換モードで数式famが重複使用されていたのを解消
+<li>tascmac.sty: itembox,screen環境で罫線がずれるバグを修正
 </ul>
 
 <p>
 <hr width="50%" align="left">
-<a href="platex-obsolete.html">$B5l%P!<%8%g%s$N(BpLaTeX$B%=!<%9%U%!%$%k(B</a>
+<a href="platex-obsolete.html">旧バージョンのpLaTeXソースファイル</a>
 
 <p>
 <hr>
 <a name="tools"></a>
-<h3><a name="dvipsk">$B"#(Bdvipsk</h3>
-TeX$B$G@8@.$7$?(BDVI$B%U%!%$%k$r(BPostscript$B%U%!%$%k$KJQ49$9$k%W%m%0%i%`$X$N(B
-$BF|K\8l%Q%C%A$G$9!#(B
-$B>\:Y$K$D$$$F$O(B<a href="../etc/README.jpatch.txt">README.jpatch</a>$B$r(B
-$B;2>H$7$F$/$@$5$$(B(<a href="../etc/ChangeLog.jpatch.txt">$BJQ99MzNr(B</a>)$B!#(B
+<h3><a name="dvipsk">■dvipsk</h3>
+TeXで生成したDVIファイルをPostscriptファイルに変換するプログラムへの
+日本語パッチです。
+詳細については<a href="../etc/README.jpatch.txt">README.jpatch</a>を
+参照してください(<a href="../etc/ChangeLog.jpatch.txt">変更履歴</a>)。
 
 <ul>
 <li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.7b.tar.gz">dvipsk-jpatch-p1.7b.tar.gz</a><br>
-teTeX 3.0$B$N%=!<%9$K4^$^$l$F$$$k!"(Bdvipsk 5.95a$B$KBP$9$kF|K\8l2=%Q%C%A$G$9!#(B<br>
+teTeX 3.0のソースに含まれている、dvipsk 5.95aに対する日本語化パッチです。<br>
 </ul>
 
 
 <p>
 <hr>
-<h3><a name="makejvf">$B"#(Bmakejvf</h3>
-$BF|K\8l(BVF$B%U%!%$%k:n@.%W%m%0%i%`$G$9!#(B
-$B>\:Y$K$D$$$F$O(B<a href="../etc/README.makejvf.txt">README.txt</a>$B$r(B
-$B;2>H$7$F$/$@$5$$!#(B
+<h3><a name="makejvf">■makejvf</h3>
+日本語VFファイル作成プログラムです。
+詳細については<a href="../etc/README.makejvf.txt">README.txt</a>を
+参照してください。
 
 <ul>
 <li><a href="../archives/ascii-ptex/jvf/makejvf-1.1a.tar.gz">makejvf-1.1a.tar.gz</a>
 </ul>
 
-$B0J2<$N%U%!%$%k$O!"(Bmakejvf$B$G:n@.$7$?(BVF$B%U%!%$%k$G$9!#(B
-standard.tar.gz$B$*$h$S(Bnimin-ngoth.tar.gz$B$N%U%!%$%k$O!"(Bptex-texmf$B$K(B
-$B4^$^$l$F$$$k%U%!%$%k$HF1$8$b$N$G$9!#(B
+以下のファイルは、makejvfで作成したVFファイルです。
+standard.tar.gzおよびnimin-ngoth.tar.gzのファイルは、ptex-texmfに
+含まれているファイルと同じものです。
 <ul>
 <li><a href="../archives/ascii-ptex/jvf/standard.tar.gz">standard.tar.gz</a><br>
-    pTeX$B4pK\OBJ8=qBN(B(min5$B!A(B10, goth5$B!A(B10, tmin5$B!A(B10, tgoth5$B!A(B10)
+    pTeX基本和文書体(min5〜10, goth5〜10, tmin5〜10, tgoth5〜10)
 <li><a href="../archives/ascii-ptex/jvf/nmin-ngoth.tar.gz">nmin-ngoth.tar.gz</a><br>
-    nmin5$B!A(B10, ngoth5$B!A(B10
+    nmin5〜10, ngoth5〜10
 <li><a href="../archives/ascii-ptex/jvf/jis.tar.gz">jis.tar.gz</a><br>
-    JIS$BAHHG5,B'$K9g$o$;$?%U%)%s%H(B(jis, jisg, jisgn$B!"(Bjis-v, jisg-v, jisgn-v)
+    JIS組版規則に合わせたフォント(jis, jisg, jisgn、jis-v, jisg-v, jisgn-v)
 <li><a href="../archives/ascii-ptex/jvf/morisawa.tar.gz">morisawa.tar.gz</a><br>
-    $B%b%j%5%o4pK\(B5$B=qBN(B($B%j%e%&%_%s(BL$B!"Cf%4%7%C%/(BBBB$B!"B@%_%s!"B@%4!"$8$e$s(B101)
+    モリサワ基本5書体(リュウミンL、中ゴシックBBB、太ミン、太ゴ、じゅん101)
 </ul>
 
 
 <p>
 <hr>
-<h3><a name="mendexk">$B"#(Bmendexk</h3>
-makeindex$B8_49$N:w0z@07A%D!<%k$G$9!#$D$.$N$h$&$JFCD'$,$"$j$^$9!#(B
+<h3><a name="mendexk">■mendexk</h3>
+makeindex互換の索引整形ツールです。つぎのような特徴があります。
 <ul>
-<li>$B4pK\E*$K(B makeindex $B>e0L8_49!#(B
-<li>$BOBJ8:w0z$NFI$_$NF~NO$r8:$i$9$?$a$K!"FI$_$H=O8l$rBP1~$5$;$k(B
-	$B<-=q%U%!%$%k$r;HMQ!#(B
-<li>$BOBJ8$NFI$_$O<-=q=g$K<+F0JQ49!#(B
-<li>$B?t;z!&5-9f(B-&gt;$B2$J8(B-&gt;$BOBJ8$N=g$K$3$@$o$i$J$$:w0z$N:n@.$,2DG=!#(B
-<li>$B$?$@$7!"(Bmakeindex$B$HHf$Y$F<B9TB.EY$,Hs>o$KCY$$!#(B
+<li>基本的に makeindex 上位互換。
+<li>和文索引の読みの入力を減らすために、読みと熟語を対応させる
+	辞書ファイルを使用。
+<li>和文の読みは辞書順に自動変換。
+<li>数字・記号-&gt;欧文-&gt;和文の順にこだわらない索引の作成が可能。
+<li>ただし、makeindexと比べて実行速度が非常に遅い。
 </ul>
 
-$B>\:Y$K$D$$$F$O(B<a href="../etc/README.mendexk.txt">README.txt</a>$B$r(B
-$B;2>H$7$F$/$@$5$$!#(B
+詳細については<a href="../etc/README.mendexk.txt">README.txt</a>を
+参照してください。
 
 <ul>
 <li><a href="../archives/ascii-ptex/mendex/mendexk2.6f.tar.gz">mendexk2.6f.tar.gz</a>
-	(<a href="../etc/ChangeLog.mendexk.txt">$B99?7MzNr(B</a>)
+	(<a href="../etc/ChangeLog.mendexk.txt">更新履歴</a>)
 </ul>
 
 
 <p>
 <hr>
-<h3><a name="ftphosts">$B"#(BpTeX$BG[I[%5%$%H0lMw(B</a></h3>
+<h3><a name="ftphosts">■pTeX配布サイト一覧</a></h3>
 
-pTeX$B$*$h$S(BpLaTeX$B$N%=!<%9%U%!%$%k$O!"$D$.$N>l=j$+$iG[I[$5$l$F$$$^$9!#(B
+pTeXおよびpLaTeXのソースファイルは、つぎの場所から配布されています。
 
 <ul>
 <li><a href="../archives/ascii-ptex/">
              http://ascii.asciimw.jp/pb/ptex/archives/ascii-ptex</a>
-<li><a href="http://www.ring.gr.jp/">Ring$B%5!<%P72(B</a>$B$N(B
+<li><a href="http://www.ring.gr.jp/">Ringサーバ群</a>の
 	<a href="http://www.ring.gr.jp/pub/text/TeX/ascii-ptex/">
 	/pub/text/TeX/ascii-ptex/</a>
 </ul>
 
-Ring$B%5!<%P72$K$O!"$D$.$N%U%!%$%k$bCV$+$l$F$$$^$9!#(B
+Ringサーバ群には、つぎのファイルも置かれています。
 
 <ul>
-<li><a href="http://www.ring.gr.jp/pub/text/TeX/ptex-win32/">Win32$BHG(B</a>$B<B9T%U%!%$%k(B
-<li><a href="http://www.ring.gr.jp/pub/text/TeX/dviout/">dviout</a>(Win32$BMQ%W%l%S%e!<%"(B)$B<B9T%U%!%$%k(B
-<li><a href="http://www.ring.gr.jp/pub/mac/TeX/">MacOS$BHG(B</a>$B<B9T%U%!%$%k(B
-<li><a href="http://www.ring.gr.jp/pub/text/CTAN/">CTAN$B$N%_%i!<(B</a>
+<li><a href="http://www.ring.gr.jp/pub/text/TeX/ptex-win32/">Win32版</a>実行ファイル
+<li><a href="http://www.ring.gr.jp/pub/text/TeX/dviout/">dviout</a>(Win32用プレビューア)実行ファイル
+<li><a href="http://www.ring.gr.jp/pub/mac/TeX/">MacOS版</a>実行ファイル
+<li><a href="http://www.ring.gr.jp/pub/text/CTAN/">CTANのミラー</a>
 </ul>
 
 <p>

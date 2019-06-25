@@ -1,50 +1,50 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (What's new)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>pTeX$B?7Ce>pJs$H%[!<%`%Z!<%899?7>pJs(B(2007$BG/J,(B)</h2>
-$B2a5n$NJQ99!'(B
-<a href="changes2006.html">2006$BG/(B</a>$B!?(B
-<a href="changes2005.html">2005$BG/(B</a>$B!?(B
-<a href="changes2004.html">2004$BG/(B</a>$B!?(B
-<a href="changes2003.html">2003$BG/(B</a>$B!?(B
-<a href="changes2002.html">2002$BG/(B</a>$B!?(B
-<a href="changes2001.html">2001$BG/(B</a>$B!?(B
-<a href="changes2000.html">2000$BG/(B</a>$B!?(B
-<a href="changes1999.html">1999$BG/(B</a>$B!?(B
-<a href="changes1998.html">1998$BG/(B</a>$B!?(B
-<a href="changes1997.html">1997$BG/(B</a>$B!?(B
-<a href="changes1996.html">1996$BG/(B</a>$B!?(B
-<a href="changes1995.html">1995$BG/(B</a>
+<h2>pTeX新着情報とホームページ更新情報(2007年分)</h2>
+過去の変更：
+<a href="changes2006.html">2006年</a>／
+<a href="changes2005.html">2005年</a>／
+<a href="changes2004.html">2004年</a>／
+<a href="changes2003.html">2003年</a>／
+<a href="changes2002.html">2002年</a>／
+<a href="changes2001.html">2001年</a>／
+<a href="changes2000.html">2000年</a>／
+<a href="changes1999.html">1999年</a>／
+<a href="changes1998.html">1998年</a>／
+<a href="changes1997.html">1997年</a>／
+<a href="changes1996.html">1996年</a>／
+<a href="changes1995.html">1995年</a>
 <p>
 <hr>
 
 <h4>2007/9/14</h4>
 <ul>
-<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.10.tar.gz">ptex-src-3.1.10.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.10.tar.gz">ptex-src-3.1.10.tar.gz</a>を公開します。
 <ul>
-<li>ptex, tftopl, pltotf, jbibtex: -kanji $B%*%W%7%g%s$,(B -version $B%*%W%7%g%s$N4A;z%3!<%I>pJs$KH?1G$5$l$k$h$&=$@5(B
-<li>Makefile.in: texmf.cnf $BCf$N%Q%95-=R$,(B teTeX-3.0 $B$N5-K!$K6a$/$J$k$h$&$K=$@5(B
-<li>ptex: $BJQ?t$N=i4|2=K:$l$N$?$a!"4D6-$K$h$C$FAHHG7k2L$,0[$J$k>I>u$r$r=$@5(B
-<li>pltotf, tftopl: 16$B6h$N4A;z$N07$$$K<:GT$9$kIT6q9g$r=$@5(B
+<li>ptex, tftopl, pltotf, jbibtex: -kanji オプションが -version オプションの漢字コード情報に反映されるよう修正
+<li>Makefile.in: texmf.cnf 中のパス記述が teTeX-3.0 の記法に近くなるように修正
+<li>ptex: 変数の初期化忘れのため、環境によって組版結果が異なる症状をを修正
+<li>pltotf, tftopl: 16区の漢字の扱いに失敗する不具合を修正
 </ul>
 <p>
-<li><a href="../archives/ascii-ptex/tetex/ptex-texmf-2.5.tar.gz">ptex-texmf-2.5.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/tetex/ptex-texmf-2.5.tar.gz">ptex-texmf-2.5.tar.gz</a>を公開します。
 <ul>
-<li>plfonts.dtx: $a^\mathrm{b}, a_\mathrm{b}$$B$N$h$&$J5-=R$r$7$?>l9g$K%(%i!<$K$J$kLdBj$KBP=h(B
-<li>jclasses.dtx: $B2r@b$rDI2C(B
-<li>plfonts.dtx: \reDeclareMathAlphabet$B$r(BLaTeX &lt;2005/12/01&gti; $B$G?t<0MQ=qBNJQ99L?Na$,(Brubust$B$K$J$C$?$N$KBP1~(B
-<li>jclasses.dtx: pLaTeX 209$B8_49%b!<%I$G?t<0(Bfam$B$,=EJ#;HMQ$5$l$F$$$?$N$r2r>C(B
-<li>tascmac.sty: itembox,screen$B4D6-$G7S@~$,$:$l$k%P%0$r=$@5(B
+<li>plfonts.dtx: $a^\mathrm{b}, a_\mathrm{b}$のような記述をした場合にエラーになる問題に対処
+<li>jclasses.dtx: 解説を追加
+<li>plfonts.dtx: \reDeclareMathAlphabetをLaTeX &lt;2005/12/01&gti; で数式用書体変更命令がrubustになったのに対応
+<li>jclasses.dtx: pLaTeX 209互換モードで数式famが重複使用されていたのを解消
+<li>tascmac.sty: itembox,screen環境で罫線がずれるバグを修正
 </ul>
 <p>
-<li><a href="../archives/ascii-ptex/mendex/mendexk2.6e.tar.gz">mendexk2.6e.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.6e.tar.gz">mendexk2.6e.tar.gz</a>を公開します。
 <ul>
-<li>$B9TD9@)8B$r(B1024$B%P%$%H$+$i(B65536$B%P%$%H$XJQ99(B
+<li>行長制限を1024バイトから65536バイトへ変更
 </ul>
 </ul>
 

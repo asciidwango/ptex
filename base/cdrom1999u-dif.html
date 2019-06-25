@@ -2,55 +2,55 @@
 <!-- TeX page -->
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>pLaTeX2e Install Kit</title>
 </head>
 <body bgcolor="#F5F5DC">
 
 <a name="platex2e_cdrom">
-<h2>$B!XF|K\8l(BLaTeX2e$B%$%s%9%H!<%k%-%C%H(B UNIX$BHG!Y=$@5>pJs(B</h2>
+<h2>『日本語LaTeX2eインストールキット UNIX版』修正情報</h2>
 </a>
 
 <!-- for future possibilities
 <ul>
-<li><a href="#guide_diff">$B%$%s%9%H!<%k%,%$%I$ND{@5(B</a>
-<li><a href="#cdrom_diff">CD-ROM$B$ND{@5(B</a>
+<li><a href="#guide_diff">インストールガイドの訂正</a>
+<li><a href="#cdrom_diff">CD-ROMの訂正</a>
 </ul>
 
 <p>
 <hr>
 <a name="guide_diff">
-<h3>$B"#%$%s%9%H!<%k%,%$%I$ND{@5(B</h3>
+<h3>■インストールガイドの訂正</h3>
 </a>
 <ul>
-<li>4$B%Z!<%8!JCf$[$I!K(B<br>
+<li>4ページ（中ほど）<br>
 <pre>
-    $B8m!'(Bxdvik 20a+j1.1p8 (Macintosh$BHG(B)
-    $B@5!'(Bxdvik pl14 (Macintosh$BHG(B)
+    誤：xdvik 20a+j1.1p8 (Macintosh版)
+    正：xdvik pl14 (Macintosh版)
 </pre>
 </ul>
 
 <p>
 <hr>
 <a name="cdrom_diff">
-<h3>$B"#(BCD-ROM$B$ND{@5(B</h3>
+<h3>■CD-ROMの訂正</h3>
 </a>
 -->
 
-<h4>LaTeX209$B8_49%b!<%I$G$NF0:n(B</h4>
+<h4>LaTeX209互換モードでの動作</h4>
 <blockquote>
-LaTeX2e$B$G(B
+LaTeX2eで
 <pre>
 \documentstyle
 </pre>
-$B$r;XDj$7$F(BLaTeX209$B8_49%b!<%I$GF0:n$5$;$?>l9g$K!"(Brawfonts.sty$B$,L5$$$H$$$&(B
-$B%a%C%;!<%8$,=P$F=hM}$,ESCf$G;_$^$k$H$$$&8=>]$,5/$3$k>l9g$,$"$j$^$9!#(B<p>
+を指定してLaTeX209互換モードで動作させた場合に、rawfonts.styが無いという
+メッセージが出て処理が途中で止まるという現象が起こる場合があります。<p>
 
-<b>$BBP=hK!(B</b>$B!'(BCD-ROM$B$r%^%&%s%H$7$?%G%#%l%/%H%j$G!"(B
+<b>対処法</b>：CD-ROMをマウントしたディレクトリで、
 <pre>
 # ./install-pkg tools
 </pre>
-$B$H<B9T$7$F!"(Btools$B%Q%C%1!<%8$r%$%s%9%H!<%k$7$F2<$5$$!#(B
+と実行して、toolsパッケージをインストールして下さい。
 </blockquote>
 
 <p>

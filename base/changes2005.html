@@ -1,90 +1,90 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (What's new)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>pTeX$B?7Ce>pJs$H%[!<%`%Z!<%899?7>pJs(B(2005$BG/J,(B)</h2>
-$B2a5n$NJQ99!'(B
-<a href="changes2004.html">2004$BG/(B</a>$B!?(B
-<a href="changes2003.html">2003$BG/(B</a>$B!?(B
-<a href="changes2002.html">2002$BG/(B</a>$B!?(B
-<a href="changes2001.html">2001$BG/(B</a>$B!?(B
-<a href="changes2000.html">2000$BG/(B</a>$B!?(B
-<a href="changes1999.html">1999$BG/(B</a>$B!?(B
-<a href="changes1998.html">1998$BG/(B</a>$B!?(B
-<a href="changes1997.html">1997$BG/(B</a>$B!?(B
-<a href="changes1996.html">1996$BG/(B</a>$B!?(B
-<a href="changes1995.html">1995$BG/(B</a>
+<h2>pTeX新着情報とホームページ更新情報(2005年分)</h2>
+過去の変更：
+<a href="changes2004.html">2004年</a>／
+<a href="changes2003.html">2003年</a>／
+<a href="changes2002.html">2002年</a>／
+<a href="changes2001.html">2001年</a>／
+<a href="changes2000.html">2000年</a>／
+<a href="changes1999.html">1999年</a>／
+<a href="changes1998.html">1998年</a>／
+<a href="changes1997.html">1997年</a>／
+<a href="changes1996.html">1996年</a>／
+<a href="changes1995.html">1995年</a>
 <p>
 <hr>
 
 <h4>2005/11/2</h4>
 <ul>
-<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.9.tar.gz">ptex-src-3.1.9.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.9.tar.gz">ptex-src-3.1.9.tar.gz</a>を公開します。
 <ul>
-<li>mkconf: platex $B$N8!:w%Q%9$K(B tex/platex $B$rF~$l$J$$$h$&$K=$@5(B
-<li>ptex: $BC18l$N@hF,$G(B LIG/ $B$r9T$&$h$&$J(BTFM$B$r;HMQ$9$k$H%Y!<%9%i%$%s%7%U%H$,(B0$B$G$J$$>l9g$K0[>o=*N;$9$k%P%0$r=$@5(B
+<li>mkconf: platex の検索パスに tex/platex を入れないように修正
+<li>ptex: 単語の先頭で LIG/ を行うようなTFMを使用するとベースラインシフトが0でない場合に異常終了するバグを修正
 </ul>
 <p>
-<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.7a.tar.gz">dvipsk-jpatch-p1.7a.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.7a.tar.gz">dvipsk-jpatch-p1.7a.tar.gz</a>を公開します。
 <ul>
-<li>$BOBJ8%U%)%s%H$N%G%U%)%k%HJ8;zI}$r=$@5(B
+<li>和文フォントのデフォルト文字幅を修正
 </ul>
 </ul>
 
 <h4>2005/5/16</h4>
 <ul>
-<li><a href="../archives/ascii-ptex/mendex/mendexk2.6c.tar.gz">mendexk2.6c.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.6c.tar.gz">mendexk2.6c.tar.gz</a>を公開します。
 <ul>
-<li>SJIS$B%b!<%I;~$N=PNO$NJ8;z2=$1$r=$@5!#(B
-<li>$B=PNO%a%C%;!<%8Cf$N(Baccept$B!"(Breject$B$N?tCM$r=$@5!#(B
-<li>teTeX$B$N(Bconfigure$B$G;XDj$5$l$?%3%s%Q%$%i$r;HMQ$9$k$h$&$K(BMakefile.in$B$r=$@5!#(B
+<li>SJISモード時の出力の文字化けを修正。
+<li>出力メッセージ中のaccept、rejectの数値を修正。
+<li>teTeXのconfigureで指定されたコンパイラを使用するようにMakefile.inを修正。
 </ul>
 </ul>
 
 <h4>2005/3/24</h4>
 <ul>
-<li><a href="../archives/ascii-ptex/mendex/mendexk2.6b.tar.gz">mendexk2.6b.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.6b.tar.gz">mendexk2.6b.tar.gz</a>を公開します。
 <ul>
-<li>$BFI$_E83+;~$N%(%i!<I=<($N4A;z%3!<%I$r=$@5!#(B
-<li>$BHs4A;zIt$NHO0O$r87L)2=!#(B
+<li>読み展開時のエラー表示の漢字コードを修正。
+<li>非漢字部の範囲を厳密化。
 </ul>
 </ul>
 
 <h4>2005/3/14</h4>
 <ul>
-<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.8.1.tar.gz">ptex-src-3.1.8.1.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/tetex/ptex-src-3.1.8.1.tar.gz">ptex-src-3.1.8.1.tar.gz</a>を公開します。
 <ul>
-<li>Makefile.in: make install $B$N:G8e$K(B mktexlsr $B$N<B9T$rDI2C(B
-<li>Makefile.in, INSTALL.txt: teTeX-3.0$B$N(BTEXMF$B%G%#%l%/%H%j$NJQ99$KH<$$=$@5(B
-   ($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)$B!#(B
+<li>Makefile.in: make install の最後に mktexlsr の実行を追加
+<li>Makefile.in, INSTALL.txt: teTeX-3.0のTEXMFディレクトリの変更に伴い修正
+   (ありがとうございます、角藤さん)。
 </ul>
 <p>
-<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.7.tar.gz">dvipsk-jpatch-p1.7.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/dvips/dvipsk-jpatch-p1.7.tar.gz">dvipsk-jpatch-p1.7.tar.gz</a>を公開します。
 <ul>
-<li>teTeX 3.0$B$K4^$^$l$F$$$k(Bdvipsk-5.95a$B$KBP1~!#(B
-<li>$B%G%U%)%k%H$G(BUnicode$B$XBP1~!#(B
+<li>teTeX 3.0に含まれているdvipsk-5.95aに対応。
+<li>デフォルトでUnicodeへ対応。
 </ul>
 <p>
-<li><a href="../archives/ascii-ptex/mendex/mendexk2.6a.tar.gz">mendexk2.6a.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/mendex/mendexk2.6a.tar.gz">mendexk2.6a.tar.gz</a>を公開します。
 <ul>
-<li>$BIT@5$J:w0z9T$NFI$_9~$_$r6X;_$9$k$h$&=$@5!#(B
-<li>$B%$%s%9%H!<%k$K(Bconfigure$B$r;HMQ$9$k$h$&$KJQ99!#(B
-<li>$B4A;z%3!<%I%*%W%7%g%s$rDI2C!#(B
+<li>不正な索引行の読み込みを禁止するよう修正。
+<li>インストールにconfigureを使用するように変更。
+<li>漢字コードオプションを追加。
 </ul>
 </ul>
 
 
 <h4>2005/1/4</h4>
 <ul>
-<li><a href="../archives/ascii-ptex/tetex/ptex-texmf-2.3.tar.gz">ptex-texmf-2.3.tar.gz</a>$B$r8x3+$7$^$9!#(B
+<li><a href="../archives/ascii-ptex/tetex/ptex-texmf-2.3.tar.gz">ptex-texmf-2.3.tar.gz</a>を公開します。
 <ul>
-<li>plfonts.dtx: \fontfamily$BCf$N%U%i%0$r=$@5(B
-   ($B$"$j$,$H$&$4$6$$$^$9!"3QF#$5$s(B)$B!#(B
-<li>plvers.dtx: $B%P!<%8%g%sHV9f99?7(B(platex<2005/01/04>)
+<li>plfonts.dtx: \fontfamily中のフラグを修正
+   (ありがとうございます、角藤さん)。
+<li>plvers.dtx: バージョン番号更新(platex<2005/01/04>)
 </ul>
 </ul>
 
