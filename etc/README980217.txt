@@ -5,69 +5,69 @@
 ===========================================================================
 
 ---------------------------------------------------------------------------
-�� pLaTeX2e �ˤĤ���
+● pLaTeX2e について
 ---------------------------------------------------------------------------
- * pLaTeX2e <1998/02/17> �Ǥ� LaTeX2e <1997/12/01> �Ǥ��б����Ƥ��ޤ���
+ * pLaTeX2e <1998/02/17> 版は LaTeX2e <1997/12/01> 版に対応しています。
 
- * pLaTeX2e �ϡ� TeX �С������ 3.1415 �ʹߤ�١����ˤ��� pTeX ��ư���
-   �ޤ�������ʳ��� TeX �Ǥ�ư��ޤ���Τǡ������դ���������
+ * pLaTeX2e は、 TeX バージョン 3.1415 以降をベースにした pTeX で動作をし
+   ます。それ以外の TeX では動作しませんので、ご注意ください。
 
- * pLaTeX2e �ϡ�LaTeX2e �����ܸ�����ǵ�ǽ���ɲä�����ΤǤ���
-   LaTeX2e �ϡ�LaTeX�ο������С������Ǥ��ꡢ ����� LaTeX�С������2.09
-   �Ȥ�������¤���礭���ۤʤäƤ��ޤ��� ���Τ��ᡢ�С������2.09 �Ȥθߴ�
-   ���ϡָߴ��⡼�ɡפȤ������Ǽ�äƤ��ޤ���pLaTeX2e��Ʊ�ͤˡ��С������
-   2.09��١����ˤ����� jLaTeX ����� pLaTeX �Ȥθߴ����ϸߴ��⡼�ɤ��н�
-   ���Ƥ��ޤ�����С������Ȥθߴ����ˤĤ��Ƥξܺ٤ϡ�pl209.dtx �ե�����
-   �򻲾Ȥ��Ƥ���������
+ * pLaTeX2e は、LaTeX2e に日本語の組版機能を追加したものです。
+   LaTeX2e は、LaTeXの新しいバージョンであり、 従来の LaTeXバージョン2.09
+   とは内部構造が大きく異なっています。 そのため、バージョン2.09 との互換
+   性は「互換モード」という形で取っています。pLaTeX2eも同様に、バージョン
+   2.09をベースにした、 jLaTeX および pLaTeX との互換性は互換モードで対処
+   しています。旧バージョンとの互換性についての詳細は、pl209.dtx ファイル
+   を参照してください。
 
- * ���� pLaTeX2e �ϡ����λ�����ǧ�Τ����������Ѥ���������
+ * この pLaTeX2e は、次の事項を確認のうえ、ご利用ください。
 
-   1. �ܥץ������Ρ����ܸ첽��ʬ�˴ؤ��Ƥϳ�����ҥ��������������
-      ����ޤ���
+   1. 本プログラムの、日本語化部分に関しては株式会社アスキーに著作権が
+      あります。
 
-   2. ���λ��Ѥ�ľ��Ū�ʱ�����Ū���㤨�С����ѼԤ���ץ������λ�����
-      ���Ȥ����ˤǤʤ��¤ꡢ�ɤΤ褦����ˡ����Ū�ǻ��Ѥ���Ƥ⤫�ޤ�
-      �ޤ��󡣤�����������ˤ������������˴ؤ��Ƥϰ��ڡ�������ҥ���
-      �����Ǥ���Ǥ������ޤ���
+   2. その使用が直接的な営利目的（例えば、利用者からプログラムの使用料
+      金をとる等）でない限り、どのような方法、目的で使用されてもかまい
+      ません。ただし、それにより生じた問題に関しては一切、株式会社アス
+      キーでは責任を持ちません。
 
-   3. ¾�ԤؤΥ��ԡ��ϡ����ι԰٤�������Ū�Ǥʤ����˸¤꼫ͳ�˹Ԥʤ�
-      �Ʒ빽�Ǥ���
+   3. 他者へのコピーは、その行為が営利目的でない場合に限り自由に行なっ
+      て結構です。
 
-   4. �ܥץ������ �����ܸ첽�˴ط�������ʬ�� �β��ѤˤĤ��Ƥϼ�ͳ�˹�
-      �ʤäƤ��ޤ��ޤ��󡣤������裳��ˤĤ��Ƥϡ��������Τ�Τޤ��ϲ�
-      �����ξ��֤˴�ñ���᤻����ǹԤʤäƲ�������
+   4. 本プログラム （日本語化に関係する部分） の改変については自由に行
+      なってかまいません。ただし第３項については、改変前のものまたは改
+      変前の状態に簡単に戻せる形で行なって下さい。
 
-      �������ƤˤĤ��Ƥϳ�����ҥ��������ؤ����ε�̳�������ΤȤ�����
-      �θ����ˤĤ��Ƥϻ����ξ�����ɬ�פȤ��ޤ���
+      改変内容については株式会社アスキーへの通知義務があるものとし、そ
+      の公開については事前の承諾を必要とします。
 
-   5. �ܥץ������λ��Ѥޤ��ϡ�������ǽ���������뤤���ʤ�¾��»���˴�
-      ���Ƥ⡢������ҥ��������ϡ�������Ǥ�����ʤ���ΤȤ��ޤ���
+   5. 本プログラムの使用または、使用不能から生ずるいかなる他の損害に関
+      しても、株式会社アスキーは、一切責任を負わないものとします。
 
 
 ---------------------------------------------------------------------------
-�� ���󥹥ȡ���
+● インストール
 ---------------------------------------------------------------------------
-�����ΥС�������  LaTeX2e �� pLaTeX2e �򥤥󥹥ȡ��뤷�Ƥ�����ϡ�
-�ʸ�κ�Ȥ�ʤ�����ˡ���ɬ�פʤ�ХХå����åפ��äƤ���ˤ�����
-������Ƥ����������ǥե���Ȥ�����ǥ��󥹥ȡ��뤷�Ƥ����硢 LaTeX2e
-�� pLaTeX2e �ϡ����줾�졢�Ĥ��Υǥ��쥯�ȥ�ˤ���ޤ��������ǡ�$TEXMF
-�ϡ�TeX �Υ饤�֥��ǥ��쥯�ȥ�ʤ��Ȥ��С�/usr/local/lib/texmf�ˤ��
-̣���ޤ���
+以前のバージョンの  LaTeX2e や pLaTeX2e をインストールしてある場合は、
+以後の作業を進める前に、（必要ならばバックアップを取ってから）それらを
+削除してください。デフォルトの設定でインストールしてある場合、 LaTeX2e
+と pLaTeX2e は、それぞれ、つぎのディレクトリにあります。ここで、$TEXMF
+は、TeX のライブラリディレクトリ（たとえば、/usr/local/lib/texmf）を意
+味します。
 
     LaTeX2e  --- $TEXMF/tex/latex2e/base
     pLaTeX2e --- $TEXMF/tex/platex2e/base
 
-pLaTeX2e �򥤥󥹥ȡ��뤹��ˤϡ�pTeX �� LaTeX2e �Υե����뤬ɬ�פǤ���
-���Υɥ�����ȤǤϡ����Ǥ� pTeX �����󥹥ȡ��뤵��Ƥ����ΤȤ�����
-�����ޤ���pTeX �Υ��󥹥ȡ���ˤĤ��Ƥϡ�pTeX ����°�Υɥ�����Ȥ�
-�Ȥ��Ƥ���������pTeX �ϰʲ��Υ����Ȥʤɤ������ꤹ�뤳�Ȥ��Ǥ��ޤ���
+pLaTeX2e をインストールするには、pTeX や LaTeX2e のファイルが必要です。
+このドキュメントでは、すでに pTeX がインストールされているものとして説
+明します。pTeX のインストールについては、pTeX に付属のドキュメントを参
+照してください。pTeX は以下のサイトなどから入手することができます。
 
     * http://ascii.asciimw.jp/pb/ptex/archives/ascii-ptex
     * ftp://ftp.kuis.kyoto-u.ac.jp/TeX/ASCII-pTeX
     * ftp://bash.cc.keio.ac.jp/pub/TeX/ascii-ptex
 
-LaTeX2e �ϡ�CTAN �����Ȥ� macros/latex/base �ǥ��쥯�ȥ꤫�����ꤹ�뤳
-�Ȥ��Ǥ��ޤ������ CTAN �����ȤϤĤ��ΤȤ���Ǥ���
+LaTeX2e は、CTAN サイトの macros/latex/base ディレクトリから入手するこ
+とができます。主な CTAN サイトはつぎのとおりです。
 
     * ftp://ftp.u-aizu.ac.jp/pub/tex/CTAN
     * ftp://ftp.riken.go.jp/pub/tex-archive
@@ -76,194 +76,194 @@ LaTeX2e �ϡ�CTAN �����Ȥ� macros/latex/base �ǥ��쥯�ȥ꤫�����ꤹ�뤳
     * ftp://ftp.dante.de/tex-archive
     * ftp://ftp.tex.ac.uk/tex-archive
 
-LaTeX2e �Ǥϡ��ǥե���Ȥ� EC ���󥳡��ɤΥե���Ȥ��Ѥ����Ƥ��ޤ���
-EC ���󥳡��ɤΥե���Ȥϡ�CTAN �����Ȥ� fonts/ec �ǥ��쥯�ȥ�ˤ���ޤ���
+LaTeX2e では、デフォルトで EC エンコードのフォントが用いられています。
+EC エンコードのフォントは、CTAN サイトの fonts/ec ディレクトリにあります。
 
-���󥹥ȡ���ϡ��Ĥ��ν���ǿʤ�Ƥ����ޤ���
+インストールは、つぎの順序で進めていきます。
 
-  1. �Ķ��ѿ�������
-  2. LaTeX2e �Υ��󥹥ȡ���
-  3. pLaTeX2e �Υ��󥹥ȡ���
+  1. 環境変数の設定
+  2. LaTeX2e のインストール
+  3. pLaTeX2e のインストール
 
 ----------------------------------------
-1. �Ķ��ѿ�������
+1. 環境変数の設定
 ----------------------------------------
-���󥹥ȡ����ȤǤΥ��ޥ�����Ϥ��ñ�ˤ��뤿��ˡ��Ĥ�����ĤδĶ���
-�������ꤷ�ޤ���
+インストール作業でのコマンド入力を簡単にするために、つぎの二つの環境変
+数を設定します。
 
-  * TEXBIN --- pTeX �� TeX �μ¹ԥե����뤬���󥹥ȡ��뤵��Ƥ���ǥ�
-               �쥯�ȥ�����ꤷ�ޤ������ˡ�csh �Ķ��Ǥ���򼨤��ޤ���
+  * TEXBIN --- pTeX や TeX の実行ファイルがインストールされているディ
+               レクトリを設定します。次に、csh 環境での例を示します。
 
                   setenv TEXBIN /usr/local/bin
 
-  * TEXMF  --- TeX �Υ饤�֥��ե�����Τ���ǥ��쥯�ȥ�����ꤷ�ޤ���
-               ���ˡ�csh �Ķ��Ǥ���򼨤��ޤ���
+  * TEXMF  --- TeX のライブラリファイルのあるディレクトリを設定します。
+               次に、csh 環境での例を示します。
 
                   setenv TEXMF /usr/local/lib/texmf
 
 ----------------------------------------
-2. LaTeX2e �Υ��󥹥ȡ���
+2. LaTeX2e のインストール
 ----------------------------------------
-LaTeX2e �Υ��󥹥ȡ���ˤĤ��Ƥξܺ٤� LaTeX2e ����°�� install.txt ��
-���Ȥ��Ƥ���������LaTeX 2.09 �Υ����ƥ����¸��ˡ�ʤɤ�Ҥ٤��Ƥ��ޤ���
+LaTeX2e のインストールについての詳細は LaTeX2e に付属の install.txt を
+参照してください。LaTeX 2.09 のシステムの保存方法なども述べられています。
 
-(1) $TEXMF/fonts/public/ec �ǥ��쥯�ȥ�� EC �ե���ȤΥե������֤��ޤ���
-    DC �ե���ȤϺ�����Ƥ���������
+(1) $TEXMF/fonts/public/ec ディレクトリに EC フォントのファイル置きます。
+    DC フォントは削除してください。
 
-(2) $TEXMF/tex/latex/base �ǥ��쥯�ȥ�� LaTeX2e �Υե�������֤��ޤ���
-    �����ǡ��ƥե�����˽񤭹��ߵ��Ĥ����뤫�ɤ������ǧ���Ƥ���������
-    �ʤ����ϡ�chmod ���ޥ�ɤʤɤǡ��񤭹��ߵ��Ĥ�Ϳ���Ƥ���������
+(2) $TEXMF/tex/latex/base ディレクトリに LaTeX2e のファイルを置きます。
+    ここで、各ファイルに書き込み許可があるかどうかを確認してください。
+    ない場合は、chmod コマンドなどで、書き込み許可を与えてください。
 
-(3) unpack.ins ��������ޤ���
+(3) unpack.ins を処理します。
 
         initex unpack.ins
 
-    �� TeX Version 3.14159 (Web2c 7.0) �Ǥϡ��Ĥ��Τ褦�ˤ��ޤ���
+    ※ TeX Version 3.14159 (Web2c 7.0) では、つぎのようにします。
 
         tex -ini unpack.ins
 
-(4) �ե����ޥåȥե������������ޤ���
+(4) フォーマットファイルを作成します。
 
         initex latex.ltx
 
-    �� TeX Version 3.14159 (Web2c 7.0) �Ǥϡ��Ĥ��Τ褦�ˤ��ޤ���
+    ※ TeX Version 3.14159 (Web2c 7.0) では、つぎのようにします。
 
         tex -ini latex.ltx
 
-(5) �ե����ޥåȥե�������ư���ޤ���
+(5) フォーマットファイルを移動します。
 
         mv -f latex.fmt $TEXMF/ini
 
-(6) �¹ԥե������������ޤ���
+(6) 実行ファイルを作成します。
 
         cd $TEXBIN
         ln -s virtex latex
 
-(7) ���������󥹥ȡ���Ǥ��������ǧ����ˤϡ����Υ��ޥ�ɤ�¹Ԥ��ޤ���
-    ���������󥹥ȡ��뤵��Ƥ���С����٤ƤΥƥ��Ȥ� "OK" �ˤʤ�ޤ���
-    ���顼��ɽ�����줿���ϡ����λؼ��˽��äƴĶ����ۤ��Ƥ���������
+(7) 正しくインストールできたかを確認するには、次のコマンドを実行します。
+    正しくインストールされていれば、すべてのテストが "OK" になります。
+    エラーが表示された場合は、その指示に従って環境を構築してください。
 
         cd /tmp
         latex ltxcheck
 
-    �¹Ԥη�̤� ltxcheck.log �˵�Ͽ����Ƥ��ޤ���ɬ�������Υե������
-    ���ǥ�����ڡ�����ʤɤǳ��������٤Ƥ� "OK" �ˤʤäƤ��뤫�ɤ�����
-    ��ǧ���Ƥ���������
+    実行の結果は ltxcheck.log に記録されています。必ず、このファイルを
+    エディタやページャなどで開き、すべてが "OK" になっているかどうかを
+    確認してください。
 
 ----------------------------------------
-3. pLaTeX2e �Υ��󥹥ȡ���
+3. pLaTeX2e のインストール
 ----------------------------------------
-(1) $TEXMF/tex/platex/base �ǥ��쥯�ȥ�� pLaTeX2e �Υե�������֤�
-    �ޤ���
+(1) $TEXMF/tex/platex/base ディレクトリに pLaTeX2e のファイルを置き
+    ます。
 
-(2) plcore.ins ��������ޤ���
+(2) plcore.ins を処理します。
 
         iniptex plcore.ins
 
-    �� TeX Version 3.14159 (Web2c 7.0) �б��� pTeX �Ǥϡ��Ĥ��Τ褦�ˤ��ޤ���
+    ※ TeX Version 3.14159 (Web2c 7.0) 対応の pTeX では、つぎのようにします。
 
         ptex -ini plcore.ins
 
-(3) �ե����ޥåȥե������������ޤ���
+(3) フォーマットファイルを作成します。
 
         iniptex platex.ltx
 
-    �� TeX Version 3.14159 (Web2c 7.0) �б��� pTeX �Ǥϡ��Ĥ��Τ褦�ˤ��ޤ���
+    ※ TeX Version 3.14159 (Web2c 7.0) 対応の pTeX では、つぎのようにします。
 
         ptex -ini platex.ltx
 
-(4) �ե����ޥåȥե�������ư���ޤ���
+(4) フォーマットファイルを移動します。
 
         mv -f platex.fmt $TEXMF/ini
 
-(5) �¹ԥե������������ޤ���
+(5) 実行ファイルを作成します。
 
         cd $TEXBIN
         ln -s virptex platex
 
 ----------------------------------------
-�� �ե����ޥåȺ����ˤĤ��Ƥ���­
+※ フォーマット作成についての補足
 ----------------------------------------
-pTeX �ǥե����ޥåȥե�������������Ȥ��������Υϥ��ե͡������
-�ѥ����������ɤ���Ȥ����ǡ����Τ褦�ʥ��顼�Ȥʤ��礬����ޤ���
+pTeX でフォーマットファイルを作成するとき、外国語のハイフネーション
+パターンをロードするところで、次のようなエラーとなる場合があります。
 
 ====
 (/usr/local/share/texmf/tex/latex/contrib/other/cmcyralt/rhyphen.tex
 Russian hyphenation
 ! Bad \patterns.
-l.107  . ��
+l.107  . え
            2
 ?
 ====
 
-����ϡ�Ϣ³���� 8 �ӥåȥ����ɤ��¤Ӥ� 1 �Ĥ� 16 �ӥåȥ����ɤ� pTeX ��
-��ǧ���Ƥ��ޤ�����Ǥ���
+これは、連続する 8 ビットコードの並びを 1 つの 16 ビットコードと pTeX が
+誤認してしまうためです。
 
-���ΤȤ��ϡ��ޤ� ��?�ɤΥץ���ץȤ��Ф��ơ�x�ɤǽ�λ���Ƥ���������
-���θ塢���ޥ�ɥ饤�󤫤顢TEXINPUTS �ǥե������õ���ǥ��쥯�ȥ��
-����ޤ���
+このときは、まず “?”のプロンプトに対して“x”で終了してください。
+その後、コマンドラインから、TEXINPUTS でファイルを探すディレクトリを
+狭めます。
 
-   # csh �ξ��
+   # csh の場合
    setenv TEXMF /usr/local/share/texmf
    setenv TEXINPUTS .:$TEXMF/tex/platex/base:$TEXMF/tex/latex/base:$TEXMF/tex/{ptex,plain,generic}//
 
-   # sh �ξ��
+   # sh の場合
    setenv TEXMF /usr/local/share/texmf
    TEXINPUTS=.:$TEXMF/tex/platex/base:$TEXMF/tex/latex/base:$TEXMF/tex/{ptex,plain,generic}//
    export TEXINPUTS
 
-���Τ褦������򤷤Ƥ��顢����ơ�
+このように設定をしてから、改めて、
 
    ptex -ini platex.ltx
 
-���뤤��
+あるいは
 
    iniptex platex.ltx
 
-�Ȥ��ƥե����ޥåȥե������������Ƥ���������
+としてフォーマットファイルを作成してください。
 
 ---------------------------------------------------------------------------
-�� pLaTeX2e ��ʸ��ե�����ˤĤ���
+● pLaTeX2e の文書ファイルについて
 ---------------------------------------------------------------------------
-pLaTeX2e �Υѥå������˴ޤޤ�Ƥ���ե�����Τ�������ĥ�Ҥ� .dtx �Υե���
-��ϡ�pLaTeX2e ������򤷤Ƥ��륳�ޥ�ɤΥ����������ɡ������������ɤ�������
-���ޥ�ɤδ�ñ�ʻȤ����ʤɤ�ޤȤ᤿ʸ��ե�����Ǥ���.dtx �ե�����ϡ�ľ
-�ܡ�pLaTeX2e �ǽ����Ǥ��ޤ���
+pLaTeX2e のパッケージに含まれているファイルのうち、拡張子が .dtx のファイ
+ルは、pLaTeX2e で定義をしているコマンドのソースコード、ソースコードの説明、
+コマンドの簡単な使い方などをまとめた文書ファイルです。.dtx ファイルは、直
+接、pLaTeX2e で処理できます。
 
     platex platex.dtx
 
-�ޤ���pldoc.tex �ե�������������С����٤Ƥ� dtx �ե������ޤȤ�ơ���
-�Ĥ�ʸ��ե�����Ȥ��ƺ������뤳�Ȥ�Ǥ��ޤ���
+また、pldoc.tex ファイルを処理すれば、すべての dtx ファイルをまとめて、一
+つの文書ファイルとして作成することもできます。
 
     platex pldoc.tex
 
-pldoc.tex ���� pldoc.dvi �����������ϡ�platex.dtx �ե�����������򤷤�
-���ޤ���UNIX �Ķ��ʤ�С��Ĥ�����Ԥ�¹Ԥ�������ǡ�DVI�ե�������������
-���Ȥ��Ǥ��ޤ���
+pldoc.tex から pldoc.dvi を作成する手順は、platex.dtx ファイルで説明をして
+います。UNIX 環境ならば、つぎの二行を実行するだけで、DVIファイルを作成する
+ことができます。
 
     platex Xins.ins
     sh mkpldoc.sh
 
-�ʤ��� pLaTeX2e ��ʸ��ե����� pldoc.tex ���� pldoc.dvi ���������Ȥ�����
-���������� mendex �ץ��������Ѥ��ޤ������ΤȤ���mendex 2.3g �ʳ��Ǥϡ���
-���ե�������������˥��顼�Ȥʤ�ޤ��Τ����դ��Ƥ���������
+なお、 pLaTeX2e の文書ファイル pldoc.tex から pldoc.dvi を作成するとき、索
+引の生成に mendex プログラムを用います。このとき、mendex 2.3g 以外では、索
+引ファイルの生成時にエラーとなりますので注意してください。
 
 ---------------------------------------------------------------------------
-�� ����¾
+● その他
 ---------------------------------------------------------------------------
-pLaTeX2e �ǳ�ĥ���줿��ǽ�ˤĤ��Ƥ� platex.dtx �򻲾Ȥ��Ƥ���������
-LaTeX2e �ǳ�ĥ���줿��ǽ�ˤĤ��Ƥ� LaTeX2e �� usrguid.tex �򻲾Ȥ��Ƥ���������
-������Ǥ���ν����ϡ�plnews*.tex �� ltnews*.tex �򻲾Ȥ��Ƥ���������
+pLaTeX2e で拡張された機能については platex.dtx を参照してください。
+LaTeX2e で拡張された機能については LaTeX2e の usrguid.tex を参照してください。
+前回の版からの修正は、plnews*.tex や ltnews*.tex を参照してください。
 
-pTeX �� pLaTeX2e �κǿ�����ϡ�
-    pTeX �ۡ���ڡ�����http://www.ascii.co.jp/pb/ptex��
-���������Ƥ��ޤ���
+pTeX と pLaTeX2e の最新情報は、
+    pTeX ホームページ（http://www.ascii.co.jp/pb/ptex）
+より公開しています。
 
-���䤤��碌��Х���ݡ��Ȥʤɤϡ��Żҥ᡼��� www-ptex��ascii.co.jp ����
-�ˤ��ꤤ���ޤ���
+お問い合わせやバグレポートなどは、電子メールで www-ptex＠ascii.co.jp 宛て
+にお願いします。
 
 ---------------------------------------------------------------------------
-������� �������� �ǥ��������� �ƥ��˥��륻�󥿡�
-���� ��   <ken-na>
-�ٳ� ���� <hideak-t>
+株式会社 アスキー デザインワークス テクニカルセンター
+中野 賢   <ken-na>
+富樫 秀昭 <hideak-t>
 === EOT ===================================================================

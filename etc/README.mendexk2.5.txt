@@ -1,105 +1,105 @@
-<���������ġ��� mendex ver.2.5>
+<索引整形ツール mendex ver.2.5>
 
-                     ������ҥ�������  ���ǵ��ѥ��롼��  ���� ��Ƿ <sada-t>
-                                                      www-ptex��ascii.co.jp
+                     株式会社アスキー  出版技術グループ  田中 禎之 <sada-t>
+                                                      www-ptex＠ascii.co.jp
 
-<mendex�Ȥ�>
+<mendexとは>
 
- mendex �� makeindex �ߴ���LaTeX�Ѻ��������ġ���Ǥ���
- makeindex�ϴ���Ū�˲�ʸ�ѤǤ��ꡢ��ʸ�򰷤���ǿ����ȼ�֤��ݤ���ޤ���
- �����μ�֤򸺤餹�褦�˿����˺������줿�Τ�mendex�Ǥ���
+ mendex は makeindex 互換のLaTeX用索引整形ツールです。
+ makeindexは基本的に欧文用であり、和文を扱う上で色々と手間が掛かります。
+ それらの手間を減らすように新たに作成されたのがmendexです。
 
- �ʤ������Υץ������ϰʲ��λ�����ǧ�ξ塢�����Ѥ���������
+ なお、このプログラムは以下の事項を確認の上、ご利用ください。
 
-   1. �ܥץ�����������ϳ�����ҥ��������ˤ���ޤ���
+   1. 本プログラムの著作権は株式会社アスキーにあります。
 
-   2. ���λ��Ѥ�ľ��Ū�ʱ�����Ū���㤨�С����ѼԤ���ץ������λ�����
-      ���Ȥ����ˤǤʤ��¤ꡢ�ɤΤ褦����ˡ����Ū�ǻ��Ѥ���Ƥ⤫�ޤ�
-      �ޤ��󡣤�����������ˤ������������˴ؤ��Ƥϰ��ڡ�������ҥ���
-      �����Ǥ���Ǥ������ޤ���
+   2. その使用が直接的な営利目的（例えば、利用者からプログラムの使用料
+      金をとる等）でない限り、どのような方法、目的で使用されてもかまい
+      ません。ただし、それにより生じた問題に関しては一切、株式会社アス
+      キーでは責任を持ちません。
 
-   3. ¾�ԤؤΥ��ԡ��ϡ����ι԰٤�������Ū�Ǥʤ����˸¤꼫ͳ�˹Ԥʤ�
-      �Ʒ빽�Ǥ���
+   3. 他者へのコピーは、その行為が営利目的でない場合に限り自由に行なっ
+      て結構です。
 
-   4. �ܥץ������β��ѤˤĤ��Ƥϼ�ͳ�˹ԤʤäƤ��ޤ��ޤ��󡣤�����
-      ���Ѥ�����Τθ����ˤĤ��Ƥϡ��������Τ�Τޤ��ϲ������ξ��֤�
-      ��ñ���᤻����ǹԤʤäƲ�������
+   4. 本プログラムの改変については自由に行なってかまいません。ただし
+      改変したものの公開については、改変前のものまたは改変前の状態に
+      簡単に戻せる形で行なって下さい。
 
-   5. �ܥץ������λ��Ѥޤ��ϡ�������ǽ���������뤤���ʤ�»���˴ؤ���
-      �⡢������ҥ��������ϡ�������Ǥ�����ʤ���ΤȤ��ޤ���
+   5. 本プログラムの使用または、使用不能から生ずるいかなる損害に関して
+      も、株式会社アスキーは、一切責任を負わないものとします。
 
-<��ħ>
+<特徴>
 
-������Ū��makeindex�ߴ��������ʲ���������ߴ���
-  1. makeindex�ˤϺ������ܤ�ʬ��Ȥ��ơֵ���ס��֥���ե��٥åȡפ�¾�ˡ�
-     �����Τߤι��ܤȤ��ơֿ����פȤ���ʬ�ब���롣mendex�ǤϿ����ϡֵ���פ�
-     �ޤޤ�롣
-     �ޤ����ʲ���makeindex�ѥ�������ѥ�᡼����ǧ������ʤ���
+・基本的にmakeindex互換だが、以下の点で非互換。
+  1. makeindexには索引項目の分類として「記号」、「アルファベット」の他に、
+     数字のみの項目として「数字」という分類がある。mendexでは数字は「記号」に
+     含まれる。
+     また、以下のmakeindex用スタイルパラメータは認識されない。
        numhead_positive
        numhead_negative
-  2. makeindex�ι��ܤ��¤ӽ�ϡ�Ƭʸ���ϡֵ���סֿ����ס֥���ե��٥åȡפ�
-     ʬ�����¤٤��뤬��2ʸ���ܰʹߤ�ñ���ASCII�����ɽ�Ȥʤꡢ������
-     ����ե��٥åȤ���ˤʤ���⤢�롣
-     mendex�αѿ������¤Ӥϡ�2ʸ���ܰʹߤ�ֵ���סֿ����ס֥���ե��٥åȡפ�
-     ʬ�ब��θ����롣
-  3. makeindex�ˤ� -g ���ץ����ǥɥ��ĸ켭���(����->����ե��٥åȾ�ʸ��->
-     ����ե��٥å���ʸ��->����)���¤٤�褦�ˤǤ��뤬��mendex�Ǥϥ��ݡ���
-     ���ʤ���
-     -g ����ʸƬʸ���ζ��ڤ���ڤ괹���륪�ץ����Ȥ��ư�����
-����ʸ�������ɤߤ����Ϥ򸺤餹����ˡ��ɤߤȽϸ���б������뼭��ե��������ѡ�
-����ʸ���ɤߤϼ����˼�ư�Ѵ���
-������������->��ʸ->��ʸ�ν�ˤ������ʤ������κ�������ǽ��
-��makeindex����٤Ƽ¹�®�٤������٤���
+  2. makeindexの項目の並び順は、頭文字は「記号」「数字」「アルファベット」に
+     分けて並べられるが、2文字目以降は単純にASCIIコード順となり、記号より
+     アルファベットが先になる場合もある。
+     mendexの英数字の並びは、2文字目以降も「記号」「数字」「アルファベット」の
+     分類が考慮される。
+  3. makeindexには -g オプションでドイツ語辞書順(記号->アルファベット小文字->
+     アルファベット大文字->数字)で並べるようにできるが、mendexではサポート
+     しない。
+     -g は和文頭文字の区切りを切り換えるオプションとして扱う。
+・和文索引の読みの入力を減らすために、読みと熟語を対応させる辞書ファイルを使用。
+・和文の読みは辞書順に自動変換。
+・数字・記号->欧文->和文の順にこだわらない索引の作成が可能。
+・makeindexと比べて実行速度が非常に遅い。
 
-<ư��Ķ�>
+<動作環境>
 
- FreeBSD 3.3 �ˤ�ư���ǧ��
+ FreeBSD 3.3 にて動作確認。
 
-<�ץ������Υ���ѥ���>
+<プログラムのコンパイル>
 
- �б����������ɤ˹�碌�� kana.h ����� ktable.h �򥳡����Ѵ����Ƥ���������
-�б��Ǥ�����������ɤ�EUC�ޤ���Shift-JIS�Ǥ���JIS�����ɤˤ����б��Ǥ���
- �ʤ���EUC�Ķ�(SunOS��)��ShiftJIS�Υ����ɤ��б����뤿�ᡢkana.h�����ktable.h
-�˺ٹ������Ƥ���ޤ������Τ��ᡢ����ѥ������warning���Ф뤳�Ȥ�����ޤ���
-�ä˵��ˤ���ɬ�פϤ���ޤ���
+ 対応漢字コードに合わせて kana.h および ktable.h をコード変換してください。
+対応できる漢字コードはEUCまたはShift-JISです。JISコードには非対応です。
+ なお、EUC環境(SunOS等)でShiftJISのコードに対応するため、kana.hおよびktable.h
+に細工がしてあります。このため、コンパイル時にwarningが出ることがありますが
+特に気にする必要はありません。
 
- ����mendex�ˤ�TeX ver.3�Υǥ��쥯�ȥ긡�����б����뤿��ˡ��ɻ� ��ŵ��
-(asayama@vid.cpg.sony.co.jp)�ˤ��kpathsea�饤�֥���б���ʬ�򤢤ƤƤ���ޤ���
- �б����Ƥ��븡���饤�֥��� kpathsea-2.6, 3.3 �Ǥ���
+ このmendexにはTeX ver.3のディレクトリ検索に対応するために、淺山 和典氏
+(asayama@vid.cpg.sony.co.jp)によるkpathseaライブラリ対応差分をあててあります。
+ 対応している検索ライブラリは kpathsea-2.6, 3.3 です。
 
- �ʤ����ǥե���ȤǤ�kpathsea-3.3(teTeX-1.0�Τ��)���б�����
-���ޤ�����Makefile��񤭴����뤳�Ȥˤ��kpathsea-2.6(pTeX2.1.4 �� dvipsk5.58f
-�Τ��) �����kpathsea�ʤ����б����ޤ���
- �б���������kpathsea�饤�֥��˱����� Makefile �� CFLAGS �� PROGLINK ������
-���Ʋ�������
- �ޤ���mendex�Υ��󥹥ȡ������ Makefile �� DISTDIR �˻��ꤷ�Ƥ����Ʋ�������
+ なお、デフォルトではkpathsea-3.3(teTeX-1.0のもの)に対応して
+いますが、Makefileを書き換えることによりkpathsea-2.6(pTeX2.1.4 や dvipsk5.58f
+のもの) およびkpathseaなしに対応します。
+ 対応させたいkpathseaライブラリに応じて Makefile の CFLAGS と PROGLINK を選択
+して下さい。
+ また、mendexのインストール先を Makefile の DISTDIR に指定しておいて下さい。
 
- ���ȤϤ��Υǥ��쥯�ȥ�� kpathsea �ǥ��쥯�ȥ��Ʊ�����ؤ��֤���make ��¹�
-����� mendex ������ޤ���
- ����� make install ��¹Ԥ���� DISTDIR �ǻ��ꤷ���ǥ��쥯�ȥ�˥��󥹥ȡ���
-����ޤ���
+ あとはこのディレクトリを kpathsea ディレクトリと同じ階層に置き、make を実行
+すると mendex が作られます。
+ さらに make install を実行すると DISTDIR で指定したディレクトリにインストール
+されます。
 
-<kpathsea �δĶ��ѿ��ˤĤ���>
+<kpathsea の環境変数について>
 
- ����ѥ������kpathsea�饤�֥�����Ѥ�����硢texmf.cnf ��Ķ��ѿ��ǰʲ���
-�ѿ������ꤹ��Ф���򻲾Ȥ��ޤ���
+ コンパイル時にkpathseaライブラリを使用した場合、texmf.cnf や環境変数で以下の
+変数を設定すればそれを参照します。
 
-  ��INDEXSTYLE   ������������ե����뤬����ǥ��쥯�ȥ�
-  ��INDEXDEFAULTSTYLE   �ǥե���Ȥǻ��Ȥ��������������ե�����
-  ��INDEXDICTIONARY   ���񤬤���ǥ��쥯�ȥ�
-  ��INDEXDEFAULTDICTIONARY   ��˻��Ȥ��뼭��ե�����
+  ・INDEXSTYLE   索引スタイルファイルがあるディレクトリ
+  ・INDEXDEFAULTSTYLE   デフォルトで参照する索引スタイルファイル
+  ・INDEXDICTIONARY   辞書があるディレクトリ
+  ・INDEXDEFAULTDICTIONARY   常に参照する辞書ファイル
 
- �����ϡ��ǥ��쥯�ȥ�̾�� ':' (DOS �� ';') �Ƕ��ڤä��¤٤ޤ�(TEXINPUTS
-�ʤɤ�Ʊ��)��TEXINPUTS ��Ʊ�͡�"//" �ϺƵ�Ū�ʸ������̣���ޤ���
+ これらは、ディレクトリ名を ':' (DOS は ';') で区切って並べます(TEXINPUTS
+などと同じ)。TEXINPUTS と同様、"//" は再帰的な検索を意味します。
 
- �������ѿ����ɤ��ˤ����ꤵ��Ƥ��ʤ���Х���ѥ������ main.c ��Ƭ��
-DEFAULT_INDEXSTYLES��DEFAULT_INDEXDICTS �ǻ��ꤷ���ǥ��쥯�ȥ���Ѥ��ޤ�
-(�ǥե���ȤǤϡ����� "." �����ꤷ�Ƥ���ޤ�)��
+ これらの変数がどこにも設定されていなければコンパイル時に main.c 冒頭の
+DEFAULT_INDEXSTYLES、DEFAULT_INDEXDICTS で指定したディレクトリを用います
+(デフォルトでは、双方 "." が指定してあります)。
 
- �����δĶ��ѿ������ꤵ��Ƥ��ʤ���� texmf.cnf �����ꤵ�줿�ѿ��򸡺����ޤ���
+ これらの環境変数が設定されていなければ texmf.cnf に設定された変数を検索します。
 
- texmf.cnf ��Ǥϡ�TeX�ʤɤ�Ʊ�ͤˡ�INDEXSTYLE.mendex �Τ褦�˥ץ������̾��
-���ꤷ�ƻ��ꤹ�뤳�Ȥ����ޤ���
+ texmf.cnf 内では、TeXなどと同様に、INDEXSTYLE.mendex のようにプログラム名を
+限定して指定することも出来ます。
 
- �ޤ���INDEXDEFAULTDICTIONARY �˼���ե�����̾�����ꤷ�Ƥ����о�ˤ��μ����
-���Ȥ��ޤ���
+ また、INDEXDEFAULTDICTIONARY に辞書ファイル名を設定しておけば常にその辞書を
+参照します。

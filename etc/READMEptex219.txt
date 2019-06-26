@@ -1,25 +1,25 @@
 ===========================================================================
-                   $BF|K\8l(B TeX $B%P!<%8%g%s(B 3.14159, p2.1.9
+                   日本語 TeX バージョン 3.14159, p2.1.9
 
                  Copyright (C) 1998,2000 ASCII Corporation
 ===========================================================================
-$B"((B $B%$%s%9%H!<%k:n6H$r$9$kA0$K!"5l%P!<%8%g%s$N(B TeX $B%7%9%F%`$N%P%C%/%"%C%W$r(B
-   $B<h$C$F$/$@$5$$!#(B
+※ インストール作業をする前に、旧バージョンの TeX システムのバックアップを
+   取ってください。
 
-$B"((B pTeX $B$r%$%s%9%H!<%k$9$kA0$K!"(BteTeX $B%7%9%F%`$r9=C[$7$F$*$$$F$/$@$5$$!#(B
+※ pTeX をインストールする前に、teTeX システムを構築しておいてください。
 
 ---------------------------------------------------------------------------
-$B!|(B $B%=!<%9%U%!%$%k(B
+● ソースファイル
 ---------------------------------------------------------------------------
-pTeX $B$N%$%s%9%H!<%k$K$O!"$D$.$N%U%!%$%k$,I,MW$G$9!#(B
+pTeX のインストールには、つぎのファイルが必要です。
 
- * ptex-src-2.1.9-1.tar.gz    (pTeX $B%=!<%9%U%!%$%k(B)
- * ptex-texmf-1.5.tar.gz      (pTeX $B%i%$%V%i%j%U%!%$%k(B)
- * teTeX-src-1.0.7.tar.gz     (teTeX $B%=!<%9%U%!%$%k(B)
+ * ptex-src-2.1.9-1.tar.gz    (pTeX ソースファイル)
+ * ptex-texmf-1.5.tar.gz      (pTeX ライブラリファイル)
+ * teTeX-src-1.0.7.tar.gz     (teTeX ソースファイル)
 
-$B$3$l$i$O!"0J2<$N%5%$%H$J$I$+$iF~<j2DG=$G$9!#(B
+これらは、以下のサイトなどから入手可能です。
 
-$B!&(BpTeX $B4XO"(B
+・pTeX 関連
     http://ascii.asciimw.jp/pb/ptex/archives/ascii-ptex/
     ftp://ftp.media.kyoto-u.ac.jp/TeX/ASCII-pTeX/
     ftp://bash.cc.keio.ac.jp/pub/TeX/ascii-ptex/
@@ -28,7 +28,7 @@ pTeX $B$N%$%s%9%H!<%k$K$O!"$D$.$N%U%!%$%k$,I,MW$G$9!#(B
     ftp://ftp.u-aizu.ac.jp/pub/tex/ASCII-pTeX/
     ftp://ftp.foretune.co.jp/pub/TeX/ascii-ptex/
 
-$B!&(BteTeX $B4XO"(B
+・teTeX 関連
     ftp://ftp.lab.kdd.co.jp/CTAN/
     ftp://ftp.meisei-u.ac.jp/pub/CTAN/
     ftp://ftp.riken.go.jp/pub/tex-archive/
@@ -38,70 +38,70 @@ pTeX $B$N%$%s%9%H!<%k$K$O!"$D$.$N%U%!%$%k$,I,MW$G$9!#(B
     ftp://ftp.tex.ac.uk/tex-archive/
     ftp://ctan.tug.org/tex-archive/
 
-$B$J$*!"(BteTeX-src $B$N$+$o$j$K!"(B
+なお、teTeX-src のかわりに、
 
  * ftp://ftp.cstug.cz/pub/tex/local/cstug/thanh/pdftex/tetex-supp.tgz
 
-$B$rMQ$$$k$H!"(Bsrc-special $B5!G=$rMxMQ$G$-$^$9!#(B
+を用いると、src-special 機能を利用できます。
 
 ---------------------------------------------------------------------------
-$B!|(B $B%$%s%9%H!<%k(B
+● インストール
 ---------------------------------------------------------------------------
-1. ptex-texmf-1.5.tar.gz $B%U%!%$%k$rE83+$7$^$9!#E83+@h$O(B teTeX $B%i%$%V%i%j$N(B
-   $B>l=j$G$9!#(B
+1. ptex-texmf-1.5.tar.gz ファイルを展開します。展開先は teTeX ライブラリの
+   場所です。
 
       tar zxvf ptex-texmf-1.5.tar.gz -C /usr/local/teTeX/share/texmf
 
-2. ls-R $B%U%!%$%k$r99?7$7$^$9!#(B
+2. ls-R ファイルを更新します。
 
       mktexlsr /usr/local/teTeX/share/texmf
 
-3. teTeX $B%=!<%9%U%!%$%k$rE83+$7$^$9!#(B
+3. teTeX ソースファイルを展開します。
 
       tar zxvf teTeX-src-1.0.7.tar.gz -C /usr/src
 
-4. teTeX-1.0 $B%G%#%l%/%H%j$K0\F0$7!"(Bconfigure $B%3%^%s%I$r<B9T$7$^$9!#(B
-   prefix $B%*%W%7%g%s$G(B teTeX $B$,%$%s%9%H!<%k$5$l$F$$$k%G%#%l%/%H%j$r(B
-   $B;XDj$7$F$/$@$5$$!#(B
+4. teTeX-1.0 ディレクトリに移動し、configure コマンドを実行します。
+   prefix オプションで teTeX がインストールされているディレクトリを
+   指定してください。
 
       cd /usr/src/teTeX-1.0
       ./configure --prefix=/usr/local/teTeX
 
-5. ptex-src-2.1.9-1.tar.gz $B%U%!%$%k$rE83+$7$^$9!#(B
+5. ptex-src-2.1.9-1.tar.gz ファイルを展開します。
 
       tar zxvf ptex-src-2.1.9-1.tar.gz -C /usr/src/teTeX-1.0/texk/web2c
 
-6. ptex-2.1.9 $B%G%#%l%/%H%j$K0\F0$7!"(Bconfigure $B%3%^%s%I$r<B9T$7$^$9!#(B
-   $B$3$N$H$-!"C<Kv$K=PNO$9$k4A;z%3!<%I$r;XDj$7$F$/$@$5$$!#(B
+6. ptex-2.1.9 ディレクトリに移動し、configure コマンドを実行します。
+   このとき、端末に出力する漢字コードを指定してください。
 
       cd /usr/src/teTeX-1.0/texk/web2c/ptex-2.1.9
-      ./configure EUC     (EUC$B%3!<%I$N>l9g(B)
-      ./configure JIS     (JIS$B%3!<%I$N>l9g(B)
-      ./configure SJIS    ($B%7%U%H(BJIS$B%3!<%I$N>l9g(B)
+      ./configure EUC     (EUCコードの場合)
+      ./configure JIS     (JISコードの場合)
+      ./configure SJIS    (シフトJISコードの場合)
 
-7. make $B$r<B9T$7$^$9!#(B
+7. make を実行します。
 
-8. make install $B$r<B9T$7$^$9!#(B
+8. make install を実行します。
 
 ---------------------------------------------------------------------------
-$B<+F0@8@.$5$l$k(B ascgrp, ascii10, ascii36 $B$N(B pk $B%U%!%$%k$r(B
-$TEXMF/fonts/pk/<$B%b!<%I(B>/ascgrp $B$N2<$KCV$/$h$&$K$9$k>l9g$O!"(B
-$TEXMF/fontname/special.map $B$K$D$.$NFs9T$r2C$($^$9!#(B
+自動生成される ascgrp, ascii10, ascii36 の pk ファイルを
+$TEXMF/fonts/pk/<モード>/ascgrp の下に置くようにする場合は、
+$TEXMF/fontname/special.map につぎの二行を加えます。
 
     ascgrp ascgrp
     ascii  ascgrp
 
 ---------------------------------------------------------------------------
-$B!|(B $BLd$$9g$o$;@h$J$I(B
+● 問い合わせ先など
 ---------------------------------------------------------------------------
-pTeX $B$K$D$$$F$N$*Ld$$9g$o$;$O!"EE;R%a!<%k$G(B www-ptex$B!w(Bascii.co.jp $B08$F(B
-$B$K$*4j$$$7$^$9!#(B
+pTeX についてのお問い合わせは、電子メールで www-ptex＠ascii.co.jp 宛て
+にお願いします。
 
-pTeX $B$N%[!<%`%Z!<%8!J(Bhttp://www.ascii.co.jp/pb/ptex$B!K$G$O!"%P%0>pJs$d(B
-$B%$%s%9%H!<%k$N%R%s%H!"(BpTeX $B$GDI2C$5$l$?%W%j%_%F%#%V0lMw$J$I$r7G:\$7$F(B
-$B$$$^$9!#$3$A$i$b$4Mw$/$@$5$$!#(B
+pTeX のホームページ（http://www.ascii.co.jp/pb/ptex）では、バグ情報や
+インストールのヒント、pTeX で追加されたプリミティブ一覧などを掲載して
+います。こちらもご覧ください。
 
 -------------------------------------
-$B3t<02q<R(B $B%"%9%-!<(B $B%F%/%K%+%k%;%s%?!<(B
-$BCfLn(B $B8-(B <ken-na>
+株式会社 アスキー テクニカルセンター
+中野 賢 <ken-na>
 =============================================================== EOT =====
