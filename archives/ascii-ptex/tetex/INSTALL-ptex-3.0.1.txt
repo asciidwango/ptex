@@ -1,22 +1,22 @@
 ===========================================================================
-$BF|K\8l(B TeX $B%P!<%8%g%s(B 3.14159, p3.0.1
+日本語 TeX バージョン 3.14159, p3.0.1
 ===========================================================================
-$B"((B $BI,MW$J$i$P!"%$%s%9%H!<%k:n6H$r$9$kA0$K!"(B
-   $B5l%P!<%8%g%s$N(B TeX $B%7%9%F%`$N%P%C%/%"%C%W$r$7$F$/$@$5$$!#(B
+※ 必要ならば、インストール作業をする前に、
+   旧バージョンの TeX システムのバックアップをしてください。
 
 ---------------------------------------------------------------------------
-$B!|(B $B%=!<%9%U%!%$%k(B
+● ソースファイル
 ---------------------------------------------------------------------------
-pTeX $B$N%$%s%9%H!<%k$K$O!"$D$.$N%U%!%$%k$,I,MW$G$9!#(B
+pTeX のインストールには、つぎのファイルが必要です。
 
-  $B!&(Bptex-src-3.0.1.tar.gz      (pTeX $B%=!<%9%U%!%$%k(B)
-  $B!&(Bptex-texmf-2.0.tar.gz      (pTeX $B%i%$%V%i%j%U%!%$%k(B)
-  $B!&(BteTeX-src-1.0.7.tar.gz     (teTeX $B%=!<%9%U%!%$%k(B)
-  $B!&(BteTeX-texmf-1.0.2.tar.gz   (teTeX $B%i%$%V%i%j%U%!%$%k(B)
+  ・ptex-src-3.0.1.tar.gz      (pTeX ソースファイル)
+  ・ptex-texmf-2.0.tar.gz      (pTeX ライブラリファイル)
+  ・teTeX-src-1.0.7.tar.gz     (teTeX ソースファイル)
+  ・teTeX-texmf-1.0.2.tar.gz   (teTeX ライブラリファイル)
 
-$B$3$l$i$O!"0J2<$N%5%$%H$J$I$+$iF~<j2DG=$G$9!#(B
+これらは、以下のサイトなどから入手可能です。
 
-  $B!&(BpTeX $B4XO"(B
+  ・pTeX 関連
     http://ascii.asciimw.jp/pb/ptex/archives/ascii-ptex/
     ftp://ftp.media.kyoto-u.ac.jp/TeX/ASCII-pTeX/
     ftp://bash.cc.keio.ac.jp/pub/TeX/ascii-ptex/
@@ -24,91 +24,91 @@ pTeX $B$N%$%s%9%H!<%k$K$O!"$D$.$N%U%!%$%k$,I,MW$G$9!#(B
     ftp://ftp.tut.ac.jp/TeX/ASCII-pTeX/
     ftp://ftp.u-aizu.ac.jp/pub/tex/ASCII-pTeX/
     ftp://ftp.foretune.co.jp/pub/TeX/ascii-ptex/
-    RING$B%5!<%P72(B (ftp://www.ring.gr.jp/pub/text/TeX/ascii-ptex/)
-    RING$B%5!<%P72(B (http://www.ring.gr.jp/pub/text/TeX/ascii-ptex/)
+    RINGサーバ群 (ftp://www.ring.gr.jp/pub/text/TeX/ascii-ptex/)
+    RINGサーバ群 (http://www.ring.gr.jp/pub/text/TeX/ascii-ptex/)
 
-  $B!&(BteTeX $B4XO"(B
-    RING$B%5!<%P72(B (ftp://www.ring.gr.jp/pub/text/TeX/CTAN/)
-    RING$B%5!<%P72(B (http://www.ring.gr.jp/pub/text/TeX/CTAN/)
+  ・teTeX 関連
+    RINGサーバ群 (ftp://www.ring.gr.jp/pub/text/TeX/CTAN/)
+    RINGサーバ群 (http://www.ring.gr.jp/pub/text/TeX/CTAN/)
     ftp://ftp.dante.de/tex-archive/
     ftp://ftp.tex.ac.uk/tex-archive/
     ftp://ctan.tug.org/tex-archive/
 
 ---------------------------------------------------------------------------
-$B!|(B $B%$%s%9%H!<%k(B
+● インストール
 ---------------------------------------------------------------------------
-1. teTeX $B$N%i%$%V%i%j%U%!%$%k$rE83+$7$^$9!#(B
+1. teTeX のライブラリファイルを展開します。
 
      mkdir -p /usr/local/teTeX/share/texmf
      tar zxf teTeX-texmf-1.0.2.tar.gz -C /usr/local/teTeX/share/texmf
 
-2. ptex $B$N%i%$%V%i%j%U%!%$%k$rE83+$7$^$9!#(B
+2. ptex のライブラリファイルを展開します。
 
      tar zxf ptex-texmf-2.0.tar.gz -C /usr/local/teTeX/share/texmf
 
-3. teTeX $B$N%=!<%9%U%!%$%k$rE83+$7$^$9!#(B
+3. teTeX のソースファイルを展開します。
 
      tar zxf teTeX-src-1.0.7.tar.gz -C /usr/local/src
 
-4. ptex $B$N%=!<%9%U%!%$%k$rE83+$7$^$9!#(B
+4. ptex のソースファイルを展開します。
 
      tar zxvf ptex-src-3.0.1.tar.gz -C /usr/local/src/teTeX-1.0/texk/web2c
 
-5. teTeX $B%=!<%9%U%!%$%k$rE83+$7$?%G%#%l%/%H%j$K0\F0$7!"(Bconfigure $B%3%^%s%I(B
-   $B$r<B9T$7$^$9!#(Bprefix $B%*%W%7%g%s$K$O!"(BteTeX $B%i%$%V%i%j$r%$%s%9%H!<%k(B
-   $B$7$?%G%#%l%/%H%j$r;XDj$7$^$9!#(B
+5. teTeX ソースファイルを展開したディレクトリに移動し、configure コマンド
+   を実行します。prefix オプションには、teTeX ライブラリをインストール
+   したディレクトリを指定します。
 
      cd /usr/local/src/teTeX-1.0
      ./configure --prefix=/usr/local/teTeX
      make
      make install
 
-6. ptex $B$N%=!<%9%G%#%l%/%H%j$K0\F0$7!"(Bconfigure $B%3%^%s%I$r<B9T$7$^$9!#(B
-   $B$3$N$H$-!"C<Kv$K=PNO$9$k4A;z%3!<%I$r;XDj$7$F$/$@$5$$!#(B
+6. ptex のソースディレクトリに移動し、configure コマンドを実行します。
+   このとき、端末に出力する漢字コードを指定してください。
 
      cd /usr/local/src/teTeX-1.0/texk/web2c/ptex-3.0.1
-     ./configure euc     (EUC$B%3!<%I$N>l9g(B)
-     ./configure jis     (JIS$B%3!<%I$N>l9g(B)
-     ./configure sjis    ($B%7%U%H(BJIS$B%3!<%I$N>l9g(B)
+     ./configure euc     (EUCコードの場合)
+     ./configure jis     (JISコードの場合)
+     ./configure sjis    (シフトJISコードの場合)
      make
      make install
 
 ---------------------------------------------------------------------------
-$B!|(B $BJdB-(B
+● 補足
 ---------------------------------------------------------------------------
-$B$3$N(B ptex $B$N%=!<%9$O!"(BteTeX-src-1.0.7 $B0J30$N%=!<%9$HAH$_9g$o$;$F(B
-$B:n@.$9$k$3$H$b$G$-$^$9!#(B
+この ptex のソースは、teTeX-src-1.0.7 以外のソースと組み合わせて
+作成することもできます。
 
-src-special $B$N5!G=$r<h$j9~$s$@>l9g!"(Bptex $B$N5/F0;~%*%W%7%g%s$G(B
--src-specials $B$r;H$($k$h$&$J$j$^$9!#(B
+src-special の機能を取り込んだ場合、ptex の起動時オプションで
+-src-specials を使えるようなります。
 
 --------------------------------------------------------
-$B!{(B tetex-supp.tgz (Web2c 7.3.2x) $B$rMQ$$$k$H$-(B
+○ tetex-supp.tgz (Web2c 7.3.2x) を用いるとき
 --------------------------------------------------------
 ftp://ftp.cstug.cz/pub/tex/local/cstug/thanh/pdftex/tetex-supp.tgz
-$B$rMQ$$$k$H!"(Bsrc-special $B5!G=$rMxMQ$G$-$^$9!#(B
+を用いると、src-special 機能を利用できます。
 
-$B<j=g(B 6 $B$G!"(Bconfigure $B$K(B --with-src-special $B%*%W%7%g%s$r;XDj$7$F(B
-$B$/$@$5$$!#$?$H$($P!"(BEUC $B%3!<%I$N>l9g$O!"$D$.$N$h$&$K$7$^$9!#(B
+手順 6 で、configure に --with-src-special オプションを指定して
+ください。たとえば、EUC コードの場合は、つぎのようにします。
 
     ./configure euc --with-src-special
 
 --------------------------------------------------------
-$B!{(B web2c-7.3.3 $B$rMQ$$$k$H$-(B
+○ web2c-7.3.3 を用いるとき
 --------------------------------------------------------
-teTeX-1.0 $B$N%=!<%9$HAH$_9g$o$;$k$H$-$HF1$8<j=g$G$9!#(B
+teTeX-1.0 のソースと組み合わせるときと同じ手順です。
 
 --------------------------------------------------------
-$B!{(B teTeX-src-beta-20011202 (Web2c 7.3.7)$B$rMQ$$$k$H$-(B
+○ teTeX-src-beta-20011202 (Web2c 7.3.7)を用いるとき
 --------------------------------------------------------
-$B<j=g(B 6 $B$G(B configure $B$r<B9T$9$kA0$K!"%Q%C%A$r$"$F$F$/$@$5$$!#(B
+手順 6 で configure を実行する前に、パッチをあててください。
 
     patch < ptex-src-3.0.1.patch
     patch < web2c-7.3.7.patch
 	./configure euc
 
-teTeX-src-beta-20011202 $B$O!"(Bsrc-special $B$N5!G=$,4^$^$l$F$$$^$9!#(B
+teTeX-src-beta-20011202 は、src-special の機能が含まれています。
 
 -------------------------------------
-$B3t<02q<R(B $B%"%9%-!<(B $B=PHG5;=QIt!J(Bwww-ptex@ascii.co.jp$B!K(B
+株式会社 アスキー 出版技術部（www-ptex@ascii.co.jp）
 =============================================================== EOT =====

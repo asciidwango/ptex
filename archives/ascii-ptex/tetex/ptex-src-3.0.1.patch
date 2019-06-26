@@ -1,10 +1,10 @@
-ptex-src-3.0.1.tar.gz $B$K4^$^$l$k!"(Bweb2c-7.3.7.patch $B$X$N%Q%C%A$G$9!#(B
-tftopl, pltotf $B$G(B ptex $BMQ$N%X%k%W%a%C%;!<%8$G$J$$$N$r=$@5$7$^$9!#(B
+ptex-src-3.0.1.tar.gz に含まれる、web2c-7.3.7.patch へのパッチです。
+tftopl, pltotf で ptex 用のヘルプメッセージでないのを修正します。
 
-teTeX-src-beta-20011202.tar.gz $B$N%=!<%9$HAH$_9g$o$;$F(B ptex $B$N%=!<%9(B
-$B$r%3%s%Q%$%k$9$k$H$-$K$@$1I,MW$G$9!#(B
+teTeX-src-beta-20011202.tar.gz のソースと組み合わせて ptex のソース
+をコンパイルするときにだけ必要です。
 
-$B%$%s%9%H!<%k<j=g$O$D$.$N$h$&$K$J$j$^$9!#(B
+インストール手順はつぎのようになります。
 
     patch < ptex-src-3.0.1.patch
     patch < web2c-7.3.7.patch
@@ -48,4 +48,4 @@ teTeX-src-beta-20011202.tar.gz $B$N%=!<%9$HAH$_9g$o$;$F(B ptex $B$N%=!<%9(B
    @* Index.
 
 -------------------------------------
-$B3t<02q<R(B $B%"%9%-!<(B $B=PHG5;=QIt(B (www-ptex@ascii.co.jp)
+株式会社 アスキー 出版技術部 (www-ptex@ascii.co.jp)
