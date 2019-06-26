@@ -1,30 +1,30 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>PL reference</title>
 </head>
 <body bgcolor="#F5F5DC">
 <h2><a name="header">HEADER</a>
-<font size=4>$B#4%P%$%HD9$N?tCM$H#1%P%$%HD9$N?tCM(B</font></h2>
-$B#4%P%$%HD9$N%$%s%G%C%/%9$,;X$9%X%C%@!<%o!<%I$N0LCV$K!"#1%P%$%HD9$NCM$,F~$j$^$9!#(B
-$B#1%P%$%HD9$NCM$O!"(B18$B$+$i>e8BCM$^$G$NHO0O$NCM$G$9!#>e8BCM$O!"(B
-TFtoPL$B$r:n@.$9$k$H$-$N(B<var>max_header_bytes</var>$B$NCM$K$h$C$F7hDj$5$l$^$9!#(B
-$BDL>o$O(B100$B$G$9!#$?$H$($P!"(B<var>header</var>[18]$B$K(B1$B$r@_Dj$9$k$K$O!"(B
+<font size=4>４バイト長の数値と１バイト長の数値</font></h2>
+４バイト長のインデックスが指すヘッダーワードの位置に、１バイト長の値が入ります。
+１バイト長の値は、18から上限値までの範囲の値です。上限値は、
+TFtoPLを作成するときの<var>max_header_bytes</var>の値によって決定されます。
+通常は100です。たとえば、<var>header</var>[18]に1を設定するには、
 <pre>
     (HEADER D 18 O 1)
 </pre>
-$B$H=q$-$^$9!#$3$NI=5-K!$OL>A0$N$J$$%X%C%@!<>pJs$r<($9$N$K;H$$$^$9!#(B
-TeX$B$O$3$l$rL5;k$7$^$9!#(B
+と書きます。この表記法は名前のないヘッダー情報を示すのに使います。
+TeXはこれを無視します。
 
 <p>
-<b>$B4XO"9`L\!'(B</b><a href="format.html">$B?tCMI=8=(B</a>
+<b>関連項目：</b><a href="format.html">数値表現</a>
 <p>
 <hr>
 <a href="../index.html">[pTeX home page]</a>,
-<a href="index.html">[PL,JPL$B$NL\<!(B]</a>,
-<a href="pl-ex.html">[PL$B%U%!%$%k$NNc(B]</a>,
-<a href="jpl-ex.html">[JPL$B%U%!%$%k$NNc(B]</a>
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>

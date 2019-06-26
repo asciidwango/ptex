@@ -1,77 +1,77 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (property list format)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
 
-<h2>PL$B%U%!%$%k$G$N?tCM$NI=8=7A<0(B</h2>
-PL$B%U%!%$%k$G$O?tCM$rI=8=$9$k$N$K!"#1J8;z$N?tCMI=8=7A<0$H$=$l$KB3$/?tCMNs(B
-$B$^$?$OJ8;z$r;H$$$^$9!#(BPL$B%U%!%$%k$G07$&$3$H$N$G$-$k?tCMI=8=$O<!$N$H$*$j$G$"$j!"(B
-$B%W%m%Q%F%#$H$7$FM?$($?$$?tCM$,I=8=2DG=$G$"$l$P!"$I$NI=8=7A<0$r;H$C$F$b(B
-$B$+$^$$$^$;$s!#(B
+<h2>PLファイルでの数値の表現形式</h2>
+PLファイルでは数値を表現するのに、１文字の数値表現形式とそれに続く数値列
+または文字を使います。PLファイルで扱うことのできる数値表現は次のとおりであり、
+プロパティとして与えたい数値が表現可能であれば、どの表現形式を使っても
+かまいません。
 <p>
 
 <ul>
-<li>C$B!!(BASCII$BJ8;zNs(B<br>
-$B3g8L$r=|$/!"I8=`E*$J0u:~2DG=J8;z$G$9!#(B<br>
-$B#8?J?t$NJ8;z%3!<%I$G<($9$H!"(B50$B$H(B51$B$r=|$/!"(B41$B$+$i(B176$B$N4V$NJ8;z$G$9!#(B
+<li>C　ASCII文字列<br>
+括弧を除く、標準的な印刷可能文字です。<br>
+８進数の文字コードで示すと、50と51を除く、41から176の間の文字です。
 <p>
 
-<li>K$B!!4A;z%3!<%I(B <img src="../images/jpl.gif" alt="jpl"><br>
-JIS$B%3!<%I(B(16$B?J(B)$B$N4A;z$r<($7$^$9!#(B
+<li>K　漢字コード <img src="../images/jpl.gif" alt="jpl"><br>
+JISコード(16進)の漢字を示します。
 <p>
 
-<li>D$B!!(B10$B?J@0?t(B<br>
-256$B$h$j$b>.$5$$@5$N?tCM$^$?$O%<%m$G$9!#(B<br>
-$BIi$N?t$dBg$-$J?tCM$r<($9$K$O(BR$B$r;H$$$^$9!#(B
+<li>D　10進整数<br>
+256よりも小さい正の数値またはゼロです。<br>
+負の数や大きな数値を示すにはRを使います。
 <p>
 
-<li>F$B!!#3J8;z$N(BXerox$B%U%'%$%9%3!<%I(B<br>
-$B$D$.$NJ8;zNs$,!"#0$+$i(B17$B$N?tCM$H$J$j$^$9!#(B
+<li>F　３文字のXeroxフェイスコード<br>
+つぎの文字列が、０から17の数値となります。
 
 <pre>
-$B!!!!(BMRR, MIR, BRR, BIR, LRR, LIR, MRC, MIC BRC,
-$B!!!!(BBIC, LRC, LIC, MRE, MIE, BRE, BIE, LRE, LIE
+　　MRR, MIR, BRR, BIR, LRR, LIR, MRC, MIC BRC,
+　　BIC, LRC, LIC, MRE, MIE, BRE, BIE, LRE, LIE
 </pre>
 
-$B$3$l$i$NJ8;z$N0UL#$O!"$D$.$N$H$*$j$G$9!#(B
+これらの文字の意味は、つぎのとおりです。
 
 <pre>
-$B!!!!#1J8;zL\!!%&%'%$%H!!(B     M  $B%_%G%#%"%`(B (Midium)
-$B!!!!!!!!!!!!!!!!!!!!!!!!(B     B  $B%\!<%k%I(B (Bold)
-$B!!!!!!!!!!!!!!!!!!!!!!!!(B     L  $B%i%$%H(B (Light)
-$B!!!!#2J8;zL\!!<PBN!!!!!!(B     R  $B<PBN$J$7(B (Roman)
-$B!!!!!!!!!!!!!!!!!!!!!!!!(B     I  $B<PBN(B (Italic)
-$B!!!!#3J8;zL\!!D9BN!&J?BN(B     R  $B@5BN(B (Regular)
-$B!!!!!!!!!!!!!!!!!!!!!!!!(B     C  $BD9BN(B (Condensed)
-$B!!!!!!!!!!!!!!!!!!!!!!!!(B     E  $BJ?BN(B (Extended)
+　　１文字目　ウェイト　     M  ミディアム (Midium)
+　　　　　　　　　　　　     B  ボールド (Bold)
+　　　　　　　　　　　　     L  ライト (Light)
+　　２文字目　斜体　　　     R  斜体なし (Roman)
+　　　　　　　　　　　　     I  斜体 (Italic)
+　　３文字目　長体・平体     R  正体 (Regular)
+　　　　　　　　　　　　     C  長体 (Condensed)
+　　　　　　　　　　　　     E  平体 (Extended)
 </pre>
 
-<li>O$B!!Id9f$J$7$N#8?J?t$N@0?tCM(B<br>
-$B#2$N(B23$B>h$h$j$b>.$5$/$J$/$F$O$$$1$^$;$s!#(B<br>
-$B$7$?$,$C$F!":GBgCM$O(B<b>O 3777777777</b>$B$H$J$j$^$9!#(B
+<li>O　符号なしの８進数の整数値<br>
+２の23乗よりも小さくなくてはいけません。<br>
+したがって、最大値は<b>O 3777777777</b>となります。
 <p>
 
-<li>H$B!!Id9f$J$7$N(B16$B?J?t$N@0?tCM(B<br>
-$B#2$N(B32$B>h$h$j$b>.$5$/$J$/$F$O$$$1$^$;$s!#(B<br>
-$B$7$?$,$C$F!":GBgCM$O(B<b>H FFFFFFFF</b>$B$H$J$j$^$9!#(B
+<li>H　符号なしの16進数の整数値<br>
+２の32乗よりも小さくなくてはいけません。<br>
+したがって、最大値は<b>H FFFFFFFF</b>となります。
 <p>
 
-<li>R$B!!(B10$B?J?t$N<B?tCM(B<br>
-$B?tCM$NA0$K(B`+'$B$d(B`-'$B$r;XDj$9$k$3$H$,$G$-$^$9!#(B
-$B$^$?!">.?tE@$r4^$a$k$3$H$b$G$-$^$9!#(B
-$B$?$@$7!"$=$N@dBPCM$,(B2048$B0J>e$N?tCM$O<($9$3$H$,$G$-$^$;$s!#(B
+<li>R　10進数の実数値<br>
+数値の前に`+'や`-'を指定することができます。
+また、小数点を含めることもできます。
+ただし、その絶対値が2048以上の数値は示すことができません。
 </ul>
 
 <p>
 <hr>
 <a href="../index.html">[pTeX home page]</a>,
-<a href="index.html">[PL,JPL$B$NL\<!(B]</a>,
-<a href="pl-ex.html">[PL$B%U%!%$%k$NNc(B]</a>,
-<a href="jpl-ex.html">[JPL$B%U%!%$%k$NNc(B]</a>
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>

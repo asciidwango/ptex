@@ -1,53 +1,53 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>PL reference</title>
 </head>
 <body bgcolor="#F5F5DC">
-<h2><a name="gluekern">GLUEKERN</a> <font size=4>$B2<0L$N%W%m%Q%F%#(B</font></h2>
-<img src="../images/jpl.gif" alt="jpl"> JPL$B%U%!%$%k$@$1$GM-8z$J%W%m%Q%F%#$G$9!#(B
+<h2><a name="gluekern">GLUEKERN</a> <font size=4>下位のプロパティ</font></h2>
+<img src="../images/jpl.gif" alt="jpl"> JPLファイルだけで有効なプロパティです。
 <p>
-JFM$B%U%!%$%k$N(B<it>glue/kern</it>$B%F!<%V%k$K<}$a$k%W%m%0%i%`$r5-=R$7$^$9!#(B
-PL$B%U%!%$%k$N(B<a href="ligtable.html">LIGTABLE</a>$B$H;w$F$$$^$9$,!"(B
-<tt>LIG</tt>$B$NBe$o$j$K(B<tt>GLUE</tt>$B$rMQ$$$k$H$3$m$,0[$J$j$^$9!#(B
+JFMファイルの<it>glue/kern</it>テーブルに収めるプログラムを記述します。
+PLファイルの<a href="ligtable.html">LIGTABLE</a>と似ていますが、
+<tt>LIG</tt>の代わりに<tt>GLUE</tt>を用いるところが異なります。
 <p>
-$B2<0L$N%W%m%Q%F%#$K$O!"$D$.$N$h$&$J$b$N$,$"$j$^$9!#(B
+下位のプロパティには、つぎのようなものがあります。
 
 <ul>
-<li>LABEL $B#1%P%$%HD9$N@0?tCM(B<br>
-  <var>char_type</var>$B$N%W%m%0%i%`$r3+;O$9$k$3$H$r<($7$^$9!#(B
-  $B@0?tCM$O!"$=$N%U%)%s%H$KB8:_$9$k(B<var>char_type</var>$B$NCM$r;XDj$7$^$9!#(B
-  $B>/$J$/$H$b0l$D$N(B<tt>GLUE</tt>$B$^$?$O(B<tt>KRN</tt>$B%3%^%s%I$r(B
-  $B4^$a$M$P$$$1$^$;$s!#(B
+<li>LABEL １バイト長の整数値<br>
+  <var>char_type</var>のプログラムを開始することを示します。
+  整数値は、そのフォントに存在する<var>char_type</var>の値を指定します。
+  少なくとも一つの<tt>GLUE</tt>または<tt>KRN</tt>コマンドを
+  含めねばいけません。
 <p>
-<li>GLUE $B#1%P%$%HD9$N@0?tCM$H#3$D$N<B?tCM(B<br>
-  <tt>GLUEKERN</tt>$B%W%m%0%i%`$NCf$G!"8=:_$N(B<var>char_type</var>$B$H!"(B
-  $B#1%P%$%HD9$N@0?tCM$G;XDj$5$l$?(B<var>char_type</var>$B$N4V$KA^F~$9$k%0%k!<$r(B
-  $B<+A3D9!"?-$SD9!"=L$_D9$N#3$D$N<B?tCM$G;XDj$7$^$9!#(B
+<li>GLUE １バイト長の整数値と３つの実数値<br>
+  <tt>GLUEKERN</tt>プログラムの中で、現在の<var>char_type</var>と、
+  １バイト長の整数値で指定された<var>char_type</var>の間に挿入するグルーを
+  自然長、伸び長、縮み長の３つの実数値で指定します。
 <p>
-<li>KRN $B#1%P%$%HD9$N@0?tCM$H<B?tCM(B<br>
+<li>KRN １バイト長の整数値と実数値<br>
 <pre>
     (KRN c r)
 </pre>
-  $B$O!"<!$NJ8;z$,!V(Bc$B!W$G$"$l$P!"(B
-  $B8=:_$NJ8;z$H!V(Bc$B!W$N4V$KI}!V(Br$B!W$N6uGr$rA^F~$9$k$3$H$r<($7$^$9!#(B
-  $B!V(Br$B!W$NCM$O%G%6%$%s%5%$%:$rC10L$K$7!"Ii$NCM$r@_Dj$9$k$3$H$b$G$-$^$9!#(B
-  $BJ8;z!V(Bc$B!W$O$=$N%U%)%s%H$KB8:_$9$kJ8;z$G$9!#(B
+  は、次の文字が「c」であれば、
+  現在の文字と「c」の間に幅「r」の空白を挿入することを示します。
+  「r」の値はデザインサイズを単位にし、負の値を設定することもできます。
+  文字「c」はそのフォントに存在する文字です。
 <p>
 <li>STOP<br>
-  glue/kern$B%W%m%0%i%`$N=*N;$r<($7$^$9!#$3$N%W%m%Q%F%#$O!"(B
-  <tt>GLUE</tt>$B$^$?$O(B<tt>KRN</tt>$B$N$I$A$i$+$N$&$7$m$KB3$1$^$9!#(B
-  <tt>LABEL</tt>, <tt>STOP</tt>, <tt>SKIP</tt>$B$N$&$7$m$K$O;XDj$G$-$^$;$s!#(B
+  glue/kernプログラムの終了を示します。このプロパティは、
+  <tt>GLUE</tt>または<tt>KRN</tt>のどちらかのうしろに続けます。
+  <tt>LABEL</tt>, <tt>STOP</tt>, <tt>SKIP</tt>のうしろには指定できません。
 <p>
-<li>SKIP 0$B$+$i(B127$B$^$G$NHO0O$NCM(B<br>
-  <tt>GLUE</tt>$B$^$?$O(B<tt>KRN</tt>$B$K;XDj$7$?CM$,Ht$S1[$5$l$?8e$N(B
-  glue/kern$B%W%m%0%i%`$NB3$-$r;XDj$7$^$9!#(B<tt>GLUE</tt>$B$H(B<tt>KRN</tt>$B9=B$$N(B
-  $B$&$7$m$N?t$O!"$3$3$G5-=R$5$l$?NL$h$j$bB?$/$"$kI,MW$,$"$j$^$9!#(B
+<li>SKIP 0から127までの範囲の値<br>
+  <tt>GLUE</tt>または<tt>KRN</tt>に指定した値が飛び越された後の
+  glue/kernプログラムの続きを指定します。<tt>GLUE</tt>と<tt>KRN</tt>構造の
+  うしろの数は、ここで記述された量よりも多くある必要があります。
 </ul>
 
 <p>
-<b>$B4XO"9`L\!'(B</b><a href="format.html">$B?tCMI=8=(B</a>,
+<b>関連項目：</b><a href="format.html">数値表現</a>,
 <a href="ligtable.html">LIGTABLE</a>,
 <a href="charsintype.html">CHARSINTYPE</a>,
 <a href="type.html">TYPE</a>
@@ -55,9 +55,9 @@ PL$B%U%!%$%k$N(B<a href="ligtable.html">LIGTABLE</a>$B$H;w$F$$$^$9$,!"(B
 <p>
 <hr>
 <a href="../index.html">[pTeX home page]</a>,
-<a href="index.html">[PL,JPL$B$NL\<!(B]</a>,
-<a href="pl-ex.html">[PL$B%U%!%$%k$NNc(B]</a>,
-<a href="jpl-ex.html">[JPL$B%U%!%$%k$NNc(B]</a>
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>

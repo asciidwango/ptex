@@ -1,41 +1,41 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (property list format)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
 
-<h2>PL$B%U%!%$%k$H(BJPL$B%U%!%$%k(B</h2>
-PL$B%U%!%$%k$O!"(BTFM$B%U%!%$%k$NFbMF$r(B<b>$B%W%m%Q%F%#(B</b>$B!JFC@-!K$H$$$&(B
-$B35G0$r;H$C$F;k3P2=$7$?$b$N$G$9!#(B
-JPL$B%U%!%$%k$b!"(BPL$B%U%!%$%k$HF1MM$K%a%H%j%C%/%U%!%$%k$r;k3P2=$7$?$b$N$G$9$,!"(B
-TFM$B%U%!%$%k$G$O$J$/!"(BJFM$B%U%!%$%k$NFbMF$rI=$9$3$H$,0c$$$^$9!#(B
-$B%U%!%$%kL>$O$I$A$i$b!"(B<b>$B%U%)%s%HL>(B.pl</b>$B$H$$$&7A<0$G$D$1$i$l$^$9!#(B
+<h2>PLファイルとJPLファイル</h2>
+PLファイルは、TFMファイルの内容を<b>プロパティ</b>（特性）という
+概念を使って視覚化したものです。
+JPLファイルも、PLファイルと同様にメトリックファイルを視覚化したものですが、
+TFMファイルではなく、JFMファイルの内容を表すことが違います。
+ファイル名はどちらも、<b>フォント名.pl</b>という形式でつけられます。
 <p>
-$B%W%m%Q%F%#$O3,AX9=B$$K$J$C$F$*$j!"(B
-$B$?$H$($P(B<tt>LIGTABLE</tt>$B$d(B<tt>CHARACTER</tt>$B$J$I$N(B
-$B%W%m%Q%F%#$O!"$=$NCf$N$5$i$K:YJ,2=$7$?%W%m%Q%F%#$r;}$C$F$$$^$9!#(B
-PL$B%U%!%$%k$G$O!"(B`('$B$H(B`)'$B$rMQ$$$k$3$H$G!"3,AX9=B$$rI=8=$9$k;EAH$_$K$J$C$F$$$^$9!#(B
+プロパティは階層構造になっており、
+たとえば<tt>LIGTABLE</tt>や<tt>CHARACTER</tt>などの
+プロパティは、その中のさらに細分化したプロパティを持っています。
+PLファイルでは、`('と`)'を用いることで、階層構造を表現する仕組みになっています。
 <p>
 <ul>
-<li><a href="pl-ex.html">PL$B%U%!%$%k$NNc(B</a>
-<li><a href="jpl-ex.html">JPL$B%U%!%$%k$NNc(B</a>
+<li><a href="pl-ex.html">PLファイルの例</a>
+<li><a href="jpl-ex.html">JPLファイルの例</a>
 <p>
-<li><a href="#toplevel">$B:G>e0L%l%Y%k$N%W%m%Q%F%#(B</a>
-<li><a href="#character">CHARACTER$B$G;H$($k%W%m%Q%F%#(B</a>
-<li><a href="#fontdimen">FONTDIMEN$B$G;H$($k%W%m%Q%F%#(B</a>
-<li><a href="#gluekern">GLUEKERN$B$G;H$($k%W%m%Q%F%#(B</a>
-<li><a href="#ligtable">LIGTABLE$B$G;H$($k%W%m%Q%F%#(B</a>
-<li><a href="#type">TYPE$B$G;H$($k%W%m%Q%F%#(B</a>
-<li><a href="#etc">$B$=$NB>$N%W%m%Q%F%#(B</a>
-<li><a href="format.html">$B?tCM$NI=8=7A<0(B</a>
+<li><a href="#toplevel">最上位レベルのプロパティ</a>
+<li><a href="#character">CHARACTERで使えるプロパティ</a>
+<li><a href="#fontdimen">FONTDIMENで使えるプロパティ</a>
+<li><a href="#gluekern">GLUEKERNで使えるプロパティ</a>
+<li><a href="#ligtable">LIGTABLEで使えるプロパティ</a>
+<li><a href="#type">TYPEで使えるプロパティ</a>
+<li><a href="#etc">その他のプロパティ</a>
+<li><a href="format.html">数値の表現形式</a>
 </ul>
 
 <p>
 <hr>
-<h3><a name="toplevel">$B"#:G>e0L%l%Y%k$N%W%m%Q%F%#(B</a></h3>
+<h3><a name="toplevel">■最上位レベルのプロパティ</a></h3>
 <ul>
 <li><a href="boundarychar.html">BOUNDARYCHAR</a>
 <li><a href="checksum.html">CHECKSUM</a>
@@ -59,7 +59,7 @@ PL$B%U%!%$%k$G$O!"(B`('$B$H(B`)'$B$rMQ$$$k$3$H$G!"3,AX9=B$$rI=8=$9$k;EAH$_$
 
 <p>
 <hr>
-<h3><a name="character">$B"#(B<a href="character.html">CHARACTER</a>$B$G;H$($k%W%m%Q%F%#(B
+<h3><a name="character">■<a href="character.html">CHARACTER</a>で使えるプロパティ
 <img src="../images/pl.gif" alt="pl"></a></h3>
 <ul>
 <li>CHARWD
@@ -75,7 +75,7 @@ PL$B%U%!%$%k$G$O!"(B`('$B$H(B`)'$B$rMQ$$$k$3$H$G!"3,AX9=B$$rI=8=$9$k;EAH$_$
 
 <p>
 <hr>
-<h3><a name="fontdimen">$B"#(B</a><a href="fontdimen.html">FONTDIMEN</a>$B$G;H$($k%W%m%Q%F%#(B</h3>
+<h3><a name="fontdimen">■</a><a href="fontdimen.html">FONTDIMEN</a>で使えるプロパティ</h3>
 <ul>
 <li>SLANT, SPACE, STRETCH, SHRINK, XHEIGHT, QUAD, EXTRASPACE
 <li>NUM1, NUM2, NUM3, DEMON1, DEMON2, SUP1, SUP2, SUP3, SUB1, SUB2,<br>
@@ -87,7 +87,7 @@ PL$B%U%!%$%k$G$O!"(B`('$B$H(B`)'$B$rMQ$$$k$3$H$G!"3,AX9=B$$rI=8=$9$k;EAH$_$
 
 <p>
 <hr>
-<h3><a name="gluekern">$B"#(B<a href="gluekern.html">GLUEKERN</a>$B$G;H$($k%W%m%Q%F%#(B
+<h3><a name="gluekern">■<a href="gluekern.html">GLUEKERN</a>で使えるプロパティ
 <img src="../images/jpl.gif" alt="jpl"></a></h3>
 <ul>
 <li>LABEL
@@ -99,7 +99,7 @@ PL$B%U%!%$%k$G$O!"(B`('$B$H(B`)'$B$rMQ$$$k$3$H$G!"3,AX9=B$$rI=8=$9$k;EAH$_$
 
 <p>
 <hr>
-<h3><a name="ligtable">$B"#(B<a href="ligtable.html">LIGTABLE</a>$B$G;H$($k%W%m%Q%F%#(B
+<h3><a name="ligtable">■<a href="ligtable.html">LIGTABLE</a>で使えるプロパティ
 <img src="../images/pl.gif" alt="pl"></a></h3>
 <ul>
 <li>LABEL
@@ -112,7 +112,7 @@ PL$B%U%!%$%k$G$O!"(B`('$B$H(B`)'$B$rMQ$$$k$3$H$G!"3,AX9=B$$rI=8=$9$k;EAH$_$
 
 <p>
 <hr>
-<h3><a name="type">$B"#(B<a href="type.html">TYPE</a>$B$G;H$($k%W%m%Q%F%#(B
+<h3><a name="type">■<a href="type.html">TYPE</a>で使えるプロパティ
 <img src="../images/jpl.gif" alt="pl"></a></h3>
 <ul>
 <li>CHARWD
@@ -123,7 +123,7 @@ PL$B%U%!%$%k$G$O!"(B`('$B$H(B`)'$B$rMQ$$$k$3$H$G!"3,AX9=B$$rI=8=$9$k;EAH$_$
 
 <p>
 <hr>
-<h3><a name="etc">$B"#$=$NB>$N%W%m%Q%F%#(B</a></a></h3>
+<h3><a name="etc">■その他のプロパティ</a></a></h3>
 <ul>
 <li><a href="comment.html">COMMENT</a>
 </ul>

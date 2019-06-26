@@ -1,39 +1,39 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>PL reference</title>
 </head>
 <body bgcolor="#F5F5DC">
-<h2><a name="ligtable">LIGTABLE</a> <font size=4>$B2<0L$N%W%m%Q%F%#(B</font></h2>
-<img src="../images/pl.gif" alt="pl"> PL$B%U%!%$%k$@$1$GM-8z$J%W%m%Q%F%#$G$9!#(B
+<h2><a name="ligtable">LIGTABLE</a> <font size=4>下位のプロパティ</font></h2>
+<img src="../images/pl.gif" alt="pl"> PLファイルだけで有効なプロパティです。
 <p>
-$B2<0L$N%W%m%Q%F%#$K$O!"$D$.$N$h$&$J$b$N$,$"$j$^$9!#(B
+下位のプロパティには、つぎのようなものがあります。
 
 <ul>
-<li>LABEL$B!!#1%P%$%HD9$N@0?tCM(B<br>
-  $BJ8;z%3!<%I$N%W%m%0%i%`$r3+;O$9$k$3$H$r<($7$^$9!#(B
-  $B@0?tCM$O!"$=$N%U%)%s%H$KB8:_$9$kJ8;z$N?tCM$r;XDj$7$^$9!#(B
-  $B$=$NJ8;z$N(B<tt><a href="character.html">CHARACTER</a></tt>$B%W%m%Q%F%#%j%9%H$K(B
-  <tt>NEXTLARGER</tt>$B$d(B<tt>VARCHAR</tt>$B%U%#!<%k%I$r4^$a$k$3$H$O$G$-$^$;$s!#(B
-  $B$^$?!">/$J$/$H$b0l$D$N(B<tt>LIG</tt>$B$^$?$O(B<tt>KRN</tt>$B%3%^%s%I$r(B
-  $B4^$s$G$$$J$1$l$P$$$1$^$;$s!#(B
+<li>LABEL　１バイト長の整数値<br>
+  文字コードのプログラムを開始することを示します。
+  整数値は、そのフォントに存在する文字の数値を指定します。
+  その文字の<tt><a href="character.html">CHARACTER</a></tt>プロパティリストに
+  <tt>NEXTLARGER</tt>や<tt>VARCHAR</tt>フィールドを含めることはできません。
+  また、少なくとも一つの<tt>LIG</tt>または<tt>KRN</tt>コマンドを
+  含んでいなければいけません。
 <p>
 <li>LABEL BOUNDARYCHAR<br>
-  $B9g;zC18l$N3+;O$r<($7$^$9!#(B
+  合字単語の開始を示します。
 <p>
-<li>LIG$B!!#2$D$N#1%P%$%HD9$N@0?tCM(B<br>
+<li>LIG　２つの１バイト長の整数値<br>
 <pre>
     (LIG c r)
 </pre>
-  $B$O!"<!$NJ8;z$,!V(Bc$B!W$G$"$l$P!"J8;z!V(Br$B!W$rA^F~$7!"(B
-  $B8=:_$NJ8;z$+!V(Bc$B!W$r:o=|$7$^$9!#$=$&$G$J$1$l$P<!$N9=B$$K?J$`$3$H$r<($7$^$9!#(B
-  $BJ8;z!V(Br$B!W$H!V(Bc$B!W$O$=$N%U%)%s%H$KB8:_$9$kJ8;z$G$9!#(B
-  <tt>LIG</tt>$B%W%m%Q%F%#$K$O!"A08e$K%9%i%C%7%e!"(B
-  $B8e$m$K!J%9%i%C%7%e$NJ8;z$rD6$($J$$?t$@$1$N!K!V(B&gt;$B!WJ8;zl">[pTeX home page]</a>,
-<a href="index.html">[PL,JPL$B$NL\<!(B]</a>,
-<a href="pl-ex.html">[PL$B%U%!%$%k$NNc(B]</a>,
-<a href="jpl-ex.html">[JPL$B%U%!%$%k$NNc(B]</a>
+  は、次の文字が「c」であれば、文字「r」を挿入し、
+  現在の文字か「c」を削除します。そうでなければ次の構造に進むことを示します。
+  文字「r」と「c」はそのフォントに存在する文字です。
+  <tt>LIG</tt>プロパティには、前後にスラッシュ、
+  後ろに（スラッシュの文字を超えない数だけの）「&gt;」文字譬詔靨縢 蓖辣 鞜艱歇宵
+釈 蓿繙就蜴粤蔗迪⊂柞蓑偏ぢの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>

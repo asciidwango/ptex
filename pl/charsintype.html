@@ -1,43 +1,43 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>PL reference</title>
 </head>
 <body bgcolor="#F5F5DC">
 <h2><a name="charsintype">CHARSINTYPE</a>
-<font size=4>$B#1%P%$%HD9$N@0?t$HG$0U8D?t$N4A;z(B</font></h2>
-<img src="../images/jpl.gif" alt="jpl"> JPL$B%U%!%$%k$@$1$GM-8z$J%W%m%Q%F%#$G$9!#(B
+<font size=4>１バイト長の整数と任意個数の漢字</font></h2>
+<img src="../images/jpl.gif" alt="jpl"> JPLファイルだけで有効なプロパティです。
 <p>
-<var>char_type</var>$B$*$h$S!"$=$N(B<var>char_type</var>$B$KB0$9$k(B
-$BJ8;z%3!<%I$r@_Dj$7$^$9!#(B
+<var>char_type</var>および、その<var>char_type</var>に属する
+文字コードを設定します。
 
 <p>
-<b>$BNc!'(B</b>
+<b>例：</b>
 <p>
-$B$3$NNc$G$O!"JD$83g8LN`$r(B<var>char_type</var>$B$,#1$N%0%k!<%W$K!"(B
-$B3+$-3g8LN`$r(B<var>char_type</var>$B$,#2$N%0%k!<%W$K;XDj$7$F$$$^$9!#(B
+この例では、閉じ括弧類を<var>char_type</var>が１のグループに、
+開き括弧類を<var>char_type</var>が２のグループに指定しています。
 
 <pre>
     (CHARSINTYPE O 1
-       $B!K(B $B!M(B $B!O(B $B!Q(B $B!S(B $B!U(B $B!W(B $B!Y(B $B![(B
+       ） 〕 ］ ｝ 〉 》 」 』 】
        )
     (CHARSINTYPE O 2
-       $B!J(B $B!L(B $B!N(B $B!P(B $B!R(B $B!T(B $B!V(B $B!X(B $B!Z(B
+       （ 〔 ［ ｛ 〈 《 「 『 【
        )
 </pre>
 
 
 <p>
-<b>$B4XO"9`L\!'(B</b><a href="format.html">$B?tCMI=8=(B</a>,
+<b>関連項目：</b><a href="format.html">数値表現</a>,
 <a href="type.html">TYPE</a>,
 <a href="gluekern.html">GLUEKERN</a>
 <p>
 <hr>
 <a href="../index.html">[pTeX home page]</a>,
-<a href="index.html">[PL,JPL$B$NL\<!(B]</a>,
-<a href="pl-ex.html">[PL$B%U%!%$%k$NNc(B]</a>,
-<a href="jpl-ex.html">[JPL$B%U%!%$%k$NNc(B]</a>
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>

@@ -1,33 +1,33 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>PL reference</title>
 </head>
 <body bgcolor="#F5F5DC">
-<h2><a name="designsize">DESIGNSIZE</a> <font size=4>$B?tCM(B</font></h2>
-1.0$B0J>e!"(B2048$B$h$j>.$5$$<B?tCM$r;XDj$7$^$9!#%G%U%)%k%H$O!"(B10$B$G$9!#(B
-$B$3$NCM$O!"(B`at'$B;XDj$5$l$:$K%m!<%I$5$l$?$H$-$NG\N($N%G%U%)%k%HCM$r<($7$^$9!#(B
-$B$?$H$($P!"(B
+<h2><a name="designsize">DESIGNSIZE</a> <font size=4>数値</font></h2>
+1.0以上、2048より小さい実数値を指定します。デフォルトは、10です。
+この値は、`at'指定されずにロードされたときの倍率のデフォルト値を示します。
+たとえば、
 <pre>
     \font\A=cmr10 at 15pt
 </pre>
-$B$H;XDj$5$l$?>l9g$O!"(BTFM$B%U%!%$%k$N%G%6%$%s%5%$%:$OL5;k$5$l!"(B15$B%]%$%s%H$K(B
-$BCV$-49$($i$l$^$9$,!"$?$s$K(B
+と指定された場合は、TFMファイルのデザインサイズは無視され、15ポイントに
+置き換えられますが、たんに
 <pre>
     \font\A=cmr10
 </pre>
-$B$H;XDj$5$l$?>l9g$O!";XDj$5$l$?%G%6%$%s%5%$%:$,(B
-$BMQ$$$i$l$^$9!#$3$NCM$O$D$M$K%W%j%s%?$N%]%$%s%H$NC10L$G$9!#(B
+と指定された場合は、指定されたデザインサイズが
+用いられます。この値はつねにプリンタのポイントの単位です。
 
 <p>
-<b>$B4XO"9`L\!'(B</b><a href="format.html">$B?tCMI=8=(B</a>
+<b>関連項目：</b><a href="format.html">数値表現</a>
 <p>
 <hr>
 <a href="../index.html">[pTeX home page]</a>,
-<a href="index.html">[PL,JPL$B$NL\<!(B]</a>,
-<a href="pl-ex.html">[PL$B%U%!%$%k$NNc(B]</a>,
-<a href="jpl-ex.html">[JPL$B%U%!%$%k$NNc(B]</a>
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>

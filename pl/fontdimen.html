@@ -1,49 +1,49 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>PL reference</title>
 </head>
 <body bgcolor="#F5F5DC">
-<h2><a name="fontdimen">FONTDIMEN</a> <font size=4>$B2<0L$N%W%m%Q%F%#(B</font></h2>
-<tt>FONTDIMEN</tt>$B%W%m%Q%F%#%j%9%HFb$G;HMQ$G$-$k%W%m%Q%F%#L>$O!"(B
-$B$5$^$6$^$J(BTeX$B%Q%i%a!<%?$KBP1~$7!"$=$l$>$l<B?tCM$N0z?t$r$H$j$^$9!#(B
-<tt>SLANT</tt>$B$r=|$/$9$Y$F$N%Q%i%a!<%?$O%G%6%$%s%5%$%:$,C10L$G$9!#(B
+<h2><a name="fontdimen">FONTDIMEN</a> <font size=4>下位のプロパティ</font></h2>
+<tt>FONTDIMEN</tt>プロパティリスト内で使用できるプロパティ名は、
+さまざまなTeXパラメータに対応し、それぞれ実数値の引数をとります。
+<tt>SLANT</tt>を除くすべてのパラメータはデザインサイズが単位です。
 <p>
-$B<!$K!"(B<tt>FONTDIMEN</tt>$B%W%m%Q%F%#$G;HMQ$G$-$kL>A0$r<($7$^$9!#(B
+次に、<tt>FONTDIMEN</tt>プロパティで使用できる名前を示します。
 
 <ul>
 <li>SLANT, SPACE, STRETCH, SHRINK, XHEIGHT, QUAD, EXTRASPACE<br>
-  $B$3$l$i$O(BTFM$B%U%!%$%k$N(B<var>parm</var>$B%F!<%V%kFb$N#1$+$i#7HVL\$N(B
-  $B%Q%i%a!<%?$H$7$F07$o$l$^$9!#(B
+  これらはTFMファイルの<var>parm</var>テーブル内の１から７番目の
+  パラメータとして扱われます。
 <p>
 <li>NUM1, NUM2, NUM3, DEMON1, DEMON2, SUP1, SUP2, SUP3,
 SUB1, SUB2, SUPDROP, SUBDROP, DELIM1, DELIM2, AXISHEIGHT<br>
-  $B$3$l$i$O<g$K?t<0MQ%U%)%s%H$N(BTFM$B%U%!%$%k$N(B<var>parm</var>$B%F!<%V%kFb$N(B
-  $B#8$+$i(B22$BHVL\$N%Q%i%a!<%?$H$7$F07$o$l$^$9!#(B
+  これらは主に数式用フォントのTFMファイルの<var>parm</var>テーブル内の
+  ８から22番目のパラメータとして扱われます。
 <p>
 <li>DEFAULTRULETHICKNESS, BIGOPSPACING1, BIGOPSPACING2,
 BIGOPSPACING3, BIGOPSPACING4, BIGOPSPACING5<br>
-  $B#8HVL\$+$i(B13$BHVL\$N%Q%i%a!<%?$O!"$3$l$i$KCV$-49$($i$l$k>l9g$b$"$j$^$9!#(B
+  ８番目から13番目のパラメータは、これらに置き換えられる場合もあります。
 <p>
 <li>PARAMETER<br>
-<i>n </i>$BHVL\$N%Q%i%a!<%?$r;XDj$9$kJL$NJ}K!$G$9!#(B
-  $B$?$H$($P!"(B
+<i>n </i>番目のパラメータを指定する別の方法です。
+  たとえば、
 <pre>
     (PARAMETER D 1 R -.25)
 </pre>
-  $B$O(BSLANT$B$r(B-0.25$B$K@_Dj$7$^$9!#(B
-  <i>n </i>$B$NCM$O(Bmax_param_words$B!JDL>o$O(B30$B!K$h$j$b>.$5$$@5$N?t$G$9!#(B
+  はSLANTを-0.25に設定します。
+  <i>n </i>の値はmax_param_words（通常は30）よりも小さい正の数です。
 </ul>
 
 <p>
-<b>$B4XO"9`L\!'(B</b><a href="format.html">$B?tCMI=8=(B</a>
+<b>関連項目：</b><a href="format.html">数値表現</a>
 <p>
 <hr>
 <a href="../index.html">[pTeX home page]</a>,
-<a href="index.html">[PL,JPL$B$NL\<!(B]</a>,
-<a href="pl-ex.html">[PL$B%U%!%$%k$NNc(B]</a>,
-<a href="jpl-ex.html">[JPL$B%U%!%$%k$NNc(B]</a>
+<a href="index.html">[PL,JPLの目次]</a>,
+<a href="pl-ex.html">[PLファイルの例]</a>,
+<a href="jpl-ex.html">[JPLファイルの例]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>
