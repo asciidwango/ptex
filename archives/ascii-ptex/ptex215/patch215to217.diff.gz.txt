@@ -1,37 +1,37 @@
-pTeX 2.1.5 $B$N%=!<%9%U%!%$%k$KBP$9$k%Q%C%A$G$9!#(B
-$B$D$.$N=$@5FbMF$r4^$s$G$$$^$9!#(B
+pTeX 2.1.5 のソースファイルに対するパッチです。
+つぎの修正内容を含んでいます。
 
-$B!&(B\leader $B$GCV$+$l$kJ8;z0LCV$,B7$o$J$$(B
-  $B$?$H$($P!"$D$.$N$h$&$J(B TeX $B%3%^%s%I$G0z$+$l$k%j!<%@!<$NE@$N0LCV$,(B
-  $BB7$$$^$;$s!#(B
+・\leader で置かれる文字位置が揃わない
+  たとえば、つぎのような TeX コマンドで引かれるリーダーの点の位置が
+  揃いません。
 
     \def\leaderfill{\leaders\hbox to1em{\hss.\hss}\hfill }
     \line{Alpha\leaderfill Omega}
-    \line{$B;O$a(B\leaderfill $B=*$o$j(B}
+    \line{始め\leaderfill 終わり}
     \end
 
-$B!&(B\inhibitxspcode $B$,;XDjDL$j$KF0:n$7$J$$(B
-  $B$?$H$($P!"(B\inhibitxspcode $B$,(B 0$B!JN>B&$K(B \xkanjiskip $B$rF~$l$J$$!K$K(B
-  $B@_Dj$5$l$F$$$k4A;z!J%G%U%)%k%H$G$O(B $B!A(B,$B!D(B,$B!o(B,$B!]!K$NN>B&$K(B \xkanjiskip
-  $B$,F~$C$F$7$^$C$?$j!"(B1$B!JA0B&$KF~$l$J$$!'6gFIE@$dJD$83g8LN`$J$I!K$G(B
-  $B8e$mB&$K$OF~$k$O$:$J$N$KF~$i$J$/$J$C$F$$$^$9!#(B
-  $B"((B patch215to216.diff $B$G$N=$@5FbMF(B
+・\inhibitxspcode が指定通りに動作しない
+  たとえば、\inhibitxspcode が 0（両側に \xkanjiskip を入れない）に
+  設定されている漢字（デフォルトでは 〜,…,¥,−）の両側に \xkanjiskip
+  が入ってしまったり、1（前側に入れない：句読点や閉じ括弧類など）で
+  後ろ側には入るはずなのに入らなくなっています。
+  ※ patch215to216.diff での修正内容
 
-$B!&%$%s%9%H!<%k;~$K(B $TEXMF/web2c/texmf.cnf $B$K2C$($k(B BSTINPUTS.jbibtex $B$N(B
-  $B@_Dj9T$N8e$m$G2~9T$5$l$:!"$D$.$N(B BIBINPUTS $B$H$D$J$,$C$F$7$^$&(B
-  $B"((B mkconf.patch $B$G$N=$@5FbMF(B
+・インストール時に $TEXMF/web2c/texmf.cnf に加える BSTINPUTS.jbibtex の
+  設定行の後ろで改行されず、つぎの BIBINPUTS とつながってしまう
+  ※ mkconf.patch での修正内容
 
-$B!|%$%s%9%H!<%k$N<j=g(B
+●インストールの手順
 
-web2c-7.0/web2c/ptex215 $B%G%#%l%/%H%j$G!"(B
+web2c-7.0/web2c/ptex215 ディレクトリで、
     patch -s < patch215to217.diff
     mv -f ptex.chg.2.1.5 ptex.chg.2.1.7
     ./configure {EUC|SJIS|JIS}
     make
     make install
-$B$7$F$/$@$5$$!#(B
+してください。
 
-$B:n@.$7$?(B pTeX $B$N%P!<%8%g%s$O(B 2.1.7 $B$H$J$j$^$9!#(B
+作成した pTeX のバージョンは 2.1.7 となります。
 
 begin 644 patch215to217.diff.gz
 M'XL(".%Z$#4``W!A=&-H,C$U=&\R,3<N9&EF9@#=6/E3VS@4_AG^BE<H0TP3
@@ -76,6 +76,6 @@ M*"T=87MI!EYH:V."'M(29;"%MYFCF@*JJDUQQ7^D2N*=)9[T@SLKO^S.RM^_
 `
 end
 --
-1998$BG/(B3$B7n(B19$BF|(B
-$BCfLn(B $B8-(B <ken-na@ascii.co.jp>
-$B")(B151-8024 ($B3t(B)$B%"%9%-!<(B $B%G%6%$%s%o!<%/%9(B $B%F%/%K%+%k%;%s%?!<(B
+1998年3月19日
+中野 賢 <ken-na@ascii.co.jp>
+〒151-8024 (株)アスキー デザインワークス テクニカルセンター

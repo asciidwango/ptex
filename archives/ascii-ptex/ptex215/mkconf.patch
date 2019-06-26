@@ -1,28 +1,28 @@
-pTeX $B$N%=!<%9%U%!%$%k$KIUB0$N(B mkconf $B%9%/%j%W%H$KBP$9$k%Q%C%A$G$9!#(B
-$B%=!<%9%U%!%$%k$rE83+$7$?%G%#%l%/%H%j$G(B
+pTeX のソースファイルに付属の mkconf スクリプトに対するパッチです。
+ソースファイルを展開したディレクトリで
     patch < mkconf.patch
-$B$H$7$F$/$@$5$$!#(B
+としてください。
 
-$B%$%s%9%H!<%k;~$K(B $TEXMF/web2c/texmf.cnf $B$K2C$($k(B BSTINPUTS.jbibtex $B$N(B
-$B@_Dj9T$N8e$m$G2~9T$5$l$:!"$D$.$N(B BIBINPUTS $B$H$D$J$,$C$F$7$^$&!"$H$$$&(B
-$BIT6q9g$,5/$-$k$N$r=$@5$7$^$9!#(B
+インストール時に $TEXMF/web2c/texmf.cnf に加える BSTINPUTS.jbibtex の
+設定行の後ろで改行されず、つぎの BIBINPUTS とつながってしまう、という
+不具合が起きるのを修正します。
 
-$B$9$G$K(B pTeX $B$r%$%s%9%H!<%k$7$F$"$k>l9g$O!"(B$TEXMF/web2c/texmf.cnf $B%U%!%$%k$N(B
+すでに pTeX をインストールしてある場合は、$TEXMF/web2c/texmf.cnf ファイルの
 
     BSTINPUTS.jbibtex = .:$TEXMF/jbibtex/bst//:$TEXMF/bibtex/bst//BIBINPUTS =...
 
-$B$H$J$C$F$$$kItJ,$r(B
+となっている部分を
 
     BSTINPUTS.jbibtex = .:$TEXMF/jbibtex/bst//:$TEXMF/bibtex/bst//
     BIBINPUTS = ...
 
-$B$N$h$&$K$7$F$/$@$5$$!#(B
+のようにしてください。
 
-$B$J$*!"$3$NIT6q9g$O!"(Bmkconf $B$+$i8F$S=P$9(B sed $B%W%m%0%i%`$NF0:n$K$h$j$^$9(B
-$B$N$G!";HMQ$7$F$$$k(B sed $B$K$h$C$F$O!"$9$G$K2~9T$,$5$l$F$$$k>l9g$b$"$j$^$9!#(B
-$B$3$N$H$-$O!"2?$b$9$k$3$H$O$"$j$^$;$s!#(B
+なお、この不具合は、mkconf から呼び出す sed プログラムの動作によります
+ので、使用している sed によっては、すでに改行がされている場合もあります。
+このときは、何もすることはありません。
 
-1998$BG/(B3$B7n(B5$BF|(B
+1998年3月5日
 
 --- mkconf.orig Wed Jul  9 15:35:45 1997
 +++ mkconf      Fri Feb 27 16:39:25 1998
@@ -37,6 +37,6 @@ pTeX $B$N%=!<%9%U%!%$%k$KIUB0$N(B mkconf $B%9%/%j%W%H$KBP$9$k%Q%C%A$G$9!#(B
  ### EOT ###
 
 --
-$BCfLn(B $B8-(B <ken-na@ascii.co.jp>
-$B")(B151-8024 ($B3t(B)$B%"%9%-!<(B $B%G%6%$%s%o!<%/%9(B $B%F%/%K%+%k%;%s%?!<(B
+中野 賢 <ken-na@ascii.co.jp>
+〒151-8024 (株)アスキー デザインワークス テクニカルセンター
 http://www.ascii.co.jp/pb/ptex/ken-na

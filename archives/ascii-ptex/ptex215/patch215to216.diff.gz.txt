@@ -1,19 +1,19 @@
-pTeX 2.1.5 $@$G(J \inhibitxspcode $@$,;XDjDL$j$KF0:n$7$J$$%P%0$r=$@5$9$k(J
-$@%Q%C%A$G$9!#(J
+pTeX 2.1.5 で \inhibitxspcode が指定通りに動作しないバグを修正する
+パッチです。
 
-$@$?$H$($P!"(J\inhibitxspcode $@$,(J 0$@!JN>B&$K(J \xkanjiskip $@$rF~$l$J$$!K$K(J
-$@@_Dj$5$l$F$$$k4A;z!J%G%U%)%k%H$G$O(J $@!A(J,$@!D(J,$@!o(J,$@!]!K$NN>B&$K(J \xkanjiskip
-$@$,F~$C$F$7$^$C$?$j!"(J1$@!JA0B&$KF~$l$J$$!'6gFIE@$dJD$83g8LN`$J$I!K$G(J
-$@8e$mB&$K$OF~$k$O$:$J$N$KF~$i$J$$!"$J$I$NLdBj$r2r7h$7$^$9!#(J
+たとえば、\inhibitxspcode が 0（両側に \xkanjiskip を入れない）に
+設定されている漢字（デフォルトでは 〜,…,¥,−）の両側に \xkanjiskip
+が入ってしまったり、1（前側に入れない：句読点や閉じ括弧類など）で
+後ろ側には入るはずなのに入らない、などの問題を解決します。
 
-web2c-7.0/web2c/ptex215 $@%G%#%l%/%H%j$G!"(J
+web2c-7.0/web2c/ptex215 ディレクトリで、
     patch -s < patch215to216.diff
     ./configure {EUC|SJIS|JIS}
     make
     make install
-$@$7$F$/$@$5$$!#(J
+してください。
 
-$@$3$N=$@5$r$9$k$H!"%P!<%8%g%s$,(J ptex 2.1.6 $@$K$J$j$^$9!#(J
+この修正をすると、バージョンが ptex 2.1.6 になります。
 
 begin 644 patch215to216.diff.gz
 M'XL("%P ]30  W!A=&-H,C$U=&\R,38N9&EF9@#-5VU3XS80_GSY%0M,YV*:
@@ -44,5 +44,5 @@ LZKVX//]XN7_6/SHXO8#>P6?SFX4YCU:1N*\[6G]WN'[A:/T%JHKD>-L.   ^
  
 end
 ----
-$@CfLn(J $@8-(J<ken-na@ascii.co.jp>
-$@3t<02q<R%"%9%-!<(J $@%"%9%-!<%G%6%$%s%o!<%/%9(J $@%F%/%K%+%k%;%s%?!<(J
+中野 賢<ken-na@ascii.co.jp>
+株式会社アスキー アスキーデザインワークス テクニカルセンター
