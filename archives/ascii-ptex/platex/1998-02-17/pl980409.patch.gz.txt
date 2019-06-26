@@ -1,23 +1,23 @@
-pLaTeX $B$N%/%i%9%U%!%$%k(B 1.1k $B$KBP$9$k%Q%C%A$G$9!#(B
+pLaTeX のクラスファイル 1.1k に対するパッチです。
 
-\rightmark $B%3%^%s%I$N0z?t$K(B \today $B%3%^%s%I$r;XDj$7$?$H$-!"=PNO$5$l$k(B
-$BF|IU$,!VJ?@.85G/!W$K$J$C$F$7$^$&$N$r=$@5$7$^$9!#(B
+\rightmark コマンドの引数に \today コマンドを指定したとき、出力される
+日付が「平成元年」になってしまうのを修正します。
 
-$B!|%$%s%9%H!<%kJ}K!(B
+●インストール方法
 
-$B"((B $B$3$N%Q%C%A$r$"$F$kA0$K!"(Bpl980227.patch, pl980323.patch $B$r$"$F$F$/$@$5$$!#(B
-$B"((B $B$3$N%Q%C%A$N4A;z%3!<%I$O(B EUC $B$K$J$C$F$$$^$9!#I,MW$K1~$8$F!"4A;z(B
-   $B%3!<%I$rJQ49$7$F$+$i%Q%C%A$r$"$F$F$/$@$5$$!#(B
+※ このパッチをあてる前に、pl980227.patch, pl980323.patch をあててください。
+※ このパッチの漢字コードは EUC になっています。必要に応じて、漢字
+   コードを変換してからパッチをあててください。
 
-pLaTeX <1997/02/17> $BHG$N%G%#%l%/%H%j$K0\F0$7$F!"(B
+pLaTeX <1997/02/17> 版のディレクトリに移動して、
    patch < pl980409.patch
    platex plcls.ins
-$B$H$7$F$/$@$5$$!#$3$N$H$-!"Ld$$9g$o$;$K$O!V(By$B!W$H1~$($^$9!#(B
+としてください。このとき、問い合わせには「y」と応えます。
 
-$B=$@58e!"%/%i%9%U%!%$%k$N%P!<%8%g%s$O(B 1.1m $B$H$J$j$^$9!#(B
+修正後、クラスファイルのバージョンは 1.1m となります。
 
-$B$J$*(B pLaTeX $B%U%)!<%^%C%H%U%!%$%k$O!":n$jD>$5$J$/$F$b$+$^$$$^$;$s!#(B
-$B$^$?(B pLaTeX $B$N%+!<%M%k%P!<%8%g%s$bJQ99$"$j$^$;$s!#(B
+なお pLaTeX フォーマットファイルは、作り直さなくてもかまいません。
+また pLaTeX のカーネルバージョンも変更ありません。
 --
 begin 644 pl980409.patch.gz
 M'XL("((!+34``W!L.3@P-#`Y+G!A=&-H`-U6W7,3511_AK_B\H"C)4VS^6B3
@@ -55,6 +55,6 @@ ML-,60#MFTTGAB9ITNG4J6B-.MT9L1IK^6W6WU3N]H=XM1OT+O?`G]KZI;>,0
 `
 end
 --
-1998$BG/(B4$B7n(B09$BF|(B
-$BCfLn(B $B8-(B <ken-na@ascii.co.jp>
-$B")(B151-8024 ($B3t(B)$B%"%9%-!<(B $B%F%/%K%+%k%;%s%?!<(B
+1998年4月09日
+中野 賢 <ken-na@ascii.co.jp>
+〒151-8024 (株)アスキー テクニカルセンター

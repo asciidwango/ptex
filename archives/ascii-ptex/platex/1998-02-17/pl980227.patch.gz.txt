@@ -1,21 +1,21 @@
-pLaTeX <1998/02/17> $@HG$KIUB0$N%/%i%9%U%!%$%k$H(J tascmac.sty $@$KBP$9$k(J
-$@%Q%C%A%U%!%$%k$G$9!#(J
+pLaTeX <1998/02/17> 版に付属のクラスファイルと tascmac.sty に対する
+パッチファイルです。
 
-$@%/%i%9%U%!%$%k$O!"(J\ProvidesFiles $@$K5-=R$5$l$F$$$kF|IU$rD{@5$7$^$9!#(J
+クラスファイルは、\ProvidesFiles に記述されている日付を訂正します。
 
-tascmac.sty $@$O!"(JLaTeX $@$N(J tools/calc $@%Q%C%1!<%8$r0l=o$K;H$C$?$H$-!"(J
-screen $@4D6-!"(Jitembox $@4D6-!"(Jboxnote $@4D6-$,%(%i!<$K$J$k$N$r=$@5$7$^$9!#(J
+tascmac.sty は、LaTeX の tools/calc パッケージを一緒に使ったとき、
+screen 環境、itembox 環境、boxnote 環境がエラーになるのを修正します。
 
-$@%Q%C%A%U%!%$%k$r(J pLaTeX $@$N%i%$%V%i%j%G%#%l%/%H%j(J
-$@!J$?$H$($P(J /usr/local/share/texmf/tex/platex/base$@!K$KCV$$$F!"(J
+パッチファイルを pLaTeX のライブラリディレクトリ
+（たとえば /usr/local/share/texmf/tex/platex/base）に置いて、
 
     patch -s < pl980227.patch
     platex plcls.ins
 
-$@$H$7$F$/$@$5$$!#(J
+としてください。
 
-$@$J$*(J pLaTeX $@%U%)!<%^%C%H%U%!%$%k$O!":n$jD>$5$J$/$F$b$+$^$$$^$;$s!#(J
-$@$^$?(J pLaTeX $@$N%+!<%M%k%P!<%8%g%s$bJQ99$"$j$^$;$s!#(J
+なお pLaTeX フォーマットファイルは、作り直さなくてもかまいません。
+また pLaTeX のカーネルバージョンも変更ありません。
 
 begin 644 pl980227.patch.gz
 M'XL("#2+]C0``W!L.3@P,C(W+G!A=&-H`-U6;6_;-A#^W/Z*6P=WB2';HF3'
@@ -46,5 +46,5 @@ MIBO,N;PHOD9E94DEM.65G<_0SX0\0:L:='</]8%^9LDR_\P"1HN_5+"Z<..A
 `
 end
 --
-$@CfLn(J $@8-(J <ken-na@ascii.co.jp>
-$@3t<02q<R%"%9%-!<(J $@%"%9%-!<%G%6%$%s%o!<%/%9(J $@%F%/%K%+%k%;%s%?!<(J
+中野 賢 <ken-na@ascii.co.jp>
+株式会社アスキー アスキーデザインワークス テクニカルセンター
