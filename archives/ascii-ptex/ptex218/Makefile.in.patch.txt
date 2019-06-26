@@ -1,15 +1,15 @@
-pTeX 2.1.8 $B$N(B Makefile.in $B%U%!%$%k$KBP$9$k%Q%C%A$G$9!#(B
-$B$D$.$NLdBj$r=$@5$7$^$9!#(B
+pTeX 2.1.8 の Makefile.in ファイルに対するパッチです。
+つぎの問題を修正します。
 
-  * texmf.cnf $B$r:n$m$&$H$9$k$H$-!"(Bcp $B%3%^%s%I$G%(%i!<$H$J$k(B
-  * platex.fmt $B%U%!%$%k$r:n$m$&$H$7$F%(%i!<$H$J$k!#(B
+  * texmf.cnf を作ろうとするとき、cp コマンドでエラーとなる
+  * platex.fmt ファイルを作ろうとしてエラーとなる。
 
-$B$3$N%Q%C%A%U%!%$%k$r(B web2c-7.2/web2c/ptex218 $B%G%#%l%/%H%j$KCV$$$F!"(B
+このパッチファイルを web2c-7.2/web2c/ptex218 ディレクトリに置いて、
     patch < Makefile.in.patch
     ./configure {EUC|JIS|SJIS}
     make
     make install
-$B$H$7$F$/$@$5$$!#(B
+としてください。
 
 begin 644 Makefile.in.patch
 M*BHJ($UA:V5F:6QE+FEN+F]R:6<)1G)I($UA<B`R-R`R,SHS-3HQ-B`Q.3DX
@@ -34,6 +34,6 @@ M<V1I<BDO;6MC;VYF("0H=&AI<V1I<BD*("`*("!D=6UP96YV(#T@5$58349#
 `
 end
 --
-1998$BG/(B4$B7n(B15$BF|(B
-$BCfLn(B $B8-(B <ken-na@ascii.co.jp>
-$B")(B151-8024 ($B3t(B)$B%"%9%-!<(B $B%F%/%K%+%k%;%s%?!<(B
+1998年4月15日
+中野 賢 <ken-na@ascii.co.jp>
+〒151-8024 (株)アスキー テクニカルセンター
