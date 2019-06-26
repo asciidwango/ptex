@@ -1,39 +1,39 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (font metric format)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>TFM$B%U%!%$%k$H(BJFM$B%U%!%$%k(B</h2>
-TeX$B$OAHHG$r9T$&$H$-!"AH$_N)$F$kJ8;z$N>pJs$r(B<b>TFM</b>$B%U%!%$%k$+$i;2>H$7$^$9!#(B
-pTeX$B$b!"(BTeX$B$HF1MM$K(BTFM$B%U%!%$%k$r;2>H$7$^$9$,!"4A;z$J$I$N#2%P%$%HJ8;z$K$D$$$F$O!"(B
-<b>JFM</b>$B%U%!%$%k$r;2>H$7$^$9!#(B
+<h2>TFMファイルとJFMファイル</h2>
+TeXは組版を行うとき、組み立てる文字の情報を<b>TFM</b>ファイルから参照します。
+pTeXも、TeXと同様にTFMファイルを参照しますが、漢字などの２バイト文字については、
+<b>JFM</b>ファイルを参照します。
 <p>
-TFM$B%U%!%$%k$K$O!"Bg$-$/$o$1$F!"$=$l$>$l$NJ8;z$K4X$9$k$3$H$,$i!"(B
-$B$=$N(BTFM$B%U%!%$%k$K<}$a$i$l$F$$$kJ8;z$K6&DL$9$k$3$H$,$i!"(B
-$B$=$7$F!"FCDj$NJ8;z$NAH$_9g$o$;$N$H$-$N$3$H$,$i$N#3<oN`$N>pJs$,@_Dj$5$l$F$$$^$9!#(B
+TFMファイルには、大きくわけて、それぞれの文字に関することがら、
+そのTFMファイルに収められている文字に共通することがら、
+そして、特定の文字の組み合わせのときのことがらの３種類の情報が設定されています。
 <p>
-$B8D!9$NJ8;z$K4X$7$F$O!"$=$NJ8;z$NI}!"9b$5!"?<$5$J$I$,$"$j!"$3$l$i$O#1J8;z$4$H$K(B
-$B@_Dj$G$-$k$h$&$K$J$C$F$$$^$9!#(B
+個々の文字に関しては、その文字の幅、高さ、深さなどがあり、これらは１文字ごとに
+設定できるようになっています。
 <p>
-$B6&DL$9$k$3$H$,$i$K4X$7$F$O!"J8;z$N79$-!"%G%6%$%s%5%$%:!"(B
-$B$=$N%U%)%s%H$N4p=`CM(B(em, ex)$B$J$I$N@_Dj$G$9!#(B
+共通することがらに関しては、文字の傾き、デザインサイズ、
+そのフォントの基準値(em, ex)などの設定です。
 <p>
-$B$=$7$F!"$"$kFCDj$NJ8;z$NAH$_9g$o$;$H$J$C$?$H$-$N9g;z=hM}$d%+!<%K%s%0=hM}$J$I$N(B
-$B@_Dj$b$5$l$F$$$^$9!#(B
+そして、ある特定の文字の組み合わせとなったときの合字処理やカーニング処理などの
+設定もされています。
 <p>
-JFM$B%U%!%$%k$b(BTFM$B%U%!%$%k$HF1$8$h$&$JFbMF$,@_Dj$5$l$F$$$^$9!#(B
-$B$?$@$7!"F|K\8l$NJ8;z$O?t$,B?$$$N$G!"J8;z$rC10L$H$9$k$N$G$O$J$/!"(B
-$B6&DL$9$k@-<A$r;}$DJ8;z$r0l$D$K$^$H$a$?%0%k!<%WC10L$G$N@_Dj$H$J$j$^$9!#(B
-$B$^$?!"2#AH$_MQ$H=DAH$_MQ$N%U%)%s%H$r<($9%Q%i%a!<%?$b;}$C$F$$$kE@$,(BTFM$B$H0[$J$j$^$9!#(B
+JFMファイルもTFMファイルと同じような内容が設定されています。
+ただし、日本語の文字は数が多いので、文字を単位とするのではなく、
+共通する性質を持つ文字を一つにまとめたグループ単位での設定となります。
+また、横組み用と縦組み用のフォントを示すパラメータも持っている点がTFMと異なります。
 <p>
-$B%U%!%$%kL>$O$I$A$i$b!"(B<b>$B%U%)%s%HL>(B.tfm</b>$B$H$$$&7A<0$G$D$1$i$l$^$9!#(B
+ファイル名はどちらも、<b>フォント名.tfm</b>という形式でつけられます。
 <p>
 <ul>
-<li><a href="tfm.html">TFM$B%U%!%$%k$N9=B$(B</a>
-<li><a href="jfm.html">JFM$B%U%!%$%k$N9=B$(B</a>
+<li><a href="tfm.html">TFMファイルの構造</a>
+<li><a href="jfm.html">JFMファイルの構造</a>
 </ul>
 
 <p>

@@ -1,28 +1,28 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (JFM format)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>JFM$B%U%!%$%k$N9=@.MWAG(B</h2>
-JFM$B$O!"(BTFM$B$H;w$?$h$&$J9=B$$K$J$C$F$$$^$9!#(BTFM$B$H$N0c$$$O$D$.$N$H$*$j$G$9!#(B
+<h2>JFMファイルの構成要素</h2>
+JFMは、TFMと似たような構造になっています。TFMとの違いはつぎのとおりです。
 <ul>
-<li>$B@hF,$N%U%!%$%kFb$N%Q%i%a!<%?%F!<%V%k$,JQ99$5$l$F$$$k!#(B
-<li><var>char_type</var>$B%F!<%V%k$,DI2C$5$l$F$$$k!#(B
-<li><var>exten</var>$B$G$J$/!"(B<var>glue</var>$B%F!<%V%k$,$"$k!#(B
-<li><var>lig/kern</var>$B$,(B<var>glue/kern</var>$B%F!<%V%k$KJQ99$5$l$F$$$k!#(B
+<li>先頭のファイル内のパラメータテーブルが変更されている。
+<li><var>char_type</var>テーブルが追加されている。
+<li><var>exten</var>でなく、<var>glue</var>テーブルがある。
+<li><var>lig/kern</var>が<var>glue/kern</var>テーブルに変更されている。
 </ul>
 <p>
-JFM$B%U%!%$%k$O!"%o!<%I!J#4%P%$%H!K$rC10L$H$7$F%G!<%?$,5-=R$5$l$F$$$^$9!#(B
-$B$^$?!"#1%o!<%IFb$N3F%P%$%H$O!">e0L%P%$%H$+$i2<0L%P%$%H$N=g$KJB$Y$i$l$F$$$^$9!#(B
+JFMファイルは、ワード（４バイト）を単位としてデータが記述されています。
+また、１ワード内の各バイトは、上位バイトから下位バイトの順に並べられています。
 <p>
-$B:G=i$N#7%o!<%I$O!"H>%o!<%I$:$D$K6h@Z$i$l!"(B
-JFM$B%U%!%$%k$r9=@.$9$k(B14$B8D$NMWAG$N%5%$%:$,<}$a$i$l$F$$$^$9!#(B
+最初の７ワードは、半ワードずつに区切られ、
+JFMファイルを構成する14個の要素のサイズが収められています。
 <p>
-$B$3$l$i$NCM$O!"$9$Y$F!V#2$N(B15$B>h!W$h$j$b>.$5$$HsIi$NCM$G$9!#(B
-$B$^$?!"$D$.$N>r7o$rK~$?$7$F$$$J$1$l$P$J$j$^$;$s!#(B
+これらの値は、すべて「２の15乗」よりも小さい非負の値です。
+また、つぎの条件を満たしていなければなりません。
 <pre>
     bc = 0<br>
     lf = 7 + lh + (ec - bc + 1) + nw + nh + nd + ni + nl + nk + ng + np
@@ -35,20 +35,20 @@ JFM$B%U%!%$%k$r9=@.$9$k(B14$B8D$NMWAG$N%5%$%:$,<}$a$i$l$F$$$^$9!#(B
 <img src="../images/jfm.gif" alt="figure of jfm" align=left ISMAP>
 </a>
 
-<var>id</var> $B!D!D(B JFM_ID$BHV9f!J2#AHMQ$G$O(B11$B!"=DAHMQ$G$O(B9$B!K(B<br>
-<var>nt</var> $B!D!D(B <var>char_type</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>lf</var> $B!D!D(B $B%U%!%$%k$N%o!<%I?t(B<br>
-<var>lh</var> $B!D!D(B <var>header</var>$B$N%o!<%I?t(B<br>
-<var>bc</var> $B!D!D(B $B%U%)%s%HFb$K4^$^$l$k0lHV>.$5$J%3!<%I!J(BJFM$B$G$OI,$:%<%m!K(B<br>
-<var>ec</var> $B!D!D(B $B%U%)%s%HFb$K4^$^$l$k0lHVBg$-$J%3!<%I(B<br>
-<var>nw</var> $B!D!D(B <var>width</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>nh</var> $B!D!D(B <var>height</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>nd</var> $B!D!D(B <var>depth</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>ni</var> $B!D!D(B <var>italic</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>nl</var> $B!D!D(B <var>glue/kern</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>nk</var> $B!D!D(B <var>kern</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>ng</var> $B!D!D(B <var>glue</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>np</var> $B!D!D(B <var>param</var>$B%F!<%V%k$N%o!<%I?t(B
+<var>id</var> …… JFM_ID番号（横組用では11、縦組用では9）<br>
+<var>nt</var> …… <var>char_type</var>テーブルのワード数<br>
+<var>lf</var> …… ファイルのワード数<br>
+<var>lh</var> …… <var>header</var>のワード数<br>
+<var>bc</var> …… フォント内に含まれる一番小さなコード（JFMでは必ずゼロ）<br>
+<var>ec</var> …… フォント内に含まれる一番大きなコード<br>
+<var>nw</var> …… <var>width</var>テーブルのワード数<br>
+<var>nh</var> …… <var>height</var>テーブルのワード数<br>
+<var>nd</var> …… <var>depth</var>テーブルのワード数<br>
+<var>ni</var> …… <var>italic</var>テーブルのワード数<br>
+<var>nl</var> …… <var>glue/kern</var>テーブルのワード数<br>
+<var>nk</var> …… <var>kern</var>テーブルのワード数<br>
+<var>ng</var> …… <var>glue</var>テーブルのワード数<br>
+<var>np</var> …… <var>param</var>テーブルのワード数
 <p>
 <var><a href="#header">header</a></var><br>
 <var><a href="#char_type">char_type</a></var><br>
@@ -64,124 +64,124 @@ JFM$B%U%!%$%k$r9=@.$9$k(B14$B8D$NMWAG$N%5%$%:$,<}$a$i$l$F$$$^$9!#(B
 <br clear=all>
 
 <hr>
-<h3><a name="header">$B"#(Bheader</a></h3>
+<h3><a name="header">■header</a></h3>
 
-<var>header</var>$BIt$K$O!":GDc8B!V%A%'%C%/%5%`!J(Bcheck sum$B!K!W$H(B
-$B!V%G%6%$%s%5%$%:!J(Bdesign size$B!K!W$N#2%o!<%I$,<}$a$i$l$F$$$kI,MW$,$"$j$^$9!#(B
-TeX$B$O$3$3$^$G$N>pJs$r;H$$$^$9$,!"(BXerox$B$N0u:~%=%U%H%&%'%"$J$I$GMQ$$$k(BTFM$B$K$O!"(B
-$B:GDc8B(B18$B%o!<%I$,I,MW$G$9!#(B
+<var>header</var>部には、最低限「チェックサム（check sum）」と
+「デザインサイズ（design size）」の２ワードが収められている必要があります。
+TeXはここまでの情報を使いますが、Xeroxの印刷ソフトウェアなどで用いるTFMには、
+最低限18ワードが必要です。
 
 <ul>
 <li><var>header</var>[0]<br>
-  32$B%S%C%H$N%A%'%C%/%5%`$rI=$7!"$3$N>pJs$,$=$N$^$^(BDVI$B%U%!%$%k$K<}$a$i$l$^$9!#(B
-  $B$3$N>pJs$O!"(BTeX$B$N;HMQ$7$?(BTFM$B%U%!%$%k$H!"0u;z$K;HMQ$7$h$&$H$7$F$$$k(B
-  GF$B$J$I$N%0%j%U%U%!%$%k$,@09g$N$H$l$?$b$N$+$I$&$+$r(B
-  $B%G%P%$%9%I%i%$%P$,3NG'$9$k$?$a$N$b$N$G$9!#(B
-  $B$?$@$7!"$=$N%U%)%s%H%U%!%$%k$+$3$N(BTFM$B%U%!%$%k$N%A%'%C%/%5%`$N$$$:$l$+$,(B
-  $B%<%m$N>l9g$O%A%'%C%/$O9T$J$o$l$^$;$s!#(B
+  32ビットのチェックサムを表し、この情報がそのままDVIファイルに収められます。
+  この情報は、TeXの使用したTFMファイルと、印字に使用しようとしている
+  GFなどのグリフファイルが整合のとれたものかどうかを
+  デバイスドライバが確認するためのものです。
+  ただし、そのフォントファイルかこのTFMファイルのチェックサムのいずれかが
+  ゼロの場合はチェックは行なわれません。
 <p>
 <li><var>header</var>[1]<br>
-  $B%U%)%s%H$N%G%6%$%s%5%$%:!J%]%$%s%H?t!K$r!V#2$N(B-20$B>h!W$r#1C10L$H$7$FI=$7$?(B
-  $B?tCM$G$9!#:G>.CM$O(B1.0$B$G$9!#(B
-  $B$h$/;H$o$l$k%G%6%$%s%5%$%:$O(B``10$B%]%$%s%H(B''$B%U%)%s%HMQ$N(B10.0$B$G$9!#(B
-  $B$3$l$O!"$3$N%U%)%s%H$,(B10$B%]%$%s%H%5%$%:$G;H$o$l$k$H$-$K:GE,$K$J$k$h$&$K(B
-  $B%G%6%$%s$5$l$F$$$k$H$$$&$3$H$G$9!#(B
-  TeX$B$N%f!<%6$,(B`<tt>at $B&D(B pt'</tt>$B$H$7$?>l9g!"$=$NB>$N%Q%i%a!<%?$O$=$NHfN((B
- $B!J&D$r%G%6%$%s%5%$%:$G3d$C$?CM!K$G3HBg$5$l$^$9!#(B
-  10pt$BMQ$N%U%)%s%H$,(B<tt>at 15pt</tt>$B$G8F$S=P$5$l$k$H!"$=$l$>$l$N%Q%i%a!<%?$,(B
-  $B!V(B15/10.0=1.5$B!WG\$H$J$k$H$$$&$3$H$G$9!#(B
+  フォントのデザインサイズ（ポイント数）を「２の-20乗」を１単位として表した
+  数値です。最小値は1.0です。
+  よく使われるデザインサイズは``10ポイント''フォント用の10.0です。
+  これは、このフォントが10ポイントサイズで使われるときに最適になるように
+  デザインされているということです。
+  TeXのユーザが`<tt>at δ pt'</tt>とした場合、その他のパラメータはその比率
+ （δをデザインサイズで割った値）で拡大されます。
+  10pt用のフォントが<tt>at 15pt</tt>で呼び出されると、それぞれのパラメータが
+  「15/10.0=1.5」倍となるということです。
   <p>
-  TFM$B%U%!%$%k$G$N%5%$%:$O!"$9$Y$F$3$N%G%6%$%s%5%$%:$rC10L$K$7$F$$$^$9!#(B
-  $B$7$?$,$C$F!"$?$H$($P(B1em$B$^$?$O(B\quad$B$r<($9(B<var>param</var>[6]$B$K$O!"(B
-  $B$7$P$7$P!"(B2^{20}=1.0$B$,<}$a$i$l$F$$$^$9!#(B
-  $B$=$N$?$a$KB?$/$N%U%)%s%H$O%G%6%$%s%5%$%:$H(B1em$B$,F1$8$K$J$C$F$$$^$9!#(B
+  TFMファイルでのサイズは、すべてこのデザインサイズを単位にしています。
+  したがって、たとえば1emまたは\quadを示す<var>param</var>[6]には、
+  しばしば、2^{20}=1.0が収められています。
+  そのために多くのフォントはデザインサイズと1emが同じになっています。
   <p>
-  $B$=$NB>$N@#K!$O!"$=$N@dBPCM$,(B16$B%G%6%$%s%5%$%:C10L$h$j$b>.$5$/$J$j$^$9!#(B
-  $B@hF,%P%$%H$,(B0$B$+(B255$B$N$$$:$l$+$N(BTFM$B%U%!%$%k$NCf$G!"(B
-  <var>header</var>[1]$B$H(B<var>param</var>[1]$B$@$1$,!V#2$N(B-20$B>h!W$r4p=`$K$7$F$$$^$9!#(B
+  その他の寸法は、その絶対値が16デザインサイズ単位よりも小さくなります。
+  先頭バイトが0か255のいずれかのTFMファイルの中で、
+  <var>header</var>[1]と<var>param</var>[1]だけが「２の-20乗」を基準にしています。
 <p>
 <li><var>header</var>[2..11]<br>
-  $B$b$7$"$l$P!"J8;z%3!<%G%#%s%0%9%-!<%^$r<($9(B40$B%P%$%H$,<}$a$i$l$F$$$^$9!#(B
-  $B@hF,%P%$%H$O#0$+$i(B39$B$^$G$"$j!"$3$NJ8;zNs$NCf$KF~$C$F$$$k<B:]$K0UL#$N(B
-  $B$"$k%P%$%H?t$r<($7$F$$$^$9!#(B
-  $BJ8;zNs$K$O!"$3$N%U%)%s%H$GI=$5$l$F$$$kJ8;z%3!<%I$N<oN`$,5-=R$5$l$F$$$^$9!#(B
-  $B$?$H$($P!"(B<tt>ASCII</tt>$B$OI8=`(BASCII$B%3!<%I!"(B
-  <tt>TeX text</tt>$B$O(B<tt>cmr10</tt>$B$d(B<tt>cmti9</tt>$B$N$h$&$J(BTeX$B%U%)%s%H!"(B
-  <tt>TeX math extension</tt>$B$O(B<tt>cmex10</tt>$B$d(B<tt>cmex10</tt>$B$N$h$&$J(BTeX$B?t<0MQ%U%)%s%H!"(B
-  <tt>XEROX</tt>$B$O(BXerox$B%U%)%s%H!"(B<tt>GRAPHIC</tt>$B$OFCJL$JL\E*$NHs%"%k%U%!%Y%C%H%U%)%s%H!"(B
-  <tt>UNSPECIFIED</tt>$B$O$3$NItJ,$,L$Dj5A$N%G%U%)%k%HCM$G$9!#(B
-  $B$3$NJ8;zNs$NCf$K4]3g8L$,8=$l$k$3$H$O7h$7$F$"$j$^$;$s!#(B
+  もしあれば、文字コーディングスキーマを示す40バイトが収められています。
+  先頭バイトは０から39まであり、この文字列の中に入っている実際に意味の
+  あるバイト数を示しています。
+  文字列には、このフォントで表されている文字コードの種類が記述されています。
+  たとえば、<tt>ASCII</tt>は標準ASCIIコード、
+  <tt>TeX text</tt>は<tt>cmr10</tt>や<tt>cmti9</tt>のようなTeXフォント、
+  <tt>TeX math extension</tt>は<tt>cmex10</tt>や<tt>cmex10</tt>のようなTeX数式用フォント、
+  <tt>XEROX</tt>はXeroxフォント、<tt>GRAPHIC</tt>は特別な目的の非アルファベットフォント、
+  <tt>UNSPECIFIED</tt>はこの部分が未定義のデフォルト値です。
+  この文字列の中に丸括弧が現れることは決してありません。
 <p>
 <li><var>header</var>[12..16]<br>
-  $B$b$7$"$l$P!"(B`<tt>CMR</tt>'$B$d(B`<tt>HELVETICA</tt>'$B$H$$$C$?%U%)%s%H%U%!%_%j!<$NL>A0$,(B
-  20$B%P%$%H<}$a$i$l$F$$$^$9!#$3$N%U%#!<%k%I$O(B``$B%U%)%s%H<1JL;R(B''$B$H$b8F$P$l$^$9!#(B
+  もしあれば、`<tt>CMR</tt>'や`<tt>HELVETICA</tt>'といったフォントファミリーの名前が
+  20バイト収められています。このフィールドは``フォント識別子''とも呼ばれます。
 <p>
 <li><var>header</var>[17]<br>
-  $B$b$7$"$l$P!"<!$N$h$&$J>pJs$,F~$C$F$$$^$9!#(B
+  もしあれば、次のような情報が入っています。
 <pre>
-  $B#1%P%$%HL\(B  seven_bit_safe_flag
-  $B#2%P%$%HL\(B  $BL$Dj5A(B
-  $B#3%P%$%HL\(B  $BL$Dj5A(B
-  $B#4%P%$%HL\(B  face
+  １バイト目  seven_bit_safe_flag
+  ２バイト目  未定義
+  ３バイト目  未定義
+  ４バイト目  face
 </pre>
-  $B#4%P%$%HL\$N(B<var>face</var>$B$,(B18$B$h$j$b>.$5$$?tCM$J$i$P!"(B
-  ``$B%&%'%$%H!"<PBN!"D9BN(B/$BJ?BN(B''$B$rI=$7$F$$$^$9!#(B
-  0, 2, 4$B!J%_%G%#%"%`!"%\!<%k%I!"%i%$%H!K$N$$$:$l$+$H(B
-  0, 1$B!J<PBN$J$7!"<PBN!K$N$$$:$l$+$H(B
-  0, 6, 12$B!J@5BN!"D9BN!"J?BN!K$N$$$:$l$+$rB-$7$?$b$N$G$9!#(B
-  $B$?$H$($P!"(B13$B$J$i$P(B0+1+12$B$H$J$j!"$3$N%U%)%s%H$,(B
-  $B!V%_%G%#%"%`$G<PBN$GJ?BN!W$G$"$k$3$H$r<($7$F$$$^$9!#(B
+  ４バイト目の<var>face</var>が18よりも小さい数値ならば、
+  ``ウェイト、斜体、長体/平体''を表しています。
+  0, 2, 4（ミディアム、ボールド、ライト）のいずれかと
+  0, 1（斜体なし、斜体）のいずれかと
+  0, 6, 12（正体、長体、平体）のいずれかを足したものです。
+  たとえば、13ならば0+1+12となり、このフォントが
+  「ミディアムで斜体で平体」であることを示しています。
 <p>
-<li><var>header</var>[18$B0J>e(B]<br>
-  $B$3$NItJ,$b$"$k$+$b$7$l$^$;$s!#$H$j$"$($:$3$NItJ,$O(B<var>header</var>[18],
-  <var>header</var>[19]$B$J$I$H8F$S$^$9!#(B
+<li><var>header</var>[18以上]<br>
+  この部分もあるかもしれません。とりあえずこの部分は<var>header</var>[18],
+  <var>header</var>[19]などと呼びます。
 </ul>
 
 <hr>
-<h3><a name="char_type">$B"#(Bchar_type</a></h3>
+<h3><a name="char_type">■char_type</a></h3>
 <ul>
 <li><var>char_type</var>[<var>0</var>..<var>nt-1</var>]
 </ul>
 
-$B4A;z$NJ8;z%3!<%I$H(B<var>char_type</var>$B$H$NBP1~IU$1$r9T$J$$$^$9!#(B
+漢字の文字コードと<var>char_type</var>との対応付けを行ないます。
 <p>
-$B$3$N%F!<%V%k$N3F%(%s%H%j$O#1%o!<%I$G9=@.$5$l!">e0LH>%o!<%I$K4A;zJ8;z%3!<%I!"(B
-$B2<0LH>%o!<%I$K(B<var>char_type</var>$B$r;}$C$F$$$^$9!#(B
-$B$^$?!"$3$N%F!<%V%k$N@hF,$K$O!"%G%U%)%k%H$N%$%s%G%C%/%9$H$7$F!"(B
-$B4A;z%3!<%I$*$h$S(B<var>char_type</var>$B$,%<%m$N$b$N$,I,$:B8:_$7$^$9!#(B
+このテーブルの各エントリは１ワードで構成され、上位半ワードに漢字文字コード、
+下位半ワードに<var>char_type</var>を持っています。
+また、このテーブルの先頭には、デフォルトのインデックスとして、
+漢字コードおよび<var>char_type</var>がゼロのものが必ず存在します。
 <p>
-$B%F!<%V%k$N#2HVL\0J9_$K$O!"%G%U%)%k%H0J30$NB0@-$r;}$DJ8;z%3!<%I$H(B
-<var>char_type</var>$B$,!"4A;z%3!<%I$NCM$N=gHV$K<}$a$i$l$F$$$^$9!#(B
-$B$3$N%F!<%V%k$KEPO?$5$l$F$$$J$$J8;z$O(B<var>char_type</var>=0$B$H$7$F07$o$l$^$9!#(B
+テーブルの２番目以降には、デフォルト以外の属性を持つ文字コードと
+<var>char_type</var>が、漢字コードの値の順番に収められています。
+このテーブルに登録されていない文字は<var>char_type</var>=0として扱われます。
 
-$B%F!<%V%kFb$N3F%o!<%I$O!"$D$.$N$h$&$J9=B$$K$J$C$F$$$^$9!#(B
+テーブル内の各ワードは、つぎのような構造になっています。
 
 <hr>
-<h3><a name="char_info">$B"#(Bchar_info</a></h3>
+<h3><a name="char_info">■char_info</a></h3>
 <ul>
 <li><var>char_info</var>[<var>bc</var>(=0)..<var>ec</var>]
 </ul>
 
-<var>bc</var>$B$+$i(B<var>ec</var>$B$^$G$N(B<var>char_type</var>$B$KBP$9$k(B
-$B3F%Q%i%a!<%?$N%$%s%G%C%/%9$,#1%o!<%I$K%Q%C%/$5$l5-=R$5$l$F$$$^$9!#(B
-JFM$B$G$O!"(B<var>bc</var>$B$OI,$:%<%m$G$9$+$i!"#1$D$N(BJFM$B$K4^$^$l$k(B
-<var>char_info</var>$B$OA4It$G(Bec+1$B%o!<%I$K$J$j$^$9!#(B
+<var>bc</var>から<var>ec</var>までの<var>char_type</var>に対する
+各パラメータのインデックスが１ワードにパックされ記述されています。
+JFMでは、<var>bc</var>は必ずゼロですから、１つのJFMに含まれる
+<var>char_info</var>は全部でec+1ワードになります。
 <p>
-$B$=$l$>$l$N(B<var>char_info</var>$B$O!"$D$.$N#6$D$N%U%#!<%k%I$r;}$C$F$$$^$9!#(B
+それぞれの<var>char_info</var>は、つぎの６つのフィールドを持っています。
 
 <table>
 <td>
 <ul>
-<li><var>width_index</var> (8$B%S%C%H(B)
-<li><var>height_index</var> (4$B%S%C%H(B)
-<li><var>depth_index</var> (4$B%S%C%H(B)
+<li><var>width_index</var> (8ビット)
+<li><var>height_index</var> (4ビット)
+<li><var>depth_index</var> (4ビット)
 </ul>
 </td>
 <td>
 <ul>
-<li><var>italic_index</var> (6$B%S%C%H(B)
-<li><var>tag</var> (2$B%S%C%H(B)
-<li><var>remainder</var> (8$B%S%C%H(B)
+<li><var>italic_index</var> (6ビット)
+<li><var>tag</var> (2ビット)
+<li><var>remainder</var> (8ビット)
 </ul>
 </td>
 </table>
@@ -189,122 +189,122 @@ JFM$B$G$O!"(B<var>bc</var>$B$OI,$:%<%m$G$9$+$i!"#1$D$N(BJFM$B$K4^$^$l$k(B
 <img src="../images/charinfo.gif" alt="charinfo">
 <p>
 
-$B<B:]$NJ8;zI}$O(B<var>width</var>[<var>width_index</var>]$B!J%G%6%$%s%5%$%:C10L!K$G(B
-$B<($5$l$F$$$^$9!#(BTFM$B%U%!%$%k$O!"(B256$B<oN`$NJ8;zI}$r;}$D$3$H$,$G$-$^$9$,!"(B
-$B9b$5$H?<$5$O(B16$B<oN`!"%$%?%j%C%/Jd@5CM$O(B64$B<oN`$7$+;}$D$3$H$O$G$-$^$;$s!#(B
+実際の文字幅は<var>width</var>[<var>width_index</var>]（デザインサイズ単位）で
+示されています。TFMファイルは、256種類の文字幅を持つことができますが、
+高さと深さは16種類、イタリック補正値は64種類しか持つことはできません。
 <p>
-$B$J$*!"(B<var>width</var>[0]=<var>height</var>[0]=<var>depth</var>[0]=<var>italic</var>[0]=0$B$H$$$&(B
-$B4X78$O!"$$$D$G$bJ]$?$l$F$$$k$N$G!"$"$k%$%s%G%C%/%9$,%<%m$N>l9g$O!"$=$NB>$NCM$b(B
-$B%<%m$G$"$k$3$H$r0UL#$7$^$9!#(B
-$B$^$?!"(B<var>width_index</var>$B$O!"$=$NJ8;z$,$=$N%U%)%s%H$K4^$^$l$F$$$k8B$j$O!"(B
-$B7h$7$F%<%m$K$O$J$j$^$;$s!#$7$?$,$C$F!"(B
-$B$"$kJ8;z$,M-8z$G$"$k$J$i$P!"$=$NJ8;z$O(B<var>bc</var>$B$H(B<var>ec</var>$B$N4V$K$"$j!"(B
-$BHs%<%m$N(B<var>width_index</var>$B$r;}$C$F$$$^$9!#(B
+なお、<var>width</var>[0]=<var>height</var>[0]=<var>depth</var>[0]=<var>italic</var>[0]=0という
+関係は、いつでも保たれているので、あるインデックスがゼロの場合は、その他の値も
+ゼロであることを意味します。
+また、<var>width_index</var>は、その文字がそのフォントに含まれている限りは、
+決してゼロにはなりません。したがって、
+ある文字が有効であるならば、その文字は<var>bc</var>と<var>ec</var>の間にあり、
+非ゼロの<var>width_index</var>を持っています。
 <p>
-<var>tag</var>$B%U%#!<%k%I$O!"(B<var>remainder</var>$B%U%#!<%k%I$r$I$N$h$&$J(B
-$BL\E*$G;H$&$+$r<($7$F$$$^$9!#(B
+<var>tag</var>フィールドは、<var>remainder</var>フィールドをどのような
+目的で使うかを示しています。
 <p>
 <ul>
-<li><var>tag</var>=0$B$O!"(B<var>remainder</var>$B$r;H$o$J$$$3$H$r0UL#$7$F$$$^$9!#(B
-<li><var>tag</var>=1$B$O!"$=$NJ8;z$,(B<var>glue_kern</var>[<var>remainder</var>]$B$+$i3+;O$9$k(Bglue/kerning$B%W%m%0%i%`$r;}$C$F$$$k$3$H$r0UL#$7$F$$$^$9!#(B
-<li><var>tag</var>=2$B$O;HMQ$7$F$$$^$;$s!#(B
-<li><var>tag</var>=3$B$b;HMQ$7$F$$$^$;$s!#(B
+<li><var>tag</var>=0は、<var>remainder</var>を使わないことを意味しています。
+<li><var>tag</var>=1は、その文字が<var>glue_kern</var>[<var>remainder</var>]から開始するglue/kerningプログラムを持っていることを意味しています。
+<li><var>tag</var>=2は使用していません。
+<li><var>tag</var>=3も使用していません。
 </ul>
 <p>
 
 <hr>
-<h3><a name="width">$B"#(Bwidth, height, depth, italic</a></h3>
+<h3><a name="width">■width, height, depth, italic</a></h3>
 <ul>
-<li><var>width</var>[0..<var>nw</var>-1] $B!D!D(B $BJ8;z$NI}(B
-<li><var>height</var>[0..<var>nh</var>-1] $B!D!D(B $BJ8;z$N9b$5(B
-<li><var>depth</var>[0..<var>nd</var>-1] $B!D!D(B $BJ8;z$N?<$5(B
-<li><var>italic</var>[0..<var>ni</var>-1] $B!D!D(B $B%$%?%j%C%/Jd@5CM(B
+<li><var>width</var>[0..<var>nw</var>-1] …… 文字の幅
+<li><var>height</var>[0..<var>nh</var>-1] …… 文字の高さ
+<li><var>depth</var>[0..<var>nd</var>-1] …… 文字の深さ
+<li><var>italic</var>[0..<var>ni</var>-1] …… イタリック補正値
 </ul>
-$B$=$l$>$l$NCM$O!"%G%6%$%s%5%$%:$N!V(B2$B$N(B-20$B>h!WG\$,(B1$BC10L$G$9!#(B
-$B$3$l$i$NCM$O!"(B<var>char_info</var>$B$+$i$N%$%s%G%C%/%9$K$h$j;2>H$5$l$^$9!#(B
+それぞれの値は、デザインサイズの「2の-20乗」倍が1単位です。
+これらの値は、<var>char_info</var>からのインデックスにより参照されます。
 <p>
 
 <hr>
-<h3><a name="gluekern">$B"#(Bglue/kern</a></h3>
+<h3><a name="gluekern">■glue/kern</a></h3>
 <ul>
 <li><var>glue/kern</var>[0..<var>nl</var>-1]
 </ul>
 <p>
 <img src="../images/gluekern.gif" alt="gluekern">
 <p>
-<var>glue_kern</var>$B$K$O!"FCDj$N(B<var>char_type</var>$B$NAH9g$;$N$H$-$K!"(B
-$BA^F~$9$k(Bglue$B$^$?$O(Bkern$B$,4JC1$J%W%m%0%i%`9=B$$H$7$F4^$^$l$F$$$^$9!#(B
+<var>glue_kern</var>には、特定の<var>char_type</var>の組合せのときに、
+挿入するglueまたはkernが簡単なプログラム構造として含まれています。
 <ul>
-<li><var>skip_byte</var>$B$O!"(B
-$B$3$NCM$,(B128$B0J>e$N$H$-$O%W%m%0%i%`$N=*N;$r<($7$^$9!#(B
-$B$=$l0J30$N$H$-$O!"<!$N%9%F%C%W$^$G%9%-%C%W$9$kCM$r<($7$^$9!#(B
+<li><var>skip_byte</var>は、
+この値が128以上のときはプログラムの終了を示します。
+それ以外のときは、次のステップまでスキップする値を示します。
 <p>
-<li><var>char_type</var>$B$O!"(B
-$B8=:_$NJ8;z$N(B<var>char_type</var>$B$K!"$3$N(B<var>char_type</var>$B$NJ8;z$,B3$$$F(B
-$B$$$l$P!"%*%Z%l!<%7%g%s$r<B9T$7!"=*N;$7$^$9!#(B
-$B$=$&$G$J$1$l$P!"<!$N%9%F%C%W$K?J$_$^$9!#(B
+<li><var>char_type</var>は、
+現在の文字の<var>char_type</var>に、この<var>char_type</var>の文字が続いて
+いれば、オペレーションを実行し、終了します。
+そうでなければ、次のステップに進みます。
 <p>
-<li><var>op_byte</var>$B$O!"$3$NCM$,(B128$B$h$j>.$5$1$l$P%0%k!<%9%F%C%W$G$9!#(B
-$B$=$&$G$J$1$l$P%+!<%s%9%F%C%W$K$J$j$^$9!#(B
+<li><var>op_byte</var>は、この値が128より小さければグルーステップです。
+そうでなければカーンステップになります。
 <p>
-<li><var>remainder</var>$B$O!"(B
-$B%0%k!<%9%F%C%W$G$"$l$P!"(B<var>remainder</var>*3$B$,(B<var>glue</var>$B%F!<%V%k$X$N(B
-$B%$%s%G%C%/%9$H$J$j!"%+!<%s%9%F%C%W$G$"$l$P(B<var>kern</var>$B%F!<%V%k$X$N(B
-$B%$%s%G%C%/%9$H$J$j$^$9!#(B
+<li><var>remainder</var>は、
+グルーステップであれば、<var>remainder</var>*3が<var>glue</var>テーブルへの
+インデックスとなり、カーンステップであれば<var>kern</var>テーブルへの
+インデックスとなります。
 </ul>
 
 <hr>
-<h3><a name="kern">$B"#(Bkern</a></h3>
+<h3><a name="kern">■kern</a></h3>
 <ul>
-<li><var>kern</var>[0..<var>nk</var>-1] $B!D!D(B $B%+!<%K%s%0NL(B
+<li><var>kern</var>[0..<var>nk</var>-1] …… カーニング量
 </ul>
-<var>glue/kern</var>$B%W%m%0%i%`$GMQ$$$k%+!<%K%s%0NL$G$9!#(B
-$B%G%6%$%s%5%$%:$N!V(B2$B$N(B-20$B>h!W$,(B1$BC10L$G$9!#(B
+<var>glue/kern</var>プログラムで用いるカーニング量です。
+デザインサイズの「2の-20乗」が1単位です。
 <p>
 
 <hr>
-<h3><a name="glue">$B"#(Bglue</a></h3>
+<h3><a name="glue">■glue</a></h3>
 <ul>
-<li><var>glue</var>[0..<var>ng</var>-1] $B!D!D(B $B%0%k!<NL(B
+<li><var>glue</var>[0..<var>ng</var>-1] …… グルー量
 </ul>
-<var>glue/kern</var>$B%W%m%0%i%`$GMQ$$$k%0%k!<NL$G$9!#(B
-$B%G%6%$%s%5%$%:$N!V(B2$B$N(B-20$B>h!W$r(B1$BC10L$H$7$F!"(B
-$B<+A3D9!"?-$SD9!"=L$_D9$N#3%o!<%I$G5-=R$5$l$F$$$^$9!#$7$?$,$C$F!"(B
-<var>ng</var>$B$OI,$:#3$NG\?t$K$J$j$^$9!#(B
+<var>glue/kern</var>プログラムで用いるグルー量です。
+デザインサイズの「2の-20乗」を1単位として、
+自然長、伸び長、縮み長の３ワードで記述されています。したがって、
+<var>ng</var>は必ず３の倍数になります。
 <p>
 
 <hr>
-<h3><a name="param">$B"#(Bparam</a></h3>
-JFM$B%U%!%$%k$N:G8e$O(B<var>param</var>$BIt$G$9!#(B
+<h3><a name="param">■param</a></h3>
+JFMファイルの最後は<var>param</var>部です。
 <p>
-<var>param</var>[1]$B$O!"=c?h$K!V(B2$B$N(B-20$B>h!W$rC10L$H$7$F$*$j!"(B
-$B%G%6%$%s%5%$%:$N1F6A$r<u$1$^$;$s!#$=$l0J30$N%Q%i%a!<%?$O!"(B
-$B%G%6%$%s%5%$%:$N!V(B2$B$N(B-20$B>h!W$rC10L$H$7$F5-=R$5$l$F$$$^$9!#(B
+<var>param</var>[1]は、純粋に「2の-20乗」を単位としており、
+デザインサイズの影響を受けません。それ以外のパラメータは、
+デザインサイズの「2の-20乗」を単位として記述されています。
 
 <ul>
-<li><var>param</var>[1] $B!D!D(B $BJ8;z$N79$-(B
+<li><var>param</var>[1] …… 文字の傾き
 <p>
-<li><var>param</var>[2] $B!D!D(B $B4A;z4V$NM}A[E*$J%9%Z!<%9NL(B
+<li><var>param</var>[2] …… 漢字間の理想的なスペース量
 <p>
-<li><var>param</var>[3] $B!D!D(B $B4A;z4V$N%9%Z!<%9$N?-$SNL(B
+<li><var>param</var>[3] …… 漢字間のスペースの伸び量
 <p>
-<li><var>param</var>[4] $B!D!D(B $B4A;z4V$N%9%Z!<%9$N=L$_NL(B
+<li><var>param</var>[4] …… 漢字間のスペースの縮み量
 <p>
-<li><var>param</var>[5] $B!D!D(B $BF|K\8l(BTeX$B$G(Bzh$B$G;2>H$5$l$kD9$5(B
+<li><var>param</var>[5] …… 日本語TeXでzhで参照される長さ
 <p>
-<li><var>param</var>[6] $B!D!D(B $BF|K\8l(BTeX$B$G(Bzw$B$G;2>H$5$l$kD9$5(B
+<li><var>param</var>[6] …… 日本語TeXでzwで参照される長さ
 <p>
-<li><var>param</var>[7] $B!D!D(B $B4A;z$H1Q;z4V$NM}A[E*$J%9%Z!<%9NL(B
+<li><var>param</var>[7] …… 漢字と英字間の理想的なスペース量
 <p>
-<li><var>param</var>[8] $B!D!D(B $B4A;z$H1Q;z4V$NM}A[E*$J?-$SNL(B
+<li><var>param</var>[8] …… 漢字と英字間の理想的な伸び量
 <p>
-<li><var>param</var>[9] $B!D!D(B $B4A;z$H1Q;z4V$NM}A[E*$J=L$_NL(B
+<li><var>param</var>[9] …… 漢字と英字間の理想的な縮み量
 </ul>
 
 <p>
 <hr>
 <a href="../index.html">[pTeX home page]</a>
-<a href="index.html">[TFM,JFM$B$NL\<!(B]</a>
+<a href="index.html">[TFM,JFMの目次]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>

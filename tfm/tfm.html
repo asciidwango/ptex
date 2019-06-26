@@ -1,22 +1,22 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
 <html>
 <head>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
 <title>The publishing TeX (TFM format)</title>
 </head>
 <body bgcolor="#F5F5DC">
 
-<h2>TFM$B%U%!%$%k$N9=@.MWAG(B</h2>
-TFM$B%U%!%$%k$O!"%o!<%I!J#4%P%$%H!K$rC10L$H$7$F%G!<%?$,5-=R$5$l$F$$$^$9!#(B
-$B$^$?!"#1%o!<%IFb$N3F%P%$%H$O!">e0L%P%$%H$+$i2<0L%P%$%H$N=g$KJB$Y$i$l$F$$$^$9!#(B
+<h2>TFMファイルの構成要素</h2>
+TFMファイルは、ワード（４バイト）を単位としてデータが記述されています。
+また、１ワード内の各バイトは、上位バイトから下位バイトの順に並べられています。
 <p>
-$B:G=i$N#6%o!<%I$O!"H>%o!<%I$:$D$K6h@Z$i$l!"(BTFM$B%U%!%$%k$r9=@.$9$k(B12$B8D$N(B
-$BMWAG$N%5%$%:$,<}$a$i$l$F$$$^$9!#(B
+最初の６ワードは、半ワードずつに区切られ、TFMファイルを構成する12個の
+要素のサイズが収められています。
 <p>
-$B$3$l$i$NCM$O!"$9$Y$F!V#2$N(B15$B>h!W$h$j$b>.$5$$HsIi$NCM$G$9!#(B
-$B$^$?!"$D$.$N>r7o$rK~$?$7$F$$$J$1$l$P$J$j$^$;$s!#(B
+これらの値は、すべて「２の15乗」よりも小さい非負の値です。
+また、つぎの条件を満たしていなければなりません。
 <pre>
-    bc-1 $B!e(B ec $B!e(B 255, ne $B!e(B 256<br>
+    bc-1 ≦ ec ≦ 255, ne ≦ 256<br>
     lf = 6 + lh + (ec - bc + 1) + nw + nh + nd + ni + nl + nk + ne + np
 </pre>
 <p>
@@ -27,18 +27,18 @@ TFM$B%U%!%$%k$O!"%o!<%I!J#4%P%$%H!K$rC10L$H$7$F%G!<%?$,5-=R$5$l$F$$$^$9!#(B
 <img src="../images/tfm.gif" alt="figure of tfm" align=left ISMAP>
 </a>
 
-<var>lf</var> $B!D!D(B $B%U%!%$%k$N%o!<%I?t(B<br>
-<var>lh</var> $B!D!D(B <var>header</var>$B$N%o!<%I?t(B<br>
-<var>bc</var> $B!D!D(B $B%U%)%s%HFb$K4^$^$l$k0lHV>.$5$J%3!<%I(B<br>
-<var>ec</var> $B!D!D(B $B%U%)%s%HFb$K4^$^$l$k0lHVBg$-$J%3!<%I(B<br>
-<var>nw</var> $B!D!D(B <var>width</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>nh</var> $B!D!D(B <var>height</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>nd</var> $B!D!D(B <var>depth</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>ni</var> $B!D!D(B <var>italic</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>nl</var> $B!D!D(B <var>lig/kern</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>nk</var> $B!D!D(B <var>kern</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>ne</var> $B!D!D(B <var>exten</var>$B%F!<%V%k$N%o!<%I?t(B<br>
-<var>np</var> $B!D!D(B <var>param</var>$B%F!<%V%k$N%o!<%I?t(B
+<var>lf</var> …… ファイルのワード数<br>
+<var>lh</var> …… <var>header</var>のワード数<br>
+<var>bc</var> …… フォント内に含まれる一番小さなコード<br>
+<var>ec</var> …… フォント内に含まれる一番大きなコード<br>
+<var>nw</var> …… <var>width</var>テーブルのワード数<br>
+<var>nh</var> …… <var>height</var>テーブルのワード数<br>
+<var>nd</var> …… <var>depth</var>テーブルのワード数<br>
+<var>ni</var> …… <var>italic</var>テーブルのワード数<br>
+<var>nl</var> …… <var>lig/kern</var>テーブルのワード数<br>
+<var>nk</var> …… <var>kern</var>テーブルのワード数<br>
+<var>ne</var> …… <var>exten</var>テーブルのワード数<br>
+<var>np</var> …… <var>param</var>テーブルのワード数
 <p>
 <var><a href="#header">header</a></var><br>
 <var><a href="#char_info">char_info</a></var><br>
@@ -53,104 +53,104 @@ TFM$B%U%!%$%k$O!"%o!<%I!J#4%P%$%H!K$rC10L$H$7$F%G!<%?$,5-=R$5$l$F$$$^$9!#(B
 <br clear=all>
 
 <hr>
-<h3><a name="header">$B"#(Bheader</a></h3>
+<h3><a name="header">■header</a></h3>
 
-<var>header</var>$BIt$K$O!":GDc8B!V%A%'%C%/%5%`!J(Bcheck sum$B!K!W$H(B
-$B!V%G%6%$%s%5%$%:!J(Bdesign size$B!K!W$N#2%o!<%I$,<}$a$i$l$F$$$kI,MW$,$"$j$^$9!#(B
-TeX$B$O$3$3$^$G$N>pJs$r;H$$$^$9$,!"(BXerox$B$N0u:~%=%U%H%&%'%"$J$I$GMQ$$$k(BTFM$B$K$O!"(B
-$B:GDc8B(B18$B%o!<%I$,I,MW$G$9!#(B
+<var>header</var>部には、最低限「チェックサム（check sum）」と
+「デザインサイズ（design size）」の２ワードが収められている必要があります。
+TeXはここまでの情報を使いますが、Xeroxの印刷ソフトウェアなどで用いるTFMには、
+最低限18ワードが必要です。
 
 <ul>
 <li><var>header</var>[0]<br>
-  32$B%S%C%H$N%A%'%C%/%5%`$rI=$7!"$3$N>pJs$,$=$N$^$^(BDVI$B%U%!%$%k$K<}$a$i$l$^$9!#(B
-  $B$3$N>pJs$O!"(BTeX$B$N;HMQ$7$?(BTFM$B%U%!%$%k$H!"0u;z$K;HMQ$7$h$&$H$7$F$$$k(B
-  GF$B$J$I$N%0%j%U%U%!%$%k$,@09g$N$H$l$?$b$N$+$I$&$+$r(B
-  $B%G%P%$%9%I%i%$%P$,3NG'$9$k$?$a$N$b$N$G$9!#(B
-  $B$?$@$7!"$=$N%U%)%s%H%U%!%$%k$+$3$N(BTFM$B%U%!%$%k$N%A%'%C%/%5%`$N$$$:$l$+$,(B
-  $B%<%m$N>l9g$O%A%'%C%/$O9T$J$o$l$^$;$s!#(B
+  32ビットのチェックサムを表し、この情報がそのままDVIファイルに収められます。
+  この情報は、TeXの使用したTFMファイルと、印字に使用しようとしている
+  GFなどのグリフファイルが整合のとれたものかどうかを
+  デバイスドライバが確認するためのものです。
+  ただし、そのフォントファイルかこのTFMファイルのチェックサムのいずれかが
+  ゼロの場合はチェックは行なわれません。
 <p>
 <li><var>header</var>[1]<br>
-  $B%U%)%s%H$N%G%6%$%s%5%$%:!J%]%$%s%H?t!K$r!V#2$N(B-20$B>h!W$r#1C10L$H$7$FI=$7$?(B
-  $B?tCM$G$9!#:G>.CM$O(B1.0$B$G$9!#(B
-  $B$h$/;H$o$l$k%G%6%$%s%5%$%:$O(B``10$B%]%$%s%H(B''$B%U%)%s%HMQ$N(B10.0$B$G$9!#(B
-  $B$3$l$O!"$3$N%U%)%s%H$,(B10$B%]%$%s%H%5%$%:$G;H$o$l$k$H$-$K:GE,$K$J$k$h$&$K(B
-  $B%G%6%$%s$5$l$F$$$k$H$$$&$3$H$G$9!#(B
-  TeX$B$N%f!<%6$,(B`<tt>at $B&D(B pt'</tt>$B$H$7$?>l9g!"$=$NB>$N%Q%i%a!<%?$O$=$NHfN((B
- $B!J&D$r%G%6%$%s%5%$%:$G3d$C$?CM!K$G3HBg$5$l$^$9!#(B
-  10pt$BMQ$N%U%)%s%H$,(B<tt>at 15pt</tt>$B$G8F$S=P$5$l$k$H!"$=$l$>$l$N%Q%i%a!<%?$,(B
-  $B!V(B15/10.0=1.5$B!WG\$H$J$k$H$$$&$3$H$G$9!#(B
+  フォントのデザインサイズ（ポイント数）を「２の-20乗」を１単位として表した
+  数値です。最小値は1.0です。
+  よく使われるデザインサイズは``10ポイント''フォント用の10.0です。
+  これは、このフォントが10ポイントサイズで使われるときに最適になるように
+  デザインされているということです。
+  TeXのユーザが`<tt>at δ pt'</tt>とした場合、その他のパラメータはその比率
+ （δをデザインサイズで割った値）で拡大されます。
+  10pt用のフォントが<tt>at 15pt</tt>で呼び出されると、それぞれのパラメータが
+  「15/10.0=1.5」倍となるということです。
   <p>
-  TFM$B%U%!%$%k$G$N%5%$%:$O!"$9$Y$F$3$N%G%6%$%s%5%$%:$rC10L$K$7$F$$$^$9!#(B
-  $B$7$?$,$C$F!"$?$H$($P(B1em$B$^$?$O(B\quad$B$r<($9(B<var>param</var>[6]$B$K$O!"(B
-  $B$7$P$7$P!"(B2^{20}=1.0$B$,<}$a$i$l$F$$$^$9!#(B
-  $B$=$N$?$a$KB?$/$N%U%)%s%H$O%G%6%$%s%5%$%:$H(B1em$B$,F1$8$K$J$C$F$$$^$9!#(B
+  TFMファイルでのサイズは、すべてこのデザインサイズを単位にしています。
+  したがって、たとえば1emまたは\quadを示す<var>param</var>[6]には、
+  しばしば、2^{20}=1.0が収められています。
+  そのために多くのフォントはデザインサイズと1emが同じになっています。
   <p>
-  $B$=$NB>$N@#K!$O!"$=$N@dBPCM$,(B16$B%G%6%$%s%5%$%:C10L$h$j$b>.$5$/$J$j$^$9!#(B
-  $B@hF,%P%$%H$,(B0$B$+(B255$B$N$$$:$l$+$N(BTFM$B%U%!%$%k$NCf$G!"(B
-  <var>header</var>[1]$B$H(B<var>param</var>[1]$B$@$1$,!V#2$N(B-20$B>h!W$r4p=`$K$7$F$$$^$9!#(B
+  その他の寸法は、その絶対値が16デザインサイズ単位よりも小さくなります。
+  先頭バイトが0か255のいずれかのTFMファイルの中で、
+  <var>header</var>[1]と<var>param</var>[1]だけが「２の-20乗」を基準にしています。
 <p>
 <li><var>header</var>[2..11]<br>
-  $B$b$7$"$l$P!"J8;z%3!<%G%#%s%0%9%-!<%^$r<($9(B40$B%P%$%H$,<}$a$i$l$F$$$^$9!#(B
-  $B@hF,%P%$%H$O#0$+$i(B39$B$^$G$"$j!"$3$NJ8;zNs$NCf$KF~$C$F$$$k<B:]$K0UL#$N(B
-  $B$"$k%P%$%H?t$r<($7$F$$$^$9!#(B
-  $BJ8;zNs$K$O!"$3$N%U%)%s%H$GI=$5$l$F$$$kJ8;z%3!<%I$N<oN`$,5-=R$5$l$F$$$^$9!#(B
-  $B$?$H$($P!"(B<tt>ASCII</tt>$B$OI8=`(BASCII$B%3!<%I!"(B
-  <tt>TeX text</tt>$B$O(B<tt>cmr10</tt>$B$d(B<tt>cmti9</tt>$B$N$h$&$J(BTeX$B%U%)%s%H!"(B
-  <tt>TeX math extension</tt>$B$O(B<tt>cmex10</tt>$B$d(B<tt>cmex10</tt>$B$N$h$&$J(BTeX$B?t<0MQ%U%)%s%H!"(B
-  <tt>XEROX</tt>$B$O(BXerox$B%U%)%s%H!"(B<tt>GRAPHIC</tt>$B$OFCJL$JL\E*$NHs%"%k%U%!%Y%C%H%U%)%s%H!"(B
-  <tt>UNSPECIFIED</tt>$B$O$3$NItJ,$,L$Dj5A$N%G%U%)%k%HCM$G$9!#(B
-  $B$3$NJ8;zNs$NCf$K4]3g8L$,8=$l$k$3$H$O7h$7$F$"$j$^$;$s!#(B
+  もしあれば、文字コーディングスキーマを示す40バイトが収められています。
+  先頭バイトは０から39まであり、この文字列の中に入っている実際に意味の
+  あるバイト数を示しています。
+  文字列には、このフォントで表されている文字コードの種類が記述されています。
+  たとえば、<tt>ASCII</tt>は標準ASCIIコード、
+  <tt>TeX text</tt>は<tt>cmr10</tt>や<tt>cmti9</tt>のようなTeXフォント、
+  <tt>TeX math extension</tt>は<tt>cmex10</tt>や<tt>cmex10</tt>のようなTeX数式用フォント、
+  <tt>XEROX</tt>はXeroxフォント、<tt>GRAPHIC</tt>は特別な目的の非アルファベットフォント、
+  <tt>UNSPECIFIED</tt>はこの部分が未定義のデフォルト値です。
+  この文字列の中に丸括弧が現れることは決してありません。
 <p>
 <li><var>header</var>[12..16]<br>
-  $B$b$7$"$l$P!"(B`<tt>CMR</tt>'$B$d(B`<tt>HELVETICA</tt>'$B$H$$$C$?%U%)%s%H%U%!%_%j!<$NL>A0$,(B
-  20$B%P%$%H<}$a$i$l$F$$$^$9!#$3$N%U%#!<%k%I$O(B``$B%U%)%s%H<1JL;R(B''$B$H$b8F$P$l$^$9!#(B
+  もしあれば、`<tt>CMR</tt>'や`<tt>HELVETICA</tt>'といったフォントファミリーの名前が
+  20バイト収められています。このフィールドは``フォント識別子''とも呼ばれます。
 <p>
 <li><var>header</var>[17]<br>
-  $B$b$7$"$l$P!"<!$N$h$&$J>pJs$,F~$C$F$$$^$9!#(B
+  もしあれば、次のような情報が入っています。
 <pre>
-  $B#1%P%$%HL\(B  seven_bit_safe_flag
-  $B#2%P%$%HL\(B  $BL$Dj5A(B
-  $B#3%P%$%HL\(B  $BL$Dj5A(B
-  $B#4%P%$%HL\(B  face
+  １バイト目  seven_bit_safe_flag
+  ２バイト目  未定義
+  ３バイト目  未定義
+  ４バイト目  face
 </pre>
-  $B#4%P%$%HL\$N(B<var>face</var>$B$,(B18$B$h$j$b>.$5$$?tCM$J$i$P!"(B
-  ``$B%&%'%$%H!"<PBN!"D9BN(B/$BJ?BN(B''$B$rI=$7$F$$$^$9!#(B
-  0, 2, 4$B!J%_%G%#%"%`!"%\!<%k%I!"%i%$%H!K$N$$$:$l$+$H(B
-  0, 1$B!J<PBN$J$7!"<PBN!K$N$$$:$l$+$H(B
-  0, 6, 12$B!J@5BN!"D9BN!"J?BN!K$N$$$:$l$+$rB-$7$?$b$N$G$9!#(B
-  $B$?$H$($P!"(B13$B$J$i$P(B0+1+12$B$H$J$j!"$3$N%U%)%s%H$,(B
-  $B!V%_%G%#%"%`$G<PBN$GJ?BN!W$G$"$k$3$H$r<($7$F$$$^$9!#(B
+  ４バイト目の<var>face</var>が18よりも小さい数値ならば、
+  ``ウェイト、斜体、長体/平体''を表しています。
+  0, 2, 4（ミディアム、ボールド、ライト）のいずれかと
+  0, 1（斜体なし、斜体）のいずれかと
+  0, 6, 12（正体、長体、平体）のいずれかを足したものです。
+  たとえば、13ならば0+1+12となり、このフォントが
+  「ミディアムで斜体で平体」であることを示しています。
 <p>
-<li><var>header</var>[18$B0J>e(B]<br>
-  $B$3$NItJ,$b$"$k$+$b$7$l$^$;$s!#$H$j$"$($:$3$NItJ,$O(B<var>header</var>[18],
-  <var>header</var>[19]$B$J$I$H8F$S$^$9!#(B
+<li><var>header</var>[18以上]<br>
+  この部分もあるかもしれません。とりあえずこの部分は<var>header</var>[18],
+  <var>header</var>[19]などと呼びます。
 </ul>
 
 <hr>
-<h3><a name="char_info">$B"#(Bchar_info</a></h3>
+<h3><a name="char_info">■char_info</a></h3>
 <ul>
 <li><var>char_info</var>[<var>bc</var>..<var>ec</var>]
 </ul>
 
-TFM$B%U%!%$%k$K$O!"%3!<%I$,(B<var>bc</var>$B$+$i(B<var>ec</var>$B$^$G$N(B
-$bc-ec+1$$BJ8;z$,4^$^$l$F$$$^$9!#(B<var>char_info</var>$B$K$O!"(B
-$B#1J8;z$4$H$K3F%Q%i%a!<%?%F!<%V%kFb$N%$%s%G%C%/%9$,#1%o!<%I$K%Q%C%/$5$l(B
-$B5-=R$5$l$F$$$^$9!##1J8;zJ,$N(B<var>char_info</var>$B$O!"$D$.$N#6$D$N%U%#!<%k%I$r(B
-$B;}$C$F$$$^$9!#(B
+TFMファイルには、コードが<var>bc</var>から<var>ec</var>までの
+$bc-ec+1$文字が含まれています。<var>char_info</var>には、
+１文字ごとに各パラメータテーブル内のインデックスが１ワードにパックされ
+記述されています。１文字分の<var>char_info</var>は、つぎの６つのフィールドを
+持っています。
 
 <table>
 <td>
 <ul>
-<li><var>width_index</var> (8$B%S%C%H(B)
-<li><var>height_index</var> (4$B%S%C%H(B)
-<li><var>depth_index</var> (4$B%S%C%H(B)
+<li><var>width_index</var> (8ビット)
+<li><var>height_index</var> (4ビット)
+<li><var>depth_index</var> (4ビット)
 </ul>
 </td>
 <td>
 <ul>
-<li><var>italic_index</var> (6$B%S%C%H(B)
-<li><var>tag</var> (2$B%S%C%H(B)
-<li><var>remainder</var> (8$B%S%C%H(B)
+<li><var>italic_index</var> (6ビット)
+<li><var>tag</var> (2ビット)
+<li><var>remainder</var> (8ビット)
 </ul>
 </td>
 </table>
@@ -158,78 +158,78 @@ $bc-ec+1$$BJ8;z$,4^$^$l$F$$$^$9!#(B<var>char_info</var>$B$K$O!"(B
 <img src="../images/charinfo.gif" alt="charinfo">
 <p>
 
-$B<B:]$NJ8;zI}$O(B<var>width</var>[<var>width_index</var>]$B!J%G%6%$%s%5%$%:C10L!K$G(B
-$B<($5$l$F$$$^$9!#(BTFM$B%U%!%$%k$O!"(B256$B<oN`$NJ8;zI}$r;}$D$3$H$,$G$-$^$9$,!"(B
-$B9b$5$H?<$5$O(B16$B<oN`!"%$%?%j%C%/Jd@5CM$O(B64$B<oN`$7$+;}$D$3$H$O$G$-$^$;$s!#(B
+実際の文字幅は<var>width</var>[<var>width_index</var>]（デザインサイズ単位）で
+示されています。TFMファイルは、256種類の文字幅を持つことができますが、
+高さと深さは16種類、イタリック補正値は64種類しか持つことはできません。
 <p>
-$B$J$*!"(B<var>width</var>[0]=<var>height</var>[0]=<var>depth</var>[0]=<var>italic</var>[0]=0$B$H$$$&(B
-$B4X78$O!"$$$D$G$bJ]$?$l$F$$$k$N$G!"$"$k%$%s%G%C%/%9$,%<%m$N>l9g$O!"$=$NB>$NCM$b(B
-$B%<%m$G$"$k$3$H$r0UL#$7$^$9!#(B
-$B$^$?!"(B<var>width_index</var>$B$O!"$=$NJ8;z$,$=$N%U%)%s%H$K4^$^$l$F$$$k8B$j$O!"7h$7$F(B
-$B%<%m$K$O$J$j$^$;$s!#$7$?$,$C$F!"(B
-$B$"$kJ8;z$,M-8z$G$"$k$J$i$P!"$=$NJ8;z$O(B<var>bc</var>$B$H(B<var>ec</var>$B$N4V$K$"$j!"(B
-$BHs%<%m$N(B<var>width_index</var>$B$r;}$C$F$$$^$9!#(B
+なお、<var>width</var>[0]=<var>height</var>[0]=<var>depth</var>[0]=<var>italic</var>[0]=0という
+関係は、いつでも保たれているので、あるインデックスがゼロの場合は、その他の値も
+ゼロであることを意味します。
+また、<var>width_index</var>は、その文字がそのフォントに含まれている限りは、決して
+ゼロにはなりません。したがって、
+ある文字が有効であるならば、その文字は<var>bc</var>と<var>ec</var>の間にあり、
+非ゼロの<var>width_index</var>を持っています。
 <p>
-<var>tag</var>$B%U%#!<%k%I$O!"(B<var>remainder</var>$B%U%#!<%k%I$r$I$N$h$&$JL\E*$G;H$&$+$r(B
-$B<($7$F$$$^$9!#(B
+<var>tag</var>フィールドは、<var>remainder</var>フィールドをどのような目的で使うかを
+示しています。
 <p>
 <ul>
-<li><var>tag</var>=0$B$O!"(B<var>remainder</var>$B$r;H$o$J$$$3$H$r0UL#$7$F$$$^$9!#(B
-<li><var>tag</var>=1$B$O!"$=$NJ8;z$,(B<var>lig_kern</var>[<var>remainder</var>]$B$+$i3+;O$9$k(B
-ligature/kerning$B%W%m%0%i%`$r;}$C$F$$$k$3$H$r0UL#$7$F$$$^$9!#(B
-<li><var>tag</var>=2$B$O!"$=$NJ8;z$,!"$h$jE,@Z$J%5%$%:$NJ8;z$X$N%j%s%/$N0lIt$G(B
-$B$"$k$3$H$r<($7$F$$$^$9!#(B
-$B$=$N(B<var>remainder</var>$B%U%#!<%k%I$K$O!"<!$KBg$-$JJ8;z$N%3!<%I$,3JG<$5$l$F$$$^$9!#(B
-<li><var>tag</var>=3$B$O!"$=$NJ8;z%3!<%I$,!">.$5$JItIJ$rAH$_9g$o$;$FBg$-$JJ8;z$K(B
-$B$9$k$?$a$N!"?-D%2DG=$JJ8;z$G$"$k$3$H$r0UL#$7$F$$$^$9!#(B
-$B$=$l$i$NItIJ$O(B<var>exten</var>[<var>remainder</var>]$B$K5-=R$5$l$F$$$^$9!#(B
+<li><var>tag</var>=0は、<var>remainder</var>を使わないことを意味しています。
+<li><var>tag</var>=1は、その文字が<var>lig_kern</var>[<var>remainder</var>]から開始する
+ligature/kerningプログラムを持っていることを意味しています。
+<li><var>tag</var>=2は、その文字が、より適切なサイズの文字へのリンクの一部で
+あることを示しています。
+その<var>remainder</var>フィールドには、次に大きな文字のコードが格納されています。
+<li><var>tag</var>=3は、その文字コードが、小さな部品を組み合わせて大きな文字に
+するための、伸張可能な文字であることを意味しています。
+それらの部品は<var>exten</var>[<var>remainder</var>]に記述されています。
 </ul>
 <p>
 
 <hr>
-<h3><a name="width">$B"#(Bwidth, height, depth, italic</a></h3>
+<h3><a name="width">■width, height, depth, italic</a></h3>
 <ul>
-<li><var>width</var>[0..<var>nw</var>-1] $B!D!D(B $BJ8;z$NI}(B
-<li><var>height</var>[0..<var>nh</var>-1] $B!D!D(B $BJ8;z$N9b$5(B
-<li><var>depth</var>[0..<var>nd</var>-1] $B!D!D(B $BJ8;z$N?<$5(B
-<li><var>italic</var>[0..<var>ni</var>-1] $B!D!D(B $B%$%?%j%C%/Jd@5CM(B
+<li><var>width</var>[0..<var>nw</var>-1] …… 文字の幅
+<li><var>height</var>[0..<var>nh</var>-1] …… 文字の高さ
+<li><var>depth</var>[0..<var>nd</var>-1] …… 文字の深さ
+<li><var>italic</var>[0..<var>ni</var>-1] …… イタリック補正値
 </ul>
-$B$=$l$>$l$NCM$O!"%G%6%$%s%5%$%:$N!V(B2$B$N(B-20$B>h!WG\$,(B1$BC10L$G$9!#(B
-$B$3$l$i$NCM$O!"(B<var>char_info</var>$B$+$i$N%$%s%G%C%/%9$K$h$j;2>H$5$l$^$9!#(B
+それぞれの値は、デザインサイズの「2の-20乗」倍が1単位です。
+これらの値は、<var>char_info</var>からのインデックスにより参照されます。
 <p>
 
 <hr>
-<h3><a name="ligkern">$B"#(Blig/kern</a></h3>
+<h3><a name="ligkern">■lig/kern</a></h3>
 <ul>
 <li><var>lig/kern</var>[0..<var>nl</var>-1]
 </ul>
 <p>
 <img src="../images/ligkern.gif" alt="ligkern">
 <p>
-<var>lig_kern</var>$B$K$O!"FCJL$JJ8;z$NAH9g$;$N$H$-$K9T$J$&F0:n$,!"(B
-$B4JC1$J%W%m%0%i%`9=B$$H$7$F4^$^$l$F$$$^$9!#(B
+<var>lig_kern</var>には、特別な文字の組合せのときに行なう動作が、
+簡単なプログラム構造として含まれています。
 <ul>
-<li><var>skip_byte</var>$B$O!"(B
-$B$3$NCM$,(B128$B0J>e$N$H$-$O%W%m%0%i%`$N=*N;$r<($7$^$9!#(B
-$B$=$l0J30$N$H$-$O!"<!$N%9%F%C%W$^$G%9%-%C%W$9$kCM$r<($7$^$9!#(B
+<li><var>skip_byte</var>は、
+この値が128以上のときはプログラムの終了を示します。
+それ以外のときは、次のステップまでスキップする値を示します。
 <p>
-<li><var>next_char</var>$B$O!"(B
-$B8=:_$NJ8;z$K(B<var>next_char</var>$B$,B3$$$F$$$l$P!"%*%Z%l!<%7%g%s$r<B9T$7!"(B
-$B=*N;$7$^$9!#$3$l0J30$N>l9g$O!"<!$N%9%F%C%W$K?J$_$^$9!#(B
+<li><var>next_char</var>は、
+現在の文字に<var>next_char</var>が続いていれば、オペレーションを実行し、
+終了します。これ以外の場合は、次のステップに進みます。
 <p>
-<li><var>op_byte</var>$B$O!"$3$NCM$,(B128$B$h$j>.$5$1$l$P9g;z%9%F%C%W$G$9!#(B
-$B$=$&$G$J$1$l$P%+!<%s%9%F%C%W$K$J$j$^$9!#(B
+<li><var>op_byte</var>は、この値が128より小さければ合字ステップです。
+そうでなければカーンステップになります。
 <p>
-<li><var>remainder</var>$B$O!"%+!<%s%9%F%C%W$N>l9g!"(B
-<var>kern</var>[256*(<var>op_byte</var>-128)+<var>remainder</var>]$B$NNL$NDI2C%9%Z!<%9$r(B
-$B8=:_$NJ8;z$N8e$m$KA^F~$7$^$9!#(B
-$B$3$NNL$O!"J8;z$r6aIU$1$k$?$a$KIi$K$J$k>l9g$b$"$j$^$9!#(B
+<li><var>remainder</var>は、カーンステップの場合、
+<var>kern</var>[256*(<var>op_byte</var>-128)+<var>remainder</var>]の量の追加スペースを
+現在の文字の後ろに挿入します。
+この量は、文字を近付けるために負になる場合もあります。
 </ul>
 <p>
-$B9g;z%9%F%C%W$K$O#8<oN`$,$"$j!"(B
-4a+2b+c (0$B!e(Ba$B!e(Bb+c $B$+$D(B 0$B!e(Bb,c$B!e(B1)$B$N(B<var>op_byte</var>$B$K$J$C$F$$$^$9!#(B
-a, b, c $B$N<h$kCM$NAH9g$;$r$D$.$K<($7$^$9!#(B
-$B$^$?!";29M$K%W%m%Q%F%#%j%9%H$G$NI=5-$b<($7$^$9!#(B
+合字ステップには８種類があり、
+4a+2b+c (0≦a≦b+c かつ 0≦b,c≦1)の<var>op_byte</var>になっています。
+a, b, c の取る値の組合せをつぎに示します。
+また、参考にプロパティリストでの表記も示します。
 <pre>
     a   b   c   4a+2b+c   PLtoTF
     0   0   0     0         LIG
@@ -242,108 +242,108 @@ a, b, c $B$N<h$kCM$NAH9g$;$r$D$.$K<($7$^$9!#(B
     2   1   1    11        /LIG/&gt;&gt;
 </pre>
 
-$B9g;z%9%F%C%W$G$O!"$^$:!"8=:_$NJ8;z$H<!$NJ8;z$N4V$K(B
-<var>remainder</var>$B%3!<%I$NJ8;z$rA^F~$7$^$9!#(B
-$B$=$7$F!"(Bb=0$B$N>l9g$O!"8=:_$NJ8;z$r:o=|$7$^$9!#(B
-$B$=$7$F!"(Bc=0$B$N>l9g$O!"(B<var>next_char</var>$B$r:o=|$7$^$9!#(B
-$B$=$7$F!"(Ba$BJ8;z$r%9%-%C%W$7!"$D$.$NJ8;z$KE~C#$7$^$9(B
-$B!J$=$NJ8;z$b(Bligature/kerning$B%W%m%0%i%`$r;}$C$F$$$k$+$b$7$l$^$;$s!K!#(B
+合字ステップでは、まず、現在の文字と次の文字の間に
+<var>remainder</var>コードの文字を挿入します。
+そして、b=0の場合は、現在の文字を削除します。
+そして、c=0の場合は、<var>next_char</var>を削除します。
+そして、a文字をスキップし、つぎの文字に到達します
+（その文字もligature/kerningプログラムを持っているかもしれません）。
 <p>
-a=0 $B$+$D(B b=1 $B$N$H$-!"8=:_$NJ8;z$,JQ99$5$l$J$$$3$H$KCm0U$7$F$/$@$5$$!#(B
-$B$^$?!"(Ba=b $B$+$D(B c=1 $B$N$H$-$O!"8=:_$NJ8;z$,JQ$o$j!"(B<var>next_char</var>$B$OJQ99$5$l$^$;$s!#(B
+a=0 かつ b=1 のとき、現在の文字が変更されないことに注意してください。
+また、a=b かつ c=1 のときは、現在の文字が変わり、<var>next_char</var>は変更されません。
 <p>
-<var>lig_kern</var>$BG[Ns$N:G=i$NL?Na$,(B<var>skip_byte</var>=255$B$N>l9g!"(B
-<var>next_char</var>$B%P%$%H$O!"$=$N%U%)%s%H$N1&%P%&%s%@%jJ8;z$H8F$P$l$^$9!#(B
-<var>next_char</var>$B$NCM$O(B<var>bc</var>$B$H(B<var>ec</var>$B$N4V$K$"$kI,MW$O$"$j$^$;$s!#(B
+<var>lig_kern</var>配列の最初の命令が<var>skip_byte</var>=255の場合、
+<var>next_char</var>バイトは、そのフォントの右バウンダリ文字と呼ばれます。
+<var>next_char</var>の値は<var>bc</var>と<var>ec</var>の間にある必要はありません。
 <p>
-<var>lig_kern</var>$BG[Ns$N:G8e$NL?Na$,(B<var>skip_byte</var>=255$B$N>l9g!"(B
-$B$=$l$O(B256*<var>op_byte</var>+<var>remainder</var>$B$+$i;O$^$k!"(B
-$B:8%P%&%s%@%jMQ$NFCJL$J(B<var>lig_kern</var>$B%W%m%0%i%`$G$9!#(B
+<var>lig_kern</var>配列の最後の命令が<var>skip_byte</var>=255の場合、
+それは256*<var>op_byte</var>+<var>remainder</var>から始まる、
+左バウンダリ用の特別な<var>lig_kern</var>プログラムです。
 <p>
-$B$"$kJ8;z$N(B<var>lig_kern</var>$B%W%m%0%i%`$N:G=i$NL?Na$,(B<var>skip_byte</var>&gt;128$B$N>l9g!"(B
-$B<B:]$K$O!"$=$N%W%m%0%i%`$O(B256*<var>op_byte</var>+<var>remainder</var>$B$N0LCV$+$i3+;O$7$^$9!#(B
-$B$3$N5!G=$K$h$C$F!"Bg$-$J(B<var>ig_kern</var>$BG[Ns$K%"%/%;%9$9$k$3$H$,$G$-$^$9!#(B
-$B$=$NM}M3$O!":G=i$NL?Na$O(B&#62;=255$B0J30$N0LCV$G$J$1$l$P$J$i$J$$$?$a$G$9!#(B
+ある文字の<var>lig_kern</var>プログラムの最初の命令が<var>skip_byte</var>&gt;128の場合、
+実際には、そのプログラムは256*<var>op_byte</var>+<var>remainder</var>の位置から開始します。
+この機能によって、大きな<var>ig_kern</var>配列にアクセスすることができます。
+その理由は、最初の命令は&#62;=255以外の位置でなければならないためです。
 <p>
-<var>lig_kern</var>$BG[NsFb$N(B<var>skip_byte</var>&#62;128$B$G$"$kB>$NL?Na$O!"(B
-256*<var>op_byte</var>+<var>remainder</var><<var>nl</var>$B$G$J$/$F$O$$$1$^$;$s!#(B
-$B$b$7!"$=$N$h$&$JL?Na$,DL>o$N%W%m%0%i%`$KF~$C$F$$$k$J$i$P!"(B
-$BL5>r7o$KDd;_$7!"$$$+$J$k9g;z%3%^%s%I$b<B9T$5$l$^$;$s!#(B
-<p>
-
-<hr>
-<h3><a name="kern">$B"#(Bkern</a></h3>
-<ul>
-<li><var>kern</var>[0..<var>nk</var>-1] $B!D!D(B $B%+!<%K%s%0NL(B
-</ul>
-<var>lig/kern</var>$B%W%m%0%i%`$GMQ$$$k%+!<%K%s%0NL$G$9!#(B
-$B%G%6%$%s%5%$%:$N!V(B2$B$N(B-20$B>h!W$,(B1$BC10L$G$9!#(B
+<var>lig_kern</var>配列内の<var>skip_byte</var>&#62;128である他の命令は、
+256*<var>op_byte</var>+<var>remainder</var><<var>nl</var>でなくてはいけません。
+もし、そのような命令が通常のプログラムに入っているならば、
+無条件に停止し、いかなる合字コマンドも実行されません。
 <p>
 
 <hr>
-<h3><a name="exten">$B"#(Bexten</a></h3>
+<h3><a name="kern">■kern</a></h3>
 <ul>
-<li><var>exten</var>[0..<var>ne</var>-1] $B!D!D(B $BAH$_9g$o$;J8;z$N%3!<%I(B
+<li><var>kern</var>[0..<var>nk</var>-1] …… カーニング量
 </ul>
-$BAH$_9g$o$;J8;z$K;H$o$l$kJ8;z%3!<%I$,3JG<$5$l$F$*$j!"3F%o!<%I$O$D$.$N(B
-$B9=B$$K$J$j$^$9!#(B
-$B@\B3%Q!<%D0J30$N!"3F%Q!<%D$N%3!<%I$K$O!"$=$N%Q!<%D$,ITI,MW$J$i$P#0$,F~$j$^$9!#(B
+<var>lig/kern</var>プログラムで用いるカーニング量です。
+デザインサイズの「2の-20乗」が1単位です。
+<p>
+
+<hr>
+<h3><a name="exten">■exten</a></h3>
+<ul>
+<li><var>exten</var>[0..<var>ne</var>-1] …… 組み合わせ文字のコード
+</ul>
+組み合わせ文字に使われる文字コードが格納されており、各ワードはつぎの
+構造になります。
+接続パーツ以外の、各パーツのコードには、そのパーツが不必要ならば０が入ります。
 <p>
 <p>
 <img src="../images/exten.gif" alt="exten">
 <p>
 
 <hr>
-<h3><a name="param">$B"#(Bparam</a></h3>
-TFM$B%U%!%$%k$N:G8e$O(B<var>param</var>$BIt$G$9!#$3$NItJ,$O(B<var>fix_word</var>$B$NJL$NJB$S$G$9!#(B
+<h3><a name="param">■param</a></h3>
+TFMファイルの最後は<var>param</var>部です。この部分は<var>fix_word</var>の別の並びです。
 
 <ul>
-<li><var>param</var>[1] $B!D!D(B <var>slant</var><br>
-  $BJ8;z$N79$$$F$$$kNL$r<($7!"%"%/%;%s%H$N=PNO0LCV$rJd@5$9$k$N$K;H$o$l$^$9!#(B
-  <var>slant</var>=.25$B$O!"#1C10L>e$K0\F0$9$k$H$-!"F1;~$K(B.25$BC10L$@$11&$K$b(B
-  $B0\F0$9$k$3$H$r<($7$F$$$^$9!#$3$N?tCM$O!"=c?h$K!V#2$N(B20$B>h!W$rC10L$H$7$F$*$j!"(B
-  $B%G%6%$%s%5%$%:$N1F6A$r<u$1$^$;$s!#(B
+<li><var>param</var>[1] …… <var>slant</var><br>
+  文字の傾いている量を示し、アクセントの出力位置を補正するのに使われます。
+  <var>slant</var>=.25は、１単位上に移動するとき、同時に.25単位だけ右にも
+  移動することを示しています。この数値は、純粋に「２の20乗」を単位としており、
+  デザインサイズの影響を受けません。
 <p>
-<li><var>param</var>[2] $B!D!D(B <var>space</var><br>
-  $BC18l4V$NDL>o$N%9%Z!<%9$NNL$r<($7$^$9!#%U%)%s%HFb$K$"$k(B
-  `\spacechar'$B$O6uGr$r6u$1$k$3$H0J30$K!"2?$b$9$kI,MW$,$J$$$3$H$KCm0U$r$7$F$/$@$5$$!#(B
+<li><var>param</var>[2] …… <var>space</var><br>
+  単語間の通常のスペースの量を示します。フォント内にある
+  `\spacechar'は空白を空けること以外に、何もする必要がないことに注意をしてください。
 <p>
-<li><var>param</var>[3] $B!D!D(B <var>space_strech</var><br>
-  $BC18l4V$N%9%Z!<%9$N?-$SNL$r<($7$^$9!#(B
+<li><var>param</var>[3] …… <var>space_strech</var><br>
+  単語間のスペースの伸び量を示します。
 <p>
-<li><var>param</var>[4] $B!D!D(B <var>space_shrink</var><br>
-  $BC18l4V$N%9%Z!<%9$N=L$_NL$r<($7$^$9!#(B
+<li><var>param</var>[4] …… <var>space_shrink</var><br>
+  単語間のスペースの縮み量を示します。
 <p>
-<li><var>param</var>[5] $B!D!D(B <var>x_height</var><br>
-  $B>e$2$?$j2<$2$?$j$NI,MW$N$J$$%"%/%;%s%HMQ$NJ8;z$N9b$5$r<($7$F$$$^$9!#(B
+<li><var>param</var>[5] …… <var>x_height</var><br>
+  上げたり下げたりの必要のないアクセント用の文字の高さを示しています。
 <p>
-<li><var>param</var>[6] $B!D!D(B <var>quad</var><br>
-  $B$3$N%U%)%s%H$N(B1em$B$ND9$5$G$9!#(B
+<li><var>param</var>[6] …… <var>quad</var><br>
+  このフォントの1emの長さです。
 <p>
-<li><var>param</var>[7] $B!D!D(B <var>extra_space</var><br>
-  $BJ8$N=*$o$j$G(B<var>param</var>[2]$B$K2C$($kNL$r<($7$F$$$^$9!#(B
+<li><var>param</var>[7] …… <var>extra_space</var><br>
+  文の終わりで<var>param</var>[2]に加える量を示しています。
 </ul>
 
-$B%3!<%G%#%s%0%9%-!<%^$,(B<tt>TeX math symbols</tt>$B$N>l9g$O!"(B
-$B$5$i$K<!$N(B15$B8D$N%Q%i%a!<%?$,2C$($i$l$^$9!#(B
+コーディングスキーマが<tt>TeX math symbols</tt>の場合は、
+さらに次の15個のパラメータが加えられます。
 
 <pre>
     num1, num2, num3, demon1. demon2, sup1, sup2, sup3,
     sub1, sub2, supdrop, subdrop, dimen1, dimen2, axis_height
 </pre>
 
-$B$^$?!"%3!<%G%#%s%0%9%-!<%^$,(B<tt>TeX math extension</tt>$B$N>l9g$O!"(B
-$B<!$N#68D$N%Q%i%a!<%?$,2C$($i$l$^$9!#(B
+また、コーディングスキーマが<tt>TeX math extension</tt>の場合は、
+次の６個のパラメータが加えられます。
 
 <pre>
-    default_rule_thickness, big_op_spacing1 $B$+$i(B big_op_spacing5
+    default_rule_thickness, big_op_spacing1 から big_op_spacing5
 </pre>
 
 
 <p>
 <hr>
 <a href="../index.html">[pTeX home page]</a>
-<a href="index.html">[TFM,JFM$B$NL\<!(B]</a>
+<a href="index.html">[TFM,JFMの目次]</a>
 <hr>
 <!--#include virtual="/ssi/analytics.html" -->
 </body>
